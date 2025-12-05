@@ -300,7 +300,7 @@ body {
 .placeholder-box {
     height: 460px;            /* laatikon koko – voit säätää */
     display: flex;
-    align-items: center;      /* keskitys pystysuunnassa */
+    align-items: bottom;      /* keskitys pystysuunnassa */
     justify-content: center;  /* keskitys vaakasuunnassa */
 }
 
@@ -452,6 +452,7 @@ body {
         gap: 0.4rem;
     }
 }
+
 
 
 
