@@ -287,15 +287,15 @@ body {
     gap: 1rem;
 }
 
-/* Yksi kuva per rivi, skaalattuna kortin leveyteen */
 .project-images img {
-    width: 100%;
-    height: auto;
+    width: 100%;          /* täyttää kortin */
+    max-height: 280px;    /* rajoittaa korkeutta */
+    object-fit: cover;    /* pitää kuvan siistinä */
     border-radius: 12px;
     display: block;
-    object-fit: cover;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
 }
+
 
 
 
@@ -438,4 +438,5 @@ body {
         gap: 0.4rem;
     }
 }
+
 
