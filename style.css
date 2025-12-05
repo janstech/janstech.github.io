@@ -298,9 +298,9 @@ body {
 
 
 .placeholder-box {
-    height: 460px;            /* laatikon koko – voit säätää */
+    height: 360px;            /* laatikon koko – voit säätää */
     display: flex;
-    align-items: bottom;      /* keskitys pystysuunnassa */
+    align-items: center;      /* keskitys pystysuunnassa */
     justify-content: center;  /* keskitys vaakasuunnassa */
 }
 
