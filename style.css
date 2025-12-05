@@ -453,6 +453,13 @@ body {
     }
 }
 
+.hp-field { display:none; }
+.contact-form .form-row { margin-bottom: 0.75rem; }
+.contact-form label { display:block; margin-bottom: 0.25rem; }
+.contact-form input,
+.contact-form textarea { width:100%; }
+
+
 
 
 
