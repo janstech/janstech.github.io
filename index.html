@@ -130,9 +130,55 @@ const dev = {
     <!-- Projektit -->
     <section id="projects" class="section">
         <div class="container">
-            <h2 class="section-title">Projektit (työssäoppimisjakso)</h2>
+            <h2 class="section-title">Projektit</h2>
 
             <div class="project-grid">
+
+                <!-- PROJEKTI: THE GAME -->
+                <article class="card project-card">
+                    <h3>The Game – Unity 3D -peliprojekti</h3>
+                    <p class="project-meta">
+                        Unity 3D · C# · NavMesh · AI · PC-peli
+                    </p>
+                    <p>
+                        The Game on Unitylla toteutettu 3D-toimintapeli, jossa kamera on
+                        pelaajahahmon “silmissä” (first-person-pelikokemus). Projekti oli
+                        ensimmäinen laajempi pelikehitysharjoitukseni ja sen aikana rakensin
+                        pelimekaniikat, vihollis-AI:n, NavMesh-reitinetsinnän, tason rakenteet,
+                        HUD-käyttöliittymän ja Windows-julkaisun alusta loppuun.
+                    </p>
+                    <ul class="project-points">
+                        <li>Pelaajan liikkuminen, hyppy ja kameran ohjaus first-person-näkymässä</li>
+                        <li>NavMesh-pohjainen vihollis-AI, joka reitittää ja jahtaa pelaajaa</li>
+                        <li>Kerättävät orbit, elämämittari ja “game over / restart” -logiikka</li>
+                        <li>Partikkeli- ja valoefektit, äänet sekä omat materiaalit</li>
+                        <li>Valmiiksi paketoitu Windows-versio (ladattavissa GitHub Releases -osiosta)</li>
+                    </ul>
+
+                    <div class="project-images">
+                        <img src="the-game-editor.png"
+                             alt="Unity-editori – The Game -pelin tasorakenne ja viholliset" />
+                        <img src="the-game-action.png"
+                             alt="The Game -pelitilanne – viholliset ja HUD-palkit ruudulla" />
+                        <img src="the-game-restart.png"
+                             alt="The Game – Restart- ja Exit-valikko kuoleman jälkeen" />
+                    </div>
+
+                    <div class="project-links">
+                        <a href="https://github.com/janstech/The-Game" target="_blank">
+                            GitHub-repositorio
+                        </a>
+                        ·
+                        <a href="https://github.com/janstech/The-Game/releases" target="_blank">
+                            Lataa Windows-versio (Releases)
+                        </a>
+                        ·
+                        <a href="https://github.com/janstech/The-Game/blob/main/README.md" target="_blank">
+                            README (EN &amp; FI)
+                        </a>
+                    </div>
+                </article>
+
                 <!-- PROJEKTI 1: TUOTEHAKU -->
                 <article class="card project-card">
                     <h3>Tuotehaku-järjestelmä (Full Stack)</h3>
@@ -336,17 +382,3 @@ const dev = {
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
