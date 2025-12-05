@@ -297,6 +297,20 @@ body {
 }
 
 
+.placeholder-box {
+    height: 260px;            /* laatikon koko – voit säätää */
+    display: flex;
+    align-items: center;      /* keskitys pystysuunnassa */
+    justify-content: center;  /* keskitys vaakasuunnassa */
+}
+
+.placeholder-box img {
+    width: 60%;               /* ei vie liikaa tilaa */
+    max-height: 200px;
+    object-fit: contain;
+}
+
+
 
 
 .project-meta {
@@ -438,5 +452,6 @@ body {
         gap: 0.4rem;
     }
 }
+
 
 
