@@ -281,6 +281,24 @@ body {
     opacity: 1;
 }
 
+.project-images {
+    margin-top: 1.5rem;
+    display: grid;
+    gap: 1rem;
+}
+
+/* Yksi kuva per rivi, skaalattuna kortin leveyteen */
+.project-images img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    display: block;
+    object-fit: cover;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+
+
 .project-meta {
     font-size: 0.8rem;
     color: var(--muted);
@@ -420,3 +438,4 @@ body {
         gap: 0.4rem;
     }
 }
+
