@@ -133,7 +133,7 @@ const dev = {
     <!-- Projektit -->
     <section id="projects" class="section">
         <div class="container">
-            <h2 class="section-title">Projektit – työssäoppimisjakso & muut toteutukset</h2>
+            <h2 class="section-title">Projektit – työssäoppimisjakso &amp; muut toteutukset</h2>
 
             <div class="project-grid">
 
@@ -173,7 +173,6 @@ const dev = {
                     </div>
                 </article>
 
-
                 <!-- PROJEKTI 1: TUOTEHAKU -->
                 <article class="card project-card">
                     <h3>Tuotehaku-järjestelmä (Full Stack)</h3>
@@ -198,11 +197,6 @@ const dev = {
                             Dokumentaatio (PDF)
                         </a>
                     </div>
-                    <!-- <div class="project-images placeholder-box">
-                        <img src="placeholder-architecture.png" alt="Architecture Diagram" /> 
-                    </div> -->
-
-
                 </article>
 
                 <!-- PROJEKTI 2: ICECAT → WOOCOMMERCE -->
@@ -227,10 +221,6 @@ const dev = {
                             Dokumentaatio (PDF)
                         </a>
                     </div>
-                   <!-- <div class="project-images placeholder-box">
-                        <img src="placeholder-architecture.png" alt="Architecture Diagram" />
-                    </div> -->
-
                 </article>
 
                 <!-- PROJEKTI 3: MYSQL & RECOVERY -->
@@ -330,22 +320,50 @@ const dev = {
         <div class="container">
             <h2 class="section-title">Yhteys &amp; linkit</h2>
             <p>
-                Olen avoin junior-tason tehtäville ja
-                kasvurooleille. Vastaan mielelläni kysymyksiin
+                Olen avoin junior-tason tehtäville ja kasvurooleille. Vastaan mielelläni kysymyksiin
                 projekteistani, osaamisestani ja työssäoppimisjaksosta.
             </p><br>
 
             <div class="contact-grid">
+                <!-- KONTAKTILOMAKE -->
                 <div class="card">
-                    <h3>Yhteystiedot</h3>
-                    <ul class="contact-list">
-                        <li><span>Sähköposti:</span> jan.sarivuo@gmail.com</li>
-                        <li><span>Puhelin:</span> +358 40 839 5777</li>
-                        <li><span>Sijainti:</span> Suomi</li>
-                        <li><span>Aloitus:</span> Sopimuksen mukaan</li>
-                    </ul>
+                    <h3>Ota yhteyttä lomakkeella</h3>
+                    <form class="contact-form" method="post" action="contact.php">
+                        <div class="form-row">
+                            <label for="name">Nimi</label>
+                            <input type="text" id="name" name="name" required />
+                        </div>
+                        <div class="form-row">
+                            <label for="email">Sähköposti</label>
+                            <input type="email" id="email" name="email" required />
+                        </div>
+                        <div class="form-row">
+                            <label for="subject">Aihe</label>
+                            <input type="text" id="subject" name="subject" required />
+                        </div>
+                        <div class="form-row">
+                            <label for="message">Viesti</label>
+                            <textarea id="message" name="message" rows="4" required></textarea>
+                        </div>
+
+                        <!-- Honeypot- kenttä bottien varalle -->
+                        <div class="hp-field">
+                            <label for="website">Älä täytä tätä kenttää</label>
+                            <input type="text" id="website" name="website" autocomplete="off" />
+                        </div>
+
+                        <div class="form-row">
+                            <button type="submit" class="btn-primary">Lähetä viesti</button>
+                        </div>
+
+                        <p class="contact-note">
+                            Viesti lähetetään palvelimen kautta. En julkaise sähköpostiosoitetta tai
+                            puhelinnumeroa julkisesti sivulla.
+                        </p>
+                    </form>
                 </div>
 
+                <!-- LINKIT -->
                 <div class="card">
                     <h3>Linkit</h3>
                     <ul class="link-list">
@@ -360,12 +378,14 @@ const dev = {
                             </a>
                         </li>
                         <li>
-                            <a href="https://www.linkedin.com/in/jan-sarivuo"
-                               target="_blank">
+                            <a href="https://www.linkedin.com/in/jan-sarivuo" target="_blank">
                                 LinkedIn-profiili
                             </a>
                         </li>
-                        <!-- CV-linkki -->
+                    </ul>
+                    <ul class="contact-list">
+                        <li><span>Sijainti:</span> Suomi</li>
+                        <li><span>Aloitus:</span> Sopimuksen mukaan</li>
                     </ul>
                 </div>
             </div>
@@ -386,17 +406,3 @@ const dev = {
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
