@@ -425,7 +425,7 @@ body {
 /* Tasainen avain–arvo -asettelu yhteystiedoille */
 .contact-list li {
     display: grid;
-    grid-template-columns: 65px auto; /* leveys vasemmalle sarakkeelle */
+    grid-template-columns: 60px auto; /* leveys vasemmalle sarakkeelle */
     align-items: center;               /* pystysuora linjaus keskelle */
 }
 
@@ -496,6 +496,7 @@ body {
 .contact-form label { display:block; margin-bottom: 0.25rem; }
 .contact-form input,
 .contact-form textarea { width:100%; }
+
 
 
 
