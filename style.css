@@ -417,6 +417,12 @@ body {
     text-decoration: underline;
 }
 
+.contact-value {
+    color: var(--text-color); /* sama väri kuin tavallisessa tekstissä */
+    font-weight: normal;
+}
+
+
 
 /* Footer */
 
@@ -472,6 +478,7 @@ body {
 .contact-form label { display:block; margin-bottom: 0.25rem; }
 .contact-form input,
 .contact-form textarea { width:100%; }
+
 
 
 
