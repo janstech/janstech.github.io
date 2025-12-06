@@ -417,10 +417,11 @@ body {
     text-decoration: underline;
 }
 
-.contact-value {
-    color: var(--text-color); /* sama väri kuin tavallisessa tekstissä */
-    font-weight: normal;
+.contact-list .contact-value {
+    color: var(--muted);   /* sama väri kuin muissa arvoissa */
 }
+
+
 
 
 
@@ -478,6 +479,7 @@ body {
 .contact-form label { display:block; margin-bottom: 0.25rem; }
 .contact-form input,
 .contact-form textarea { width:100%; }
+
 
 
 
