@@ -13,16 +13,6 @@
     <link rel="manifest" href="manifest.json">
 </head>
 
-    <script>
-    // Puhelinnumeron osat
-    const p1 = "+358";
-    const p2 = " 40";
-    const p3 = " 839";
-    const p4 = " 5777";
-
-    document.getElementById("phone").textContent = p1 + p2 + p3 + p4;
-</script>
-
 <body>
 <header class="site-header">
     <div class="container header-inner">
@@ -395,8 +385,18 @@ const dev = {
     // päivitetään vuosiluku automaattisesti
     document.getElementById("year").textContent = new Date().getFullYear();
 </script>
+        <script>
+    // Puhelinnumeron osat
+    const p1 = "+358";
+    const p2 = " 40";
+    const p3 = " 839";
+    const p4 = " 5777";
+
+    document.getElementById("phone").textContent = p1 + p2 + p3 + p4;
+</script>
 </body>
 </html>
+
 
 
 
