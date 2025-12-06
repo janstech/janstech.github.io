@@ -404,6 +404,20 @@ body {
     text-decoration: underline;
 }
 
+
+.contact-list a,
+.link-list a {
+    color: #7bb0ff;           /* pehmeä sininen */
+    text-decoration: none;
+}
+
+.contact-list a:hover,
+.link-list a:hover {
+    color: #a3c9ff;           /* vaaleampi hover */
+    text-decoration: underline;
+}
+
+
 /* Footer */
 
 .site-footer {
@@ -458,6 +472,7 @@ body {
 .contact-form label { display:block; margin-bottom: 0.25rem; }
 .contact-form input,
 .contact-form textarea { width:100%; }
+
 
 
 
