@@ -340,7 +340,7 @@ const dev = {
                 <div class="card">
                     <h3>Yhteystiedot</h3>
                     <ul class="contact-list">
-                        <li><span>Email:</span><a href="mailto:jan.sarivuo@gmail.com"> Lähetä sähköpostia</a></li>
+                        <li><span>Email:</span> <span id="email"></span></li>
                         <li><span>Puhelin:</span> <span id="phone"></span></li>
                         <li><span>Sijainti:</span> Suomi</li>
                         <li><span>Aloitus:</span> Sopimuksen mukaan</li>
@@ -394,8 +394,27 @@ const dev = {
 
     document.getElementById("phone").textContent = p1 + p2 + p3 + p4;
 </script>
+
+<script>
+// Sähköpostin osat
+const e1 = "jan.sarivuo";
+const e2 = "@";
+const e3 = "gmail.com";
+
+
+const email = e1 + e2 + e3;
+
+// Haetaan elementti
+const el = document.getElementById("email");
+
+// Tehdään klikattava mailto-linkki
+el.innerHTML = '<a href="mailto:' + email + '">Lähetä sähköpostia</a>';
+</script>
+
+
 </body>
 </html>
+
 
 
 
