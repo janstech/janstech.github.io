@@ -389,7 +389,7 @@ body {
     color: var(--fg); /* Vaalea tekstiväri */
     font-weight: 500;
     display: inline-block;
-    min-width: 80px; /* Pakottaa otsikot saman levyisiksi */
+    min-width: 60px; /* Pakottaa otsikot saman levyisiksi */
     margin-right: 10px;
 }
 
