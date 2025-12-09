@@ -4,7 +4,7 @@ Tämä repository sisältää henkilökohtaisen portfoliosivustoni lähdekoodin.
 
 **[Avaa portfolio tästä (Live Demo)](https://janstech.github.io)**
 
-## 🛠️ Teknologiat
+## Teknologiat
 
 Sivusto on rakennettu puhtaalla ja modernilla web-teknologialla ilman raskaita kirjastoja, tavoitteena nopea latausaika ja selkeä koodirakenne.
 
