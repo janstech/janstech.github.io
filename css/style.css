@@ -316,6 +316,29 @@ body {
     text-decoration: underline;
 }
 
+/* --- UUSI: Projektikuvien korjaus --- */
+
+.project-images {
+    display: grid;
+    /* Tekee responsiivisen ruudukon: kuvat ovat vähintään 100px leveitä */
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.project-images img {
+    width: 100%; /* Pakottaa kuvan pysymään ruudussaan */
+    height: auto; /* Säilyttää kuvasuhteen */
+    border-radius: 5px;
+    border: 1px solid var(--border); /* Käyttää teeman väriä */
+    transition: transform 0.2s;
+}
+
+.project-images img:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
 /* Arkkitehtuuri */
 
 .architecture-grid {
