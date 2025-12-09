@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8" />
+    <title>Jan Sarivuo – Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="images/favicon-48x48.png">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="manifest" href="manifest.json">
+</head>
+
+<body>
+<header class="site-header">
+    <div class="container header-inner">
+        <div class="logo">janstech.github.io</div>
+        <nav class="nav">
+            <a href="#about">Minusta</a>
+            <a href="#skills">Osaaminen</a>
+            <a href="#projects">Projektit</a>
+            <a href="#architecture">Arkkitehtuuri</a>
+            <a href="#contact">Yhteys</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <section class="hero" id="top">
+        <div class="container hero-inner">
+            <div>
+                <p class="hero-label">Hei, olen</p>
+                <h1>Jan Sarivuo</h1>
+                <h2 class="hero-subtitle">Full Stack -suuntautunut junior-kehittäjä</h2>
+                <p class="hero-text">
+                    Toimin työssäoppimisjaksolla full stack -kehittäjänä, jossa suunnittelin ja 
+                    toteutin alusta loppuun useita järjestelmiä, jotka otettiin käyttöön 
+                    tuotantoympäristössä. Vastasin koko kehitysketjusta: käyttöliittymästä, 
+                    rajapinnoista, tietokannoista, integraatioista sekä palvelinylläpidosta. 
+                    Järjestelmien käytettävyydestä saatiin hyvää palautetta, ja ne ovat 
+                    aktiivisessa käytössä yrityksen arjessa. Haluan jatkaa kehittymistäni 
+                    junior-kehittäjän roolissa ja tuottaa ratkaisuja, joilla on todellista 
+                    käytännön arvoa.
+                </p>
+                <div class="hero-actions">
+                    <a href="#projects" class="btn-primary">Katso projektit</a>
+                    <a href="#contact" class="btn-ghost">Ota yhteyttä</a>
+                </div>
+            </div>
+            <div class="hero-ascii">
+<pre><code>// developer mode: ON
+const dev = {
+  name: "Jan",
+  role: "Junior Full Stack -kehittäjä",
+  stack: [
+    "Python", "FastAPI", "WordPress",
+    "MySQL", "REST API:t"
+  ]
+}</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">Minusta</h2>
+            <p>
+                Olen vastavalmistunut ohjelmistokehityksen osaaja ja toiminut
+                työssäoppimisjaksolla käytännönläheisessä full stack -roolissa.
+                Jakson aikana suunnittelin ja toteutin alusta loppuun useita
+                tuotantokäytössä olevia järjestelmiä: käyttöliittymät,
+                API-kerros, tietokantaratkaisut, integraatiot ja palvelinylläpito.
+            </p>
+            <p>
+                Erityisosaamistani ovat WordPress- ja FastAPI-pohjaiset
+                ratkaisukokonaisuudet, MySQL / InnoDB -tietokannat sekä
+                erilaisten datavirtojen käsittely (XML, CSV, JSON) ja integraatiot
+                tukkujen rajapintoihin. Lisäksi minulla on käytännön kokemusta
+                Linux-palvelimista, lokien tulkinnasta, varmuuskopioinnista ja
+                tietokantojen palauttamisesta.
+            </p>
+            <p>
+                Haen junior-tason tehtäviä, joissa pääsen yhdistämään UI-kehityksen,
+                backend-logiikan ja tietokantaosaamisen. Olen oppimishaluinen,
+                pidän ongelmanratkaisusta ja dokumentoin mielelläni myös
+                arkkitehtuurin ja kokonaisuuden.
+            </p>
+        </div>
+    </section>
+
+    <section id="skills" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">Osaaminen</h2>
+
+            <div class="skills-grid">
+                <div class="card">
+                    <h3>Ohjelmointi &amp; web-kehitys</h3>
+                    <ul>
+                        <li>Python &amp; FastAPI (REST-palvelut)</li>
+                        <li>PHP &amp; WordPress-kehitys (lisäosat, shortcode-UI)</li>
+                        <li>HTML, CSS, perus JavaScript</li>
+                        <li>Full Stack -kehitys (UI + API + tietokanta)</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Tietokannat &amp; palvelinpuoli</h3>
+                    <ul>
+                        <li>MySQL / MariaDB / InnoDB</li>
+                        <li>Indeksointi, optimointi ja vianetsintä</li>
+                        <li>Korruptoituneiden taulujen korjaus ja recovery-tilat</li>
+                        <li>Linux-palvelimet, Apache, virhelokit</li>
+                        <li>Varmuuskopiointi ja testipalautukset</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Integraatiot &amp; muut</h3>
+                    <ul>
+                        <li>Integraatiot tukkujen rajapintoihin (Aurdel, Also)</li>
+                        <li>Icecat → WooCommerce -tuotetietointegraatio</li>
+                        <li>XML, CSV, JSON -datan käsittely ja muunto</li>
+                        <li>Slack-hälytykset ja Signed URL -polut (.htaccess)</li>
+                        <li>IT-laitteiden huolto, vianmääritys ja asennukset</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">Projektit – työssäoppimisjakso & muut toteutukset</h2>
+
+            <div class="project-grid">
+
+                <article class="card project-card">
+                    <h3>The Game – Unity-peliprojekti</h3>
+                    <p class="project-meta">
+                        Unity 3D · C# · NavMesh · AI · pelimekaniikat
+                    </p>
+                    <p>
+                        Rakensin Unity-pelin, jossa ohjataan pelaajaa labyrinttimäisessä kentässä,
+                        kerätään orb-objekteja ja vältellään vihollisia. Projekti sisältää
+                        peliohjauksen, vihollis-AI:n, NavMesh-navigoinnin, partikkeliefektit sekä
+                        UI-logiikan (elämämittari, orbilaskuri, restart-näyttö).
+                    </p>
+                    <ul class="project-points">
+                        <li>Pelaajan liike, hyppy ja kameran hallinta</li>
+                        <li>Vihollis-AI NavMesh-pohjaisella reitinetsinnällä</li>
+                        <li>Kerättävät orbit, health-bar ja game over / restart -logiikka</li>
+                        <li>Partikkeli- ja valotehosteet sekä omat materiaalit</li>
+                        <li>Valmiiksi paketoitu Windows-versio (GitHub Releases)</li>
+                    </ul>
+                 
+                    <div class="project-images">
+                        <img src="images/the-game-editor.png" alt="The Game – Unity-editorin näkymä" />
+                        <img src="images/the-game-action.png" alt="The Game – pelitilanne vihollisten kanssa" />
+                        <img src="images/the-game-restart.png" alt="The Game – Restart-näkymä" />
+                    </div>
+                 
+                    <div class="project-links">
+                        <a href="https://github.com/janstech/The-Game" target="_blank">
+                            GitHub – projektin repository
+                        </a>
+                        <a href="https://github.com/janstech/The-Game/releases" target="_blank">
+                            Lataa Windows-versio (Releases)
+                        </a>
+                    </div>
+                </article>
+
+
+                <article class="card project-card">
+                    <h3>Tuotehaku-järjestelmä (Full Stack)</h3>
+                    <p class="project-meta">
+                        FastAPI · WordPress · REST · MySQL · integraatiot
+                    </p>
+                    <p>
+                        Suunnittelin ja toteutin tuotehaun, joka yhdistää
+                        WordPressin, FastAPI:n, MySQL-tietokannan ja toimittajien
+                        datavirrat. Järjestelmä on yrityksen tuotantokäytössä ja
+                        sitä käytetään ATK-tuotteiden tietojen ja hintojen hakuun.
+                    </p>
+                    <ul class="project-points">
+                        <li>Rakensin FastAPI-pohjaisen hakumoottorin ja REST-päätepisteet</li>
+                        <li>Toteutin /wp-json/tuotehaku/v1/* -rajapinnan WordPressiin</li>
+                        <li>Suunnittelin tietokantakyselyt, validoinnit ja välimuistikerroksen</li>
+                        <li>Tein WordPress-shortcode-pohjaisen hakukäyttöliittymän</li>
+                        <li>Rakensin JavaScript-pohjaisen dynaamisen hakunäkymän (JSON-vastaukset)</li>
+                    </ul>
+                    <div class="project-links">
+                        <a href="https://github.com/janstech/tuotehaku-showcase" target="_blank" style="font-weight:bold;">
+                            GitHub – Koodi &amp; Showcase
+                        </a>
+                        <a href="documents/Tuotehaku-arkkitehtuuri.pdf" target="_blank">
+                            Dokumentaatio (PDF)
+                        </a>
+                    </div>
+                </article>
+
+                <article class="card project-card">
+                    <h3>Icecat → WooCommerce -integraatio</h3>
+                    <p class="project-meta">
+                        Icecat · WooCommerce · FastAPI · JSON/XML
+                    </p>
+                    <p>
+                        Toteutin integraation, joka hakee tuotetietoja Icecatista,
+                        muuntaa ja rikastaa datan sekä tallentaa sen WooCommerceen.
+                        Integraatio automatisoi ja nopeuttaa tuotteiden ylläpitoa.
+                    </p>
+                    <ul class="project-points">
+                        <li>JSON/XML-datan haku, muunto ja validointi</li>
+                        <li>Tuotekuvien ja kieliversioiden käsittely</li>
+                        <li>WordPressin ja FastAPI:n välinen dataliikenne</li>
+                        <li>Prosessin suunnittelu niin, että se on toistettavissa ja ylläpidettävissä</li>
+                    </ul>
+                    <div class="project-links">
+                        <a href="https://github.com/janstech/icecat-woocommerce-integration" target="_blank" style="font-weight:bold;">
+                            GitHub – Koodi &amp; Showcase
+                        </a>
+                        <a href="documents/icecat_arkkitehtuuri.pdf" target="_blank">
+                            Dokumentaatio (PDF)
+                        </a>
+                    </div>
+                </article>
+
+                <article class="card project-card">
+                    <h3>MySQL-korjaukset &amp; recovery</h3>
+                    <p class="project-meta">
+                        MySQL · InnoDB · Linux-palvelin · recovery-tila
+                    </p>
+                    <p>
+                        Työssäoppimisjakson aikana ratkoin useita tietokantaan liittyviä
+                        ongelmia, kuten korruptoituneita tauluja ja MySQL:n
+                        kaatumista. Toteutin sekä korjaukset että varmuuskopiointiratkaisut.
+                    </p>
+                    <ul class="project-points">
+                        <li>Korruptoituneen InnoDB-taulun (phppos_items) korjaus</li>
+                        <li>LONGBLOB + page corruption -ongelman selvittäminen (phppos_app_files)</li>
+                        <li>MySQL:n ajo recovery-tilassa ja onnistunut full dump</li>
+                        <li>Full dumpit ja erillisdumpit suurista tauluista</li>
+                        <li>Testipalautukset erilliselle kassa_test-tietokannalle</li>
+                    </ul>
+                </article>
+
+                <article class="card project-card">
+                    <h3>IT-laitteiden huolto ja optimointi</h3>
+                    <p class="project-meta">
+                        Laitteistot · käyttöjärjestelmät · vianmääritys
+                    </p>
+                    <p>
+                        Ohjelmistokehityksen ohella osallistuin IT-laitteiden
+                        huoltoon ja käyttökuntoon saattamiseen asiakkaille.
+                    </p>
+                    <ul class="project-points">
+                        <li>Käyttöjärjestelmä- ja ohjelmistoasennukset</li>
+                        <li>Laitteiden optimointi ja käyttökuntoon saattaminen</li>
+                        <li>Vianmääritys ja laitteistotestaukset</li>
+                        <li>Tietokoneiden, kannettavien ja oheislaitteiden huolto ja korjaukset</li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="architecture" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">Arkkitehtuuri &amp; dokumentaatio</h2>
+            <p>
+                Dokumentoin työssäoppimisjakson aikana järjestelmien rakennetta ja
+                toiminnallisuuksia kirjallisilla arkkitehtuurikuvauksilla. Niissä käydään läpi,
+                miten eri osat — WordPress, FastAPI, tietokanta, integraatiot ja ulkoiset rajapinnat —
+                toimivat kokonaisuutena ja tukevat järjestelmän toimintaa.
+            </p><br>
+
+            <div class="architecture-grid">
+                <figure class="card arch-card">
+                    <div class="arch-placeholder">
+                        <span>Tuotehaku-arkkitehtuuri (PDF)</span>
+                    </div>
+                    <figcaption>
+                        <a href="documents/Tuotehaku-arkkitehtuuri.pdf" target="_blank">
+                            Avaa Tuotehaku-järjestelmän tekninen dokumentaatio (PDF)
+                        </a>
+                    </figcaption>
+                </figure> 
+
+                <figure class="card arch-card">
+                    <div class="arch-placeholder">
+                        <span>Icecat-integraation arkkitehtuuri (PDF)</span>
+                    </div>
+                    <figcaption>
+                        <a href="documents/icecat_arkkitehtuuri.pdf" target="_blank">
+                            Avaa Icecat → WooCommerce -integraation tekninen dokumentaatio (PDF)
+                        </a>
+                    </figcaption>
+                </figure>
+
+                <figure class="card arch-card">
+                    <div class="arch-placeholder">
+                        <span>Työssäoppimisjakson portfolio (PDF)</span>
+                    </div>
+                    <figcaption>
+                        <a href="documents/Työssäoppimisjakso_portfolio_Jan_Sarivuo_11-25.pdf" target="_blank">
+                            Avaa koko työssäoppimisjakson portfolio (PDF)
+                        </a>
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Yhteys &amp; linkit</h2>
+            <p>
+                Olen avoin junior-tason tehtäville ja
+                kasvurooleille. Vastaan mielelläni kysymyksiin
+                projekteistani, osaamisestani ja työssäoppimisjaksosta.
+            </p><br>
+
+            <div class="contact-grid">
+                <div class="card">
+                    <h3>Yhteystiedot</h3>
+                    <ul class="contact-list">
+                        <li><span>Email:</span> <span id="email"></span></li>
+                        <li><span>Puhelin:</span> <span id="phone" class="contact-value"></span></li>
+                        <li><span>Sijainti:</span> Suomi</li>
+                        <li><span>Aloitus:</span> Sopimuksen mukaan</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Linkit</h3>
+                    <ul class="link-list">
+                        <li>
+                            <a href="https://github.com/janstech" target="_blank">
+                                GitHub – projektit &amp; koodi
+                            </a>
+                        </li>
+                        <li>
+                            <a href="documents/Työssäoppimisjakso_portfolio_Jan_Sarivuo_11-25.pdf" target="_blank">
+                                Työssäoppimisjakson portfolio (PDF)
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.linkedin.com/in/jan-sarivuo"
+                               target="_blank">
+                                LinkedIn-profiili
+                            </a>
+                        </li>
+                        <li>
+                        <a href="documents/jan_sarivuo_cv.pdf" target="_blank">
+                            Lataa CV (PDF)
+                        </a>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="container footer-inner">
+        <span>&copy; <span id="year"></span> Jan Sarivuo</span>
+        <span class="footer-note">Portfolio-sivusto · Jan Sarivuo</span>
+    </div>
+</footer>
+
+<script>
+    // päivitetään vuosiluku automaattisesti
+    document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+   
+<script>
+    // Puhelinnumeron osat
+    const p1 = "+358";
+    const p2 = " 40";
+    const p3 = " 839";
+    const p4 = " 5777";
+
+    document.getElementById("phone").textContent = p1 + p2 + p3 + p4;
+</script>
+
+<script>
+    // Sähköpostin osat
+    const e1 = "jan.sarivuo";
+    const e2 = "@";
+    const e3 = "gmail.com";
+    const email = e1 + e2 + e3;
+    // Haetaan elementti
+    const el = document.getElementById("email");
+    // Klikattava mailto-linkki
+    el.innerHTML = '<a href="mailto:' + email + '">Lähetä sähköpostia</a>';
+</script>
+
+</body>
+</html>
+
