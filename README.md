@@ -29,6 +29,6 @@ Tiedostot on organisoitu selkeisiin kokonaisuuksiin ylläpidettävyyden parantam
 * **Latauslinkit:** Mahdollisuus ladata CV ja projektidokumentaatiot PDF-muodossa.
 * **Projektigalleria:** Klikattavat kuvat avautuvat tarkasteltavaksi.
 
-----
+---
 
 © 2025 Jan Sarivuo
