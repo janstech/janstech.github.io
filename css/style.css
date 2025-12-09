@@ -351,6 +351,19 @@ body {
     color: var(--muted);
 }
 
+/* --- Arkkitehtuurilinkkien väri --- */
+
+.arch-card figcaption a {
+    color: var(--accent); /* Käyttää teeman turkoosia */
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.arch-card figcaption a:hover {
+    text-decoration: underline;
+    filter: brightness(1.2);
+}
+
 .arch-placeholder {
     border-radius: 10px;
     border: 1px dashed #374151;
@@ -376,7 +389,7 @@ body {
     color: var(--muted);
 }
 
-/* --- KORJAUS: Asettelu ja värit --- */
+/* --- Asettelu ja värit --- */
 
 .contact-list li {
     display: flex; /* Asettaa otsikon ja arvon vierekkäin */
