@@ -376,14 +376,39 @@ body {
     color: var(--muted);
 }
 
-.contact-list li + li,
-.link-list li + li {
-    margin-top: 0.4rem;
+/* --- KORJAUS: Asettelu ja värit --- */
+
+.contact-list li {
+    display: flex; /* Asettaa otsikon ja arvon vierekkäin */
+    align-items: center; /* Tasaa pystysuunnassa keskelle */
+    margin-bottom: 0.5rem; /* Hieman väliä rivien väliin */
 }
 
-.contact-list span {
-    color: var(--fg);
-    margin-right: 0.2rem;
+/* Tämä kohdistaa ensimmäisen spanin (Email, Puhelin...) */
+.contact-list li span:first-child {
+    color: var(--fg); /* Vaalea tekstiväri */
+    font-weight: 500;
+    display: inline-block;
+    min-width: 80px; /* Pakottaa otsikot saman levyisiksi */
+    margin-right: 10px;
+}
+
+/* Korjataan sähköpostilinkin väri */
+.contact-list a {
+    color: var(--accent); /* Käyttää teeman turkoosia väriä */
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.contact-list a:hover {
+    text-decoration: underline;
+    filter: brightness(1.2); /* Kirkastaa hieman hiiren alla */
+}
+
+/* --- Loppuosa linkeille --- */
+
+.link-list li + li {
+    margin-top: 0.4rem;
 }
 
 .link-list a {
