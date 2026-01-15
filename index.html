@@ -150,6 +150,59 @@ const dev = {
 
             <div class="project-grid">
 
+
+
+                <article class="card project-card">
+    <h3>Kauppalista &amp; Muistiinpanot (Android)</h3>
+    <p class="project-meta">
+        Kotlin · Jetpack Compose · Room · DataStore · Offline-first · Monikielisyys (14 kieltä) · FastAPI (AI) · App Check · Play Integrity
+    </p>
+
+    <p>
+        Kehitin Android-sovelluksen arjen ostosten ja muistiinpanojen hallintaan. Sovellus on
+        yksityisyys edellä suunniteltu: ei kirjautumista, tiedot tallentuvat laitteelle ja perustoiminnot
+        toimivat offline-tilassa. Lisäksi toteutin tuotantotasoisen AI-ominaisuuden, joka generoi
+        resepti- ja viikkoruokalistaehdotuksia sekä lisää ainekset suoraan kauppalistalle.
+    </p>
+
+    <ul class="project-points">
+        <li><strong>Offline-first:</strong> listat, muistiinpanot, suosikit ja syntymäpäivät toimivat ilman verkkoyhteyttä</li>
+        <li><strong>AI-reseptit &amp; viikkoruokalistat:</strong> reseptiehdotukset + “Lisää ainekset kauppalistalle”</li>
+        <li><strong>Päiväkohtainen regenerointi:</strong> viikkoruokalistassa “Vaihda ruoka” -toiminto yksittäiselle päivälle (toive + regen)</li>
+        <li><strong>Puheesta tekstiksi:</strong> lisäys sanelulla (laitteen puheentunnistus; voi vaatia netin asetuksista riippuen)</li>
+        <li><strong>Tietoturva &amp; abuse-suojaus:</strong> Firebase App Check + Play Integrity (nonce, single-use) + rate limit (burst + daily)</li>
+        <li><strong>Varmuuskopiot:</strong> export/import yhteen tiedostoon (Android share) ja palautus laitevaihdossa</li>
+        <li><strong>Käytettävyys:</strong> drag-and-drop järjestys, pikavalinnat (rajoitteet), snackbar-palautteet ja lataus-/korostus-tilat</li>
+    </ul>
+
+    <div class="project-links">
+        <a href="https://play.google.com/store/apps/details?id=com.janstech.kauppalista" target="_blank" style="font-weight:bold;">
+            Google Play – Sovellussivu
+        </a>
+        <a href="https://github.com/janstech/shoppinglist-portfolio" target="_blank">
+            GitHub – Repository / Showcase
+        </a>
+    </div>
+
+    <!-- Kuvat lisätään myöhemmin:
+    <div class="project-images">
+        <a href="images/kauppalista-1.png" target="_blank">
+            <img src="images/kauppalista-1.png" alt="Kauppalista & Muistiinpanot – näkymä 1" />
+        </a>
+        <a href="images/kauppalista-2.png" target="_blank">
+            <img src="images/kauppalista-2.png" alt="Kauppalista & Muistiinpanot – näkymä 2" />
+        </a>
+        <a href="images/kauppalista-3.png" target="_blank">
+            <img src="images/kauppalista-3.png" alt="Kauppalista & Muistiinpanot – näkymä 3" />
+        </a>
+        <a href="images/kauppalista-4.png" target="_blank">
+            <img src="images/kauppalista-4.png" alt="Kauppalista & Muistiinpanot – näkymä 4" />
+        </a>
+    </div>
+    -->
+</article>
+
+
                 <article class="card project-card">
                     <h3>The Game – Unity-peliprojekti</h3>
                     <p class="project-meta">
@@ -456,4 +509,5 @@ const dev = {
 </script>
 
 </body>
+
 </html>
