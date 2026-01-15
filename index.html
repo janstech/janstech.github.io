@@ -214,8 +214,80 @@ const dev = {
     -->
 </article>
 
+                <article class="card project-card">
+                    <h3>Tuotehaku-järjestelmä (Full Stack)</h3>
+                    <p class="project-meta">
+                        FastAPI · WordPress · REST · MySQL · integraatiot
+                    </p>
+                    <p>
+                        Suunnittelin ja toteutin tuotehaun, joka yhdistää
+                        WordPressin, FastAPI:n, MySQL-tietokannan ja toimittajien
+                        datavirrat. Järjestelmä on yrityksen tuotantokäytössä ja
+                        sitä käytetään ATK-tuotteiden tietojen ja hintojen hakuun.
+                    </p>
+                    <ul class="project-points">
+                        <li>Rakensin FastAPI-pohjaisen hakumoottorin ja REST-päätepisteet</li>
+                        <li>Toteutin /wp-json/tuotehaku/v1/* -rajapinnan WordPressiin</li>
+                        <li>Suunnittelin tietokantakyselyt, validoinnit ja välimuistikerroksen</li>
+                        <li>Tein WordPress-shortcode-pohjaisen hakukäyttöliittymän</li>
+                        <li>Rakensin JavaScript-pohjaisen dynaamisen hakunäkymän (JSON-vastaukset)</li>
+                    </ul>
+                    <div class="project-links">
+                        <a href="https://github.com/janstech/tuotehaku-showcase" target="_blank" style="font-weight:bold;">
+                            GitHub – Repository
+                        </a>
+                        <a href="documents/Tuotehaku-arkkitehtuuri.pdf" target="_blank">
+                            Dokumentaatio (PDF)
+                        </a>
+                    </div>
+                </article>
 
                 <article class="card project-card">
+                    <h3>Icecat → WooCommerce -integraatio</h3>
+                    <p class="project-meta">
+                        Icecat · WooCommerce · FastAPI · JSON/XML
+                    </p>
+                    <p>
+                        Toteutin integraation, joka hakee tuotetietoja Icecatista,
+                        muuntaa ja rikastaa datan sekä tallentaa sen WooCommerceen.
+                        Integraatio automatisoi ja nopeuttaa tuotteiden ylläpitoa.
+                    </p>
+                    <ul class="project-points">
+                        <li>JSON/XML-datan haku, muunto ja validointi</li>
+                        <li>Tuotekuvien ja kieliversioiden käsittely</li>
+                        <li>WordPressin ja FastAPI:n välinen dataliikenne</li>
+                        <li>Prosessin suunnittelu niin, että se on toistettavissa ja ylläpidettävissä</li>
+                    </ul>
+                    <div class="project-links">
+                        <a href="https://github.com/janstech/icecat-woocommerce-integration" target="_blank" style="font-weight:bold;">
+                            GitHub – Repository
+                        </a>
+                        <a href="documents/icecat_arkkitehtuuri.pdf" target="_blank">
+                            Dokumentaatio (PDF)
+                        </a>
+                    </div>
+                </article>
+
+                <article class="card project-card">
+                    <h3>MySQL-korjaukset &amp; recovery</h3>
+                    <p class="project-meta">
+                        MySQL · InnoDB · Linux-palvelin · recovery-tila
+                    </p>
+                    <p>
+                        Työssäoppimisjakson aikana ratkoin useita tietokantaan liittyviä
+                        ongelmia, kuten korruptoituneita tauluja ja MySQL:n
+                        kaatumista. Toteutin sekä korjaukset että varmuuskopiointiratkaisut.
+                    </p>
+                    <ul class="project-points">
+                        <li>Korruptoituneen InnoDB-taulun (phppos_items) korjaus</li>
+                        <li>LONGBLOB + page corruption -ongelman selvittäminen (phppos_app_files)</li>
+                        <li>MySQL:n ajo recovery-tilassa ja onnistunut full dump</li>
+                        <li>Full dumpit ja erillisdumpit suurista tauluista</li>
+                        <li>Testipalautukset erilliselle kassa_test-tietokannalle</li>
+                    </ul>
+                </article>
+
+                                <article class="card project-card">
                     <h3>The Game – Unity-peliprojekti</h3>
                     <p class="project-meta">
                         Unity 3D · C# · NavMesh · AI · pelimekaniikat
@@ -290,79 +362,6 @@ const dev = {
                             Pelaa selainversiota (HTML5/JS)
                         </a>
                     </div>
-                </article>
-
-                <article class="card project-card">
-                    <h3>Tuotehaku-järjestelmä (Full Stack)</h3>
-                    <p class="project-meta">
-                        FastAPI · WordPress · REST · MySQL · integraatiot
-                    </p>
-                    <p>
-                        Suunnittelin ja toteutin tuotehaun, joka yhdistää
-                        WordPressin, FastAPI:n, MySQL-tietokannan ja toimittajien
-                        datavirrat. Järjestelmä on yrityksen tuotantokäytössä ja
-                        sitä käytetään ATK-tuotteiden tietojen ja hintojen hakuun.
-                    </p>
-                    <ul class="project-points">
-                        <li>Rakensin FastAPI-pohjaisen hakumoottorin ja REST-päätepisteet</li>
-                        <li>Toteutin /wp-json/tuotehaku/v1/* -rajapinnan WordPressiin</li>
-                        <li>Suunnittelin tietokantakyselyt, validoinnit ja välimuistikerroksen</li>
-                        <li>Tein WordPress-shortcode-pohjaisen hakukäyttöliittymän</li>
-                        <li>Rakensin JavaScript-pohjaisen dynaamisen hakunäkymän (JSON-vastaukset)</li>
-                    </ul>
-                    <div class="project-links">
-                        <a href="https://github.com/janstech/tuotehaku-showcase" target="_blank" style="font-weight:bold;">
-                            GitHub – Repository
-                        </a>
-                        <a href="documents/Tuotehaku-arkkitehtuuri.pdf" target="_blank">
-                            Dokumentaatio (PDF)
-                        </a>
-                    </div>
-                </article>
-
-                <article class="card project-card">
-                    <h3>Icecat → WooCommerce -integraatio</h3>
-                    <p class="project-meta">
-                        Icecat · WooCommerce · FastAPI · JSON/XML
-                    </p>
-                    <p>
-                        Toteutin integraation, joka hakee tuotetietoja Icecatista,
-                        muuntaa ja rikastaa datan sekä tallentaa sen WooCommerceen.
-                        Integraatio automatisoi ja nopeuttaa tuotteiden ylläpitoa.
-                    </p>
-                    <ul class="project-points">
-                        <li>JSON/XML-datan haku, muunto ja validointi</li>
-                        <li>Tuotekuvien ja kieliversioiden käsittely</li>
-                        <li>WordPressin ja FastAPI:n välinen dataliikenne</li>
-                        <li>Prosessin suunnittelu niin, että se on toistettavissa ja ylläpidettävissä</li>
-                    </ul>
-                    <div class="project-links">
-                        <a href="https://github.com/janstech/icecat-woocommerce-integration" target="_blank" style="font-weight:bold;">
-                            GitHub – Repository
-                        </a>
-                        <a href="documents/icecat_arkkitehtuuri.pdf" target="_blank">
-                            Dokumentaatio (PDF)
-                        </a>
-                    </div>
-                </article>
-
-                <article class="card project-card">
-                    <h3>MySQL-korjaukset &amp; recovery</h3>
-                    <p class="project-meta">
-                        MySQL · InnoDB · Linux-palvelin · recovery-tila
-                    </p>
-                    <p>
-                        Työssäoppimisjakson aikana ratkoin useita tietokantaan liittyviä
-                        ongelmia, kuten korruptoituneita tauluja ja MySQL:n
-                        kaatumista. Toteutin sekä korjaukset että varmuuskopiointiratkaisut.
-                    </p>
-                    <ul class="project-points">
-                        <li>Korruptoituneen InnoDB-taulun (phppos_items) korjaus</li>
-                        <li>LONGBLOB + page corruption -ongelman selvittäminen (phppos_app_files)</li>
-                        <li>MySQL:n ajo recovery-tilassa ja onnistunut full dump</li>
-                        <li>Full dumpit ja erillisdumpit suurista tauluista</li>
-                        <li>Testipalautukset erilliselle kassa_test-tietokannalle</li>
-                    </ul>
                 </article>
 
                 <article class="card project-card">
@@ -523,4 +522,5 @@ const dev = {
 </body>
 
 </html>
+
 
