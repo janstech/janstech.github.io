@@ -15,6 +15,54 @@
     <link rel="icon" type="image/png" sizes="48x48" href="images/favicon-48x48.png">
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
     <link rel="manifest" href="manifest.json">
+
+    <style>
+        .lang-switch {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-left: 16px;
+            flex-wrap: wrap;
+        }
+
+        .lang-label {
+            font-size: 0.9rem;
+            opacity: 0.85;
+        }
+
+        .lang-switch button {
+            border: 1px solid rgba(255,255,255,.18);
+            background: transparent;
+            color: inherit;
+            padding: 6px 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            font: inherit;
+            transition: 0.2s ease;
+        }
+
+        .lang-switch button:hover {
+            transform: translateY(-1px);
+            border-color: rgba(255,255,255,.35);
+        }
+
+        .lang-switch button.active {
+            background: rgba(255,255,255,.12);
+            border-color: rgba(255,255,255,.4);
+        }
+
+        @media (max-width: 900px) {
+            .header-inner {
+                gap: 12px;
+            }
+
+            .lang-switch {
+                width: 100%;
+                justify-content: flex-end;
+                margin-left: 0;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -22,12 +70,18 @@
     <div class="container header-inner">
         <div class="logo">janstech.github.io</div>
         <nav class="nav">
-            <a href="#about">Minusta</a>
-            <a href="#skills">Osaaminen</a>
-            <a href="#projects">Projektit</a>
-            <a href="#architecture">Arkkitehtuuri</a>
-            <a href="#contact">Yhteys</a>
+            <a href="#about" data-i18n="nav_about">Minusta</a>
+            <a href="#skills" data-i18n="nav_skills">Osaaminen</a>
+            <a href="#projects" data-i18n="nav_projects">Projektit</a>
+            <a href="#architecture" data-i18n="nav_architecture">Arkkitehtuuri</a>
+            <a href="#contact" data-i18n="nav_contact">Yhteys</a>
         </nav>
+
+        <div class="lang-switch">
+            <span class="lang-label" data-i18n="lang_label">Kieli</span>
+            <button id="btnFi" type="button">FI</button>
+            <button id="btnEn" type="button">EN</button>
+        </div>
     </div>
 </header>
 
@@ -35,33 +89,33 @@
     <section class="hero" id="top">
         <div class="container hero-inner">
             <div>
-                <p class="hero-label">Hei, olen</p>
+                <p class="hero-label" data-i18n="hero_label">Hei, olen</p>
                 <h1>Jan Sarivuo</h1>
-                <h2 class="hero-subtitle">Junior Full Stack- ja Android-kehittäjä</h2>
-                <p class="hero-text">
-                    Toimin työssäoppimisjaksolla full stack -kehittäjänä, jossa suunnittelin ja 
-                    toteutin alusta loppuun useita järjestelmiä, jotka otettiin käyttöön 
-                    tuotantoympäristössä. Vastasin koko kehitysketjusta: käyttöliittymästä, 
-                    rajapinnoista, tietokannoista, integraatioista sekä palvelinylläpidosta. 
-                    Järjestelmien käytettävyydestä saatiin hyvää palautetta, ja ne ovat 
-                    aktiivisessa käytössä yrityksen arjessa. Haluan jatkaa kehittymistäni 
-                    junior-kehittäjän roolissa ja tuottaa ratkaisuja, joilla on todellista 
+                <h2 class="hero-subtitle" data-i18n="hero_subtitle">Junior Full Stack- ja Android-kehittäjä</h2>
+                <p class="hero-text" data-i18n="hero_text">
+                    Toimin työssäoppimisjaksolla full stack -kehittäjänä, jossa suunnittelin ja
+                    toteutin alusta loppuun useita järjestelmiä, jotka otettiin käyttöön
+                    tuotantoympäristössä. Vastasin koko kehitysketjusta: käyttöliittymästä,
+                    rajapinnoista, tietokannoista, integraatioista sekä palvelinylläpidosta.
+                    Järjestelmien käytettävyydestä saatiin hyvää palautetta, ja ne ovat
+                    aktiivisessa käytössä yrityksen arjessa. Haluan jatkaa kehittymistäni
+                    junior-kehittäjän roolissa ja tuottaa ratkaisuja, joilla on todellista
                     käytännön arvoa.
                 </p>
                 <div class="hero-actions">
-                    <a href="#projects" class="btn-primary">Katso projektit</a>
-                    <a href="#contact" class="btn-ghost">Ota yhteyttä</a>
+                    <a href="#projects" class="btn-primary" data-i18n="hero_cta_projects">Katso projektit</a>
+                    <a href="#contact" class="btn-ghost" data-i18n="hero_cta_contact">Ota yhteyttä</a>
                 </div>
             </div>
             <div class="hero-ascii">
-<pre><code>// developer mode: ON
+<pre><code id="heroCode">// developer mode: ON
 const dev = {
   name: "Jan",
   role: "Junior Full Stack -kehittäjä",
   stack: [
-  "Python", "FastAPI", "Kotlin",
-  "Jetpack Compose", "MySQL", "REST API:t"
-]
+    "Python", "FastAPI", "Kotlin",
+    "Jetpack Compose", "MySQL", "REST API:t"
+  ]
 }</code></pre>
             </div>
         </div>
@@ -69,15 +123,15 @@ const dev = {
 
     <section id="about" class="section">
         <div class="container">
-            <h2 class="section-title">Minusta</h2>
-            <p>
+            <h2 class="section-title" data-i18n="about_title">Minusta</h2>
+            <p data-i18n="about_p1">
                 Olen 11/2025 valmistunut ohjelmistokehityksen osaaja ja toiminut
                 työssäoppimisjaksolla käytännönläheisessä full stack -roolissa.
                 Jakson aikana suunnittelin ja toteutin alusta loppuun useita
                 tuotantokäytössä olevia järjestelmiä: käyttöliittymät,
                 API-kerros, tietokantaratkaisut, integraatiot ja palvelinylläpito.
             </p>
-            <p>
+            <p data-i18n="about_p2">
                 Erityisosaamistani ovat WordPress- ja FastAPI-pohjaiset
                 ratkaisukokonaisuudet, MySQL / InnoDB -tietokannat sekä
                 erilaisten datavirtojen käsittely (XML, CSV, JSON) ja integraatiot
@@ -85,7 +139,7 @@ const dev = {
                 Linux-palvelimista, lokien tulkinnasta, varmuuskopioinnista ja
                 tietokantojen palauttamisesta.
             </p>
-            <p>
+            <p data-i18n="about_p3">
                 Haen junior-tason tehtäviä, joissa pääsen yhdistämään UI-kehityksen,
                 backend-logiikan ja tietokantaosaamisen. Olen oppimishaluinen,
                 pidän ongelmanratkaisusta ja dokumentoin mielelläni myös
@@ -96,60 +150,60 @@ const dev = {
 
     <section id="skills" class="section section-alt">
         <div class="container">
-            <h2 class="section-title">Osaaminen</h2>
+            <h2 class="section-title" data-i18n="skills_title">Osaaminen</h2>
 
             <div class="skills-grid">
                 <div class="card">
-                    <h3>Ohjelmointi &amp; web-kehitys</h3>
+                    <h3 data-i18n="skills_prog_title">Ohjelmointi &amp; web-kehitys</h3>
                     <ul>
-                        <li>Python &amp; FastAPI (REST-palvelut)</li>
-                        <li>WordPress-kehitys (custom-lisäosat, PHP, shortcodet)</li>
-                        <li>HTML, CSS, JavaScript (ES6+)</li>
-                        <li>Full Stack -kehitys (UI + API + tietokanta)</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h3>Tietokannat &amp; palvelinpuoli</h3>
-                    <ul>
-                        <li>MySQL / MariaDB / InnoDB</li>
-                        <li>Indeksointi, optimointi ja vianetsintä</li>
-                        <li>Korruptoituneiden taulujen korjaus ja recovery-tilat</li>
-                        <li>Linux-palvelimet, Apache, virhelokit</li>
-                        <li>Varmuuskopiointi ja testipalautukset</li>
-                    </ul>
-                </div>
-                
-                <div class="card">
-                    <h3>Integraatiot &amp; muut</h3>
-                    <ul>
-                        <li>Integraatiot tukkujen rajapintoihin (Aurdel, Also)</li>
-                        <li>Icecat → WooCommerce -tuotetietointegraatio</li>
-                        <li>XML, CSV, JSON -datan käsittely ja muunto</li>
-                        <li>Slack-hälytykset ja Signed URL -polut (.htaccess)</li>
-                        <li>IT-laitteiden huolto, vianmääritys ja asennukset</li>
+                        <li data-i18n="skills_prog_1">Python &amp; FastAPI (REST-palvelut)</li>
+                        <li data-i18n="skills_prog_2">WordPress-kehitys (custom-lisäosat, PHP, shortcodet)</li>
+                        <li data-i18n="skills_prog_3">HTML, CSS, JavaScript (ES6+)</li>
+                        <li data-i18n="skills_prog_4">Full Stack -kehitys (UI + API + tietokanta)</li>
                     </ul>
                 </div>
 
                 <div class="card">
-    <h3>Android &amp; mobiilisovellukset</h3>
-    <ul>
-        <li>Kotlin &amp; Jetpack Compose (UI)</li>
-        <li>Room (SQLite), DataStore, MVVM / repository-arkkitehtuuri</li>
-        <li>Offline-first toteutus, varmuuskopiointi (export/import)</li>
-        <li>REST-integraatiot (Retrofit/OkHttp), virheenkäsittely &amp; lokitus</li>
-        <li>Tuotannon suojaus: Firebase App Check &amp; Play Integrity</li>
-    </ul>
-</div>
-
+                    <h3 data-i18n="skills_db_title">Tietokannat &amp; palvelinpuoli</h3>
+                    <ul>
+                        <li data-i18n="skills_db_1">MySQL / MariaDB / InnoDB</li>
+                        <li data-i18n="skills_db_2">Indeksointi, optimointi ja vianetsintä</li>
+                        <li data-i18n="skills_db_3">Korruptoituneiden taulujen korjaus ja recovery-tilat</li>
+                        <li data-i18n="skills_db_4">Linux-palvelimet, Apache, virhelokit</li>
+                        <li data-i18n="skills_db_5">Varmuuskopiointi ja testipalautukset</li>
+                    </ul>
+                </div>
 
                 <div class="card">
-                    <h3>Pelikehitys &amp; Multimedia</h3>
+                    <h3 data-i18n="skills_integ_title">Integraatiot &amp; muut</h3>
                     <ul>
-                        <li>Unity 3D &amp; C# (AI, NavMesh, fysiikat)</li>
-                        <li>HTML5 Canvas &amp; JavaScript-pelilogiikka</li>
-                        <li>Web Audio API &amp; dynaaminen äänimaailma</li>
-                        <li>Sprite-animaatiot &amp; partikkeliefektit</li>
-                        <li>Pelitilojen hallinta (State Management)</li>
+                        <li data-i18n="skills_integ_1">Integraatiot tukkujen rajapintoihin (Aurdel, Also)</li>
+                        <li data-i18n="skills_integ_2">Icecat → WooCommerce -tuotetietointegraatio</li>
+                        <li data-i18n="skills_integ_3">XML, CSV, JSON -datan käsittely ja muunto</li>
+                        <li data-i18n="skills_integ_4">Slack-hälytykset ja Signed URL -polut (.htaccess)</li>
+                        <li data-i18n="skills_integ_5">IT-laitteiden huolto, vianmääritys ja asennukset</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="skills_android_title">Android &amp; mobiilisovellukset</h3>
+                    <ul>
+                        <li data-i18n="skills_android_1">Kotlin &amp; Jetpack Compose (UI)</li>
+                        <li data-i18n="skills_android_2">Room (SQLite), DataStore, MVVM / repository-arkkitehtuuri</li>
+                        <li data-i18n="skills_android_3">Offline-first toteutus, varmuuskopiointi (export/import)</li>
+                        <li data-i18n="skills_android_4">REST-integraatiot (Retrofit/OkHttp), virheenkäsittely &amp; lokitus</li>
+                        <li data-i18n="skills_android_5">Tuotannon suojaus: Firebase App Check &amp; Play Integrity</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="skills_game_title">Pelikehitys &amp; Multimedia</h3>
+                    <ul>
+                        <li data-i18n="skills_game_1">Unity 3D &amp; C# (AI, NavMesh, fysiikat)</li>
+                        <li data-i18n="skills_game_2">HTML5 Canvas &amp; JavaScript-pelilogiikka</li>
+                        <li data-i18n="skills_game_3">Web Audio API &amp; dynaaminen äänimaailma</li>
+                        <li data-i18n="skills_game_4">Sprite-animaatiot &amp; partikkeliefektit</li>
+                        <li data-i18n="skills_game_5">Pelitilojen hallinta (State Management)</li>
                     </ul>
                 </div>
             </div>
@@ -158,206 +212,167 @@ const dev = {
 
     <section id="projects" class="section">
         <div class="container">
-            <h2 class="section-title">Projektit – työssäoppimisjakso & muut toteutukset</h2>
+            <h2 class="section-title" data-i18n="projects_title">Projektit – työssäoppimisjakso &amp; muut toteutukset</h2>
 
             <div class="project-grid">
 
+                <article class="card project-card">
+                    <h3 data-i18n="proj_shop_title">Kauppalista &amp; Muistiinpanot (Android)</h3>
+                    <p class="project-meta" data-i18n="proj_shop_meta">
+                        Kotlin · Jetpack Compose · Room · DataStore · Offline-first · Monikielisyys (14 kieltä) · FastAPI (AI) · App Check · Play Integrity
+                    </p>
 
+                    <p data-i18n="proj_shop_desc">
+                        Kehitin Android-sovelluksen arjen ostosten ja muistiinpanojen hallintaan. Sovellus on
+                        yksityisyys edellä suunniteltu: ei kirjautumista, tiedot tallentuvat laitteelle ja perustoiminnot
+                        toimivat offline-tilassa. Lisäksi toteutin tuotantotasoisen AI-ominaisuuden, joka generoi
+                        resepti- ja viikkoruokalistaehdotuksia sekä lisää ainekset suoraan kauppalistalle.
+                    </p>
+
+                    <ul class="project-points">
+                        <li data-i18n="proj_shop_1"><strong>Offline-first:</strong> listat, muistiinpanot, suosikit ja syntymäpäivät toimivat ilman verkkoyhteyttä</li>
+                        <li data-i18n="proj_shop_2"><strong>AI-reseptit &amp; viikkoruokalistat:</strong> reseptiehdotukset + “Lisää ainekset kauppalistalle”</li>
+                        <li data-i18n="proj_shop_3"><strong>Päiväkohtainen regenerointi:</strong> viikkoruokalistassa “Vaihda ruoka” -toiminto yksittäiselle päivälle (toive + regen)</li>
+                        <li data-i18n="proj_shop_4"><strong>Puheesta tekstiksi:</strong> lisäys sanelulla (laitteen puheentunnistus; voi vaatia netin asetuksista riippuen)</li>
+                        <li data-i18n="proj_shop_5"><strong>Tietoturva &amp; abuse-suojaus:</strong> Firebase App Check + Play Integrity (nonce, single-use) + rate limit (burst + daily)</li>
+                        <li data-i18n="proj_shop_6"><strong>Varmuuskopiot:</strong> export/import yhteen tiedostoon (Android share) ja palautus laitevaihdossa</li>
+                        <li data-i18n="proj_shop_7"><strong>Käytettävyys:</strong> drag-and-drop järjestys, pikavalinnat (rajoitteet), snackbar-palautteet ja lataus-/korostus-tilat</li>
+                    </ul>
+
+                    <div class="project-links">
+                        <a href="https://play.google.com/store/apps/details?id=com.janstech.kauppalista" target="_blank" style="font-weight:bold;" data-i18n="proj_shop_link_play">
+                            Google Play – Sovellussivu
+                        </a>
+                        <a href="https://github.com/janstech/shoppinglist-portfolio" target="_blank" data-i18n="proj_shop_link_git">
+                            GitHub – Repository / Showcase
+                        </a>
+                    </div>
+                </article>
 
                 <article class="card project-card">
-    <h3>Kauppalista &amp; Muistiinpanot (Android)</h3>
-    <p class="project-meta">
-        Kotlin · Jetpack Compose · Room · DataStore · Offline-first · Monikielisyys (14 kieltä) · FastAPI (AI) · App Check · Play Integrity
-    </p>
+                    <h3 data-i18n="proj_wave_title">WaveIQ Radio (Android)</h3>
+                    <p class="project-meta" data-i18n="proj_wave_meta">
+                        Kotlin · Jetpack Compose · Media3 · DataStore · FastAPI · MariaDB · Firebase App Check · Play Integrity · Google Play Production
+                    </p>
 
-    <p>
-        Kehitin Android-sovelluksen arjen ostosten ja muistiinpanojen hallintaan. Sovellus on
-        yksityisyys edellä suunniteltu: ei kirjautumista, tiedot tallentuvat laitteelle ja perustoiminnot
-        toimivat offline-tilassa. Lisäksi toteutin tuotantotasoisen AI-ominaisuuden, joka generoi
-        resepti- ja viikkoruokalistaehdotuksia sekä lisää ainekset suoraan kauppalistalle.
-    </p>
+                    <p data-i18n="proj_wave_desc">
+                        Kehitin modernin internet-radiosovelluksen, joka yhdistää taustatoiston,
+                        radioasemien haun, kuunteluhistorian ja AI-avusteisen suosituslogiikan.
+                        Sovellus on julkaistu Google Playhin ja sen tuotantokäyttöoikeus on hyväksytty.
+                        Toteutin kokonaisuuteen sekä Android-sovelluksen että FastAPI + MariaDB -pohjaisen backendin.
+                    </p>
 
-    <ul class="project-points">
-        <li><strong>Offline-first:</strong> listat, muistiinpanot, suosikit ja syntymäpäivät toimivat ilman verkkoyhteyttä</li>
-        <li><strong>AI-reseptit &amp; viikkoruokalistat:</strong> reseptiehdotukset + “Lisää ainekset kauppalistalle”</li>
-        <li><strong>Päiväkohtainen regenerointi:</strong> viikkoruokalistassa “Vaihda ruoka” -toiminto yksittäiselle päivälle (toive + regen)</li>
-        <li><strong>Puheesta tekstiksi:</strong> lisäys sanelulla (laitteen puheentunnistus; voi vaatia netin asetuksista riippuen)</li>
-        <li><strong>Tietoturva &amp; abuse-suojaus:</strong> Firebase App Check + Play Integrity (nonce, single-use) + rate limit (burst + daily)</li>
-        <li><strong>Varmuuskopiot:</strong> export/import yhteen tiedostoon (Android share) ja palautus laitevaihdossa</li>
-        <li><strong>Käytettävyys:</strong> drag-and-drop järjestys, pikavalinnat (rajoitteet), snackbar-palautteet ja lataus-/korostus-tilat</li>
-    </ul>
+                    <ul class="project-points">
+                        <li data-i18n="proj_wave_1"><strong>Internet-radio &amp; taustatoisto:</strong> Media3-pohjainen toisto, mediakontrollit ja vakaa stream-käsittely</li>
+                        <li data-i18n="proj_wave_2"><strong>Asemien haku &amp; selaus:</strong> haku nimen, genren, maan ja kielen perusteella sekä browse-näkymät</li>
+                        <li data-i18n="proj_wave_3"><strong>AI-suositukset:</strong> kuunteluhistoriaan ja taste-profileen perustuvat asemien suositukset</li>
+                        <li data-i18n="proj_wave_4"><strong>Tietoturva:</strong> Firebase App Check + Play Integrity backend-endpointtien suojaamiseksi</li>
+                        <li data-i18n="proj_wave_5"><strong>Backend &amp; data:</strong> FastAPI, MariaDB, kuuntelutapahtumien tallennus, stream health -seuranta ja recommendation-pipeline</li>
+                        <li data-i18n="proj_wave_6"><strong>Julkaisuprosessi:</strong> suljettu testaus, Google Play production access -hyväksyntä ja Play Store -julkaisu</li>
+                    </ul>
 
-    <div class="project-links">
-        <a href="https://play.google.com/store/apps/details?id=com.janstech.kauppalista" target="_blank" style="font-weight:bold;">
-            Google Play – Sovellussivu
-        </a>
-        <a href="https://github.com/janstech/shoppinglist-portfolio" target="_blank">
-            GitHub – Repository / Showcase
-        </a>
-    </div>
-
-    <!-- Kuvat lisätään myöhemmin:
-    <div class="project-images">
-        <a href="images/kauppalista-1.png" target="_blank">
-            <img src="images/kauppalista-1.png" alt="Kauppalista & Muistiinpanot – näkymä 1" />
-        </a>
-        <a href="images/kauppalista-2.png" target="_blank">
-            <img src="images/kauppalista-2.png" alt="Kauppalista & Muistiinpanot – näkymä 2" />
-        </a>
-        <a href="images/kauppalista-3.png" target="_blank">
-            <img src="images/kauppalista-3.png" alt="Kauppalista & Muistiinpanot – näkymä 3" />
-        </a>
-        <a href="images/kauppalista-4.png" target="_blank">
-            <img src="images/kauppalista-4.png" alt="Kauppalista & Muistiinpanot – näkymä 4" />
-        </a>
-    </div>
-    -->                    
-</article>
-
+                    <div class="project-links">
+                        <a href="https://play.google.com/store/apps/details?id=com.janstech.radioplayer" target="_blank" style="font-weight:bold;" data-i18n="proj_wave_link_play">
+                            Google Play – Sovellussivu
+                        </a>
+                        <a href="https://github.com/janstech" target="_blank" data-i18n="proj_wave_link_git">
+                            GitHub – Janstech
+                        </a>
+                    </div>
+                </article>
 
                 <article class="card project-card">
-    <h3>WaveIQ Radio (Android)</h3>
-    <p class="project-meta">
-        Kotlin · Jetpack Compose · Media3 · DataStore · FastAPI · MariaDB · Firebase App Check · Play Integrity · Google Play Production
-    </p>
-
-    <p>
-        Kehitin modernin internet-radiosovelluksen, joka yhdistää taustatoiston,
-        radioasemien haun, kuunteluhistorian ja AI-avusteisen suosituslogiikan.
-        Sovellus on julkaistu Google Playhin ja sen tuotantokäyttöoikeus on hyväksytty.
-        Toteutin kokonaisuuteen sekä Android-sovelluksen että FastAPI + MariaDB -pohjaisen backendin.
-    </p>
-
-    <ul class="project-points">
-        <li><strong>Internet-radio & taustatoisto:</strong> Media3-pohjainen toisto, mediakontrollit ja vakaa stream-käsittely</li>
-        <li><strong>Asemien haku & selaus:</strong> haku nimen, genren, maan ja kielen perusteella sekä browse-näkymät</li>
-        <li><strong>AI-suositukset:</strong> kuunteluhistoriaan ja taste-profileen perustuvat asemien suositukset</li>
-        <li><strong>Tietoturva:</strong> Firebase App Check + Play Integrity backend-endpointtien suojaamiseksi</li>
-        <li><strong>Backend & data:</strong> FastAPI, MariaDB, kuuntelutapahtumien tallennus, stream health -seuranta ja recommendation-pipeline</li>
-        <li><strong>Julkaisuprosessi:</strong> suljettu testaus, Google Play production access -hyväksyntä ja Play Store -julkaisu</li>
-    </ul>
-
-    <div class="project-links">
-        <a href="https://play.google.com/store/apps/details?id=com.janstech.radioplayer" target="_blank" style="font-weight:bold;">
-            Google Play – Sovellussivu
-        </a>
-        <a href="https://github.com/janstech" target="_blank">
-            GitHub – Janstech
-        </a>
-    </div>
-
-    <!-- Kuvat lisätään myöhemmin:
-    <div class="project-images">
-        <a href="images/waveiq-1.png" target="_blank">
-            <img src="images/waveiq-1.png" alt="WaveIQ Radio – oma kanavalista" />
-        </a>
-        <a href="images/waveiq-2.png" target="_blank">
-            <img src="images/waveiq-2.png" alt="WaveIQ Radio – asemahaku" />
-        </a>
-        <a href="images/waveiq-3.png" target="_blank">
-            <img src="images/waveiq-3.png" alt="WaveIQ Radio – suositukset" />
-        </a>
-        <a href="images/waveiq-4.png" target="_blank">
-            <img src="images/waveiq-4.png" alt="WaveIQ Radio – kuunteluhistoria" />
-        </a>
-    </div>
-    -->
-</article>
-
-                <article class="card project-card">
-                    <h3>Tuotehaku-järjestelmä (Full Stack)</h3>
-                    <p class="project-meta">
+                    <h3 data-i18n="proj_product_title">Tuotehaku-järjestelmä (Full Stack)</h3>
+                    <p class="project-meta" data-i18n="proj_product_meta">
                         FastAPI · WordPress · REST · MySQL · integraatiot
                     </p>
-                    <p>
+                    <p data-i18n="proj_product_desc">
                         Suunnittelin ja toteutin tuotehaun, joka yhdistää
                         WordPressin, FastAPI:n, MySQL-tietokannan ja toimittajien
                         datavirrat. Järjestelmä on yrityksen tuotantokäytössä ja
                         sitä käytetään ATK-tuotteiden tietojen ja hintojen hakuun.
                     </p>
                     <ul class="project-points">
-                        <li>Rakensin FastAPI-pohjaisen hakumoottorin ja REST-päätepisteet</li>
-                        <li>Toteutin /wp-json/tuotehaku/v1/* -rajapinnan WordPressiin</li>
-                        <li>Suunnittelin tietokantakyselyt, validoinnit ja välimuistikerroksen</li>
-                        <li>Tein WordPress-shortcode-pohjaisen hakukäyttöliittymän</li>
-                        <li>Rakensin JavaScript-pohjaisen dynaamisen hakunäkymän (JSON-vastaukset)</li>
+                        <li data-i18n="proj_product_1">Rakensin FastAPI-pohjaisen hakumoottorin ja REST-päätepisteet</li>
+                        <li data-i18n="proj_product_2">Toteutin /wp-json/tuotehaku/v1/* -rajapinnan WordPressiin</li>
+                        <li data-i18n="proj_product_3">Suunnittelin tietokantakyselyt, validoinnit ja välimuistikerroksen</li>
+                        <li data-i18n="proj_product_4">Tein WordPress-shortcode-pohjaisen hakukäyttöliittymän</li>
+                        <li data-i18n="proj_product_5">Rakensin JavaScript-pohjaisen dynaamisen hakunäkymän (JSON-vastaukset)</li>
                     </ul>
                     <div class="project-links">
-                        <a href="https://github.com/janstech/tuotehaku-showcase" target="_blank" style="font-weight:bold;">
+                        <a href="https://github.com/janstech/tuotehaku-showcase" target="_blank" style="font-weight:bold;" data-i18n="proj_product_link_git">
                             GitHub – Repository
                         </a>
-                        <a href="documents/Tuotehaku-arkkitehtuuri.pdf" target="_blank">
+                        <a href="documents/Tuotehaku-arkkitehtuuri.pdf" target="_blank" data-i18n="proj_product_link_doc">
                             Dokumentaatio (PDF)
                         </a>
                     </div>
                 </article>
 
                 <article class="card project-card">
-                    <h3>Icecat → WooCommerce -integraatio</h3>
-                    <p class="project-meta">
+                    <h3 data-i18n="proj_icecat_title">Icecat → WooCommerce -integraatio</h3>
+                    <p class="project-meta" data-i18n="proj_icecat_meta">
                         Icecat · WooCommerce · FastAPI · JSON/XML
                     </p>
-                    <p>
+                    <p data-i18n="proj_icecat_desc">
                         Toteutin integraation, joka hakee tuotetietoja Icecatista,
                         muuntaa ja rikastaa datan sekä tallentaa sen WooCommerceen.
                         Integraatio automatisoi ja nopeuttaa tuotteiden ylläpitoa.
                     </p>
                     <ul class="project-points">
-                        <li>JSON/XML-datan haku, muunto ja validointi</li>
-                        <li>Tuotekuvien ja kieliversioiden käsittely</li>
-                        <li>WordPressin ja FastAPI:n välinen dataliikenne</li>
-                        <li>Prosessin suunnittelu niin, että se on toistettavissa ja ylläpidettävissä</li>
+                        <li data-i18n="proj_icecat_1">JSON/XML-datan haku, muunto ja validointi</li>
+                        <li data-i18n="proj_icecat_2">Tuotekuvien ja kieliversioiden käsittely</li>
+                        <li data-i18n="proj_icecat_3">WordPressin ja FastAPI:n välinen dataliikenne</li>
+                        <li data-i18n="proj_icecat_4">Prosessin suunnittelu niin, että se on toistettavissa ja ylläpidettävissä</li>
                     </ul>
                     <div class="project-links">
-                        <a href="https://github.com/janstech/icecat-woocommerce-integration" target="_blank" style="font-weight:bold;">
+                        <a href="https://github.com/janstech/icecat-woocommerce-integration" target="_blank" style="font-weight:bold;" data-i18n="proj_icecat_link_git">
                             GitHub – Repository
                         </a>
-                        <a href="documents/icecat_arkkitehtuuri.pdf" target="_blank">
+                        <a href="documents/icecat_arkkitehtuuri.pdf" target="_blank" data-i18n="proj_icecat_link_doc">
                             Dokumentaatio (PDF)
                         </a>
                     </div>
                 </article>
 
                 <article class="card project-card">
-                    <h3>MySQL-korjaukset &amp; recovery</h3>
-                    <p class="project-meta">
+                    <h3 data-i18n="proj_mysql_title">MySQL-korjaukset &amp; recovery</h3>
+                    <p class="project-meta" data-i18n="proj_mysql_meta">
                         MySQL · InnoDB · Linux-palvelin · recovery-tila
                     </p>
-                    <p>
+                    <p data-i18n="proj_mysql_desc">
                         Työssäoppimisjakson aikana ratkoin useita tietokantaan liittyviä
                         ongelmia, kuten korruptoituneita tauluja ja MySQL:n
                         kaatumista. Toteutin sekä korjaukset että varmuuskopiointiratkaisut.
                     </p>
                     <ul class="project-points">
-                        <li>Korruptoituneen InnoDB-taulun (phppos_items) korjaus</li>
-                        <li>LONGBLOB + page corruption -ongelman selvittäminen (phppos_app_files)</li>
-                        <li>MySQL:n ajo recovery-tilassa ja onnistunut full dump</li>
-                        <li>Full dumpit ja erillisdumpit suurista tauluista</li>
-                        <li>Testipalautukset erilliselle kassa_test-tietokannalle</li>
+                        <li data-i18n="proj_mysql_1">Korruptoituneen InnoDB-taulun (phppos_items) korjaus</li>
+                        <li data-i18n="proj_mysql_2">LONGBLOB + page corruption -ongelman selvittäminen (phppos_app_files)</li>
+                        <li data-i18n="proj_mysql_3">MySQL:n ajo recovery-tilassa ja onnistunut full dump</li>
+                        <li data-i18n="proj_mysql_4">Full dumpit ja erillisdumpit suurista tauluista</li>
+                        <li data-i18n="proj_mysql_5">Testipalautukset erilliselle kassa_test-tietokannalle</li>
                     </ul>
                 </article>
 
-                                <article class="card project-card">
-                    <h3>The Game – Unity-peliprojekti</h3>
-                    <p class="project-meta">
+                <article class="card project-card">
+                    <h3 data-i18n="proj_unity_title">The Game – Unity-peliprojekti</h3>
+                    <p class="project-meta" data-i18n="proj_unity_meta">
                         Unity 3D · C# · NavMesh · AI · pelimekaniikat
                     </p>
-                    <p>
+                    <p data-i18n="proj_unity_desc">
                         Rakensin Unity-pelin, jossa ohjataan pelaajaa labyrinttimäisessä kentässä,
                         kerätään orb-objekteja ja vältellään vihollisia. Projekti sisältää
                         peliohjauksen, vihollis-AI:n, NavMesh-navigoinnin, partikkeliefektit sekä
                         UI-logiikan (elämämittari, orbilaskuri, restart-näyttö).
                     </p>
                     <ul class="project-points">
-                        <li>Pelaajan liike, hyppy ja kameran hallinta</li>
-                        <li>Vihollis-AI NavMesh-pohjaisella reitinetsinnällä</li>
-                        <li>Kerättävät orbit, health-bar ja game over / restart -logiikka</li>
-                        <li>Partikkeli- ja valotehosteet sekä omat materiaalit</li>
-                        <li>Valmiiksi paketoitu Windows-versio (GitHub Releases)</li>
+                        <li data-i18n="proj_unity_1">Pelaajan liike, hyppy ja kameran hallinta</li>
+                        <li data-i18n="proj_unity_2">Vihollis-AI NavMesh-pohjaisella reitinetsinnällä</li>
+                        <li data-i18n="proj_unity_3">Kerättävät orbit, health-bar ja game over / restart -logiikka</li>
+                        <li data-i18n="proj_unity_4">Partikkeli- ja valotehosteet sekä omat materiaalit</li>
+                        <li data-i18n="proj_unity_5">Valmiiksi paketoitu Windows-versio (GitHub Releases)</li>
                     </ul>
 
-                    
-                 
                     <div class="project-images">
                         <a href="images/the-game-start_menu.png" target="_blank">
                             <img src="images/the-game-start_menu.png" alt="The Game – aloitusvalikko" />
@@ -375,59 +390,59 @@ const dev = {
                             <img src="images/the-game-restart.png" alt="The Game – Restart-näkymä" />
                         </a>
                     </div>
-                 
+
                     <div class="project-links">
-                        <a href="https://github.com/janstech/The-Game" target="_blank">
+                        <a href="https://github.com/janstech/The-Game" target="_blank" data-i18n="proj_unity_link_git">
                             GitHub – Repository
                         </a>
-                        <a href="https://github.com/janstech/The-Game/releases" target="_blank">
+                        <a href="https://github.com/janstech/The-Game/releases" target="_blank" data-i18n="proj_unity_link_release">
                             Lataa Windows-versio (Releases)
                         </a>
                     </div>
                 </article>
 
                 <article class="card project-card">
-                    <h3>The Game – Selainminipeli (Vanilla JS)</h3>
-                    <p class="project-meta">
+                    <h3 data-i18n="proj_webgame_title">The Game – Selainminipeli (Vanilla JS)</h3>
+                    <p class="project-meta" data-i18n="proj_webgame_meta">
                         HTML5 · Canvas · JavaScript · REST API · UI/UX
                     </p>
-                    <p>
+                    <p data-i18n="proj_webgame_desc">
                         Rakensin Unity-pelistäni kevyen mutta ominaisuuksiltaan rikkaan 2D-selainversion.
-                        Peli on toteutettu puhtaalla JavaScriptillä (ei pelimoottoreita) ja HTML5 Canvas -tekniikalla. 
+                        Peli on toteutettu puhtaalla JavaScriptillä (ei pelimoottoreita) ja HTML5 Canvas -tekniikalla.
                         Projekti demonstroi pelilogiikan lisäksi rajapintojen (API) käyttöä ja modernia käyttöliittymäsuunnittelua.
                     </p>
                     <ul class="project-points">
-                        <li><strong>Global High Score:</strong> Reaaliaikainen tuloslista toteutettu REST API -yhteydellä (Dreamlo) ja Fetch-komennoilla</li>
-                        <li><strong>Moderni UI/UX:</strong> Glassmorphism-ilme, kustomoidut modaali-ikkunat ja automaattinen kursorin hallinta</li>
-                        <li><strong>Pelimekaniikka:</strong> Sulava WASD-ohjaus, kiihtyvä vaikeustaso, törmäystarkistukset ja partikkeliefektit</li>
-                        <li><strong>Äänimaailma:</strong> Web Audio API:lla toteutettu taustamusiikki ja dynaamiset ääniefektit</li>
-                        <li>Julkaistu GitHub Pages -ympäristössä (HTML5 Canvas / ES6+ JavaScript)</li>
+                        <li data-i18n="proj_webgame_1"><strong>Global High Score:</strong> Reaaliaikainen tuloslista toteutettu REST API -yhteydellä (Dreamlo) ja Fetch-komennoilla</li>
+                        <li data-i18n="proj_webgame_2"><strong>Moderni UI/UX:</strong> Glassmorphism-ilme, kustomoidut modaali-ikkunat ja automaattinen kursorin hallinta</li>
+                        <li data-i18n="proj_webgame_3"><strong>Pelimekaniikka:</strong> Sulava WASD-ohjaus, kiihtyvä vaikeustaso, törmäystarkistukset ja partikkeliefektit</li>
+                        <li data-i18n="proj_webgame_4"><strong>Äänimaailma:</strong> Web Audio API:lla toteutettu taustamusiikki ja dynaamiset ääniefektit</li>
+                        <li data-i18n="proj_webgame_5">Julkaistu GitHub Pages -ympäristössä (HTML5 Canvas / ES6+ JavaScript)</li>
                     </ul>
 
                     <div class="project-links">
-                        <a href="https://github.com/janstech/thegame-web-edition" target="_blank">
+                        <a href="https://github.com/janstech/thegame-web-edition" target="_blank" data-i18n="proj_webgame_link_git">
                             GitHub – Repository
                         </a>
-                        <a href="https://janstech.github.io/thegame-web-edition/" target="_blank">
+                        <a href="https://janstech.github.io/thegame-web-edition/" target="_blank" data-i18n="proj_webgame_link_play">
                             Pelaa selainversiota (HTML5/JS)
                         </a>
                     </div>
                 </article>
 
                 <article class="card project-card">
-                    <h3>IT-laitteiden huolto ja optimointi</h3>
-                    <p class="project-meta">
+                    <h3 data-i18n="proj_it_title">IT-laitteiden huolto ja optimointi</h3>
+                    <p class="project-meta" data-i18n="proj_it_meta">
                         Laitteistot · käyttöjärjestelmät · vianmääritys
                     </p>
-                    <p>
+                    <p data-i18n="proj_it_desc">
                         Ohjelmistokehityksen ohella osallistuin IT-laitteiden
                         huoltoon ja käyttökuntoon saattamiseen asiakkaille.
                     </p>
                     <ul class="project-points">
-                        <li>Käyttöjärjestelmä- ja ohjelmistoasennukset</li>
-                        <li>Laitteiden optimointi ja käyttökuntoon saattaminen</li>
-                        <li>Vianmääritys ja laitteistotestaukset</li>
-                        <li>Tietokoneiden, kannettavien ja oheislaitteiden huolto ja korjaukset</li>
+                        <li data-i18n="proj_it_1">Käyttöjärjestelmä- ja ohjelmistoasennukset</li>
+                        <li data-i18n="proj_it_2">Laitteiden optimointi ja käyttökuntoon saattaminen</li>
+                        <li data-i18n="proj_it_3">Vianmääritys ja laitteistotestaukset</li>
+                        <li data-i18n="proj_it_4">Tietokoneiden, kannettavien ja oheislaitteiden huolto ja korjaukset</li>
                     </ul>
                 </article>
             </div>
@@ -436,8 +451,8 @@ const dev = {
 
     <section id="architecture" class="section section-alt">
         <div class="container">
-            <h2 class="section-title">Arkkitehtuuri &amp; dokumentaatio</h2>
-            <p>
+            <h2 class="section-title" data-i18n="arch_title">Arkkitehtuuri &amp; dokumentaatio</h2>
+            <p data-i18n="arch_desc">
                 Dokumentoin työssäoppimisjakson aikana järjestelmien rakennetta ja
                 toiminnallisuuksia kirjallisilla arkkitehtuurikuvauksilla. Niissä käydään läpi,
                 miten eri osat — WordPress, FastAPI, tietokanta, integraatiot ja ulkoiset rajapinnat —
@@ -447,21 +462,21 @@ const dev = {
             <div class="architecture-grid">
                 <figure class="card arch-card">
                     <div class="arch-placeholder">
-                        <span>Tuotehaku-arkkitehtuuri<br> (PDF)</span>
+                        <span data-i18n="arch_card_1_label">Tuotehaku-arkkitehtuuri<br> (PDF)</span>
                     </div>
                     <figcaption>
-                        <a href="documents/Tuotehaku-arkkitehtuuri.pdf" target="_blank">
+                        <a href="documents/Tuotehaku-arkkitehtuuri.pdf" target="_blank" data-i18n="arch_card_1_link">
                             Avaa Tuotehaku-järjestelmän tekninen dokumentaatio (PDF)
                         </a>
                     </figcaption>
-                </figure> 
+                </figure>
 
                 <figure class="card arch-card">
                     <div class="arch-placeholder">
-                        <span>Icecat-integraation arkkitehtuuri<br> (PDF)</span>
+                        <span data-i18n="arch_card_2_label">Icecat-integraation arkkitehtuuri<br> (PDF)</span>
                     </div>
                     <figcaption>
-                        <a href="documents/icecat_arkkitehtuuri.pdf" target="_blank">
+                        <a href="documents/icecat_arkkitehtuuri.pdf" target="_blank" data-i18n="arch_card_2_link">
                             Avaa Icecat → WooCommerce -integraation tekninen dokumentaatio (PDF)
                         </a>
                     </figcaption>
@@ -469,10 +484,10 @@ const dev = {
 
                 <figure class="card arch-card">
                     <div class="arch-placeholder">
-                        <span>Työssäoppimisjakson portfolio<br> (PDF)</span>
+                        <span data-i18n="arch_card_3_label">Työssäoppimisjakson portfolio<br> (PDF)</span>
                     </div>
                     <figcaption>
-                        <a href="documents/Työssäoppimisjakso_portfolio_Jan_Sarivuo_11-25.pdf" target="_blank">
+                        <a href="documents/Työssäoppimisjakso_portfolio_Jan_Sarivuo_11-25.pdf" target="_blank" data-i18n="arch_card_3_link">
                             Avaa koko työssäoppimisjakson portfolio (PDF)
                         </a>
                     </figcaption>
@@ -483,8 +498,8 @@ const dev = {
 
     <section id="contact" class="section">
         <div class="container">
-            <h2 class="section-title">Yhteys &amp; linkit</h2>
-            <p>
+            <h2 class="section-title" data-i18n="contact_title">Yhteys &amp; linkit</h2>
+            <p data-i18n="contact_desc">
                 Olen avoin junior-tason tehtäville ja
                 kasvurooleille. Vastaan mielelläni kysymyksiin
                 projekteistani, osaamisestani ja työssäoppimisjaksosta.
@@ -492,39 +507,38 @@ const dev = {
 
             <div class="contact-grid">
                 <div class="card">
-                    <h3>Yhteystiedot</h3>
+                    <h3 data-i18n="contact_info_title">Yhteystiedot</h3>
                     <ul class="contact-list">
-                        <li><span>Email:</span> <span id="email"></span></li>
-                        <li><span>Puhelin:</span> <span id="phone" class="contact-value"></span></li>
-                        <li><span>Sijainti:</span> Suomi</li>
-                        <li><span>Aloitus:</span> Sopimuksen mukaan</li>
+                        <li><span data-i18n="contact_email">Email:</span> <span id="email"></span></li>
+                        <li><span data-i18n="contact_phone">Puhelin:</span> <span id="phone" class="contact-value"></span></li>
+                        <li><span data-i18n="contact_location">Sijainti:</span> <span data-i18n="contact_location_value">Suomi</span></li>
+                        <li><span data-i18n="contact_start">Aloitus:</span> <span data-i18n="contact_start_value">Sopimuksen mukaan</span></li>
                     </ul>
                 </div>
 
                 <div class="card">
-                    <h3>Linkit</h3>
+                    <h3 data-i18n="contact_links_title">Linkit</h3>
                     <ul class="link-list">
                         <li>
-                            <a href="https://github.com/janstech" target="_blank">
+                            <a href="https://github.com/janstech" target="_blank" data-i18n="contact_link_git">
                                 GitHub – projektit &amp; koodi
                             </a>
                         </li>
                         <li>
-                            <a href="documents/Työssäoppimisjakso_portfolio_Jan_Sarivuo_11-25.pdf" target="_blank">
+                            <a href="documents/Työssäoppimisjakso_portfolio_Jan_Sarivuo_11-25.pdf" target="_blank" data-i18n="contact_link_portfolio">
                                 Työssäoppimisjakson portfolio (PDF)
                             </a>
                         </li>
                         <li>
-                            <a href="https://www.linkedin.com/in/jan-sarivuo"
-                               target="_blank">
+                            <a href="https://www.linkedin.com/in/jan-sarivuo" target="_blank" data-i18n="contact_link_linkedin">
                                 LinkedIn-profiili
                             </a>
                         </li>
                         <li>
-                        <a href="documents/jan_sarivuo_cv.pdf" target="_blank">
-                            Lataa CV (PDF)
-                        </a>
-                    </li>
+                            <a href="documents/jan_sarivuo_cv.pdf" target="_blank" data-i18n="contact_link_cv">
+                                Lataa CV (PDF)
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -535,7 +549,7 @@ const dev = {
 <footer class="site-footer">
     <div class="container footer-inner">
         <span>&copy; <span id="year"></span> Jan Sarivuo</span>
-        <span class="footer-note">Portfolio-sivusto · Jan Sarivuo</span>
+        <span class="footer-note" data-i18n="footer_note">Portfolio-sivusto · Jan Sarivuo</span>
     </div>
 </footer>
 
@@ -543,38 +557,421 @@ const dev = {
         async src="//gc.zgo.at/count.js"></script>
 
 <script>
-    // päivitetään vuosiluku automaattisesti
     document.getElementById("year").textContent = new Date().getFullYear();
 </script>
-   
+
 <script>
-    // Puhelinnumeron osat
     const p1 = "+358";
     const p2 = " 40";
     const p3 = " 839";
     const p4 = " 5777";
-
     document.getElementById("phone").textContent = p1 + p2 + p3 + p4;
 </script>
 
 <script>
-    // Sähköpostin osat
     const e1 = "jan.sarivuo";
     const e2 = "@";
     const e3 = "gmail.com";
     const email = e1 + e2 + e3;
-    // Haetaan elementti
     const el = document.getElementById("email");
-    // Klikattava mailto-linkki
     el.innerHTML = '<a href="mailto:' + email + '">Lähetä sähköpostia</a>';
 </script>
 
+<script>
+const dict = {
+    fi: {
+        page_title: "Jan Sarivuo – Portfolio",
+        nav_about: "Minusta",
+        nav_skills: "Osaaminen",
+        nav_projects: "Projektit",
+        nav_architecture: "Arkkitehtuuri",
+        nav_contact: "Yhteys",
+        lang_label: "Kieli",
+
+        hero_label: "Hei, olen",
+        hero_subtitle: "Junior Full Stack- ja Android-kehittäjä",
+        hero_text: "Toimin työssäoppimisjaksolla full stack -kehittäjänä, jossa suunnittelin ja toteutin alusta loppuun useita järjestelmiä, jotka otettiin käyttöön tuotantoympäristössä. Vastasin koko kehitysketjusta: käyttöliittymästä, rajapinnoista, tietokannoista, integraatioista sekä palvelinylläpidosta. Järjestelmien käytettävyydestä saatiin hyvää palautetta, ja ne ovat aktiivisessa käytössä yrityksen arjessa. Haluan jatkaa kehittymistäni junior-kehittäjän roolissa ja tuottaa ratkaisuja, joilla on todellista käytännön arvoa.",
+        hero_cta_projects: "Katso projektit",
+        hero_cta_contact: "Ota yhteyttä",
+
+        about_title: "Minusta",
+        about_p1: "Olen 11/2025 valmistunut ohjelmistokehityksen osaaja ja toiminut työssäoppimisjaksolla käytännönläheisessä full stack -roolissa. Jakson aikana suunnittelin ja toteutin alusta loppuun useita tuotantokäytössä olevia järjestelmiä: käyttöliittymät, API-kerros, tietokantaratkaisut, integraatiot ja palvelinylläpito.",
+        about_p2: "Erityisosaamistani ovat WordPress- ja FastAPI-pohjaiset ratkaisukokonaisuudet, MySQL / InnoDB -tietokannat sekä erilaisten datavirtojen käsittely (XML, CSV, JSON) ja integraatiot tukkujen rajapintoihin. Lisäksi minulla on käytännön kokemusta Linux-palvelimista, lokien tulkinnasta, varmuuskopioinnista ja tietokantojen palauttamisesta.",
+        about_p3: "Haen junior-tason tehtäviä, joissa pääsen yhdistämään UI-kehityksen, backend-logiikan ja tietokantaosaamisen. Olen oppimishaluinen, pidän ongelmanratkaisusta ja dokumentoin mielelläni myös arkkitehtuurin ja kokonaisuuden.",
+
+        skills_title: "Osaaminen",
+        skills_prog_title: "Ohjelmointi & web-kehitys",
+        skills_prog_1: "Python & FastAPI (REST-palvelut)",
+        skills_prog_2: "WordPress-kehitys (custom-lisäosat, PHP, shortcodet)",
+        skills_prog_3: "HTML, CSS, JavaScript (ES6+)",
+        skills_prog_4: "Full Stack -kehitys (UI + API + tietokanta)",
+
+        skills_db_title: "Tietokannat & palvelinpuoli",
+        skills_db_1: "MySQL / MariaDB / InnoDB",
+        skills_db_2: "Indeksointi, optimointi ja vianetsintä",
+        skills_db_3: "Korruptoituneiden taulujen korjaus ja recovery-tilat",
+        skills_db_4: "Linux-palvelimet, Apache, virhelokit",
+        skills_db_5: "Varmuuskopiointi ja testipalautukset",
+
+        skills_integ_title: "Integraatiot & muut",
+        skills_integ_1: "Integraatiot tukkujen rajapintoihin (Aurdel, Also)",
+        skills_integ_2: "Icecat → WooCommerce -tuotetietointegraatio",
+        skills_integ_3: "XML, CSV, JSON -datan käsittely ja muunto",
+        skills_integ_4: "Slack-hälytykset ja Signed URL -polut (.htaccess)",
+        skills_integ_5: "IT-laitteiden huolto, vianmääritys ja asennukset",
+
+        skills_android_title: "Android & mobiilisovellukset",
+        skills_android_1: "Kotlin & Jetpack Compose (UI)",
+        skills_android_2: "Room (SQLite), DataStore, MVVM / repository-arkkitehtuuri",
+        skills_android_3: "Offline-first toteutus, varmuuskopiointi (export/import)",
+        skills_android_4: "REST-integraatiot (Retrofit/OkHttp), virheenkäsittely & lokitus",
+        skills_android_5: "Tuotannon suojaus: Firebase App Check & Play Integrity",
+
+        skills_game_title: "Pelikehitys & Multimedia",
+        skills_game_1: "Unity 3D & C# (AI, NavMesh, fysiikat)",
+        skills_game_2: "HTML5 Canvas & JavaScript-pelilogiikka",
+        skills_game_3: "Web Audio API & dynaaminen äänimaailma",
+        skills_game_4: "Sprite-animaatiot & partikkeliefektit",
+        skills_game_5: "Pelitilojen hallinta (State Management)",
+
+        projects_title: "Projektit – työssäoppimisjakso & muut toteutukset",
+
+        proj_shop_title: "Kauppalista & Muistiinpanot (Android)",
+        proj_shop_meta: "Kotlin · Jetpack Compose · Room · DataStore · Offline-first · Monikielisyys (14 kieltä) · FastAPI (AI) · App Check · Play Integrity",
+        proj_shop_desc: "Kehitin Android-sovelluksen arjen ostosten ja muistiinpanojen hallintaan. Sovellus on yksityisyys edellä suunniteltu: ei kirjautumista, tiedot tallentuvat laitteelle ja perustoiminnot toimivat offline-tilassa. Lisäksi toteutin tuotantotasoisen AI-ominaisuuden, joka generoi resepti- ja viikkoruokalistaehdotuksia sekä lisää ainekset suoraan kauppalistalle.",
+        proj_shop_1: "<strong>Offline-first:</strong> listat, muistiinpanot, suosikit ja syntymäpäivät toimivat ilman verkkoyhteyttä",
+        proj_shop_2: "<strong>AI-reseptit & viikkoruokalistat:</strong> reseptiehdotukset + “Lisää ainekset kauppalistalle”",
+        proj_shop_3: "<strong>Päiväkohtainen regenerointi:</strong> viikkoruokalistassa “Vaihda ruoka” -toiminto yksittäiselle päivälle (toive + regen)",
+        proj_shop_4: "<strong>Puheesta tekstiksi:</strong> lisäys sanelulla (laitteen puheentunnistus; voi vaatia netin asetuksista riippuen)",
+        proj_shop_5: "<strong>Tietoturva & abuse-suojaus:</strong> Firebase App Check + Play Integrity (nonce, single-use) + rate limit (burst + daily)",
+        proj_shop_6: "<strong>Varmuuskopiot:</strong> export/import yhteen tiedostoon (Android share) ja palautus laitevaihdossa",
+        proj_shop_7: "<strong>Käytettävyys:</strong> drag-and-drop järjestys, pikavalinnat (rajoitteet), snackbar-palautteet ja lataus-/korostus-tilat",
+        proj_shop_link_play: "Google Play – Sovellussivu",
+        proj_shop_link_git: "GitHub – Repository / Showcase",
+
+        proj_wave_title: "WaveIQ Radio (Android)",
+        proj_wave_meta: "Kotlin · Jetpack Compose · Media3 · DataStore · FastAPI · MariaDB · Firebase App Check · Play Integrity · Google Play Production",
+        proj_wave_desc: "Kehitin modernin internet-radiosovelluksen, joka yhdistää taustatoiston, radioasemien haun, kuunteluhistorian ja AI-avusteisen suosituslogiikan. Sovellus on julkaistu Google Playhin ja sen tuotantokäyttöoikeus on hyväksytty. Toteutin kokonaisuuteen sekä Android-sovelluksen että FastAPI + MariaDB -pohjaisen backendin.",
+        proj_wave_1: "<strong>Internet-radio & taustatoisto:</strong> Media3-pohjainen toisto, mediakontrollit ja vakaa stream-käsittely",
+        proj_wave_2: "<strong>Asemien haku & selaus:</strong> haku nimen, genren, maan ja kielen perusteella sekä browse-näkymät",
+        proj_wave_3: "<strong>AI-suositukset:</strong> kuunteluhistoriaan ja taste-profileen perustuvat asemien suositukset",
+        proj_wave_4: "<strong>Tietoturva:</strong> Firebase App Check + Play Integrity backend-endpointtien suojaamiseksi",
+        proj_wave_5: "<strong>Backend & data:</strong> FastAPI, MariaDB, kuuntelutapahtumien tallennus, stream health -seuranta ja recommendation-pipeline",
+        proj_wave_6: "<strong>Julkaisuprosessi:</strong> suljettu testaus, Google Play production access -hyväksyntä ja Play Store -julkaisu",
+        proj_wave_link_play: "Google Play – Sovellussivu",
+        proj_wave_link_git: "GitHub – Janstech",
+
+        proj_product_title: "Tuotehaku-järjestelmä (Full Stack)",
+        proj_product_meta: "FastAPI · WordPress · REST · MySQL · integraatiot",
+        proj_product_desc: "Suunnittelin ja toteutin tuotehaun, joka yhdistää WordPressin, FastAPI:n, MySQL-tietokannan ja toimittajien datavirrat. Järjestelmä on yrityksen tuotantokäytössä ja sitä käytetään ATK-tuotteiden tietojen ja hintojen hakuun.",
+        proj_product_1: "Rakensin FastAPI-pohjaisen hakumoottorin ja REST-päätepisteet",
+        proj_product_2: "Toteutin /wp-json/tuotehaku/v1/* -rajapinnan WordPressiin",
+        proj_product_3: "Suunnittelin tietokantakyselyt, validoinnit ja välimuistikerroksen",
+        proj_product_4: "Tein WordPress-shortcode-pohjaisen hakukäyttöliittymän",
+        proj_product_5: "Rakensin JavaScript-pohjaisen dynaamisen hakunäkymän (JSON-vastaukset)",
+        proj_product_link_git: "GitHub – Repository",
+        proj_product_link_doc: "Dokumentaatio (PDF)",
+
+        proj_icecat_title: "Icecat → WooCommerce -integraatio",
+        proj_icecat_meta: "Icecat · WooCommerce · FastAPI · JSON/XML",
+        proj_icecat_desc: "Toteutin integraation, joka hakee tuotetietoja Icecatista, muuntaa ja rikastaa datan sekä tallentaa sen WooCommerceen. Integraatio automatisoi ja nopeuttaa tuotteiden ylläpitoa.",
+        proj_icecat_1: "JSON/XML-datan haku, muunto ja validointi",
+        proj_icecat_2: "Tuotekuvien ja kieliversioiden käsittely",
+        proj_icecat_3: "WordPressin ja FastAPI:n välinen dataliikenne",
+        proj_icecat_4: "Prosessin suunnittelu niin, että se on toistettavissa ja ylläpidettävissä",
+        proj_icecat_link_git: "GitHub – Repository",
+        proj_icecat_link_doc: "Dokumentaatio (PDF)",
+
+        proj_mysql_title: "MySQL-korjaukset & recovery",
+        proj_mysql_meta: "MySQL · InnoDB · Linux-palvelin · recovery-tila",
+        proj_mysql_desc: "Työssäoppimisjakson aikana ratkoin useita tietokantaan liittyviä ongelmia, kuten korruptoituneita tauluja ja MySQL:n kaatumista. Toteutin sekä korjaukset että varmuuskopiointiratkaisut.",
+        proj_mysql_1: "Korruptoituneen InnoDB-taulun (phppos_items) korjaus",
+        proj_mysql_2: "LONGBLOB + page corruption -ongelman selvittäminen (phppos_app_files)",
+        proj_mysql_3: "MySQL:n ajo recovery-tilassa ja onnistunut full dump",
+        proj_mysql_4: "Full dumpit ja erillisdumpit suurista tauluista",
+        proj_mysql_5: "Testipalautukset erilliselle kassa_test-tietokannalle",
+
+        proj_unity_title: "The Game – Unity-peliprojekti",
+        proj_unity_meta: "Unity 3D · C# · NavMesh · AI · pelimekaniikat",
+        proj_unity_desc: "Rakensin Unity-pelin, jossa ohjataan pelaajaa labyrinttimäisessä kentässä, kerätään orb-objekteja ja vältellään vihollisia. Projekti sisältää peliohjauksen, vihollis-AI:n, NavMesh-navigoinnin, partikkeliefektit sekä UI-logiikan (elämämittari, orbilaskuri, restart-näyttö).",
+        proj_unity_1: "Pelaajan liike, hyppy ja kameran hallinta",
+        proj_unity_2: "Vihollis-AI NavMesh-pohjaisella reitinetsinnällä",
+        proj_unity_3: "Kerättävät orbit, health-bar ja game over / restart -logiikka",
+        proj_unity_4: "Partikkeli- ja valotehosteet sekä omat materiaalit",
+        proj_unity_5: "Valmiiksi paketoitu Windows-versio (GitHub Releases)",
+        proj_unity_link_git: "GitHub – Repository",
+        proj_unity_link_release: "Lataa Windows-versio (Releases)",
+
+        proj_webgame_title: "The Game – Selainminipeli (Vanilla JS)",
+        proj_webgame_meta: "HTML5 · Canvas · JavaScript · REST API · UI/UX",
+        proj_webgame_desc: "Rakensin Unity-pelistäni kevyen mutta ominaisuuksiltaan rikkaan 2D-selainversion. Peli on toteutettu puhtaalla JavaScriptillä (ei pelimoottoreita) ja HTML5 Canvas -tekniikalla. Projekti demonstroi pelilogiikan lisäksi rajapintojen (API) käyttöä ja modernia käyttöliittymäsuunnittelua.",
+        proj_webgame_1: "<strong>Global High Score:</strong> Reaaliaikainen tuloslista toteutettu REST API -yhteydellä (Dreamlo) ja Fetch-komennoilla",
+        proj_webgame_2: "<strong>Moderni UI/UX:</strong> Glassmorphism-ilme, kustomoidut modaali-ikkunat ja automaattinen kursorin hallinta",
+        proj_webgame_3: "<strong>Pelimekaniikka:</strong> Sulava WASD-ohjaus, kiihtyvä vaikeustaso, törmäystarkistukset ja partikkeliefektit",
+        proj_webgame_4: "<strong>Äänimaailma:</strong> Web Audio API:lla toteutettu taustamusiikki ja dynaamiset ääniefektit",
+        proj_webgame_5: "Julkaistu GitHub Pages -ympäristössä (HTML5 Canvas / ES6+ JavaScript)",
+        proj_webgame_link_git: "GitHub – Repository",
+        proj_webgame_link_play: "Pelaa selainversiota (HTML5/JS)",
+
+        proj_it_title: "IT-laitteiden huolto ja optimointi",
+        proj_it_meta: "Laitteistot · käyttöjärjestelmät · vianmääritys",
+        proj_it_desc: "Ohjelmistokehityksen ohella osallistuin IT-laitteiden huoltoon ja käyttökuntoon saattamiseen asiakkaille.",
+        proj_it_1: "Käyttöjärjestelmä- ja ohjelmistoasennukset",
+        proj_it_2: "Laitteiden optimointi ja käyttökuntoon saattaminen",
+        proj_it_3: "Vianmääritys ja laitteistotestaukset",
+        proj_it_4: "Tietokoneiden, kannettavien ja oheislaitteiden huolto ja korjaukset",
+
+        arch_title: "Arkkitehtuuri & dokumentaatio",
+        arch_desc: "Dokumentoin työssäoppimisjakson aikana järjestelmien rakennetta ja toiminnallisuuksia kirjallisilla arkkitehtuurikuvauksilla. Niissä käydään läpi, miten eri osat — WordPress, FastAPI, tietokanta, integraatiot ja ulkoiset rajapinnat — toimivat kokonaisuutena ja tukevat järjestelmän toimintaa.",
+        arch_card_1_label: "Tuotehaku-arkkitehtuuri<br> (PDF)",
+        arch_card_1_link: "Avaa Tuotehaku-järjestelmän tekninen dokumentaatio (PDF)",
+        arch_card_2_label: "Icecat-integraation arkkitehtuuri<br> (PDF)",
+        arch_card_2_link: "Avaa Icecat → WooCommerce -integraation tekninen dokumentaatio (PDF)",
+        arch_card_3_label: "Työssäoppimisjakson portfolio<br> (PDF)",
+        arch_card_3_link: "Avaa koko työssäoppimisjakson portfolio (PDF)",
+
+        contact_title: "Yhteys & linkit",
+        contact_desc: "Olen avoin junior-tason tehtäville ja kasvurooleille. Vastaan mielelläni kysymyksiin projekteistani, osaamisestani ja työssäoppimisjaksosta.",
+        contact_info_title: "Yhteystiedot",
+        contact_email: "Email:",
+        contact_phone: "Puhelin:",
+        contact_location: "Sijainti:",
+        contact_location_value: "Suomi",
+        contact_start: "Aloitus:",
+        contact_start_value: "Sopimuksen mukaan",
+        contact_links_title: "Linkit",
+        contact_link_git: "GitHub – projektit & koodi",
+        contact_link_portfolio: "Työssäoppimisjakson portfolio (PDF)",
+        contact_link_linkedin: "LinkedIn-profiili",
+        contact_link_cv: "Lataa CV (PDF)",
+
+        footer_note: "Portfolio-sivusto · Jan Sarivuo",
+
+        hero_code: `// developer mode: ON
+const dev = {
+  name: "Jan",
+  role: "Junior Full Stack -kehittäjä",
+  stack: [
+    "Python", "FastAPI", "Kotlin",
+    "Jetpack Compose", "MySQL", "REST API:t"
+  ]
+}`
+    },
+
+    en: {
+        page_title: "Jan Sarivuo – Portfolio",
+        nav_about: "About",
+        nav_skills: "Skills",
+        nav_projects: "Projects",
+        nav_architecture: "Architecture",
+        nav_contact: "Contact",
+        lang_label: "Language",
+
+        hero_label: "Hi, I'm",
+        hero_subtitle: "Junior Full Stack and Android Developer",
+        hero_text: "During my on-the-job learning period, I worked as a full stack developer and designed and implemented multiple systems from start to finish for production use. I was responsible for the full delivery chain: user interface, APIs, databases, integrations, and server maintenance. The systems received positive feedback for usability and are actively used in everyday business operations. I want to continue growing in a junior developer role and build solutions that have real practical value.",
+        hero_cta_projects: "View projects",
+        hero_cta_contact: "Contact me",
+
+        about_title: "About",
+        about_p1: "I graduated in software development in 11/2025 and worked in a practical full stack role during my on-the-job learning period. During that time, I designed and implemented multiple production-used systems end to end: user interfaces, API layer, database solutions, integrations, and server maintenance.",
+        about_p2: "My core strengths include WordPress and FastAPI based solution stacks, MySQL / InnoDB databases, and processing data flows such as XML, CSV, and JSON, including integrations to wholesaler APIs. I also have hands-on experience with Linux servers, log analysis, backups, and database restoration.",
+        about_p3: "I am seeking junior-level roles where I can combine UI development, backend logic, and database expertise. I am eager to learn, enjoy problem solving, and like documenting architecture and the overall system clearly.",
+
+        skills_title: "Skills",
+        skills_prog_title: "Programming & Web Development",
+        skills_prog_1: "Python & FastAPI (REST services)",
+        skills_prog_2: "WordPress development (custom plugins, PHP, shortcodes)",
+        skills_prog_3: "HTML, CSS, JavaScript (ES6+)",
+        skills_prog_4: "Full stack development (UI + API + database)",
+
+        skills_db_title: "Databases & Backend",
+        skills_db_1: "MySQL / MariaDB / InnoDB",
+        skills_db_2: "Indexing, optimization, and troubleshooting",
+        skills_db_3: "Corrupted table fixes and recovery modes",
+        skills_db_4: "Linux servers, Apache, error logs",
+        skills_db_5: "Backups and test restores",
+
+        skills_integ_title: "Integrations & Other",
+        skills_integ_1: "Wholesaler API integrations (Aurdel, Also)",
+        skills_integ_2: "Icecat → WooCommerce product data integration",
+        skills_integ_3: "XML, CSV, JSON data processing and transformation",
+        skills_integ_4: "Slack alerts and Signed URL paths (.htaccess)",
+        skills_integ_5: "IT hardware maintenance, troubleshooting, and installations",
+
+        skills_android_title: "Android & Mobile Apps",
+        skills_android_1: "Kotlin & Jetpack Compose (UI)",
+        skills_android_2: "Room (SQLite), DataStore, MVVM / repository architecture",
+        skills_android_3: "Offline-first implementation, backup/export/import",
+        skills_android_4: "REST integrations (Retrofit/OkHttp), error handling & logging",
+        skills_android_5: "Production protection: Firebase App Check & Play Integrity",
+
+        skills_game_title: "Game Development & Multimedia",
+        skills_game_1: "Unity 3D & C# (AI, NavMesh, physics)",
+        skills_game_2: "HTML5 Canvas & JavaScript game logic",
+        skills_game_3: "Web Audio API & dynamic sound design",
+        skills_game_4: "Sprite animations & particle effects",
+        skills_game_5: "State management for game systems",
+
+        projects_title: "Projects – On-the-Job Learning & Other Implementations",
+
+        proj_shop_title: "Shopping List & Notes (Android)",
+        proj_shop_meta: "Kotlin · Jetpack Compose · Room · DataStore · Offline-first · Multilingual (14 languages) · FastAPI (AI) · App Check · Play Integrity",
+        proj_shop_desc: "I developed an Android app for managing everyday shopping and notes. The app is designed with privacy first: no login, data is stored on the device, and core features work offline. I also implemented a production-grade AI feature that generates recipe and weekly meal plan suggestions and adds ingredients directly to the shopping list.",
+        proj_shop_1: "<strong>Offline-first:</strong> lists, notes, favorites, and birthdays work without an internet connection",
+        proj_shop_2: "<strong>AI recipes & weekly meal plans:</strong> recipe suggestions + “Add ingredients to shopping list”",
+        proj_shop_3: "<strong>Day-specific regeneration:</strong> “Change meal” feature for a single day in the weekly plan (wish + regen)",
+        proj_shop_4: "<strong>Speech to text:</strong> add items by dictation (device speech recognition; may require internet depending on settings)",
+        proj_shop_5: "<strong>Security & abuse protection:</strong> Firebase App Check + Play Integrity (nonce, single-use) + rate limits (burst + daily)",
+        proj_shop_6: "<strong>Backups:</strong> export/import into a single file (Android share) and restore on device change",
+        proj_shop_7: "<strong>Usability:</strong> drag-and-drop ordering, quick actions, snackbar feedback, loading and highlight states",
+        proj_shop_link_play: "Google Play – App page",
+        proj_shop_link_git: "GitHub – Repository / Showcase",
+
+        proj_wave_title: "WaveIQ Radio (Android)",
+        proj_wave_meta: "Kotlin · Jetpack Compose · Media3 · DataStore · FastAPI · MariaDB · Firebase App Check · Play Integrity · Google Play Production",
+        proj_wave_desc: "I developed a modern internet radio app that combines background playback, station search, listening history, and AI-assisted recommendation logic. The app has been published to Google Play and approved for production access. I implemented both the Android app and the FastAPI + MariaDB based backend.",
+        proj_wave_1: "<strong>Internet radio & background playback:</strong> Media3-based playback, media controls, and stable stream handling",
+        proj_wave_2: "<strong>Station search & browsing:</strong> search by name, genre, country, and language, plus browse views",
+        proj_wave_3: "<strong>AI recommendations:</strong> station recommendations based on listening history and taste profile",
+        proj_wave_4: "<strong>Security:</strong> Firebase App Check + Play Integrity for backend endpoint protection",
+        proj_wave_5: "<strong>Backend & data:</strong> FastAPI, MariaDB, listening event storage, stream health monitoring, and recommendation pipeline",
+        proj_wave_6: "<strong>Release process:</strong> closed testing, Google Play production access approval, and Play Store release",
+        proj_wave_link_play: "Google Play – App page",
+        proj_wave_link_git: "GitHub – Janstech",
+
+        proj_product_title: "Product Search System (Full Stack)",
+        proj_product_meta: "FastAPI · WordPress · REST · MySQL · integrations",
+        proj_product_desc: "I designed and implemented a product search system that combines WordPress, FastAPI, a MySQL database, and supplier data flows. The system is used in production and helps search product information and pricing for IT products.",
+        proj_product_1: "Built a FastAPI-based search engine and REST endpoints",
+        proj_product_2: "Implemented the /wp-json/tuotehaku/v1/* interface for WordPress",
+        proj_product_3: "Designed database queries, validations, and a caching layer",
+        proj_product_4: "Created a WordPress shortcode-based search UI",
+        proj_product_5: "Built a JavaScript-based dynamic search view (JSON responses)",
+        proj_product_link_git: "GitHub – Repository",
+        proj_product_link_doc: "Documentation (PDF)",
+
+        proj_icecat_title: "Icecat → WooCommerce Integration",
+        proj_icecat_meta: "Icecat · WooCommerce · FastAPI · JSON/XML",
+        proj_icecat_desc: "I implemented an integration that fetches product data from Icecat, transforms and enriches it, and stores it in WooCommerce. The integration automates and speeds up product maintenance.",
+        proj_icecat_1: "JSON/XML data fetching, transformation, and validation",
+        proj_icecat_2: "Handling product images and language versions",
+        proj_icecat_3: "Data flow between WordPress and FastAPI",
+        proj_icecat_4: "Process design for repeatability and maintainability",
+        proj_icecat_link_git: "GitHub – Repository",
+        proj_icecat_link_doc: "Documentation (PDF)",
+
+        proj_mysql_title: "MySQL Fixes & Recovery",
+        proj_mysql_meta: "MySQL · InnoDB · Linux server · recovery mode",
+        proj_mysql_desc: "During my on-the-job learning period, I solved multiple database-related issues such as corrupted tables and MySQL crashes. I implemented both the fixes and backup solutions.",
+        proj_mysql_1: "Fixed a corrupted InnoDB table (phppos_items)",
+        proj_mysql_2: "Investigated LONGBLOB + page corruption issue (phppos_app_files)",
+        proj_mysql_3: "Ran MySQL in recovery mode and completed a full dump successfully",
+        proj_mysql_4: "Created full dumps and separate dumps for large tables",
+        proj_mysql_5: "Performed test restores to a separate kassa_test database",
+
+        proj_unity_title: "The Game – Unity Game Project",
+        proj_unity_meta: "Unity 3D · C# · NavMesh · AI · gameplay systems",
+        proj_unity_desc: "I built a Unity game where the player moves through a maze-like level, collects orb objects, and avoids enemies. The project includes player controls, enemy AI, NavMesh navigation, particle effects, and UI logic such as a health bar, orb counter, and restart screen.",
+        proj_unity_1: "Player movement, jump, and camera control",
+        proj_unity_2: "Enemy AI with NavMesh pathfinding",
+        proj_unity_3: "Collectible orbs, health bar, and game over / restart logic",
+        proj_unity_4: "Particle and lighting effects plus custom materials",
+        proj_unity_5: "Packaged Windows version available in GitHub Releases",
+        proj_unity_link_git: "GitHub – Repository",
+        proj_unity_link_release: "Download Windows version (Releases)",
+
+        proj_webgame_title: "The Game – Browser Mini Game (Vanilla JS)",
+        proj_webgame_meta: "HTML5 · Canvas · JavaScript · REST API · UI/UX",
+        proj_webgame_desc: "I built a lightweight but feature-rich 2D browser version of my Unity game. The game is implemented with plain JavaScript and HTML5 Canvas, without external game engines. Besides gameplay logic, the project demonstrates API usage and modern UI design.",
+        proj_webgame_1: "<strong>Global High Score:</strong> real-time leaderboard implemented via REST API (Dreamlo) and Fetch calls",
+        proj_webgame_2: "<strong>Modern UI/UX:</strong> glassmorphism style, custom modal dialogs, and automatic cursor handling",
+        proj_webgame_3: "<strong>Gameplay:</strong> smooth WASD controls, increasing difficulty, collision checks, and particle effects",
+        proj_webgame_4: "<strong>Audio:</strong> background music and dynamic sound effects built with Web Audio API",
+        proj_webgame_5: "Published on GitHub Pages (HTML5 Canvas / ES6+ JavaScript)",
+        proj_webgame_link_git: "GitHub – Repository",
+        proj_webgame_link_play: "Play browser version (HTML5/JS)",
+
+        proj_it_title: "IT Hardware Maintenance and Optimization",
+        proj_it_meta: "Hardware · operating systems · troubleshooting",
+        proj_it_desc: "Alongside software development, I participated in maintaining and preparing IT devices for customer use.",
+        proj_it_1: "Operating system and software installations",
+        proj_it_2: "Device optimization and setup for use",
+        proj_it_3: "Troubleshooting and hardware testing",
+        proj_it_4: "Maintenance and repair of desktops, laptops, and peripherals",
+
+        arch_title: "Architecture & Documentation",
+        arch_desc: "During my on-the-job learning period, I documented system structures and functionality in written architecture descriptions. They explain how the different parts — WordPress, FastAPI, database, integrations, and external APIs — work together as a complete solution.",
+        arch_card_1_label: "Product Search Architecture<br> (PDF)",
+        arch_card_1_link: "Open the technical documentation for the Product Search system (PDF)",
+        arch_card_2_label: "Icecat Integration Architecture<br> (PDF)",
+        arch_card_2_link: "Open the technical documentation for the Icecat → WooCommerce integration (PDF)",
+        arch_card_3_label: "On-the-Job Learning Portfolio<br> (PDF)",
+        arch_card_3_link: "Open the full on-the-job learning portfolio (PDF)",
+
+        contact_title: "Contact & Links",
+        contact_desc: "I am open to junior-level roles and growth positions. I am happy to answer questions about my projects, skills, and on-the-job learning period.",
+        contact_info_title: "Contact Information",
+        contact_email: "Email:",
+        contact_phone: "Phone:",
+        contact_location: "Location:",
+        contact_location_value: "Finland",
+        contact_start: "Availability:",
+        contact_start_value: "By agreement",
+        contact_links_title: "Links",
+        contact_link_git: "GitHub – projects & code",
+        contact_link_portfolio: "On-the-job learning portfolio (PDF)",
+        contact_link_linkedin: "LinkedIn profile",
+        contact_link_cv: "Download CV (PDF)",
+
+        footer_note: "Portfolio website · Jan Sarivuo",
+
+        hero_code: `// developer mode: ON
+const dev = {
+  name: "Jan",
+  role: "Junior Full Stack Developer",
+  stack: [
+    "Python", "FastAPI", "Kotlin",
+    "Jetpack Compose", "MySQL", "REST APIs"
+  ]
+}`
+    }
+};
+
+function setLang(lang) {
+    localStorage.setItem("portfolio_lang", lang);
+    document.documentElement.lang = (lang === "fi") ? "fi" : "en";
+    document.title = dict[lang].page_title;
+
+    for (const el of document.querySelectorAll("[data-i18n]")) {
+        const key = el.getAttribute("data-i18n");
+        if (dict[lang] && dict[lang][key] != null) {
+            el.innerHTML = dict[lang][key];
+        }
+    }
+
+    const heroCode = document.getElementById("heroCode");
+    if (heroCode) {
+        heroCode.textContent = dict[lang].hero_code;
+    }
+
+    const emailEl = document.getElementById("email");
+    const email = "jan.sarivuo" + "@" + "gmail.com";
+    if (emailEl) {
+        emailEl.innerHTML = (lang === "fi")
+            ? '<a href="mailto:' + email + '">Lähetä sähköpostia</a>'
+            : '<a href="mailto:' + email + '">Send email</a>';
+    }
+
+    document.getElementById("btnFi").classList.toggle("active", lang === "fi");
+    document.getElementById("btnEn").classList.toggle("active", lang === "en");
+}
+
+const savedLang = localStorage.getItem("portfolio_lang") || "fi";
+document.getElementById("btnFi").addEventListener("click", () => setLang("fi"));
+document.getElementById("btnEn").addEventListener("click", () => setLang("en"));
+setLang(savedLang);
+</script>
+
 </body>
-
 </html>
-
-
-
-
-
-
