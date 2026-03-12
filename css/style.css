@@ -17,10 +17,8 @@
     --accent-soft: rgba(100, 255, 218, 0.12);
     --card-bg: #0f172a;
     --border: #1f2937;
-    --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        sans-serif;
-    --font-mono: "Fira Code", "SF Mono", ui-monospace, Menlo, Monaco,
-        Consolas, "Liberation Mono", "Courier New", monospace;
+    --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-mono: "Fira Code", "SF Mono", ui-monospace, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     --radius-lg: 14px;
     --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.65);
 }
@@ -89,19 +87,23 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 1rem;
     padding: 0.8rem 0;
+    flex-wrap: wrap;
 }
 
 .logo {
     font-family: var(--font-mono);
     font-size: 1rem;
     color: var(--accent);
+    white-space: nowrap;
 }
 
 .nav {
     display: flex;
     gap: 1.4rem;
     font-size: 0.9rem;
+    flex-wrap: wrap;
 }
 
 .nav a {
@@ -128,6 +130,50 @@ body {
 
 .nav a:hover::after {
     width: 100%;
+}
+
+/* Kielivalitsin */
+
+.lang-switch {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin-left: auto;
+    flex-wrap: wrap;
+}
+
+.lang-label {
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-family: var(--font-mono);
+}
+
+.lang-switch button {
+    appearance: none;
+    border: 1px solid rgba(100, 255, 218, 0.28);
+    background: rgba(255, 255, 255, 0.02);
+    color: var(--fg);
+    padding: 0.42rem 0.7rem;
+    border-radius: 999px;
+    cursor: pointer;
+    font: inherit;
+    font-size: 0.8rem;
+    line-height: 1;
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease, color 0.2s ease;
+}
+
+.lang-switch button:hover {
+    border-color: rgba(100, 255, 218, 0.7);
+    background: var(--accent-soft);
+    color: var(--accent);
+    transform: translateY(-1px);
+}
+
+.lang-switch button.active {
+    background: var(--accent);
+    color: #04101a;
+    border-color: var(--accent);
+    box-shadow: 0 8px 20px rgba(100, 255, 218, 0.18);
 }
 
 /* Hero */
@@ -169,6 +215,7 @@ body {
     margin-top: 1.6rem;
     display: flex;
     gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .btn-primary,
@@ -183,6 +230,7 @@ body {
     border: 1px solid var(--accent);
     font-family: var(--font-mono);
     letter-spacing: 0.03em;
+    transition: 0.2s ease;
 }
 
 .btn-primary {
@@ -193,6 +241,7 @@ body {
 
 .btn-primary:hover {
     filter: brightness(1.05);
+    transform: translateY(-1px);
 }
 
 .btn-ghost {
@@ -203,6 +252,7 @@ body {
 
 .btn-ghost:hover {
     background: var(--accent-soft);
+    transform: translateY(-1px);
 }
 
 /* Hero-ascii */
@@ -308,6 +358,7 @@ body {
     display: flex;
     gap: 0.8rem;
     font-size: 0.86rem;
+    flex-wrap: wrap;
 }
 
 .project-links a {
@@ -320,21 +371,20 @@ body {
     text-decoration: underline;
 }
 
-/* --- UUSI: Projektikuvien korjaus --- */
+/* Projektikuvat */
 
 .project-images {
     display: grid;
-    /* Tekee responsiivisen ruudukon: kuvat ovat vähintään 100px leveitä */
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     gap: 10px;
     margin-top: 15px;
 }
 
 .project-images img {
-    width: 100%; /* Pakottaa kuvan pysymään ruudussaan */
-    height: auto; /* Säilyttää kuvasuhteen */
+    width: 100%;
+    height: auto;
     border-radius: 5px;
-    border: 1px solid var(--border); /* Käyttää teeman väriä */
+    border: 1px solid var(--border);
     transition: transform 0.2s;
 }
 
@@ -355,10 +405,8 @@ body {
     color: var(--muted);
 }
 
-/* --- Arkkitehtuurilinkkien väri --- */
-
 .arch-card figcaption a {
-    color: var(--accent); /* Käyttää teeman turkoosia */
+    color: var(--accent);
     text-decoration: none;
     transition: color 0.2s;
 }
@@ -378,6 +426,8 @@ body {
     background: radial-gradient(circle at top, #020617 0, #020617 50%);
     font-family: var(--font-mono);
     color: #6b7280;
+    text-align: center;
+    padding: 1rem;
 }
 
 /* Yhteystiedot & linkit */
@@ -393,36 +443,31 @@ body {
     color: var(--muted);
 }
 
-/* --- Asettelu ja värit --- */
-
 .contact-list li {
-    display: flex; /* Asettaa otsikon ja arvon vierekkäin */
-    align-items: center; /* Tasaa pystysuunnassa keskelle */
-    margin-bottom: 0.5rem; /* Hieman väliä rivien väliin */
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
 }
 
-/* Tämä kohdistaa ensimmäisen spanin (Email, Puhelin...) */
 .contact-list li span:first-child {
-    color: var(--fg); /* Vaalea tekstiväri */
+    color: var(--fg);
     font-weight: 500;
     display: inline-block;
-    min-width: 60px; /* Pakottaa otsikot saman levyisiksi */
+    min-width: 60px;
     margin-right: 10px;
 }
 
-/* Korjataan sähköpostilinkin väri */
 .contact-list a {
-    color: var(--accent); /* Käyttää teeman turkoosia väriä */
+    color: var(--accent);
     text-decoration: none;
     transition: color 0.2s;
 }
 
 .contact-list a:hover {
     text-decoration: underline;
-    filter: brightness(1.2); /* Kirkastaa hieman hiiren alla */
+    filter: brightness(1.2);
 }
-
-/* --- Loppuosa linkeille --- */
 
 .link-list li + li {
     margin-top: 0.4rem;
@@ -451,6 +496,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
 }
 
 .footer-note {
@@ -458,6 +505,18 @@ body {
 }
 
 /* Responsiivisuus */
+
+@media (max-width: 900px) {
+    .header-inner {
+        align-items: flex-start;
+    }
+
+    .lang-switch {
+        width: 100%;
+        justify-content: flex-end;
+        margin-left: 0;
+    }
+}
 
 @media (max-width: 840px) {
     .hero-inner {
@@ -482,6 +541,25 @@ body {
     .header-inner {
         flex-direction: column;
         align-items: flex-start;
-        gap: 0.4rem;
+        gap: 0.6rem;
+    }
+
+    .nav {
+        width: 100%;
+    }
+
+    .lang-switch {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+        width: 100%;
     }
 }
