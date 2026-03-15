@@ -6,13 +6,118 @@
   <title>Janstech Apps</title>
   <link rel="stylesheet" href="style.css" />
   <meta name="robots" content="index,follow" />
+  <style>
+    .apps-hero {
+      margin-top: 8px;
+      margin-bottom: 28px;
+    }
+
+    .apps-hero h2 {
+      margin-bottom: 10px;
+    }
+
+    .apps-hero p {
+      max-width: 900px;
+    }
+
+    .apps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .app-card {
+      padding: 22px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.08);
+      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
+      box-shadow: 0 14px 40px rgba(0,0,0,.18);
+    }
+
+    .app-card h3 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+      font-size: 1.35rem;
+    }
+
+    .app-card p {
+      margin-bottom: 14px;
+    }
+
+    .feature-list {
+      margin: 0 0 18px 0;
+      padding-left: 18px;
+    }
+
+    .feature-list li {
+      margin-bottom: 8px;
+      color: var(--muted);
+    }
+
+    .app-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .app-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      padding: 0 14px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.03);
+      color: var(--text);
+      transition: .18s ease;
+    }
+
+    .app-btn:hover {
+      transform: translateY(-1px);
+      border-color: rgba(255,255,255,.22);
+      background: rgba(255,255,255,.06);
+    }
+
+    .app-btn.primary {
+      background: linear-gradient(135deg, #7dd3fc, #86efac);
+      color: #08111f;
+      border: none;
+    }
+
+    .mini-note {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    .hub-side ul li {
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 700px) {
+      .app-actions {
+        flex-direction: column;
+      }
+
+      .app-btn {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="container">
     <header class="topbar">
       <div class="brand">
         <div>
-          <h1>Janstech Apps <span class="sub">Android App Hub</span></h1>
+          <h1>Janstech Apps <span class="sub" data-i18n="sub">Android App Hub</span></h1>
         </div>
       </div>
 
@@ -28,93 +133,81 @@
       </div>
     </header>
 
-    <section class="hero">
+    <section class="hero apps-hero">
       <span class="badge"><i></i> <span data-i18n="badge">Updated</span>: <span id="lastUpdated">2026-03-15</span></span>
-      <h2 data-i18n="title">Android Apps</h2>
+      <h2 data-i18n="title">Janstech Android Apps</h2>
       <p data-i18n="subtitle">
-        Explore Janstech Android apps: productivity, AI-powered food planning, radio discovery and adaptive fitness coaching.
+        Explore Janstech apps built for practical everyday use: smart shopping, AI-powered radio discovery and adaptive fitness coaching.
       </p>
     </section>
 
     <div class="grid">
       <main class="card">
-        <h3 data-i18n="apps_h">Available apps</h3>
+        <h3 data-i18n="apps_h">Apps</h3>
         <p class="small" data-i18n="apps_note">
-          This page collects Janstech Android apps, Google Play links and legal/support pages in one place.
+          This page brings together Janstech Android apps, store links and legal/support pages in one place.
         </p>
 
-        <hr class="sep"/>
+        <div class="apps-grid">
+          <section class="app-card">
+            <h3>🛒 <span data-i18n="shopping_title">Shopping List &amp; Notes</span></h3>
+            <p data-i18n="shopping_desc">
+              Offline-first shopping list, notes and recipe app with AI meal suggestions, weekly meal plans and ingredient scanning from photos.
+            </p>
+            <ul class="feature-list">
+              <li data-i18n="shopping_f1">Shopping lists, favorites and notes</li>
+              <li data-i18n="shopping_f2">AI recipes and weekly meal plans</li>
+              <li data-i18n="shopping_f3">Ingredient scanning from images</li>
+              <li data-i18n="shopping_f4">Privacy-first and no mandatory login</li>
+            </ul>
+            <div class="app-actions">
+              <a class="app-btn primary" href="https://play.google.com/store/apps/details?id=com.janstech.kauppalista" target="_blank" rel="noopener noreferrer" data-i18n="btn_google_play">Google Play</a>
+              <a class="app-btn" href="../kauppalista-privacy-policy/" data-i18n="btn_privacy">Privacy Policy</a>
+              <a class="app-btn" href="../kauppalista-privacy-policy/support.html" data-i18n="btn_support">Support</a>
+              <a class="app-btn" href="../kauppalista-privacy-policy/terms.html" data-i18n="btn_terms">Terms</a>
+              <a class="app-btn" href="../kauppalista-privacy-policy/delete-data.html" data-i18n="btn_delete">Delete Data</a>
+            </div>
+          </section>
 
-        <section class="app-section">
-          <h3>🛒 <span data-i18n="shopping_title">Shopping List &amp; Notes</span></h3>
-          <p data-i18n="shopping_desc">
-            Offline-first shopping list, notes and recipe app with AI meal suggestions, weekly meal plans and ingredient scanning from photos.
-          </p>
-          <ul>
-            <li data-i18n="shopping_f1">Shopping lists, favorites and notes</li>
-            <li data-i18n="shopping_f2">AI recipes and weekly meal plans</li>
-            <li data-i18n="shopping_f3">Ingredient scanning from images</li>
-            <li data-i18n="shopping_f4">Privacy-first and no mandatory login</li>
-          </ul>
-          <p>
-            <a href="https://play.google.com/store/apps/details?id=com.janstech.kauppalista" target="_blank" rel="noopener noreferrer" data-i18n="btn_google_play">Google Play</a>
-            ·
-            <a href="../kauppalista-privacy-policy/" data-i18n="btn_privacy">Privacy Policy</a>
-            ·
-            <a href="../kauppalista-privacy-policy/support.html" data-i18n="btn_support">Support</a>
-            ·
-            <a href="../kauppalista-privacy-policy/terms.html" data-i18n="btn_terms">Terms</a>
-            ·
-            <a href="../kauppalista-privacy-policy/delete-data.html" data-i18n="btn_delete">Delete Data</a>
-          </p>
-        </section>
+          <section class="app-card">
+            <h3>🌊 <span data-i18n="waveiq_title">WaveIQ Radio</span></h3>
+            <p data-i18n="waveiq_desc">
+              AI-powered radio discovery platform with smart recommendations, Station DNA, similar stations and explainable suggestions.
+            </p>
+            <ul class="feature-list">
+              <li data-i18n="waveiq_f1">AI search and smart station recommendations</li>
+              <li data-i18n="waveiq_f2">Station DNA and similar stations</li>
+              <li data-i18n="waveiq_f3">Explain why a station is recommended</li>
+              <li data-i18n="waveiq_f4">Google Drive backup and listening intelligence</li>
+            </ul>
+            <div class="app-actions">
+              <a class="app-btn primary" href="https://play.google.com/store/apps/details?id=com.janstech.radioplayer" target="_blank" rel="noopener noreferrer" data-i18n="btn_google_play">Google Play</a>
+              <a class="app-btn" href="../waveiq-radio-privacy-policy/" data-i18n="btn_privacy">Privacy Policy</a>
+              <a class="app-btn" href="../waveiq-radio-privacy-policy/support.html" data-i18n="btn_support">Support</a>
+              <a class="app-btn" href="../waveiq-radio-privacy-policy/terms.html" data-i18n="btn_terms">Terms</a>
+              <a class="app-btn" href="../waveiq-radio-privacy-policy/delete-data.html" data-i18n="btn_delete">Delete Data</a>
+            </div>
+          </section>
 
-        <hr class="sep"/>
-
-        <section class="app-section">
-          <h3>🌊 <span data-i18n="waveiq_title">WaveIQ Radio</span></h3>
-          <p data-i18n="waveiq_desc">
-            AI-powered radio discovery platform with smart recommendations, Station DNA, similar stations and explainable suggestions.
-          </p>
-          <ul>
-            <li data-i18n="waveiq_f1">AI search and smart station recommendations</li>
-            <li data-i18n="waveiq_f2">Station DNA and similar stations</li>
-            <li data-i18n="waveiq_f3">Explain why a station is recommended</li>
-            <li data-i18n="waveiq_f4">Google Drive backup and listening intelligence</li>
-          </ul>
-          <p>
-            <a href="https://play.google.com/store/apps/details?id=com.janstech.radioplayer" target="_blank" rel="noopener noreferrer" data-i18n="btn_google_play">Google Play</a>
-            ·
-            <a href="../waveiq-radio-privacy-policy/" data-i18n="btn_privacy">Privacy Policy</a>
-            ·
-            <a href="../waveiq-radio-privacy-policy/support.html" data-i18n="btn_support">Support</a>
-            ·
-            <a href="../waveiq-radio-privacy-policy/terms.html" data-i18n="btn_terms">Terms</a>
-            ·
-            <a href="../waveiq-radio-privacy-policy/delete-data.html" data-i18n="btn_delete">Delete Data</a>
-          </p>
-        </section>
-
-        <hr class="sep"/>
-
-        <section class="app-section">
-          <h3>🏋️ <span data-i18n="gainsai_title">GainsAI</span></h3>
-          <p data-i18n="gainsai_desc">
-            AI personal trainer platform with workout generation, training logs, progress analytics, recommendation loops and adaptive coaching foundations.
-          </p>
-          <ul>
-            <li data-i18n="gainsai_f1">AI-generated training plans</li>
-            <li data-i18n="gainsai_f2">Workout logging and session history</li>
-            <li data-i18n="gainsai_f3">Progress analytics and estimated 1RM trends</li>
-            <li data-i18n="gainsai_f4">Exercise substitution and adaptive coaching roadmap</li>
-          </ul>
-          <p data-i18n="gainsai_status">
-            Coming soon.
-          </p>
-        </section>
+          <section class="app-card">
+            <h3>🏋️ <span data-i18n="gainsai_title">GainsAI</span></h3>
+            <p data-i18n="gainsai_desc">
+              AI personal trainer platform with workout generation, training logs, progress analytics, recommendation loops and adaptive coaching foundations.
+            </p>
+            <ul class="feature-list">
+              <li data-i18n="gainsai_f1">AI-generated training plans</li>
+              <li data-i18n="gainsai_f2">Workout logging and session history</li>
+              <li data-i18n="gainsai_f3">Progress analytics and estimated 1RM trends</li>
+              <li data-i18n="gainsai_f4">Exercise substitution and adaptive coaching roadmap</li>
+            </ul>
+            <div class="app-actions">
+              <span class="app-btn" data-i18n="gainsai_status">Coming soon</span>
+            </div>
+          </section>
+        </div>
       </main>
 
-      <aside class="card">
+      <aside class="card hub-side">
         <h3 data-i18n="quick_h">Quick links</h3>
         <ul>
           <li><a href="../" data-i18n="quick_portfolio">Back to portfolio</a></li>
@@ -126,14 +219,18 @@
 
         <h3 data-i18n="about_h">About this page</h3>
         <p data-i18n="about_p">
-          This hub helps users find Janstech apps, store links and legal/support information without going through the portfolio site first.
+          This hub helps users find Janstech apps, Google Play links and legal/support pages quickly.
         </p>
 
         <hr class="sep"/>
 
         <h3 data-i18n="future_h">Future apps</h3>
         <p data-i18n="future_p">
-          More Janstech apps and dedicated app landing pages can be added here later as the ecosystem grows.
+          More apps and dedicated landing pages can be added here later as the Janstech ecosystem grows.
+        </p>
+
+        <p class="mini-note" data-i18n="future_note">
+          This page is meant for app users, while the main site remains your portfolio.
         </p>
       </aside>
     </div>
@@ -142,15 +239,16 @@
   <script>
     const dict = {
       en: {
+        sub: "Android App Hub",
         nav_apps: "Apps",
         nav_portfolio: "Portfolio",
         lang_label: "Language",
         badge: "Updated",
-        title: "Android Apps",
-        subtitle: "Explore Janstech Android apps: productivity, AI-powered food planning, radio discovery and adaptive fitness coaching.",
+        title: "Janstech Android Apps",
+        subtitle: "Explore Janstech apps built for practical everyday use: smart shopping, AI-powered radio discovery and adaptive fitness coaching.",
 
-        apps_h: "Available apps",
-        apps_note: "This page collects Janstech Android apps, Google Play links and legal/support pages in one place.",
+        apps_h: "Apps",
+        apps_note: "This page brings together Janstech Android apps, store links and legal/support pages in one place.",
 
         shopping_title: "Shopping List & Notes",
         shopping_desc: "Offline-first shopping list, notes and recipe app with AI meal suggestions, weekly meal plans and ingredient scanning from photos.",
@@ -172,7 +270,7 @@
         gainsai_f2: "Workout logging and session history",
         gainsai_f3: "Progress analytics and estimated 1RM trends",
         gainsai_f4: "Exercise substitution and adaptive coaching roadmap",
-        gainsai_status: "Coming soon.",
+        gainsai_status: "Coming soon",
 
         btn_google_play: "Google Play",
         btn_privacy: "Privacy Policy",
@@ -186,21 +284,23 @@
         quick_waveiq_legal: "WaveIQ Radio legal pages",
 
         about_h: "About this page",
-        about_p: "This hub helps users find Janstech apps, store links and legal/support information without going through the portfolio site first.",
+        about_p: "This hub helps users find Janstech apps, Google Play links and legal/support pages quickly.",
 
         future_h: "Future apps",
-        future_p: "More Janstech apps and dedicated app landing pages can be added here later as the ecosystem grows."
+        future_p: "More apps and dedicated landing pages can be added here later as the Janstech ecosystem grows.",
+        future_note: "This page is meant for app users, while the main site remains your portfolio."
       },
       fi: {
+        sub: "Android App Hub",
         nav_apps: "Sovellukset",
         nav_portfolio: "Portfolio",
         lang_label: "Kieli",
         badge: "Päivitetty",
-        title: "Android-sovellukset",
-        subtitle: "Tutustu Janstechin Android-sovelluksiin: tuottavuus, AI-avusteinen ruokasuunnittelu, radio discovery ja adaptiivinen treenivalmennus.",
+        title: "Janstechin Android-sovellukset",
+        subtitle: "Tutustu Janstechin sovelluksiin, jotka on rakennettu käytännölliseen arkeen: älykäs ostoslista, AI-radio discovery ja adaptiivinen treenivalmennus.",
 
-        apps_h: "Saatavilla olevat sovellukset",
-        apps_note: "Tälle sivulle on koottu Janstechin Android-sovellukset, Google Play -linkit sekä legal/support-sivut yhteen paikkaan.",
+        apps_h: "Sovellukset",
+        apps_note: "Tälle sivulle on koottu Janstechin Android-sovellukset, kauppalinkit ja legal/support-sivut yhteen paikkaan.",
 
         shopping_title: "Kauppalista & Muistiinpanot",
         shopping_desc: "Offline-first ostoslista-, muistiinpano- ja reseptisovellus, jossa on AI-ateriaehdotukset, viikkoruokalistat ja kuvasta tehtävä aineskannaus.",
@@ -222,7 +322,7 @@
         gainsai_f2: "Workout-logging ja sessiohistoria",
         gainsai_f3: "Progress-analytiikka ja arvioidut 1RM-trendit",
         gainsai_f4: "Exercise substitution ja adaptiivisen valmennuksen roadmap",
-        gainsai_status: "Tulossa pian.",
+        gainsai_status: "Tulossa pian",
 
         btn_google_play: "Google Play",
         btn_privacy: "Tietosuoja",
@@ -236,20 +336,23 @@
         quick_waveiq_legal: "WaveIQ Radion legal-sivut",
 
         about_h: "Tietoa tästä sivusta",
-        about_p: "Tämä hubi auttaa käyttäjiä löytämään Janstechin sovellukset, kauppalinkit sekä legal/support-tiedot ilman että täytyy mennä ensin portfoliosivun kautta.",
+        about_p: "Tämä hubi auttaa käyttäjiä löytämään Janstechin sovellukset, Google Play -linkit ja legal/support-sivut nopeasti.",
 
         future_h: "Tulevat sovellukset",
-        future_p: "Tänne voidaan lisätä myöhemmin lisää Janstechin sovelluksia ja erillisiä app landing page -sivuja ekosysteemin kasvaessa."
+        future_p: "Tänne voidaan lisätä myöhemmin lisää sovelluksia ja omia landing page -sivuja Janstech-ekosysteemin kasvaessa.",
+        future_note: "Tämä sivu on tarkoitettu sovellusten käyttäjille, kun taas pääsivu pysyy portfolionasi."
       }
     };
 
     function setLang(lang){
       localStorage.setItem("lang", lang);
-      document.documentElement.lang = (lang === "fi") ? "fi" : "en";
+      document.documentElement.lang = lang === "fi" ? "fi" : "en";
 
-      for (const el of document.querySelectorAll("[data-i18n]")){
+      for (const el of document.querySelectorAll("[data-i18n]")) {
         const key = el.getAttribute("data-i18n");
-        if (dict[lang] && dict[lang][key] != null) el.innerHTML = dict[lang][key];
+        if (dict[lang] && dict[lang][key] != null) {
+          el.innerHTML = dict[lang][key];
+        }
       }
 
       document.getElementById("btnFi").classList.toggle("active", lang === "fi");
@@ -257,8 +360,8 @@
     }
 
     const saved = localStorage.getItem("lang") || "en";
-    document.getElementById("btnFi").addEventListener("click", ()=>setLang("fi"));
-    document.getElementById("btnEn").addEventListener("click", ()=>setLang("en"));
+    document.getElementById("btnFi").addEventListener("click", () => setLang("fi"));
+    document.getElementById("btnEn").addEventListener("click", () => setLang("en"));
     setLang(saved);
   </script>
 </body>
