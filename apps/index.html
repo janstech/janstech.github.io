@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Janstech Apps</title>
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#111a2b;
+      --text:#e8eefc;
+      --muted:#9aa8c3;
+      --border:rgba(255,255,255,.10);
+      --accent:#7cc4ff;
+      --accent2:#8bffda;
+      --shadow:0 20px 60px rgba(0,0,0,.35);
+      --radius:18px;
+      --max:1100px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(900px 500px at 20% -10%, rgba(124,196,255,.18), transparent 60%),
+        radial-gradient(700px 500px at 100% 0%, rgba(139,255,218,.10), transparent 50%),
+        var(--bg);
+    }
+
+    a{color:inherit;text-decoration:none}
+
+    .wrap{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:32px 20px 64px;
+    }
+
+    .topbar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+      margin-bottom:28px;
+    }
+
+    .back-link{
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    .hero{
+      padding:28px 0 22px;
+    }
+
+    .hero h1{
+      margin:0 0 12px;
+      font-size:clamp(2rem, 4vw, 3.4rem);
+      line-height:1.05;
+    }
+
+    .hero p{
+      margin:0;
+      max-width:760px;
+      color:var(--muted);
+      font-size:1.05rem;
+      line-height:1.65;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:20px;
+      margin-top:30px;
+    }
+
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      padding:22px;
+      box-shadow:var(--shadow);
+    }
+
+    .card h2{
+      margin:0 0 10px;
+      font-size:1.35rem;
+    }
+
+    .card p{
+      margin:0 0 18px;
+      color:var(--muted);
+      line-height:1.6;
+    }
+
+    .tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-bottom:18px;
+    }
+
+    .tag{
+      padding:7px 10px;
+      border-radius:999px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+      font-size:.85rem;
+      color:#dbe7ff;
+    }
+
+    .actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:42px;
+      padding:0 14px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.03);
+    }
+
+    .btn.primary{
+      background:linear-gradient(135deg, var(--accent), var(--accent2));
+      color:#08111f;
+      border:none;
+      font-weight:700;
+    }
+
+    .footer{
+      margin-top:42px;
+      color:var(--muted);
+      font-size:.95rem;
+      border-top:1px solid var(--border);
+      padding-top:20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <a class="back-link" href="/">← Takaisin portfolioon</a>
+    </div>
+
+    <section class="hero">
+      <h1>Janstech Apps</h1>
+      <p>
+        Android-sovelluksia, joissa yhdistyvät käytännöllinen hyöty, moderni UI,
+        AI-ominaisuudet, offline-first-ajattelu ja tuotantotasoinen backend-arkkitehtuuri.
+      </p>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h2>🛒 Kauppalista &amp; Muistiinpanot</h2>
+        <p>
+          Ostoslistat, muistiinpanot, reseptit, AI-ateriaehdotukset,
+          viikkoruokalistat ja aineskannaus samassa sovelluksessa.
+        </p>
+        <div class="tags">
+          <span class="tag">Offline-first</span>
+          <span class="tag">AI recipes</span>
+          <span class="tag">Ingredient scan</span>
+          <span class="tag">Privacy-first</span>
+        </div>
+        <div class="actions">
+          <a class="btn primary" href="https://play.google.com/store/apps/details?id=com.janstech.kauppalista" target="_blank" rel="noopener noreferrer">Google Play</a>
+          <a class="btn" href="/kauppalista-privacy-policy/">Privacy</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <h2>🌊 WaveIQ Radio</h2>
+        <p>
+          AI-avusteinen radio discovery -sovellus, jossa on suositukset,
+          Station DNA, Similar Stations ja selitykset miksi asema sopii sinulle.
+        </p>
+        <div class="tags">
+          <span class="tag">AI discovery</span>
+          <span class="tag">Station DNA</span>
+          <span class="tag">Smart recommendations</span>
+          <span class="tag">Drive backup</span>
+        </div>
+        <div class="actions">
+          <a class="btn primary" href="https://play.google.com/store/apps/details?id=com.janstech.radioplayer" target="_blank" rel="noopener noreferrer">Google Play</a>
+          <a class="btn" href="/waveiq-radio-privacy-policy/">Privacy</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <h2>🏋️ GainsAI</h2>
+        <p>
+          AI Personal Trainer -alusta adaptiivisilla treeneillä,
+          workout-loggauksella, progress-analytiikalla ja coaching-loopilla.
+        </p>
+        <div class="tags">
+          <span class="tag">AI trainer</span>
+          <span class="tag">Workout logging</span>
+          <span class="tag">Progress analytics</span>
+          <span class="tag">Coming soon</span>
+        </div>
+        <div class="actions">
+          <a class="btn" href="#">Tulossa</a>
+        </div>
+      </article>
+    </section>
+
+    <footer class="footer">
+      © 2026 Janstech
+    </footer>
+  </div>
+</body>
+</html>
