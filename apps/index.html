@@ -243,11 +243,23 @@
       gap:10px;
     }
 
-    .app-emoji{
+    .app-logo{
       flex:0 0 auto;
-      font-size:1.1em;
-      line-height:1.1;
-      transform:translateY(2px);
+      width:56px;
+      height:56px;
+      object-fit:contain;
+      border-radius:14px;
+      display:block;
+      background:rgba(255,255,255,.04);
+      padding:4px;
+    }
+    
+    @media (max-width: 640px){
+      .app-logo{
+        width:48px;
+        height:48px;
+        border-radius:12px;
+      }
     }
 
     .app-card p{
@@ -518,7 +530,7 @@
       <div class="apps-grid">
         <article class="app-card">
           <h4>
-            <span class="app-emoji">🛒</span>
+            <img class="app-logo" src="images/AI.png" alt="Shopping List & Notes logo">
             <span data-i18n="shopping_title">Shopping List &amp; Notes</span>
           </h4>
           <p data-i18n="shopping_desc">
@@ -541,7 +553,7 @@
 
         <article class="app-card">
           <h4>
-            <span class="app-emoji">🌊</span>
+            <img class="app-logo" src="images/iq_kuv1.png" alt="WaveIQ Radio logo">
             <span data-i18n="waveiq_title">WaveIQ Radio</span>
           </h4>
           <p data-i18n="waveiq_desc">
@@ -564,7 +576,7 @@
 
         <article class="app-card">
           <h4>
-            <span class="app-emoji">🏋️</span>
+            <img class="app-logo" src="images/GainsAI.png" alt="GainsAI logo">
             <span data-i18n="gainsai_title">GainsAI</span>
           </h4>
           <p data-i18n="gainsai_desc">
