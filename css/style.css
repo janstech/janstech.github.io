@@ -319,6 +319,9 @@ body {
 .project-card {
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .project-card::before {
@@ -354,11 +357,12 @@ body {
 }
 
 .project-links {
-    margin-top: 0.9rem;
+    margin-top: auto;
     display: flex;
     gap: 0.8rem;
     font-size: 0.86rem;
     flex-wrap: wrap;
+    padding-top: 0.9rem;
 }
 
 .project-links a {
