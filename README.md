@@ -31,4 +31,4 @@ Tiedostot on organisoitu selkeisiin kokonaisuuksiin ylläpidettävyyden parantam
 
 ---
 
-© 2025 Jan Sarivuo
+© 2026 Jan Sarivuo
