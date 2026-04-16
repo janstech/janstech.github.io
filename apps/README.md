@@ -6,6 +6,7 @@ This site lists Janstech Android applications.
 - WaveIQ Radio
 - GainsAI
 
-  ***************************
+
+***************************
 
 **[Janstech Apps](https://janstech.github.io/apps/index.html)** 
