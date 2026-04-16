@@ -7,6 +7,6 @@ This site lists Janstech Android applications.
 - GainsAI
 
 
-***************************
+**
 
 **[Janstech Apps](https://janstech.github.io/apps/index.html)** 
