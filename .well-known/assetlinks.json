@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.janstech.kauppalista",
+      "sha256_cert_fingerprints": [
+        "A9:43:53:E0:3D:2F:6B:FC:5A:06:2F:23:EA:D6:17:7C:AC:EE:20:03:38:90:99:95:38:1F:D2:29:D2:E3:A1:81"
+      ]
+    }
+  }
+]
