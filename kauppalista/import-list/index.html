@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fi">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,11 +27,6 @@
       padding: 28px;
       box-shadow: 0 18px 45px rgba(31, 41, 55, 0.14);
       text-align: center;
-    }
-
-    .icon {
-      font-size: 52px;
-      margin-bottom: 12px;
     }
 
     .app-logo {
@@ -77,33 +72,138 @@
 </head>
 
 <body>
-<main class="card">
-  <img
-    class="app-logo"
-    src="./kauppalista-logo.png"
-    alt="Kauppalista & Muistiinpanot">
+  <main class="card">
+    <img
+      class="app-logo"
+      src="./kauppalista-logo.png"
+      alt="Kauppalista & Muistiinpanot">
 
+    <h1 id="title"></h1>
 
-    <h1>Avaa ostoslista Kauppalista-sovelluksessa</h1>
-
-    <p>
-      Tämä linkki sisältää jaetun ostoslistan. Jos Kauppalista & Muistiinpanot
-      on asennettu laitteellesi, avaa linkki sovelluksessa.
-    </p>
-
-    <p>
-      Jos sovellusta ei ole vielä asennettu, voit asentaa sen Google Playsta.
-    </p>
+    <p id="body1"></p>
+    <p id="body2"></p>
 
     <a
+      id="button"
       class="button"
       href="https://play.google.com/store/apps/details?id=com.janstech.kauppalista">
-      Avaa Google Playssa
     </a>
 
-    <span class="secondary">
-      Linkki ei lähetä tietoja palvelimelle. Ostoslistan tiedot ovat mukana itse linkissä.
-    </span>
+    <span id="secondary" class="secondary"></span>
   </main>
+
+  <script>
+    const texts = {
+      en: {
+        title: "Open the shopping list in Kauppalista",
+        body1: "This link contains a shared shopping list. If Shopping List & Notes is installed on your device, open the link in the app.",
+        body2: "If the app is not installed yet, you can install it from Google Play.",
+        button: "Open in Google Play",
+        secondary: "This link does not send data to a server. The shopping list data is included in the link itself."
+      },
+      fi: {
+        title: "Avaa ostoslista Kauppalista-sovelluksessa",
+        body1: "Tämä linkki sisältää jaetun ostoslistan. Jos Kauppalista & Muistiinpanot on asennettu laitteellesi, avaa linkki sovelluksessa.",
+        body2: "Jos sovellusta ei ole vielä asennettu, voit asentaa sen Google Playsta.",
+        button: "Avaa Google Playssa",
+        secondary: "Linkki ei lähetä tietoja palvelimelle. Ostoslistan tiedot ovat mukana itse linkissä."
+      },
+      sv: {
+        title: "Öppna inköpslistan i Kauppalista",
+        body1: "Den här länken innehåller en delad inköpslista. Om Shopping List & Notes är installerad på din enhet kan du öppna länken i appen.",
+        body2: "Om appen inte är installerad än kan du installera den från Google Play.",
+        button: "Öppna i Google Play",
+        secondary: "Den här länken skickar inte data till någon server. Inköpslistans data finns i själva länken."
+      },
+      da: {
+        title: "Åbn indkøbslisten i Kauppalista",
+        body1: "Dette link indeholder en delt indkøbsliste. Hvis Shopping List & Notes er installeret på din enhed, kan du åbne linket i appen.",
+        body2: "Hvis appen endnu ikke er installeret, kan du installere den fra Google Play.",
+        button: "Åbn i Google Play",
+        secondary: "Dette link sender ikke data til en server. Indkøbslistens data er inkluderet i selve linket."
+      },
+      de: {
+        title: "Einkaufsliste in Kauppalista öffnen",
+        body1: "Dieser Link enthält eine geteilte Einkaufsliste. Wenn Shopping List & Notes auf deinem Gerät installiert ist, öffne den Link in der App.",
+        body2: "Wenn die App noch nicht installiert ist, kannst du sie über Google Play installieren.",
+        button: "In Google Play öffnen",
+        secondary: "Dieser Link sendet keine Daten an einen Server. Die Einkaufsliste ist im Link selbst enthalten."
+      },
+      fr: {
+        title: "Ouvrir la liste de courses dans Kauppalista",
+        body1: "Ce lien contient une liste de courses partagée. Si Shopping List & Notes est installé sur votre appareil, ouvrez le lien dans l’application.",
+        body2: "Si l’application n’est pas encore installée, vous pouvez l’installer depuis Google Play.",
+        button: "Ouvrir dans Google Play",
+        secondary: "Ce lien n’envoie aucune donnée à un serveur. Les données de la liste sont incluses dans le lien lui-même."
+      },
+      es: {
+        title: "Abrir la lista de compras en Kauppalista",
+        body1: "Este enlace contiene una lista de compras compartida. Si Shopping List & Notes está instalada en tu dispositivo, abre el enlace en la app.",
+        body2: "Si la app aún no está instalada, puedes instalarla desde Google Play.",
+        button: "Abrir en Google Play",
+        secondary: "Este enlace no envía datos a un servidor. Los datos de la lista están incluidos en el propio enlace."
+      },
+      it: {
+        title: "Apri la lista della spesa in Kauppalista",
+        body1: "Questo link contiene una lista della spesa condivisa. Se Shopping List & Notes è installata sul dispositivo, apri il link nell’app.",
+        body2: "Se l’app non è ancora installata, puoi installarla da Google Play.",
+        button: "Apri in Google Play",
+        secondary: "Questo link non invia dati a un server. I dati della lista sono inclusi nel link stesso."
+      },
+      et: {
+        title: "Ava ostunimekiri Kauppalista rakenduses",
+        body1: "See link sisaldab jagatud ostunimekirja. Kui Shopping List & Notes on sinu seadmesse installitud, ava link rakenduses.",
+        body2: "Kui rakendus pole veel installitud, saad selle installida Google Playst.",
+        button: "Ava Google Plays",
+        secondary: "See link ei saada andmeid serverisse. Ostunimekirja andmed on lingi sees."
+      },
+      no: {
+        title: "Åpne handlelisten i Kauppalista",
+        body1: "Denne lenken inneholder en delt handleliste. Hvis Shopping List & Notes er installert på enheten din, kan du åpne lenken i appen.",
+        body2: "Hvis appen ikke er installert ennå, kan du installere den fra Google Play.",
+        button: "Åpne i Google Play",
+        secondary: "Denne lenken sender ikke data til en server. Handlelistedataene ligger i selve lenken."
+      },
+      hu: {
+        title: "Bevásárlólista megnyitása a Kauppalista alkalmazásban",
+        body1: "Ez a link egy megosztott bevásárlólistát tartalmaz. Ha a Shopping List & Notes telepítve van az eszközödön, nyisd meg a linket az alkalmazásban.",
+        body2: "Ha az alkalmazás még nincs telepítve, telepítheted a Google Playről.",
+        button: "Megnyitás a Google Playben",
+        secondary: "Ez a link nem küld adatokat szerverre. A bevásárlólista adatai magában a linkben vannak."
+      },
+      uk: {
+        title: "Відкрити список покупок у Kauppalista",
+        body1: "Це посилання містить спільний список покупок. Якщо Shopping List & Notes встановлено на вашому пристрої, відкрийте посилання в застосунку.",
+        body2: "Якщо застосунок ще не встановлено, ви можете встановити його з Google Play.",
+        button: "Відкрити в Google Play",
+        secondary: "Це посилання не надсилає дані на сервер. Дані списку покупок містяться в самому посиланні."
+      },
+      ja: {
+        title: "Kauppalistaで買い物リストを開く",
+        body1: "このリンクには共有された買い物リストが含まれています。Shopping List & Notes が端末にインストールされている場合は、アプリでリンクを開いてください。",
+        body2: "アプリがまだインストールされていない場合は、Google Play からインストールできます。",
+        button: "Google Playで開く",
+        secondary: "このリンクはサーバーにデータを送信しません。買い物リストのデータはリンク自体に含まれています。"
+      },
+      zh: {
+        title: "在 Kauppalista 中打开购物清单",
+        body1: "此链接包含一个共享的购物清单。如果你的设备已安装 Shopping List & Notes，请在应用中打开此链接。",
+        body2: "如果尚未安装该应用，你可以从 Google Play 安装。",
+        button: "在 Google Play 中打开",
+        secondary: "此链接不会将数据发送到服务器。购物清单数据包含在链接本身中。"
+      }
+    };
+
+    const rawLang = (navigator.language || "en").toLowerCase();
+    const lang = rawLang.split("-")[0];
+    const t = texts[lang] || texts.en;
+
+    document.documentElement.lang = texts[lang] ? lang : "en";
+    document.getElementById("title").textContent = t.title;
+    document.getElementById("body1").textContent = t.body1;
+    document.getElementById("body2").textContent = t.body2;
+    document.getElementById("button").textContent = t.button;
+    document.getElementById("secondary").textContent = t.secondary;
+  </script>
 </body>
 </html>
