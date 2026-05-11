@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="fi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kauppalista & Muistiinpanot – Shared list</title>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 0; padding: 32px; line-height: 1.5; }
+    main { max-width: 680px; margin: 0 auto; }
+    h1 { font-size: 1.8rem; }
+    .card { border: 1px solid #ddd; border-radius: 16px; padding: 24px; }
+    .small { color: #666; font-size: 0.95rem; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="card" id="content"></div>
+  </main>
+
+  <script>
+    const lang = (navigator.language || "en").toLowerCase().slice(0, 2);
+
+    const t = {
+      fi: {
+        title: "Avaa jaettu lista",
+        body: "Tämä kutsulinkki avaa jaetun ostoslistan tai tehtävälistan Kauppalista & Muistiinpanot -sovelluksessa.",
+        help: "Jos sovellus ei avautunut automaattisesti, varmista että sovellus on asennettu ja avaa linkki uudelleen."
+      },
+      en: {
+        title: "Open shared list",
+        body: "This invitation link opens a shared shopping list or task list in the Shopping List & Notes app.",
+        help: "If the app did not open automatically, make sure the app is installed and open the link again."
+      },
+      sv: { title: "Öppna delad lista", body: "Den här inbjudningslänken öppnar en delad inköpslista eller uppgiftslista i appen.", help: "Om appen inte öppnades automatiskt, kontrollera att appen är installerad och öppna länken igen." },
+      de: { title: "Geteilte Liste öffnen", body: "Dieser Einladungslink öffnet eine geteilte Einkaufs- oder Aufgabenliste in der App.", help: "Wenn die App nicht automatisch geöffnet wurde, stellen Sie sicher, dass sie installiert ist, und öffnen Sie den Link erneut." },
+      es: { title: "Abrir lista compartida", body: "Este enlace de invitación abre una lista de compras o tareas compartida en la aplicación.", help: "Si la aplicación no se abrió automáticamente, asegúrate de que esté instalada y abre el enlace de nuevo." },
+      fr: { title: "Ouvrir la liste partagée", body: "Ce lien d’invitation ouvre une liste de courses ou de tâches partagée dans l’application.", help: "Si l’application ne s’est pas ouverte automatiquement, vérifiez qu’elle est installée puis rouvrez le lien." },
+      it: { title: "Apri lista condivisa", body: "Questo link di invito apre una lista della spesa o delle attività condivisa nell’app.", help: "Se l’app non si è aperta automaticamente, assicurati che sia installata e riapri il link." },
+      ja: { title: "共有リストを開く", body: "この招待リンクは、アプリ内の共有買い物リストまたはタスクリストを開きます。", help: "アプリが自動的に開かない場合は、アプリがインストールされていることを確認して、もう一度リンクを開いてください。" },
+      no: { title: "Åpne delt liste", body: "Denne invitasjonslenken åpner en delt handleliste eller oppgaveliste i appen.", help: "Hvis appen ikke åpnet automatisk, kontroller at appen er installert og åpne lenken igjen." },
+      da: { title: "Åbn delt liste", body: "Dette invitationslink åbner en delt indkøbs- eller opgaveliste i appen.", help: "Hvis appen ikke åbnede automatisk, skal du sikre dig, at appen er installeret, og åbne linket igen." },
+      hu: { title: "Megosztott lista megnyitása", body: "Ez a meghívólink egy megosztott bevásárlólistát vagy feladatlistát nyit meg az alkalmazásban.", help: "Ha az alkalmazás nem nyílt meg automatikusan, ellenőrizd, hogy telepítve van-e, majd nyisd meg újra a linket." },
+      et: { title: "Ava jagatud nimekiri", body: "See kutselink avab rakenduses jagatud ostu- või ülesannete nimekirja.", help: "Kui rakendus ei avanenud automaatselt, veendu, et see on installitud, ja ava link uuesti." },
+      uk: { title: "Відкрити спільний список", body: "Це запрошення відкриває спільний список покупок або завдань у застосунку.", help: "Якщо застосунок не відкрився автоматично, переконайтеся, що його встановлено, і відкрийте посилання ще раз." },
+      zh: { title: "打开共享列表", body: "此邀请链接会在应用中打开共享购物清单或任务列表。", help: "如果应用没有自动打开，请确认已安装应用，然后再次打开此链接。" }
+    };
+
+    const text = t[lang] || t.en;
+
+    document.getElementById("content").innerHTML = `
+      <h1>${text.title}</h1>
+      <p>${text.body}</p>
+      <p class="small">${text.help}</p>
+    `;
+  </script>
+</body>
+</html>
