@@ -52,6 +52,15 @@
       text-decoration: none;
     }
 
+    a.store-link {
+      display: inline-flex;
+      margin-top: 16px;
+      color: #126c55;
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
     .hint {
       margin-top: 18px;
       color: #5f6368;
@@ -69,6 +78,10 @@
         color: #102019;
       }
 
+      a.store-link {
+        color: #65c7a5;
+      }
+
       .hint {
         color: #c2c4bb;
       }
@@ -81,6 +94,8 @@
     <p id="description">This invite link opens a shared shopping list or task list in the Kauppalista & Muistiinpanot app.</p>
     <p id="instructions">If the app does not open automatically, make sure it is installed and open the link again.</p>
     <a class="button" id="openApp" href="#">Open in app</a>
+    <br>
+    <a class="store-link" id="googlePlay" href="https://play.google.com/store/apps/details?id=com.janstech.kauppalista">Get it on Google Play</a>
     <p class="hint" id="hint">The listId and invite parameters are kept in the link.</p>
   </main>
 
@@ -91,6 +106,7 @@
         description: "Tämä kutsulinkki avaa jaetun ostoslistan tai tehtävälistan Kauppalista & Muistiinpanot -sovelluksessa.",
         instructions: "Jos sovellus ei avaudu automaattisesti, varmista että sovellus on asennettu ja avaa linkki uudelleen.",
         button: "Avaa sovelluksessa",
+        store: "Lataa Google Playsta",
         hint: "Linkin listId- ja invite-parametrit säilyvät avausta varten."
       },
       en: {
@@ -98,6 +114,7 @@
         description: "This invite link opens a shared shopping list or task list in the Kauppalista & Muistiinpanot app.",
         instructions: "If the app does not open automatically, make sure it is installed and open the link again.",
         button: "Open in app",
+        store: "Get it on Google Play",
         hint: "The listId and invite parameters are kept in the link."
       },
       de: {
@@ -105,6 +122,7 @@
         description: "Dieser Einladungslink öffnet eine geteilte Einkaufsliste oder Aufgabenliste in der Kauppalista & Muistiinpanot App.",
         instructions: "Wenn sich die App nicht automatisch öffnet, stelle sicher, dass sie installiert ist, und öffne den Link erneut.",
         button: "In App öffnen",
+        store: "Bei Google Play herunterladen",
         hint: "Die Parameter listId und invite bleiben im Link erhalten."
       },
       es: {
@@ -112,6 +130,7 @@
         description: "Este enlace de invitación abre una lista de compras o de tareas compartida en la app Kauppalista & Muistiinpanot.",
         instructions: "Si la app no se abre automáticamente, comprueba que esté instalada y vuelve a abrir el enlace.",
         button: "Abrir en la app",
+        store: "Descargar en Google Play",
         hint: "Los parámetros listId e invite se conservan en el enlace."
       },
       fr: {
@@ -119,6 +138,7 @@
         description: "Ce lien d'invitation ouvre une liste de courses ou une liste de tâches partagée dans l'application Kauppalista & Muistiinpanot.",
         instructions: "Si l'application ne s'ouvre pas automatiquement, vérifiez qu'elle est installée puis ouvrez de nouveau le lien.",
         button: "Ouvrir dans l'app",
+        store: "Télécharger sur Google Play",
         hint: "Les paramètres listId et invite restent dans le lien."
       },
       it: {
@@ -126,6 +146,7 @@
         description: "Questo link di invito apre una lista della spesa o una lista di attività condivisa nell'app Kauppalista & Muistiinpanot.",
         instructions: "Se l'app non si apre automaticamente, verifica che sia installata e apri di nuovo il link.",
         button: "Apri nell'app",
+        store: "Scarica da Google Play",
         hint: "I parametri listId e invite restano nel link."
       },
       ja: {
@@ -133,6 +154,7 @@
         description: "この招待リンクは、Kauppalista & Muistiinpanot アプリで共有された買い物リストまたはタスクリストを開きます。",
         instructions: "アプリが自動的に開かない場合は、アプリがインストールされていることを確認してから、もう一度リンクを開いてください。",
         button: "アプリで開く",
+        store: "Google Play で入手",
         hint: "listId と invite パラメータはリンク内に保持されます。"
       },
       sv: {
@@ -140,6 +162,7 @@
         description: "Den här inbjudningslänken öppnar en delad inköpslista eller uppgiftslista i appen Kauppalista & Muistiinpanot.",
         instructions: "Om appen inte öppnas automatiskt, kontrollera att den är installerad och öppna länken igen.",
         button: "Öppna i appen",
+        store: "Ladda ned från Google Play",
         hint: "Parametrarna listId och invite bevaras i länken."
       },
       no: {
@@ -147,6 +170,7 @@
         description: "Denne invitasjonslenken åpner en delt handleliste eller oppgaveliste i Kauppalista & Muistiinpanot-appen.",
         instructions: "Hvis appen ikke åpnes automatisk, kontroller at den er installert og åpne lenken på nytt.",
         button: "Åpne i appen",
+        store: "Last ned fra Google Play",
         hint: "Parameterne listId og invite beholdes i lenken."
       },
       da: {
@@ -154,6 +178,7 @@
         description: "Dette invitationslink åbner en delt indkøbsliste eller opgaveliste i appen Kauppalista & Muistiinpanot.",
         instructions: "Hvis appen ikke åbner automatisk, skal du sikre dig, at den er installeret, og åbne linket igen.",
         button: "Åbn i appen",
+        store: "Hent i Google Play",
         hint: "Parametrene listId og invite bevares i linket."
       },
       hu: {
@@ -161,6 +186,7 @@
         description: "Ez a meghívólink egy megosztott bevásárlólistát vagy feladatlistát nyit meg a Kauppalista & Muistiinpanot alkalmazásban.",
         instructions: "Ha az alkalmazás nem nyílik meg automatikusan, ellenőrizd, hogy telepítve van-e, majd nyisd meg újra a linket.",
         button: "Megnyitás az appban",
+        store: "Letöltés a Google Playről",
         hint: "A listId és invite paraméterek megmaradnak a linkben."
       },
       et: {
@@ -168,6 +194,7 @@
         description: "See kutselink avab jagatud ostuloendi või ülesannete loendi rakenduses Kauppalista & Muistiinpanot.",
         instructions: "Kui rakendus ei avane automaatselt, veendu, et see on installitud, ja ava link uuesti.",
         button: "Ava rakenduses",
+        store: "Laadi alla Google Playst",
         hint: "Parameetrid listId ja invite säilivad lingis."
       },
       uk: {
@@ -175,6 +202,7 @@
         description: "Це посилання-запрошення відкриває спільний список покупок або список завдань у застосунку Kauppalista & Muistiinpanot.",
         instructions: "Якщо застосунок не відкривається автоматично, переконайтеся, що його встановлено, і відкрийте посилання ще раз.",
         button: "Відкрити в застосунку",
+        store: "Завантажити з Google Play",
         hint: "Параметри listId та invite зберігаються в посиланні."
       },
       zh: {
@@ -182,6 +210,7 @@
         description: "此邀请链接会在 Kauppalista & Muistiinpanot 应用中打开共享购物清单或任务清单。",
         instructions: "如果应用没有自动打开，请确认已安装该应用，然后再次打开此链接。",
         button: "在应用中打开",
+        store: "在 Google Play 下载",
         hint: "链接会保留 listId 和 invite 参数。"
       }
     };
@@ -207,6 +236,7 @@
     document.getElementById("description").textContent = strings.description;
     document.getElementById("instructions").textContent = strings.instructions;
     document.getElementById("openApp").textContent = strings.button;
+    document.getElementById("googlePlay").textContent = strings.store;
     document.getElementById("hint").textContent = strings.hint;
 
     const currentUrl = new URL(window.location.href);
