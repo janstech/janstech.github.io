@@ -177,6 +177,17 @@ const dev = {
                 </div>
 
                 <div class="card">
+                    <h3 data-i18n="skills_devops_title">Palvelinympäristöt &amp; DevOps</h3>
+                    <ul>
+                        <li data-i18n="skills_devops_1">Hetzner- ja Radicenter-palvelinympäristöissä toimiminen</li>
+                        <li data-i18n="skills_devops_2">Linux-palvelimet, SSH, systemd-palvelut ja palvelinlokien tulkinta</li>
+                        <li data-i18n="skills_devops_3">Nginx / Apache, domainit, HTTPS ja reverse proxy -ratkaisut</li>
+                        <li data-i18n="skills_devops_4">FastAPI-backendien julkaisu, migraatiot ja palveluiden uudelleenkäynnistykset</li>
+                        <li data-i18n="skills_devops_5">Restic + rclone -varmuuskopiot, Google Drive -offsite ja testipalautukset</li>
+                    </ul>
+                </div>
+
+                <div class="card">
                     <h3 data-i18n="skills_integ_title">Integraatiot &amp; muut</h3>
                     <ul>
                         <li data-i18n="skills_integ_1">Integraatiot tukkujen rajapintoihin (Aurdel, Also)</li>
@@ -389,6 +400,26 @@ const dev = {
                         <li data-i18n="proj_mysql_3">MySQL:n ajo recovery-tilassa ja onnistunut full dump</li>
                         <li data-i18n="proj_mysql_4">Full dumpit ja erillisdumpit suurista tauluista</li>
                         <li data-i18n="proj_mysql_5">Testipalautukset erilliselle kassa_test-tietokannalle</li>
+                    </ul>
+                </article>
+
+                <article class="card project-card">
+                    <h3 data-i18n="proj_infra_title">Palvelininfrastruktuuri ja varmuuskopiointi</h3>
+                    <p class="project-meta" data-i18n="proj_infra_meta">
+                        Linux · Hetzner · Radicenter · systemd · MariaDB · Nginx / Apache · restic · rclone · Google Drive offsite
+                    </p>
+                    <p data-i18n="proj_infra_desc">
+                        Rakensin ja ylläpidin palvelinympäristöjä, joissa ajetaan tuotantokäytössä olevia
+                        verkkopalveluita, API-palveluita ja tietokantoja. Toteutin myös salatun
+                        varmuuskopiointiratkaisun, jossa tietokannat ja keskeiset palvelinpolut
+                        varmistetaan paikallisesti ja offsite-kopiona Google Driveen.
+                    </p>
+                    <ul class="project-points">
+                        <li data-i18n="proj_infra_1">Linux-palvelimien ylläpito SSH-yhteydellä ja systemd-palveluiden hallinta</li>
+                        <li data-i18n="proj_infra_2">FastAPI-backendien julkaisu, health checkit ja lokien tulkinta</li>
+                        <li data-i18n="proj_infra_3">MariaDB/MySQL-tietokantojen dumpit, palautukset ja varmistukset</li>
+                        <li data-i18n="proj_infra_4">Salattu restic-varmuuskopiointi sekä paikalliseen että Google Drive -offsite-repoon</li>
+                        <li data-i18n="proj_infra_5">Automaattinen ajastus systemd timerillä ja retention-politiikka snapshot-historialle</li>
                     </ul>
                 </article>
 
@@ -630,7 +661,7 @@ const dict = {
 
         hero_label: "Hei, olen",
         hero_subtitle: "Junior Full Stack- ja Android-kehittäjä",
-        hero_text: "Toimin työssäoppimisjaksolla full stack -kehittäjänä, jossa suunnittelin ja toteutin alusta loppuun useita järjestelmiä, jotka otettiin käyttöön tuotantoympäristössä. Vastasin koko kehitysketjusta: käyttöliittymästä, rajapinnoista, tietokannoista, integraatioista sekä palvelinylläpidosta. Järjestelmien käytettävyydestä saatiin hyvää palautetta, ja ne ovat aktiivisessa käytössä yrityksen arjessa. Haluan jatkaa kehittymistäni junior-kehittäjän roolissa ja tuottaa ratkaisuja, joilla on todellista käytännön arvoa.",
+        hero_text: "Toimin työssäoppimisjaksolla full stack -kehittäjänä, jossa suunnittelin ja toteutin alusta loppuun useita järjestelmiä, jotka otettiin käyttöön tuotantoympäristössä. Vastasin koko kehitysketjusta: käyttöliittymästä, rajapinnoista, tietokannoista, integraatioista sekä palvelinylläpidosta. Olen saanut käytännön kokemusta myös Linux-palvelimista, deploy-prosesseista, varmuuskopioinnista, lokien tulkinnasta ja palvelinympäristöjen vianetsinnästä. Haluan jatkaa kehittymistäni junior-kehittäjän roolissa ja tuottaa ratkaisuja, joilla on todellista käytännön arvoa.",
         hero_cta_projects: "Katso projektit",
         hero_cta_contact: "Ota yhteyttä",
 
@@ -652,6 +683,13 @@ const dict = {
         skills_db_3: "Korruptoituneiden taulujen korjaus ja recovery-tilat",
         skills_db_4: "Linux-palvelimet, Apache, virhelokit",
         skills_db_5: "Varmuuskopiointi ja testipalautukset",
+
+        skills_devops_title: "Palvelinympäristöt & DevOps",
+        skills_devops_1: "Hetzner- ja Radicenter-palvelinympäristöissä toimiminen",
+        skills_devops_2: "Linux-palvelimet, SSH, systemd-palvelut ja palvelinlokien tulkinta",
+        skills_devops_3: "Nginx / Apache, domainit, HTTPS ja reverse proxy -ratkaisut",
+        skills_devops_4: "FastAPI-backendien julkaisu, migraatiot ja palveluiden uudelleenkäynnistykset",
+        skills_devops_5: "Restic + rclone -varmuuskopiot, Google Drive -offsite ja testipalautukset",
 
         skills_integ_title: "Integraatiot & muut",
         skills_integ_1: "Integraatiot tukkujen rajapintoihin (Aurdel, Also)",
@@ -737,6 +775,15 @@ const dict = {
         proj_mysql_4: "Full dumpit ja erillisdumpit suurista tauluista",
         proj_mysql_5: "Testipalautukset erilliselle kassa_test-tietokannalle",
 
+        proj_infra_title: "Palvelininfrastruktuuri ja varmuuskopiointi",
+        proj_infra_meta: "Linux · Hetzner · Radicenter · systemd · MariaDB · Nginx / Apache · restic · rclone · Google Drive offsite",
+        proj_infra_desc: "Rakensin ja ylläpidin palvelinympäristöjä, joissa ajetaan tuotantokäytössä olevia verkkopalveluita, API-palveluita ja tietokantoja. Toteutin myös salatun varmuuskopiointiratkaisun, jossa tietokannat ja keskeiset palvelinpolut varmistetaan paikallisesti ja offsite-kopiona Google Driveen.",
+        proj_infra_1: "Linux-palvelimien ylläpito SSH-yhteydellä ja systemd-palveluiden hallinta",
+        proj_infra_2: "FastAPI-backendien julkaisu, health checkit ja lokien tulkinta",
+        proj_infra_3: "MariaDB/MySQL-tietokantojen dumpit, palautukset ja varmistukset",
+        proj_infra_4: "Salattu restic-varmuuskopiointi sekä paikalliseen että Google Drive -offsite-repoon",
+        proj_infra_5: "Automaattinen ajastus systemd timerillä ja retention-politiikka snapshot-historialle",
+
         proj_it_title: "IT-laitteiden huolto ja optimointi",
         proj_it_meta: "Laitteistot · käyttöjärjestelmät · vianmääritys",
         proj_it_desc: "Ohjelmistokehityksen ohella osallistuin IT-laitteiden huoltoon ja käyttökuntoon saattamiseen asiakkaille.",
@@ -815,7 +862,7 @@ const dev = {
 
         hero_label: "Hi, I'm",
         hero_subtitle: "Junior Full Stack and Android Developer",
-        hero_text: "During my on-the-job learning period, I worked as a full stack developer and designed and implemented multiple systems from start to finish for production use. I was responsible for the full delivery chain: user interface, APIs, databases, integrations, and server maintenance. The systems received positive feedback for usability and are actively used in everyday business operations. I want to continue growing in a junior developer role and build solutions that have real practical value.",
+        hero_text: "During my on-the-job learning period, I worked as a full stack developer and designed and implemented multiple systems from start to finish for production use. I was responsible for the full delivery chain: user interface, APIs, databases, integrations, and server maintenance. I also gained hands-on experience with Linux servers, deployment processes, backups, log analysis, and troubleshooting server environments. I want to continue growing in a junior developer role and build solutions that have real practical value.",
         hero_cta_projects: "View projects",
         hero_cta_contact: "Contact me",
 
@@ -837,6 +884,13 @@ const dev = {
         skills_db_3: "Corrupted table fixes and recovery modes",
         skills_db_4: "Linux servers, Apache, error logs",
         skills_db_5: "Backups and test restores",
+
+        skills_devops_title: "Server Environments & DevOps",
+        skills_devops_1: "Hands-on experience with Hetzner and Radicenter server environments",
+        skills_devops_2: "Linux servers, SSH, systemd services, and server log analysis",
+        skills_devops_3: "Nginx / Apache, domains, HTTPS, and reverse proxy setups",
+        skills_devops_4: "Deploying FastAPI backends, migrations, and service restarts",
+        skills_devops_5: "Restic + rclone backups, Google Drive offsite storage, and test restores",
 
         skills_integ_title: "Integrations & Other",
         skills_integ_1: "Wholesaler API integrations (Aurdel, Also)",
@@ -920,6 +974,15 @@ const dev = {
         proj_mysql_3: "Ran MySQL in recovery mode and completed a full dump successfully",
         proj_mysql_4: "Created full dumps and separate dumps for large tables",
         proj_mysql_5: "Performed test restores to a separate kassa_test database",
+
+        proj_infra_title: "Server Infrastructure and Backups",
+        proj_infra_meta: "Linux · Hetzner · Radicenter · systemd · MariaDB · Nginx / Apache · restic · rclone · Google Drive offsite",
+        proj_infra_desc: "I built and maintained server environments running production web services, API services, and databases. I also implemented an encrypted backup solution where databases and key server paths are backed up locally and to an offsite Google Drive repository.",
+        proj_infra_1: "Linux server maintenance over SSH and systemd service management",
+        proj_infra_2: "FastAPI backend deployments, health checks, and log analysis",
+        proj_infra_3: "MariaDB/MySQL database dumps, restores, and backup verification",
+        proj_infra_4: "Encrypted restic backups to both local and Google Drive offsite repositories",
+        proj_infra_5: "Automated scheduling with systemd timers and retention policy for snapshot history",
 
         
         proj_it_title: "IT Hardware Maintenance and Optimization",
