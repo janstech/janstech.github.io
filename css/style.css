@@ -18,9 +18,14 @@
     --card-bg: #0f172a;
     --border: #1f2937;
     --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    --font-mono: "Fira Code", "SF Mono", ui-monospace, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    /* Vain toimitettavissa olevia fontteja: "Fira Code" oli listattu, mutta sitä ei
+       ladata mistään, joten renderöinti vaihteli koneittain. */
+    --font-mono: ui-monospace, "Cascadia Code", "Cascadia Mono", "SFMono-Regular", "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
     --radius-lg: 14px;
     --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.65);
+    /* Sticky headerin korkeus + väljyys, jotta ankkuriotsikot eivät jää sen alle.
+       Arvo päivitetään headerin todellisen korkeuden mukaan media queryissä. */
+    --anchor-offset: 82px;
 }
 
 /* Yleinen ulkoasu */
@@ -34,6 +39,45 @@ body {
     color: var(--fg);
     font-family: var(--font-main);
     line-height: 1.6;
+}
+
+/* Ankkurinavigaatio: sticky header ei saa peittää kohdeotsikkoa. */
+[id] {
+    scroll-margin-top: var(--anchor-offset);
+}
+
+/* Saavutettavuus: näkyvä focus-tila kaikille interaktiivisille elementeille.
+   Selaimen oletusrengas on tummalla taustalla heikosti erottuva. */
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+}
+
+/* Ohita navigaatio -linkki. Piilotetaan siirtämällä pois näkyvistä, ei
+   display/visibility-arvoilla, jotta se pysyy näppäimistön tavoitettavissa. */
+.skip-link {
+    position: fixed;
+    top: -100px;
+    left: 1rem;
+    z-index: 100;
+    padding: 0.7rem 1.2rem;
+    background: var(--accent);
+    color: #04101a;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    text-decoration: none;
+    border-radius: 0 0 10px 10px;
+    box-shadow: var(--shadow-soft);
+    transition: top 0.15s ease-out;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+main:focus {
+    outline: none;
 }
 
 /* Layout */
@@ -73,14 +117,20 @@ body {
     position: sticky;
     top: 0;
     z-index: 20;
-    backdrop-filter: blur(14px);
-    background: linear-gradient(
-        to bottom,
-        rgba(5, 8, 22, 0.9),
-        rgba(5, 8, 22, 0.7),
-        transparent
-    );
+    /* Perustaso ilman backdrop-filteriä: lähes läpinäkymätön, jotta vieritettävä
+       sisältö ei kuulla headerin läpi. */
+    background: rgba(5, 8, 22, 0.96);
     border-bottom: 1px solid rgba(31, 41, 55, 0.7);
+}
+
+/* Kun backdrop-filter on tuettu, kevennetään taustaa hieman ja säilytetään
+   nykyinen lasimainen yleisilme. Sisältö pysyy silti peitettynä. */
+@supports ((backdrop-filter: blur(14px)) or (-webkit-backdrop-filter: blur(14px))) {
+    .site-header {
+        background: rgba(5, 8, 22, 0.82);
+        -webkit-backdrop-filter: blur(14px) saturate(120%);
+        backdrop-filter: blur(14px) saturate(120%);
+    }
 }
 
 .header-inner {
@@ -511,6 +561,11 @@ body {
 /* Responsiivisuus */
 
 @media (max-width: 900px) {
+    /* Header kasvaa 66px -> 104px, kun kielivalitsin siirtyy omalle rivilleen. */
+    :root {
+        --anchor-offset: 120px;
+    }
+
     .header-inner {
         align-items: flex-start;
     }
@@ -542,6 +597,12 @@ body {
 }
 
 @media (max-width: 640px) {
+    /* Header on pystysuuntainen ja navigaatio rivittyy: 139px (390px) ...
+       177px (360px). Arvo mitoitetaan kapeimman tapauksen mukaan. */
+    :root {
+        --anchor-offset: 193px;
+    }
+
     .header-inner {
         flex-direction: column;
         align-items: flex-start;
@@ -565,5 +626,17 @@ body {
     .btn-primary,
     .btn-ghost {
         width: 100%;
+    }
+}
+
+/* Liikkeen vähentäminen: koskee tässä vaiheessa ankkurivieritystä ja
+   skip-linkin siirtymää, jotka lisättiin yllä. */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .skip-link {
+        transition: none;
     }
 }

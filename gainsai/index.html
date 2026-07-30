@@ -27,7 +27,6 @@
     <meta name="twitter:image" content="https://janstech.github.io/images/gainsai-logo.png">
 
     <link rel="stylesheet" href="../css/style.css" />
-    <link rel="icon" type="image/png" href="../images/favicon.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="48x48" href="../images/favicon-48x48.png">
@@ -83,13 +82,7 @@
             }
         }
 
-        /* Näkyvä focus-tila näppäimistökäyttöä varten */
-        a:focus-visible,
-        button:focus-visible {
-            outline: 2px solid var(--accent);
-            outline-offset: 3px;
-            border-radius: 4px;
-        }
+        /* Focus-tilat tulevat jaetusta css/style.css:stä. */
 
         /* Sovelluksen hero */
         .app-hero-head {
@@ -210,6 +203,8 @@
 </head>
 
 <body>
+<a class="skip-link" href="#main" data-i18n="skip_link">Siirry pääsisältöön</a>
+
 <header class="site-header">
     <div class="container header-inner">
         <div class="logo"><a href="../index.html" style="color:inherit;text-decoration:none;">janstech.github.io</a></div>
@@ -230,7 +225,7 @@
     </div>
 </header>
 
-<main>
+<main id="main" tabindex="-1">
     <section class="hero" id="top">
         <div class="container hero-inner">
             <div>
@@ -627,6 +622,7 @@ const stack = {
 const dict = {
     fi: {
         page_title: "GainsAI – Android-sovellus | Jan Sarivuo",
+        skip_link: "Siirry pääsisältöön",
         nav_aria: "Sovellussivun navigaatio",
         nav_back: "&larr; Portfolio",
         nav_overview: "Yleiskuva",
@@ -773,6 +769,7 @@ const stack = {
 
     en: {
         page_title: "GainsAI – Android App | Jan Sarivuo",
+        skip_link: "Skip to main content",
         nav_aria: "App page navigation",
         nav_back: "&larr; Portfolio",
         nav_overview: "Overview",

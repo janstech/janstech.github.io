@@ -3,13 +3,27 @@
 <head>
     <meta charset="UTF-8" />
     <title>Jan Sarivuo – Portfolio</title>
-    <link rel="prefetch" href="documents/jan_sarivuo_cv.pdf">
-    <link rel="prefetch" href="documents/Tuotehaku-arkkitehtuuri.pdf">
-    <link rel="prefetch" href="documents/icecat_arkkitehtuuri.pdf">
-    <link rel="prefetch" href="documents/Työssäoppimisjakso_portfolio_Jan_Sarivuo_11-25.pdf">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="description" content="Jan Sarivuo – ohjelmistokehittäjä. Android-sovelluksia Kotlinilla ja Jetpack Composella, FastAPI- ja MariaDB-backendejä, integraatioita sekä Linux-tuotantoympäristöjen ylläpitoa. Kolme sovellusta julkaistu Google Playssa.">
+    <meta name="robots" content="index,follow" />
+
+    <link rel="canonical" href="https://janstech.github.io/">
+
+    <meta property="og:title" content="Jan Sarivuo – Portfolio">
+    <meta property="og:description" content="Ohjelmistokehittäjä, joka rakentaa sovellukset kokonaisuutena: Android-käyttöliittymä, FastAPI-backend, tietokanta ja tuotantopalvelin. Kolme sovellusta julkaistu Google Playssa.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://janstech.github.io/">
+    <meta property="og:image" content="https://janstech.github.io/images/favicon.png">
+    <meta property="og:locale" content="fi_FI">
+    <meta property="og:locale:alternate" content="en_US">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Jan Sarivuo – Portfolio">
+    <meta name="twitter:description" content="Ohjelmistokehittäjä: Android, FastAPI-backendit, tietokannat ja Linux-tuotantoympäristöt. Kolme sovellusta julkaistu Google Playssa.">
+    <meta name="twitter:image" content="https://janstech.github.io/images/favicon.png">
+
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="icon" type="image/png" href="images/favicon.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="48x48" href="images/favicon-48x48.png">
@@ -68,10 +82,12 @@
 </head>
 
 <body>
+<a class="skip-link" href="#main" data-i18n="skip_link">Siirry pääsisältöön</a>
+
 <header class="site-header">
     <div class="container header-inner">
         <div class="logo">janstech.github.io</div>
-        <nav class="nav">
+        <nav class="nav" data-i18n-aria="nav_aria" aria-label="Sivuston päänavigaatio">
             <a href="#about" data-i18n="nav_about">Minusta</a>
             <a href="#skills" data-i18n="nav_skills">Osaaminen</a>
             <a href="#projects" data-i18n="nav_projects">Projektit</a>
@@ -87,7 +103,7 @@
     </div>
 </header>
 
-<main>
+<main id="main" tabindex="-1">
     <section class="hero" id="top">
         <div class="container hero-inner">
             <div>
@@ -275,13 +291,13 @@ const dev = {
 
                     <div class="project-images">
                     <a href="images/kl_1.jpeg" target="_blank">
-                        <img src="images/kl_1.jpeg" alt="Kauppalista & Muistiinpanot – näkymä 1" />
+                        <img src="images/kl_1.jpeg" width="1040" height="2048" loading="lazy" decoding="async" alt="Kauppalista & Muistiinpanot – näkymä 1" />
                     </a>
                     <a href="images/kl_2.jpeg" target="_blank">
-                        <img src="images/kl_2.jpeg" alt="Kauppalista & Muistiinpanot – näkymä 2" />
+                        <img src="images/kl_2.jpeg" width="1040" height="2048" loading="lazy" decoding="async" alt="Kauppalista & Muistiinpanot – näkymä 2" />
                     </a>
                     <a href="images/kl_3.jpeg" target="_blank">
-                        <img src="images/kl_3.jpeg" alt="Kauppalista & Muistiinpanot – näkymä 3" />
+                        <img src="images/kl_3.jpeg" width="1040" height="2048" loading="lazy" decoding="async" alt="Kauppalista & Muistiinpanot – näkymä 3" />
                     </a>
                 </div>
                 </article>
@@ -319,13 +335,13 @@ const dev = {
 
                     <div class="project-images">
                     <a href="images/iq_1.jpeg" target="_blank">
-                        <img src="images/iq_1.jpeg" alt="WaveIQ Radio – näkymä 1" />
+                        <img src="images/iq_1.jpeg" width="1040" height="2048" loading="lazy" decoding="async" alt="WaveIQ Radio – näkymä 1" />
                     </a>
                     <a href="images/iq_2.jpeg" target="_blank">
-                        <img src="images/iq_2.jpeg" alt="WaveIQ Radio – näkymä 2" />
+                        <img src="images/iq_2.jpeg" width="1040" height="2048" loading="lazy" decoding="async" alt="WaveIQ Radio – näkymä 2" />
                     </a>
                     <a href="images/iq_3.jpeg" target="_blank">
-                        <img src="images/iq_3.jpeg" alt="WaveIQ Radio – näkymä 3" />
+                        <img src="images/iq_3.jpeg" width="1040" height="2048" loading="lazy" decoding="async" alt="WaveIQ Radio – näkymä 3" />
                     </a>
                 </div>
                 </article>
@@ -513,19 +529,19 @@ const dev = {
 
                     <div class="project-images">
                         <a href="images/the-game-start_menu.png" target="_blank">
-                            <img src="images/the-game-start_menu.png" alt="The Game – aloitusvalikko" />
+                            <img src="images/the-game-start_menu.png" width="1550" height="869" loading="lazy" decoding="async" alt="The Game – aloitusvalikko" />
                         </a>
 
                         <a href="images/the-game-editor.png" target="_blank">
-                            <img src="images/the-game-editor.png" alt="The Game – Unity-editorin näkymä" />
+                            <img src="images/the-game-editor.png" width="1024" height="492" loading="lazy" decoding="async" alt="The Game – Unity-editorin näkymä" />
                         </a>
 
                         <a href="images/the-game-action.png" target="_blank">
-                            <img src="images/the-game-action.png" alt="The Game – pelitilanne vihollisten kanssa" />
+                            <img src="images/the-game-action.png" width="1024" height="574" loading="lazy" decoding="async" alt="The Game – pelitilanne vihollisten kanssa" />
                         </a>
 
                         <a href="images/the-game-restart.png" target="_blank">
-                            <img src="images/the-game-restart.png" alt="The Game – Restart-näkymä" />
+                            <img src="images/the-game-restart.png" width="1024" height="573" loading="lazy" decoding="async" alt="The Game – Restart-näkymä" />
                         </a>
                     </div>
 
@@ -704,6 +720,8 @@ const dev = {
 const dict = {
     fi: {
         page_title: "Jan Sarivuo – Portfolio",
+        skip_link: "Siirry pääsisältöön",
+        nav_aria: "Sivuston päänavigaatio",
         nav_about: "Minusta",
         nav_skills: "Osaaminen",
         nav_projects: "Projektit",
@@ -920,6 +938,8 @@ const dev = {
 
     en: {
         page_title: "Jan Sarivuo – Portfolio",
+        skip_link: "Skip to main content",
+        nav_aria: "Main site navigation",
         nav_about: "About",
         nav_skills: "Skills",
         nav_projects: "Projects",
@@ -1150,6 +1170,13 @@ function setLang(lang) {
         const key = el.getAttribute("data-i18n-alt");
         if (dict[lang] && dict[lang][key] != null) {
             el.setAttribute("alt", dict[lang][key]);
+        }
+    }
+
+    for (const el of document.querySelectorAll("[data-i18n-aria]")) {
+        const key = el.getAttribute("data-i18n-aria");
+        if (dict[lang] && dict[lang][key] != null) {
+            el.setAttribute("aria-label", dict[lang][key]);
         }
     }
 
