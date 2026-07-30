@@ -30,55 +30,6 @@
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
     <link rel="manifest" href="manifest.json">
 
-    <style>
-        .lang-switch {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-left: 16px;
-            flex-wrap: wrap;
-        }
-
-        .lang-label {
-            font-size: 0.9rem;
-            opacity: 0.85;
-        }
-
-        .lang-switch button {
-            border: 1px solid rgba(255,255,255,.18);
-            background: transparent;
-            color: inherit;
-            padding: 6px 10px;
-            border-radius: 10px;
-            cursor: pointer;
-            font: inherit;
-            transition: 0.2s ease;
-        }
-
-        .lang-switch button:hover {
-            transform: translateY(-1px);
-            border-color: rgba(255,255,255,.35);
-        }
-        
-        .lang-switch button.active {
-            background: rgba(255,255,255,.26);
-            border-color: rgba(255,255,255,.62);
-            color: #ffffff;
-            box-shadow: 0 0 0 1px rgba(255,255,255,.10), 0 8px 24px rgba(88, 255, 228, .16);
-        }
-
-        @media (max-width: 900px) {
-            .header-inner {
-                gap: 12px;
-            }
-
-            .lang-switch {
-                width: 100%;
-                justify-content: flex-end;
-                margin-left: 0;
-            }
-        }
-    </style>
 </head>
 
 <body>
@@ -281,7 +232,7 @@ const dev = {
                     </ul>
 
                     <div class="project-links">
-                        <a href="https://play.google.com/store/apps/details?id=com.janstech.kauppalista" target="_blank" style="font-weight:bold;" data-i18n="proj_shop_link_play">
+                        <a class="link-primary" href="https://play.google.com/store/apps/details?id=com.janstech.kauppalista" target="_blank" data-i18n="proj_shop_link_play">
                             Google Play – Sovellussivu
                         </a>
                         <a href="https://github.com/janstech/shoppinglist-portfolio" target="_blank" data-i18n="proj_shop_link_git">
@@ -325,7 +276,7 @@ const dev = {
                     </ul>
 
                     <div class="project-links">
-                        <a href="https://play.google.com/store/apps/details?id=com.janstech.radioplayer" target="_blank" style="font-weight:bold;" data-i18n="proj_wave_link_play">
+                        <a class="link-primary" href="https://play.google.com/store/apps/details?id=com.janstech.radioplayer" target="_blank" data-i18n="proj_wave_link_play">
                             Google Play – Sovellussivu
                         </a>
                         <a href="https://github.com/janstech" target="_blank" data-i18n="proj_wave_link_git">
@@ -370,7 +321,7 @@ const dev = {
                     </ul>
 
                     <div class="project-links">
-                        <a href="gainsai/" style="font-weight:bold;" data-i18n="proj_gains_link_page">
+                        <a class="link-primary" href="gainsai/" data-i18n="proj_gains_link_page">
                             Lue lisää – GainsAI-projektisivu
                         </a>
                         <a href="https://play.google.com/store/apps/details?id=com.janstech.gainsai" target="_blank" rel="noopener noreferrer" data-i18n="proj_gains_link_play">
@@ -416,7 +367,7 @@ const dev = {
                         <li data-i18n="proj_product_5">Rakensin JavaScript-pohjaisen dynaamisen hakunäkymän (JSON-vastaukset)</li>
                     </ul>
                     <div class="project-links">
-                        <a href="https://github.com/janstech/tuotehaku-showcase" target="_blank" style="font-weight:bold;" data-i18n="proj_product_link_git">
+                        <a class="link-primary" href="https://github.com/janstech/tuotehaku-showcase" target="_blank" data-i18n="proj_product_link_git">
                             GitHub – Repository
                         </a>
                         <a href="documents/Tuotehaku-arkkitehtuuri.pdf" target="_blank" data-i18n="proj_product_link_doc">
@@ -442,7 +393,7 @@ const dev = {
                         <li data-i18n="proj_icecat_4">Prosessin suunnittelu niin, että se on toistettavissa ja ylläpidettävissä</li>
                     </ul>
                     <div class="project-links">
-                        <a href="https://github.com/janstech/icecat-woocommerce-integration" target="_blank" style="font-weight:bold;" data-i18n="proj_icecat_link_git">
+                        <a class="link-primary" href="https://github.com/janstech/icecat-woocommerce-integration" target="_blank" data-i18n="proj_icecat_link_git">
                             GitHub – Repository
                         </a>
                         <a href="documents/icecat_arkkitehtuuri.pdf" target="_blank" data-i18n="proj_icecat_link_doc">

@@ -1,4 +1,132 @@
-/* Perusasetukset */
+/* ==========================================================================
+   1. DESIGN TOKENS
+   Visuaalinen suunta: "Työpöytä" (Workbench).
+   Neutraali grafiitti (ei sinimusta), hillitty amber-korostus, litteät
+   pinnat ja hiusviivat. Tokenit nimetään käyttötarkoituksen mukaan.
+   Kontrastiluvut on mitattu WCAG 2.1 -kaavalla; ks.
+   docs/portfolio-design-foundations.md.
+   ========================================================================== */
+
+:root {
+    /* --- Pinnat: sivun tausta tummin, nostetut pinnat vaaleampia --- */
+    --color-bg: #0e1013;              /* sivun perustausta */
+    --color-bg-alt: #121519;          /* vuorotteleva osio */
+    --color-surface: #16191e;         /* kortit ja paneelit */
+    --color-surface-raised: #1c2027;  /* korostettu pinta, hover */
+    --color-surface-subtle: #111418;  /* upotettu pinta: koodilohko, footer */
+
+    /* --- Reunat --- */
+    --color-border: #2e3540;          /* hiusviiva pintojen väliin */
+    --color-border-strong: #5e697b;   /* kontrollien reuna, 3.4:1 taustaa vasten */
+
+    /* --- Teksti. Vaimein sävy pidetään >= 7:1 myös nostetulla pinnalla,
+           jotta Vaihe 0:n kontrastitaso (7.03:1) ei heikkene. --- */
+    --color-text: #e9eaec;            /* 15.8:1 taustaa vasten */
+    --color-text-secondary: #b4bac3;  /*  9.8:1 */
+    --color-text-muted: #a3abb8;      /*  8.2:1 taustaa, 7.1:1 nostetulla pinnalla */
+
+    /* --- Korostus: lämmin amber. Käytetään säästeliäästi: CTA:t, tärkeät
+           linkit, aktiivinen kieli, fokus ja pienet tekniset korostukset. --- */
+    --color-accent: #e0a85c;          /* 9.0:1 taustaa vasten */
+    --color-accent-hover: #efbe7c;
+    --color-accent-soft: rgba(224, 168, 92, 0.12);
+    --color-on-accent: #17130c;       /* teksti amber-pinnalla, 8.8:1 */
+
+    /* --- Tilavärit (varattu tuleville tilamerkinnöille) --- */
+    --color-success: #7fc08f;
+    --color-warning: #d9a441;
+    --color-error: #e58b7b;
+
+    /* --- Fokus --- */
+    --color-focus: var(--color-accent);
+    --focus-ring-width: 3px;
+    --focus-ring-offset: 3px;
+
+    /* --- Typografia. Ei ulkoisia fontteja. --- */
+    --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-mono: ui-monospace, "Cascadia Code", "Cascadia Mono", "SFMono-Regular", "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+
+    --font-size-xs: 0.8125rem;    /* 13px - mono-metadata ja pienet labelit */
+    --font-size-sm: 0.9375rem;    /* 15px - listat ja toissijainen teksti */
+    --font-size-base: 1.0625rem;  /* 17px - leipäteksti */
+    --font-size-md: 1.125rem;     /* 18px - korttiotsikko */
+    --font-size-lg: 1.3125rem;    /* 21px - hero-alaotsikko */
+    --font-size-xl: clamp(1.5rem, 2.4vw, 1.75rem);       /* osio-otsikko */
+    --font-size-2xl: clamp(2.125rem, 3.6vw, 2.625rem);   /* hero-otsikko */
+
+    --line-height-tight: 1.12;
+    --line-height-snug: 1.35;
+    --line-height-base: 1.6;
+    --line-height-relaxed: 1.7;
+
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    --tracking-tight: -0.015em;   /* suuret otsikot */
+    --tracking-normal: 0;
+    --tracking-wide: 0.02em;      /* mono-labelit ja painikkeet */
+
+    /* --- Spacing: 4 px:n kerrannaiset --- */
+    --space-1: 0.25rem;   /*  4px */
+    --space-2: 0.5rem;    /*  8px */
+    --space-3: 0.75rem;   /* 12px */
+    --space-4: 1rem;      /* 16px */
+    --space-5: 1.5rem;    /* 24px */
+    --space-6: 2rem;      /* 32px */
+    --space-7: 3rem;      /* 48px */
+    --space-8: 4rem;      /* 64px */
+    --space-9: 6rem;      /* 96px */
+
+    /* --- Leveydet --- */
+    --width-site: 1120px;      /* vakiosisällön maksimileveys */
+    --width-wide: 1280px;      /* varattu leveille nostoille */
+    --width-reading: 68ch;     /* leipätekstin luettava mitta */
+    --width-narrow: 42rem;
+    --gutter: 1.25rem;         /* reunaväli, kasvaa desktopilla */
+
+    /* --- Muoto: maltillinen pyöristys, ei 20-30 px oletuksena --- */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-pill: 999px;
+
+    /* --- Elevation: Työpöytä nojaa reunaviivoihin, ei varjoihin --- */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.45);
+    --shadow-md: 0 10px 28px rgba(0, 0, 0, 0.4);
+
+    /* --- Kontrollit --- */
+    --control-height: 2.75rem;    /* 44px kosketuskohde */
+    --control-padding-x: var(--space-5);
+    --control-radius: var(--radius-md);
+    --control-font-size: var(--font-size-sm);
+
+    /* --- Liike --- */
+    --transition-fast: 120ms;
+    --transition-normal: 200ms;
+    --ease-standard: cubic-bezier(0.2, 0, 0.2, 1);
+
+    /* --- Z-index: pieni ja täysi asteikko --- */
+    --z-base: 0;
+    --z-elevated: 10;
+    --z-header: 20;
+    --z-skip-link: 100;
+
+    /* Sticky headerin mitattu korkeus + väljyys, jotta ankkuriotsikot eivät jää
+       sen alle. Mitattu >=1024px: 57px. Arvo päivittyy media queryissä. */
+    --anchor-offset: 76px;
+}
+
+@media (min-width: 641px) {
+    :root {
+        --gutter: 2rem;
+    }
+}
+
+/* ==========================================================================
+   2. RESET JA PERUSTA
+   ========================================================================== */
 
 *,
 *::before,
@@ -8,50 +136,67 @@
     padding: 0;
 }
 
-:root {
-    --bg: #050816;
-    --bg-alt: #0b1020;
-    --fg: #e5e5e5;
-    --muted: #9ca3af;
-    --accent: #64ffda;
-    --accent-soft: rgba(100, 255, 218, 0.12);
-    --card-bg: #0f172a;
-    --border: #1f2937;
-    --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    /* Vain toimitettavissa olevia fontteja: "Fira Code" oli listattu, mutta sitä ei
-       ladata mistään, joten renderöinti vaihteli koneittain. */
-    --font-mono: ui-monospace, "Cascadia Code", "Cascadia Mono", "SFMono-Regular", "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
-    --radius-lg: 14px;
-    --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.65);
-    /* Sticky headerin korkeus + väljyys, jotta ankkuriotsikot eivät jää sen alle.
-       Arvo päivitetään headerin todellisen korkeuden mukaan media queryissä. */
-    --anchor-offset: 82px;
-}
-
-/* Yleinen ulkoasu */
-
 html {
     scroll-behavior: smooth;
 }
 
 body {
-    background: radial-gradient(circle at top, #111827 0, var(--bg) 60%);
-    color: var(--fg);
-    font-family: var(--font-main);
-    line-height: 1.6;
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    -webkit-font-smoothing: antialiased;
 }
+
+/* ==========================================================================
+   3. TYPOGRAFIA
+   ========================================================================== */
+
+h1,
+h2,
+h3,
+h4 {
+    line-height: var(--line-height-tight);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: var(--tracking-tight);
+}
+
+h3,
+h4 {
+    line-height: var(--line-height-snug);
+    letter-spacing: var(--tracking-normal);
+}
+
+/* Leipätekstin luettava mitta. Kohdistuu osioiden suoriin tekstikappaleisiin,
+   ei kortteihin, joissa sarakeleveys rajaa rivin jo valmiiksi.
+   Väriä ei muuteta: varsinainen luettava leipäteksti pysyy ensisijaisessa
+   sävyssä, jotta kontrasti ei heikkene. */
+.section > .container > p,
+.section-intro {
+    max-width: var(--width-reading);
+}
+
+/* Osion johdantokappale on tarkoituksella hieman vaimeampi kuin otsikko. */
+.section-intro {
+    color: var(--color-text-secondary);
+}
+
+/* ==========================================================================
+   4. SAAVUTETTAVUUS (Vaihe 0 -ratkaisut, migroitu tokeneihin)
+   ========================================================================== */
 
 /* Ankkurinavigaatio: sticky header ei saa peittää kohdeotsikkoa. */
 [id] {
     scroll-margin-top: var(--anchor-offset);
 }
 
-/* Saavutettavuus: näkyvä focus-tila kaikille interaktiivisille elementeille.
+/* Näkyvä focus-tila kaikille interaktiivisille elementeille.
    Selaimen oletusrengas on tummalla taustalla heikosti erottuva. */
 a:focus-visible,
 button:focus-visible {
-    outline: 3px solid var(--accent);
-    outline-offset: 3px;
+    outline: var(--focus-ring-width) solid var(--color-focus);
+    outline-offset: var(--focus-ring-offset);
 }
 
 /* Ohita navigaatio -linkki. Piilotetaan siirtämällä pois näkyvistä, ei
@@ -59,17 +204,18 @@ button:focus-visible {
 .skip-link {
     position: fixed;
     top: -100px;
-    left: 1rem;
-    z-index: 100;
-    padding: 0.7rem 1.2rem;
-    background: var(--accent);
-    color: #04101a;
+    left: var(--space-4);
+    z-index: var(--z-skip-link);
+    padding: var(--space-3) var(--space-5);
+    background: var(--color-accent);
+    color: var(--color-on-accent);
     font-family: var(--font-mono);
-    font-size: 0.85rem;
+    font-size: var(--font-size-xs);
+    letter-spacing: var(--tracking-wide);
     text-decoration: none;
-    border-radius: 0 0 10px 10px;
-    box-shadow: var(--shadow-soft);
-    transition: top 0.15s ease-out;
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+    box-shadow: var(--shadow-md);
+    transition: top var(--transition-fast) var(--ease-standard);
 }
 
 .skip-link:focus {
@@ -80,24 +226,28 @@ main:focus {
     outline: none;
 }
 
-/* Layout */
+/* ==========================================================================
+   5. LAYOUT
+   ========================================================================== */
 
 .container {
-    width: min(1100px, 100% - 3rem);
+    width: min(var(--width-site), 100% - var(--gutter) * 2);
     margin: 0 auto;
 }
 
 .section {
-    padding: 4.5rem 0;
+    padding: var(--space-8) 0;
 }
 
 .section-alt {
-    background: radial-gradient(circle at top left, #111827 0, var(--bg-alt) 55%);
+    background: var(--color-bg-alt);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
 }
 
 .section-title {
-    font-size: 1.8rem;
-    margin-bottom: 1.75rem;
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--space-6);
     position: relative;
 }
 
@@ -105,29 +255,31 @@ main:focus {
     content: "";
     position: absolute;
     left: 0;
-    bottom: -0.4rem;
-    width: 3rem;
+    bottom: calc(var(--space-2) * -1);
+    width: var(--space-7);
     height: 2px;
-    background: var(--accent);
+    background: var(--color-accent);
 }
 
-/* Header & navigaatio */
+/* ==========================================================================
+   6. HEADER JA NAVIGAATIO
+   ========================================================================== */
 
 .site-header {
     position: sticky;
     top: 0;
-    z-index: 20;
+    z-index: var(--z-header);
     /* Perustaso ilman backdrop-filteriä: lähes läpinäkymätön, jotta vieritettävä
        sisältö ei kuulla headerin läpi. */
-    background: rgba(5, 8, 22, 0.96);
-    border-bottom: 1px solid rgba(31, 41, 55, 0.7);
+    background: rgba(14, 16, 19, 0.96);
+    border-bottom: 1px solid var(--color-border);
 }
 
-/* Kun backdrop-filter on tuettu, kevennetään taustaa hieman ja säilytetään
-   nykyinen lasimainen yleisilme. Sisältö pysyy silti peitettynä. */
+/* Kun backdrop-filter on tuettu, kevennetään taustaa hieman. Sisältö pysyy
+   silti peitettynä. */
 @supports ((backdrop-filter: blur(14px)) or (-webkit-backdrop-filter: blur(14px))) {
     .site-header {
-        background: rgba(5, 8, 22, 0.82);
+        background: rgba(14, 16, 19, 0.86);
         -webkit-backdrop-filter: blur(14px) saturate(120%);
         backdrop-filter: blur(14px) saturate(120%);
     }
@@ -137,30 +289,37 @@ main:focus {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1rem;
-    padding: 0.8rem 0;
+    gap: var(--space-4);
+    padding: var(--space-3) 0;
     flex-wrap: wrap;
 }
 
 .logo {
     font-family: var(--font-mono);
-    font-size: 1rem;
-    color: var(--accent);
+    font-size: var(--font-size-sm);
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-text);
     white-space: nowrap;
+}
+
+.logo a {
+    color: inherit;
+    text-decoration: none;
 }
 
 .nav {
     display: flex;
-    gap: 1.4rem;
-    font-size: 0.9rem;
+    gap: var(--space-5);
+    font-size: var(--font-size-sm);
     flex-wrap: wrap;
 }
 
 .nav a {
     text-decoration: none;
-    color: var(--muted);
+    color: var(--color-text-muted);
     position: relative;
-    padding-bottom: 0.2rem;
+    padding-bottom: var(--space-1);
+    transition: color var(--transition-fast) var(--ease-standard);
 }
 
 .nav a::after {
@@ -170,152 +329,182 @@ main:focus {
     bottom: 0;
     width: 0;
     height: 2px;
-    background: var(--accent);
-    transition: width 0.2s ease-out;
+    background: var(--color-accent);
+    transition: width var(--transition-normal) var(--ease-standard);
 }
 
 .nav a:hover {
-    color: var(--fg);
+    color: var(--color-text);
 }
 
 .nav a:hover::after {
     width: 100%;
 }
 
-/* Kielivalitsin */
+/* Kielivalitsin. Nämä säännöt olivat aiemmin identtisenä inline-<style>-
+   lohkona sekä index.html:ssä että gainsai/index.html:ssä. */
 
 .lang-switch {
     display: flex;
     align-items: center;
-    gap: 0.45rem;
+    gap: var(--space-2);
     margin-left: auto;
     flex-wrap: wrap;
 }
 
 .lang-label {
-    font-size: 0.85rem;
-    color: var(--muted);
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
     font-family: var(--font-mono);
+    letter-spacing: var(--tracking-wide);
 }
 
 .lang-switch button {
     appearance: none;
-    border: 1px solid rgba(100, 255, 218, 0.28);
-    background: rgba(255, 255, 255, 0.02);
-    color: var(--fg);
-    padding: 0.42rem 0.7rem;
-    border-radius: 999px;
+    border: 1px solid var(--color-border-strong);
+    background: transparent;
+    color: var(--color-text-secondary);
+    min-height: 2rem;
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-sm);
     cursor: pointer;
     font: inherit;
-    font-size: 0.8rem;
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
     line-height: 1;
-    transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease, color 0.2s ease;
+    letter-spacing: var(--tracking-wide);
+    transition: background var(--transition-fast) var(--ease-standard),
+                border-color var(--transition-fast) var(--ease-standard),
+                color var(--transition-fast) var(--ease-standard);
 }
 
 .lang-switch button:hover {
-    border-color: rgba(100, 255, 218, 0.7);
-    background: var(--accent-soft);
-    color: var(--accent);
-    transform: translateY(-1px);
+    border-color: var(--color-accent);
+    background: var(--color-accent-soft);
+    color: var(--color-accent);
 }
 
+/* Aktiivinen kieli erottuu täytöllä, ei pelkällä värillä: sillä on myös
+   aria-pressed="true". */
 .lang-switch button.active {
-    background: var(--accent);
-    color: #04101a;
-    border-color: var(--accent);
-    box-shadow: 0 8px 20px rgba(100, 255, 218, 0.18);
+    background: var(--color-accent);
+    color: var(--color-on-accent);
+    border-color: var(--color-accent);
+    font-weight: var(--font-weight-semibold);
 }
 
-/* Hero */
+/* ==========================================================================
+   7. HERO
+   Rakenne säilyy ennallaan; vain mittasuhteet ja värit tulevat tokeneista.
+   ========================================================================== */
 
 .hero {
-    padding: 4.5rem 0 4rem;
+    padding: var(--space-8) 0 var(--space-7);
 }
 
 .hero-inner {
     display: grid;
     grid-template-columns: minmax(0, 3fr) minmax(0, 2.3fr);
-    gap: 3rem;
+    gap: var(--space-7);
     align-items: center;
 }
 
 .hero-label {
     font-family: var(--font-mono);
-    color: var(--accent);
-    margin-bottom: 0.4rem;
+    font-size: var(--font-size-xs);
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-accent);
+    margin-bottom: var(--space-2);
 }
 
 .hero h1 {
-    font-size: clamp(2.4rem, 4vw, 3rem);
-    margin-bottom: 0.2rem;
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--space-2);
 }
 
 .hero-subtitle {
-    font-size: 1.2rem;
-    color: var(--muted);
-    margin-bottom: 1.1rem;
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--line-height-snug);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-4);
 }
 
 .hero-text {
-    max-width: 36rem;
-    color: #d1d5db;
+    max-width: var(--width-reading);
 }
 
 .hero-actions {
-    margin-top: 1.6rem;
+    margin-top: var(--space-6);
     display: flex;
-    gap: 1rem;
+    gap: var(--space-4);
     flex-wrap: wrap;
 }
+
+/* ==========================================================================
+   8. KONTROLLIT: painikkeet ja linkit
+   Hover muuttaa vain väriä, ei mittoja - ei layout shiftia.
+   ========================================================================== */
 
 .btn-primary,
 .btn-ghost {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 0.6rem 1.4rem;
-    border-radius: 999px;
-    font-size: 0.9rem;
+    min-height: var(--control-height);
+    padding: 0 var(--control-padding-x);
+    border-radius: var(--control-radius);
+    font-size: var(--control-font-size);
+    font-weight: var(--font-weight-medium);
     text-decoration: none;
-    border: 1px solid var(--accent);
-    font-family: var(--font-mono);
-    letter-spacing: 0.03em;
-    transition: 0.2s ease;
+    border: 1px solid transparent;
+    letter-spacing: var(--tracking-wide);
+    transition: background var(--transition-fast) var(--ease-standard),
+                border-color var(--transition-fast) var(--ease-standard),
+                color var(--transition-fast) var(--ease-standard);
 }
 
 .btn-primary {
-    background: var(--accent);
-    color: #04101a;
-    box-shadow: var(--shadow-soft);
+    background: var(--color-accent);
+    color: var(--color-on-accent);
+    border-color: var(--color-accent);
+    font-weight: var(--font-weight-semibold);
 }
 
 .btn-primary:hover {
-    filter: brightness(1.05);
-    transform: translateY(-1px);
+    background: var(--color-accent-hover);
+    border-color: var(--color-accent-hover);
 }
 
 .btn-ghost {
     background: transparent;
-    color: var(--accent);
-    border-color: rgba(100, 255, 218, 0.6);
+    color: var(--color-text);
+    border-color: var(--color-border-strong);
 }
 
 .btn-ghost:hover {
-    background: var(--accent-soft);
-    transform: translateY(-1px);
+    background: var(--color-accent-soft);
+    border-color: var(--color-accent);
+    color: var(--color-accent);
 }
 
-/* Hero-ascii */
+/* Korostettu linkki listassa. Korvaa toistuneen style="font-weight:bold". */
+.link-primary {
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-accent);
+}
+
+/* Hero-koodilohko. Sisältö säilyy; vain pinta ja värit päivittyvät. */
 
 .hero-ascii {
-    background: radial-gradient(circle at top left, #1f2937 0, #020617 65%);
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--border);
-    box-shadow: var(--shadow-soft);
-    padding: 1.2rem 1.4rem;
+    background: var(--color-surface-subtle);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    padding: var(--space-5);
     font-family: var(--font-mono);
-    font-size: 0.8rem;
-    color: #a5f3fc;
+    font-size: var(--font-size-xs);
+    line-height: var(--line-height-snug);
+    color: var(--color-text-secondary);
     overflow: auto;
 }
 
@@ -323,14 +512,16 @@ main:focus {
     white-space: pre-wrap;
 }
 
-/* Kortit & gridit */
+/* ==========================================================================
+   9. KORTIT JA GRIDIT
+   Litteä pinta + hiusviiva. Ei varjoa, ei hehkua.
+   ========================================================================== */
 
 .card {
-    background: var(--card-bg);
-    border-radius: var(--radius-lg);
-    border: 1px solid var(--border);
-    box-shadow: var(--shadow-soft);
-    padding: 1.4rem 1.5rem;
+    background: var(--color-surface);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    padding: var(--space-5);
 }
 
 .skills-grid,
@@ -338,7 +529,7 @@ main:focus {
 .architecture-grid,
 .contact-grid {
     display: grid;
-    gap: 1.5rem;
+    gap: var(--space-5);
 }
 
 .skills-grid {
@@ -346,82 +537,94 @@ main:focus {
 }
 
 .card h3 {
-    font-size: 1.05rem;
-    margin-bottom: 0.7rem;
+    font-size: var(--font-size-md);
+    margin-bottom: var(--space-3);
+    color: var(--color-text);
+}
+
+/* Kortin leipäteksti on askelen pienempää kuin otsikko, jotta hierarkia
+   erottuu myös kapeassa sarakkeessa. Leipätekstin 17px on varattu
+   osioiden varsinaiselle lukusarakkeelle. */
+.card p {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
 }
 
 .card ul {
     list-style: none;
-    font-size: 0.9rem;
-    color: var(--muted);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
 }
 
 .card ul li {
-    margin-bottom: 0.3rem;
+    margin-bottom: var(--space-1);
 }
 
-/* Projektit */
+/* ==========================================================================
+   10. PROJEKTIT
+   Rakenne säilyy; lopullinen korttien redesign tehdään myöhemmässä vaiheessa.
+   ========================================================================== */
 
+/* Vähimmäisleveys pitää sarakemäärän ennallaan (enintään 3) nyt kun
+   sisältöleveys kasvoi 1100px -> 1120px. Ilman tätä ruudukko putoaisi
+   neljään kapeaan sarakkeeseen ja tekstistä tulisi lukukelvottoman kapeaa. */
 .project-grid {
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
 .project-card {
-    position: relative;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
     height: 100%;
+    transition: border-color var(--transition-fast) var(--ease-standard),
+                background var(--transition-fast) var(--ease-standard);
 }
 
-.project-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at top left, var(--accent-soft), transparent);
-    opacity: 0;
-    transition: opacity 0.25s ease-out;
-    pointer-events: none;
+/* Hover korostaa reunan, ei lisää hehkugradienttia. */
+.project-card:hover {
+    border-color: var(--color-border-strong);
+    background: var(--color-surface-raised);
 }
 
-.project-card:hover::before {
-    opacity: 1;
-}
-
-.project-meta {
-    font-size: 0.8rem;
-    color: var(--muted);
-    margin-bottom: 0.6rem;
+/* Tyyppivalitsin nostaa spesifisyyden samalle tasolle kuin `.card p`, joka
+   tulee tiedostossa aiemmin. Ilman tätä metarivi perisi kortin leipätekstin. */
+p.project-meta {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-3);
     font-family: var(--font-mono);
+    line-height: var(--line-height-snug);
+    letter-spacing: var(--tracking-wide);
 }
 
 .project-points {
-    margin-top: 0.6rem;
-    font-size: 0.88rem;
-    color: var(--muted);
+    margin-top: var(--space-3);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
 }
 
 .project-points li::before {
     content: "• ";
-    color: var(--accent);
+    color: var(--color-accent);
 }
 
 .project-links {
     margin-top: auto;
     display: flex;
-    gap: 0.8rem;
-    font-size: 0.86rem;
+    gap: var(--space-4);
+    font-size: var(--font-size-sm);
     flex-wrap: wrap;
-    padding-top: 0.9rem;
+    padding-top: var(--space-4);
 }
 
 .project-links a {
-    color: var(--accent);
+    color: var(--color-accent);
     text-decoration: none;
-    font-family: var(--font-mono);
+    transition: color var(--transition-fast) var(--ease-standard);
 }
 
 .project-links a:hover {
+    color: var(--color-accent-hover);
     text-decoration: underline;
 }
 
@@ -430,61 +633,71 @@ main:focus {
 .project-images {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 10px;
-    margin-top: 15px;
+    gap: var(--space-3);
+    margin-top: var(--space-4);
+}
+
+.project-images a {
+    display: block;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    transition: border-color var(--transition-fast) var(--ease-standard);
+}
+
+.project-images a:hover {
+    border-color: var(--color-accent);
 }
 
 .project-images img {
+    display: block;
     width: 100%;
     height: auto;
-    border-radius: 5px;
-    border: 1px solid var(--border);
-    transition: transform 0.2s;
 }
 
-.project-images img:hover {
-    transform: scale(1.05);
-    cursor: pointer;
-}
-
-/* Arkkitehtuuri */
+/* ==========================================================================
+   11. ARKKITEHTUURI
+   ========================================================================== */
 
 .architecture-grid {
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 }
 
 .arch-card figcaption {
-    margin-top: 0.8rem;
-    font-size: 0.9rem;
-    color: var(--muted);
+    margin-top: var(--space-4);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
 }
 
 .arch-card figcaption a {
-    color: var(--accent);
+    color: var(--color-accent);
     text-decoration: none;
-    transition: color 0.2s;
+    transition: color var(--transition-fast) var(--ease-standard);
 }
 
 .arch-card figcaption a:hover {
     text-decoration: underline;
-    filter: brightness(1.2);
+    color: var(--color-accent-hover);
 }
 
 .arch-placeholder {
-    border-radius: 10px;
-    border: 1px dashed #374151;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-border);
     min-height: 150px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: radial-gradient(circle at top, #020617 0, #020617 50%);
+    background: var(--color-surface-subtle);
     font-family: var(--font-mono);
-    color: #6b7280;
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
     text-align: center;
-    padding: 1rem;
+    padding: var(--space-4);
 }
 
-/* Yhteystiedot & linkit */
+/* ==========================================================================
+   12. YHTEYSTIEDOT JA LINKIT
+   ========================================================================== */
 
 .contact-grid {
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -493,77 +706,76 @@ main:focus {
 .contact-list,
 .link-list {
     list-style: none;
-    font-size: 0.9rem;
-    color: var(--muted);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
 }
 
 .contact-list li {
     display: flex;
     align-items: center;
-    margin-bottom: 0.5rem;
+    margin-bottom: var(--space-2);
     flex-wrap: wrap;
 }
 
 .contact-list li span:first-child {
-    color: var(--fg);
-    font-weight: 500;
+    color: var(--color-text);
+    font-weight: var(--font-weight-medium);
     display: inline-block;
     min-width: 60px;
-    margin-right: 10px;
+    margin-right: var(--space-3);
 }
 
-.contact-list a {
-    color: var(--accent);
+.contact-list a,
+.link-list a {
+    color: var(--color-accent);
     text-decoration: none;
-    transition: color 0.2s;
+    transition: color var(--transition-fast) var(--ease-standard);
 }
 
-.contact-list a:hover {
+.contact-list a:hover,
+.link-list a:hover {
     text-decoration: underline;
-    filter: brightness(1.2);
+    color: var(--color-accent-hover);
 }
 
 .link-list li + li {
-    margin-top: 0.4rem;
+    margin-top: var(--space-2);
 }
 
-.link-list a {
-    color: var(--accent);
-    text-decoration: none;
-}
-
-.link-list a:hover {
-    text-decoration: underline;
-}
-
-/* Footer */
+/* ==========================================================================
+   13. FOOTER
+   ========================================================================== */
 
 .site-footer {
-    border-top: 1px solid var(--border);
-    padding: 1.1rem 0 1.5rem;
-    background: #020617;
-    font-size: 0.8rem;
-    color: var(--muted);
+    border-top: 1px solid var(--color-border);
+    padding: var(--space-5) 0 var(--space-6);
+    background: var(--color-surface-subtle);
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
 }
 
 .footer-inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 1rem;
+    gap: var(--space-4);
     flex-wrap: wrap;
 }
 
 .footer-note {
     font-family: var(--font-mono);
+    letter-spacing: var(--tracking-wide);
 }
 
-/* Responsiivisuus */
+/* ==========================================================================
+   14. RESPONSIIVISUUS
+   Yksi joustava rakenne, ei laitekohtaisia poikkeuksia.
+   ========================================================================== */
 
 @media (max-width: 900px) {
-    /* Header kasvaa 66px -> 104px, kun kielivalitsin siirtyy omalle rivilleen. */
+    /* Kielivalitsin siirtyy omalle rivilleen: mitattu 98-101px. */
     :root {
-        --anchor-offset: 120px;
+        --anchor-offset: 118px;
     }
 
     .header-inner {
@@ -583,30 +795,34 @@ main:focus {
     }
 
     .hero-ascii {
-        margin-top: 1rem;
+        margin-top: var(--space-4);
     }
 
     .nav {
-        gap: 0.9rem;
-        font-size: 0.8rem;
+        gap: var(--space-4);
+        font-size: var(--font-size-xs);
     }
 
     .section {
-        padding: 3.2rem 0;
+        padding: var(--space-7) 0;
+    }
+
+    .hero {
+        padding: var(--space-7) 0 var(--space-6);
     }
 }
 
 @media (max-width: 640px) {
-    /* Header on pystysuuntainen ja navigaatio rivittyy: 139px (390px) ...
-       177px (360px). Arvo mitoitetaan kapeimman tapauksen mukaan. */
+    /* Header on pystysuuntainen ja navigaatio rivittyy: mitattu 122px (390px)
+       ... 163px (360px). Arvo mitoitetaan kapeimman tapauksen mukaan. */
     :root {
-        --anchor-offset: 193px;
+        --anchor-offset: 180px;
     }
 
     .header-inner {
         flex-direction: column;
         align-items: flex-start;
-        gap: 0.6rem;
+        gap: var(--space-2);
     }
 
     .nav {
@@ -629,14 +845,21 @@ main:focus {
     }
 }
 
-/* Liikkeen vähentäminen: koskee tässä vaiheessa ankkurivieritystä ja
-   skip-linkin siirtymää, jotka lisättiin yllä. */
+/* ==========================================================================
+   15. LIIKKEEN VÄHENTÄMINEN
+   Sivun on toimittava täysin ilman animaatioita.
+   ========================================================================== */
+
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;
     }
 
-    .skip-link {
-        transition: none;
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
     }
 }

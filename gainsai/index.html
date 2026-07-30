@@ -34,86 +34,40 @@
     <link rel="manifest" href="../manifest.json">
 
     <style>
-        .lang-switch {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-left: 16px;
-            flex-wrap: wrap;
-        }
-
-        .lang-label {
-            font-size: 0.9rem;
-            opacity: 0.85;
-        }
-
-        .lang-switch button {
-            border: 1px solid rgba(255,255,255,.18);
-            background: transparent;
-            color: inherit;
-            padding: 6px 10px;
-            border-radius: 10px;
-            cursor: pointer;
-            font: inherit;
-            transition: 0.2s ease;
-        }
-
-        .lang-switch button:hover {
-            transform: translateY(-1px);
-            border-color: rgba(255,255,255,.35);
-        }
-
-        .lang-switch button.active {
-            background: rgba(255,255,255,.26);
-            border-color: rgba(255,255,255,.62);
-            color: #ffffff;
-            box-shadow: 0 0 0 1px rgba(255,255,255,.10), 0 8px 24px rgba(88, 255, 228, .16);
-        }
-
-        @media (max-width: 900px) {
-            .header-inner {
-                gap: 12px;
-            }
-
-            .lang-switch {
-                width: 100%;
-                justify-content: flex-end;
-                margin-left: 0;
-            }
-        }
-
-        /* Focus-tilat tulevat jaetusta css/style.css:stä. */
+        /* Kielivalitsimen ja focus-tilojen tyylit ovat jaetussa
+           css/style.css:ssä. Alla vain tälle sivulle ominaiset säännöt,
+           jotka käyttävät jaettuja design tokeneita. */
 
         /* Sovelluksen hero */
         .app-hero-head {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: var(--space-4);
             flex-wrap: wrap;
-            margin-bottom: 0.6rem;
+            margin-bottom: var(--space-3);
         }
 
         .app-hero-logo {
             width: 64px;
             height: 64px;
-            border-radius: 16px;
-            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-border);
             flex: none;
         }
 
         .status-pill {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 0.32rem 0.85rem;
-            border-radius: 999px;
-            border: 1px solid rgba(100, 255, 218, 0.45);
-            background: var(--accent-soft);
-            color: var(--accent);
+            gap: var(--space-2);
+            padding: var(--space-1) var(--space-3);
+            border-radius: var(--radius-pill);
+            border: 1px solid var(--color-accent);
+            background: var(--color-accent-soft);
+            color: var(--color-accent);
             font-family: var(--font-mono);
-            font-size: 0.78rem;
+            font-size: var(--font-size-xs);
             line-height: 1.4;
-            margin-bottom: 1rem;
+            margin-bottom: var(--space-4);
         }
 
         .status-pill::before {
@@ -122,41 +76,39 @@
         }
 
         .lede {
-            max-width: 44rem;
-            color: #d1d5db;
+            max-width: var(--width-reading);
+            color: var(--color-text-secondary);
         }
 
         .section-intro {
-            max-width: 52rem;
-            color: var(--muted);
-            margin-bottom: 1.6rem;
+            margin-bottom: var(--space-5);
         }
 
         .info-grid {
             display: grid;
-            gap: 1.5rem;
+            gap: var(--space-5);
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
         }
 
         .info-grid .card p {
-            font-size: 0.9rem;
-            color: var(--muted);
+            font-size: var(--font-size-sm);
+            color: var(--color-text-muted);
         }
 
         .disclaimer {
-            margin-top: 1.5rem;
-            font-size: 0.85rem;
-            color: var(--muted);
-            border-left: 2px solid var(--border);
-            padding-left: 1rem;
+            margin-top: var(--space-5);
+            font-size: var(--font-size-sm);
+            color: var(--color-text-muted);
+            border-left: 2px solid var(--color-border-strong);
+            padding-left: var(--space-4);
         }
 
         /* Kuvagalleria */
         .shot-grid {
             display: grid;
-            gap: 1.5rem;
+            gap: var(--space-5);
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            margin-top: 1.5rem;
+            margin-top: var(--space-5);
         }
 
         .shot {
@@ -165,16 +117,14 @@
 
         .shot a {
             display: block;
-            border-radius: var(--radius-lg);
+            border-radius: var(--radius-md);
             overflow: hidden;
-            border: 1px solid var(--border);
-            box-shadow: var(--shadow-soft);
-            transition: transform 0.2s ease, border-color 0.2s ease;
+            border: 1px solid var(--color-border);
+            transition: border-color var(--transition-fast) var(--ease-standard);
         }
 
         .shot a:hover {
-            transform: translateY(-3px);
-            border-color: rgba(100, 255, 218, 0.45);
+            border-color: var(--color-accent);
         }
 
         .shot img {
@@ -184,20 +134,9 @@
         }
 
         .shot figcaption {
-            margin-top: 0.7rem;
-            font-size: 0.85rem;
-            color: var(--muted);
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            .shot a,
-            .lang-switch button {
-                transition: none;
-            }
-
-            .shot a:hover {
-                transform: none;
-            }
+            margin-top: var(--space-3);
+            font-size: var(--font-size-sm);
+            color: var(--color-text-muted);
         }
     </style>
 </head>
@@ -207,7 +146,7 @@
 
 <header class="site-header">
     <div class="container header-inner">
-        <div class="logo"><a href="../index.html" style="color:inherit;text-decoration:none;">janstech.github.io</a></div>
+        <div class="logo"><a href="../index.html">janstech.github.io</a></div>
         <nav class="nav" data-i18n-aria="nav_aria" aria-label="Sovellussivun navigaatio">
             <a href="../index.html#projects" data-i18n="nav_back">&larr; Portfolio</a>
             <a href="#overview" data-i18n="nav_overview">Yleiskuva</a>
@@ -594,7 +533,7 @@ const stack = {
 
             <div class="project-links" style="padding-top:0;">
                 <a href="https://play.google.com/store/apps/details?id=com.janstech.gainsai"
-                   target="_blank" rel="noopener noreferrer" style="font-weight:bold;"
+                   class="link-primary" target="_blank" rel="noopener noreferrer"
                    data-i18n="status_link_play">Google Play – Sovellussivu</a>
                 <a href="https://github.com/janstech" target="_blank" rel="noopener noreferrer"
                    data-i18n="status_link_git">GitHub – Janstech</a>
