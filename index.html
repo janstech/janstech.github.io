@@ -331,6 +331,57 @@ const dev = {
                 </article>
 
                 <article class="card project-card">
+                    <h3 data-i18n="proj_gains_title">GainsAI (Android)</h3>
+                    <p class="project-meta" data-i18n="proj_gains_meta">
+                        Kotlin · Jetpack Compose · Material 3 · FastAPI · MariaDB · Firebase Auth · App Check · Play Integrity · Play Billing · Google Drive API
+                    </p>
+
+                    <p data-i18n="proj_gains_desc">
+                        Kehitin tekoälyavusteisen kuntosalisovelluksen, joka rakentaa käyttäjälle
+                        henkilökohtaisen harjoitusohjelman, ohjaa treenit läpi liike kerrallaan ja seuraa
+                        kehitystä. Sovellus on julkaistu Google Play -kaupassa tuotantoon. Toteutin
+                        kokonaisuuden end-to-end: Android-sovellus (Kotlin, Jetpack Compose), FastAPI +
+                        MariaDB -backend, käyttäjätunnistus, tilausmaksut ja varmuuskopiointi.
+                    </p>
+
+                    <ul class="project-points">
+                        <li data-i18n="proj_gains_1"><strong>Harjoitusohjelmat:</strong> tekoälyn luomat ja käsin muokattavat ohjelmat, ohjelmakirjasto ja aktiivisen ohjelman hallinta</li>
+                        <li data-i18n="proj_gains_2"><strong>Treenien kirjaaminen:</strong> liikkeet, sarjat, toistot, painot, RIR ja lepoajastin</li>
+                        <li data-i18n="proj_gains_3"><strong>Seuranta:</strong> harjoitushistoria, voima-analytiikka ja arvioitu 1RM, kehon mittarit ja viikoittainen check-in</li>
+                        <li data-i18n="proj_gains_4"><strong>AI Coach:</strong> vastaa käyttäjän omaan dataan perustuen ja nostaa esiin seuraavat kehityskohteet</li>
+                        <li data-i18n="proj_gains_5"><strong>Backend &amp; tietoturva:</strong> FastAPI, MariaDB, Firebase Authentication, App Check + Play Integrity</li>
+                        <li data-i18n="proj_gains_6"><strong>Tilaukset &amp; varmuuskopiot:</strong> Google Play Billing (GainsAI Pro), palvelinvarmennetut ostot ja Google Drive -varmuuskopiointi</li>
+                    </ul>
+
+                    <div class="project-links">
+                        <a href="gainsai/" style="font-weight:bold;" data-i18n="proj_gains_link_page">
+                            Lue lisää – GainsAI-projektisivu
+                        </a>
+                        <a href="https://play.google.com/store/apps/details?id=com.janstech.gainsai" target="_blank" rel="noopener noreferrer" data-i18n="proj_gains_link_play">
+                            Google Play – Sovellussivu
+                        </a>
+                    </div>
+
+                    <div class="project-images">
+                        <a href="images/ga_1.jpeg" target="_blank" rel="noopener noreferrer">
+                            <img src="images/ga_1.jpeg" width="941" height="1672" loading="lazy" decoding="async"
+                                 data-i18n-alt="proj_gains_img1_alt"
+                                 alt="GainsAI – viikko-ohjelman näkymä" />
+                        </a>
+                        <a href="images/ga_2.jpeg" target="_blank" rel="noopener noreferrer">
+                            <img src="images/ga_2.jpeg" width="941" height="1672" loading="lazy" decoding="async"
+                                 data-i18n-alt="proj_gains_img2_alt"
+                                 alt="GainsAI – ohjatun treenin näkymä" />
+                        </a>
+                        <a href="images/ga_3.jpeg" target="_blank" rel="noopener noreferrer">
+                            <img src="images/ga_3.jpeg" width="941" height="1672" loading="lazy" decoding="async"
+                                 data-i18n-alt="proj_gains_img3_alt"
+                                 alt="GainsAI – sarjojen kirjaamisen näkymä" />
+                        </a>
+                    </div>
+                </article>
+
+                <article class="card project-card">
                     <h3 data-i18n="proj_product_title">Tuotehaku-järjestelmä (Full Stack)</h3>
                     <p class="project-meta" data-i18n="proj_product_meta">
                         FastAPI · WordPress · REST · MySQL · integraatiot
@@ -746,6 +797,21 @@ const dict = {
         proj_wave_link_play: "Google Play – Sovellussivu",
         proj_wave_link_git: "GitHub – Janstech",
 
+        proj_gains_title: "GainsAI (Android)",
+        proj_gains_meta: "Kotlin · Jetpack Compose · Material 3 · FastAPI · MariaDB · Firebase Auth · App Check · Play Integrity · Play Billing · Google Drive API",
+        proj_gains_desc: "Kehitin tekoälyavusteisen kuntosalisovelluksen, joka rakentaa käyttäjälle henkilökohtaisen harjoitusohjelman, ohjaa treenit läpi liike kerrallaan ja seuraa kehitystä. Sovellus on julkaistu Google Play -kaupassa tuotantoon. Toteutin kokonaisuuden end-to-end: Android-sovellus (Kotlin, Jetpack Compose), FastAPI + MariaDB -backend, käyttäjätunnistus, tilausmaksut ja varmuuskopiointi.",
+        proj_gains_1: "<strong>Harjoitusohjelmat:</strong> tekoälyn luomat ja käsin muokattavat ohjelmat, ohjelmakirjasto ja aktiivisen ohjelman hallinta",
+        proj_gains_2: "<strong>Treenien kirjaaminen:</strong> liikkeet, sarjat, toistot, painot, RIR ja lepoajastin",
+        proj_gains_3: "<strong>Seuranta:</strong> harjoitushistoria, voima-analytiikka ja arvioitu 1RM, kehon mittarit ja viikoittainen check-in",
+        proj_gains_4: "<strong>AI Coach:</strong> vastaa käyttäjän omaan dataan perustuen ja nostaa esiin seuraavat kehityskohteet",
+        proj_gains_5: "<strong>Backend & tietoturva:</strong> FastAPI, MariaDB, Firebase Authentication, App Check + Play Integrity",
+        proj_gains_6: "<strong>Tilaukset & varmuuskopiot:</strong> Google Play Billing (GainsAI Pro), palvelinvarmennetut ostot ja Google Drive -varmuuskopiointi",
+        proj_gains_link_page: "Lue lisää – GainsAI-projektisivu",
+        proj_gains_link_play: "Google Play – Sovellussivu",
+        proj_gains_img1_alt: "GainsAI – viikko-ohjelman näkymä, jossa näkyvät split, ohjelman kesto ja treenipäivät",
+        proj_gains_img2_alt: "GainsAI – ohjatun treenin näkymä, jossa näkyvät liikkeen tiedot ja lepoajastin",
+        proj_gains_img3_alt: "GainsAI – sarjojen kirjaamisen näkymä, jossa syötetään toistot, paino ja RIR",
+
         proj_product_title: "Tuotehaku-järjestelmä (Full Stack)",
         proj_product_meta: "FastAPI · WordPress · REST · MySQL · integraatiot",
         proj_product_desc: "Suunnittelin ja toteutin tuotehaun, joka yhdistää WordPressin, FastAPI:n, MySQL-tietokannan ja toimittajien datavirrat. Järjestelmä on yrityksen tuotantokäytössä ja sitä käytetään ATK-tuotteiden tietojen ja hintojen hakuun.",
@@ -946,6 +1012,21 @@ const dev = {
         proj_wave_link_play: "Google Play – App page",
         proj_wave_link_git: "GitHub – Janstech",
 
+        proj_gains_title: "GainsAI (Android)",
+        proj_gains_meta: "Kotlin · Jetpack Compose · Material 3 · FastAPI · MariaDB · Firebase Auth · App Check · Play Integrity · Play Billing · Google Drive API",
+        proj_gains_desc: "I developed an AI-assisted gym training app that builds a personal training program, guides each session exercise by exercise, and tracks progress over time. The app has been published to Google Play for production. I delivered the solution end to end: Android app (Kotlin, Jetpack Compose), a FastAPI + MariaDB backend, user authentication, subscription billing, and cloud backup.",
+        proj_gains_1: "<strong>Training programs:</strong> AI-generated and manually editable programs, a program library, and active program management",
+        proj_gains_2: "<strong>Workout logging:</strong> exercises, sets, reps, load, RIR, and a rest timer",
+        proj_gains_3: "<strong>Tracking:</strong> session history, strength analytics with estimated 1RM, body metrics, and a weekly check-in",
+        proj_gains_4: "<strong>AI Coach:</strong> answers based on the user's own training data and highlights the next things worth improving",
+        proj_gains_5: "<strong>Backend & security:</strong> FastAPI, MariaDB, Firebase Authentication, App Check + Play Integrity",
+        proj_gains_6: "<strong>Subscriptions & backups:</strong> Google Play Billing (GainsAI Pro), server-verified purchases, and Google Drive backup",
+        proj_gains_link_page: "Read more – GainsAI project page",
+        proj_gains_link_play: "Google Play – App page",
+        proj_gains_img1_alt: "GainsAI – weekly program view showing the split, program duration, and training days",
+        proj_gains_img2_alt: "GainsAI – guided workout view showing exercise details and a rest timer",
+        proj_gains_img3_alt: "GainsAI – set logging view with fields for reps, load, and RIR",
+
         proj_product_title: "Product Search System (Full Stack)",
         proj_product_meta: "FastAPI · WordPress · REST · MySQL · integrations",
         proj_product_desc: "I designed and implemented a product search system that combines WordPress, FastAPI, a MySQL database, and supplier data flows. The system is used in production and helps search product information and pricing for IT products.",
@@ -1065,6 +1146,13 @@ function setLang(lang) {
         }
     }
 
+    for (const el of document.querySelectorAll("[data-i18n-alt]")) {
+        const key = el.getAttribute("data-i18n-alt");
+        if (dict[lang] && dict[lang][key] != null) {
+            el.setAttribute("alt", dict[lang][key]);
+        }
+    }
+
     const heroCode = document.getElementById("heroCode");
     if (heroCode) {
         heroCode.textContent = dict[lang].hero_code;
@@ -1078,8 +1166,12 @@ function setLang(lang) {
             : '<a href="mailto:' + email + '">Send email</a>';
     }
 
-    document.getElementById("btnFi").classList.toggle("active", lang === "fi");
-    document.getElementById("btnEn").classList.toggle("active", lang === "en");
+    const btnFi = document.getElementById("btnFi");
+    const btnEn = document.getElementById("btnEn");
+    btnFi.classList.toggle("active", lang === "fi");
+    btnEn.classList.toggle("active", lang === "en");
+    btnFi.setAttribute("aria-pressed", String(lang === "fi"));
+    btnEn.setAttribute("aria-pressed", String(lang === "en"));
 }
 
 const savedLang = localStorage.getItem("portfolio_lang") || "fi";

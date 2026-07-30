@@ -21,6 +21,31 @@ Tiedostot on organisoitu selkeisiin kokonaisuuksiin ylläpidettävyyden parantam
 * `css/` – Tyylitiedostot ja visuaalinen ilme.
 * `images/` – Projektikuvat, ikonit ja grafiikka.
 * `documents/` – Ladattavat tiedostot (CV, arkkitehtuurikuvaukset).
+* `gainsai/` – GainsAI-sovelluksen oma projektisivu (`/gainsai/`).
+* `apps/` – Janstech Android -sovellusten koontisivu.
+* `sitemap.xml`, `robots.txt` – Hakukoneille tarkoitetut tiedostot.
+
+## Kaksikielisyys (FI/EN)
+
+Sivusto käyttää kevyttä, riippuvuudetonta i18n-ratkaisua: jokaisella sivulla on
+sivukohtainen `dict`-sanakirja (`fi` / `en`), ja näkyvät tekstit merkitään
+HTML:ssä attribuuteilla:
+
+* `data-i18n` – elementin sisältö
+* `data-i18n-alt` – kuvan `alt`-teksti
+* `data-i18n-aria` – elementin `aria-label`
+
+Valittu kieli tallennetaan `localStorage`-avaimeen `portfolio_lang`, joten
+kielivalinta säilyy myös projektisivuille siirryttäessä. Oletuskieli on suomi.
+
+## Projektisivut
+
+Sovellusprojektit esitellään etusivun projektikorteissa. Laajemmat kokonaisuudet
+voivat saada oman sivun samalla rakenteella, tyylillä ja i18n-ratkaisulla:
+
+* **GainsAI** – `gainsai/index.html`. Sisältää tuotekuvauksen, ominaisuudet,
+  tekoälyn roolin, teknisen toteutuksen, kuvakaappaukset ja julkaisutilanteen
+  molemmilla kielillä sekä omat SEO- ja Open Graph -metatiedot.
 
 ## Ominaisuudet
 

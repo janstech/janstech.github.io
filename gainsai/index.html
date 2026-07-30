@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8" />
+    <title>GainsAI – Android-sovellus | Jan Sarivuo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="description" content="GainsAI on Google Playssa julkaistu Android-sovellus kuntosaliharjoitteluun: tekoälyn luomat harjoitusohjelmat, treenien kirjaaminen, kehityksen seuranta, ateriasuunnitelmat ja AI Coach. Kokonaisuuteen kuuluu Kotlin/Jetpack Compose -sovellus sekä FastAPI- ja MariaDB-backend.">
+    <meta name="keywords" content="GainsAI, Android-sovellus, Kotlin, Jetpack Compose, FastAPI, MariaDB, Firebase App Check, Play Integrity, Google Play Billing, tekoäly, kuntosali, Jan Sarivuo">
+    <meta name="author" content="Jan Sarivuo">
+    <meta name="robots" content="index,follow" />
+
+    <link rel="canonical" href="https://janstech.github.io/gainsai/">
+
+    <meta property="og:title" content="GainsAI – Android-sovellus | Jan Sarivuo">
+    <meta property="og:description" content="Google Playssa julkaistu tekoälyavusteinen kuntosalisovellus: Android-sovellus (Kotlin, Jetpack Compose), FastAPI-backend, MariaDB, Firebase-tunnistautuminen, Play Billing ja Google Drive -varmuuskopiointi.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://janstech.github.io/gainsai/">
+    <meta property="og:image" content="https://janstech.github.io/images/gainsai-logo.png">
+    <meta property="og:locale" content="fi_FI">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:site_name" content="Jan Sarivuo – Portfolio">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="GainsAI – Android-sovellus | Jan Sarivuo">
+    <meta name="twitter:description" content="Google Playssa julkaistu tekoälyavusteinen kuntosalisovellus: Android, FastAPI, MariaDB, Firebase, Play Billing.">
+    <meta name="twitter:image" content="https://janstech.github.io/images/gainsai-logo.png">
+
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon" type="image/png" href="../images/favicon.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="../images/favicon-48x48.png">
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+    <link rel="manifest" href="../manifest.json">
+
+    <style>
+        .lang-switch {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-left: 16px;
+            flex-wrap: wrap;
+        }
+
+        .lang-label {
+            font-size: 0.9rem;
+            opacity: 0.85;
+        }
+
+        .lang-switch button {
+            border: 1px solid rgba(255,255,255,.18);
+            background: transparent;
+            color: inherit;
+            padding: 6px 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            font: inherit;
+            transition: 0.2s ease;
+        }
+
+        .lang-switch button:hover {
+            transform: translateY(-1px);
+            border-color: rgba(255,255,255,.35);
+        }
+
+        .lang-switch button.active {
+            background: rgba(255,255,255,.26);
+            border-color: rgba(255,255,255,.62);
+            color: #ffffff;
+            box-shadow: 0 0 0 1px rgba(255,255,255,.10), 0 8px 24px rgba(88, 255, 228, .16);
+        }
+
+        @media (max-width: 900px) {
+            .header-inner {
+                gap: 12px;
+            }
+
+            .lang-switch {
+                width: 100%;
+                justify-content: flex-end;
+                margin-left: 0;
+            }
+        }
+
+        /* Näkyvä focus-tila näppäimistökäyttöä varten */
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 3px;
+            border-radius: 4px;
+        }
+
+        /* Sovelluksen hero */
+        .app-hero-head {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 0.6rem;
+        }
+
+        .app-hero-logo {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            flex: none;
+        }
+
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.32rem 0.85rem;
+            border-radius: 999px;
+            border: 1px solid rgba(100, 255, 218, 0.45);
+            background: var(--accent-soft);
+            color: var(--accent);
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+
+        .status-pill::before {
+            content: "●";
+            font-size: 0.6rem;
+        }
+
+        .lede {
+            max-width: 44rem;
+            color: #d1d5db;
+        }
+
+        .section-intro {
+            max-width: 52rem;
+            color: var(--muted);
+            margin-bottom: 1.6rem;
+        }
+
+        .info-grid {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        }
+
+        .info-grid .card p {
+            font-size: 0.9rem;
+            color: var(--muted);
+        }
+
+        .disclaimer {
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+            color: var(--muted);
+            border-left: 2px solid var(--border);
+            padding-left: 1rem;
+        }
+
+        /* Kuvagalleria */
+        .shot-grid {
+            display: grid;
+            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            margin-top: 1.5rem;
+        }
+
+        .shot {
+            margin: 0;
+        }
+
+        .shot a {
+            display: block;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-soft);
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .shot a:hover {
+            transform: translateY(-3px);
+            border-color: rgba(100, 255, 218, 0.45);
+        }
+
+        .shot img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .shot figcaption {
+            margin-top: 0.7rem;
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .shot a,
+            .lang-switch button {
+                transition: none;
+            }
+
+            .shot a:hover {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<header class="site-header">
+    <div class="container header-inner">
+        <div class="logo"><a href="../index.html" style="color:inherit;text-decoration:none;">janstech.github.io</a></div>
+        <nav class="nav" data-i18n-aria="nav_aria" aria-label="Sovellussivun navigaatio">
+            <a href="../index.html#projects" data-i18n="nav_back">&larr; Portfolio</a>
+            <a href="#overview" data-i18n="nav_overview">Yleiskuva</a>
+            <a href="#features" data-i18n="nav_features">Ominaisuudet</a>
+            <a href="#ai" data-i18n="nav_ai">Tekoäly</a>
+            <a href="#tech" data-i18n="nav_tech">Tekniikka</a>
+            <a href="#screens" data-i18n="nav_screens">Kuvat</a>
+        </nav>
+
+        <div class="lang-switch">
+            <span class="lang-label" data-i18n="lang_label">Kieli</span>
+            <button id="btnFi" type="button">FI</button>
+            <button id="btnEn" type="button">EN</button>
+        </div>
+    </div>
+</header>
+
+<main>
+    <section class="hero" id="top">
+        <div class="container hero-inner">
+            <div>
+                <div class="app-hero-head">
+                    <img class="app-hero-logo" src="../images/gainsai-logo.png"
+                         data-i18n-alt="hero_logo_alt" alt="GainsAI-sovelluksen logo"
+                         width="512" height="512" decoding="async" />
+                    <div>
+                        <p class="hero-label" data-i18n="hero_label">Android-sovellus</p>
+                        <h1>GainsAI</h1>
+                    </div>
+                </div>
+
+                <h2 class="hero-subtitle" data-i18n="hero_subtitle">
+                    Tekoälyavusteinen kuntosaliharjoittelun suunnittelu, kirjaaminen ja seuranta
+                </h2>
+
+                <p class="status-pill" data-i18n="hero_status">Julkaistu Google Playssa</p>
+
+                <p class="lede" data-i18n="hero_lede">
+                    GainsAI rakentaa käyttäjälle henkilökohtaisen harjoitusohjelman, ohjaa treenit läpi
+                    liike kerrallaan ja kokoaa harjoitushistoriasta selkeän kuvan kehityksestä.
+                    Kyseessä ei ole käyttöliittymädemo: kokonaisuuteen kuuluu Android-sovelluksen lisäksi
+                    oma FastAPI-backend, tietokanta, käyttäjätunnistus, tilausmaksut ja varmuuskopiointi.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="https://play.google.com/store/apps/details?id=com.janstech.gainsai"
+                       target="_blank" rel="noopener noreferrer" class="btn-primary"
+                       data-i18n="hero_cta_play">Google Play</a>
+                    <a href="../index.html#projects" class="btn-ghost" data-i18n="hero_cta_back">Kaikki projektit</a>
+                </div>
+            </div>
+
+            <div class="hero-ascii">
+<pre><code id="stackCode">// gainsai · tuotannossa
+const stack = {
+  app: ["Kotlin", "Jetpack Compose",
+        "Material 3"],
+  api: ["FastAPI", "Python", "MariaDB"],
+  platform: ["Firebase Auth", "App Check",
+             "Play Integrity", "Play Billing",
+             "Google Drive API"]
+}</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <section id="overview" class="section">
+        <div class="container">
+            <h2 class="section-title" data-i18n="overview_title">Tuote</h2>
+            <p class="section-intro" data-i18n="overview_intro">
+                Kuntosaliharjoittelu kaatuu usein samaan asiaan: ohjelma on joko liian yleinen tai se jää
+                päivittämättä, ja treenipäiväkirja jää täyttämättä. GainsAI hoitaa ohjelman rakenteen,
+                tekee kirjaamisesta nopeaa ja näyttää kehityksen ilman erillistä taulukkolaskentaa.
+            </p>
+
+            <div class="info-grid">
+                <div class="card">
+                    <h3 data-i18n="overview_who_title">Kenelle</h3>
+                    <p data-i18n="overview_who_body">
+                        Kuntosalilla treenaaville, jotka haluavat selkeän viikko-ohjelman ilman sen käsin
+                        rakentamista – vasta aloittaneesta pidempään harjoitelleeseen.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="overview_problem_title">Mitä se ratkaisee</h3>
+                    <p data-i18n="overview_problem_body">
+                        Valmiit ohjelmat eivät huomioi tavoitetta, käytettävissä olevia treenipäiviä tai
+                        välineitä. GainsAI muodostaa ohjelman näiden perusteella ja pitää harjoitushistorian,
+                        kehon mittarit ja ravitsemuksen samassa paikassa.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="overview_how_title">Miten sitä käytetään</h3>
+                    <p data-i18n="overview_how_body">
+                        Käyttöönotossa kysytään tavoite, kokemustaso, treenipäivien määrä ja käytettävissä
+                        olevat välineet. Niistä syntyy ensimmäinen ohjelma, jonka voi vaihtaa, muokata käsin
+                        tai generoida uudelleen.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title" data-i18n="features_title">Keskeiset ominaisuudet</h2>
+
+            <div class="skills-grid">
+                <div class="card">
+                    <h3 data-i18n="feat_programs_title">Harjoitusohjelmat</h3>
+                    <ul>
+                        <li data-i18n="feat_programs_1">Tekoälyn luomat ohjelmat tavoitteen, tason, treenipäivien ja välineiden perusteella</li>
+                        <li data-i18n="feat_programs_2">Manuaalinen ohjelmaeditori: split, kesto viikkoina, treenipäivät ja liikkeet</li>
+                        <li data-i18n="feat_programs_3">Ohjelmakirjasto: tallennetut ohjelmat, aktiivisen ohjelman vaihto ja poisto</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="feat_log_title">Treenien kirjaaminen</h3>
+                    <ul>
+                        <li data-i18n="feat_log_1">Viikkonäkymä ja päiväkohtaiset harjoitukset liikelistoineen</li>
+                        <li data-i18n="feat_log_2">Sarjat, toistot, painot, RIR ja lepoajat samassa näkymässä</li>
+                        <li data-i18n="feat_log_3">Liikkeen korvaaminen, liikkeen tiedot ja lepoajastin</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="feat_progress_title">Kehityksen seuranta</h3>
+                    <ul>
+                        <li data-i18n="feat_progress_1">Harjoitushistoria ja treenikohtaiset yhteenvedot</li>
+                        <li data-i18n="feat_progress_2">Voimakehityksen analytiikka ja arvioitu 1RM</li>
+                        <li data-i18n="feat_progress_3">Nostot kehityksestä, palautumisesta ja viikkorytmin johdonmukaisuudesta</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="feat_body_title">Kehon mittarit</h3>
+                    <ul>
+                        <li data-i18n="feat_body_1">Painon ja mittojen kirjaaminen sekä niiden kehityssuunta</li>
+                        <li data-i18n="feat_body_2">Valinnainen Health Connect -yhteys painolukemien lukemiseen ja kirjaamiseen</li>
+                        <li data-i18n="feat_body_3">Kehon mittarit näytetään harjoitusdatan rinnalla seurantanäkymissä</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="feat_nutrition_title">Ravitsemus</h3>
+                    <ul>
+                        <li data-i18n="feat_nutrition_1">Ravintotavoitteet: kalorit ja makroravinteet</li>
+                        <li data-i18n="feat_nutrition_2">Tekoälyn luomat ateriasuunnitelmat, jotka voi generoida uudelleen</li>
+                        <li data-i18n="feat_nutrition_3">Päiväkohtainen kirjaus ja tavoitteiden toteutumisen seuranta</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="feat_checkin_title">Viikoittainen check-in</h3>
+                    <ul>
+                        <li data-i18n="feat_checkin_1">Energia, palautuminen, motivaatio, uni ja stressi</li>
+                        <li data-i18n="feat_checkin_2">Harjoittelun ja ravitsemuksen toteutuminen omana arviona</li>
+                        <li data-i18n="feat_checkin_3">Vastauksista koostetaan tilannekuva ja seuraavan jakson painopiste</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ai" class="section">
+        <div class="container">
+            <h2 class="section-title" data-i18n="ai_title">Tekoälyn rooli</h2>
+            <p class="section-intro" data-i18n="ai_intro">
+                Tekoäly on GainsAI:ssa työkalu, joka nopeuttaa ohjelman rakentamista ja datan tulkintaa.
+                Se ei toimi itsenäisesti taustalla eikä tee muutoksia käyttäjän puolesta.
+            </p>
+
+            <div class="info-grid">
+                <div class="card">
+                    <h3 data-i18n="ai_gen_title">Ohjelmien generointi</h3>
+                    <p data-i18n="ai_gen_body">
+                        Käyttöönoton vastaukset muunnetaan viikko-ohjelmaksi: split, treenipäivät, liikkeet,
+                        sarja- ja toistoalueet sekä lepoajat. Ohjelman voi generoida uudelleen tai korvata
+                        käsin tehdyllä ohjelmalla.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="ai_coach_title">AI Coach</h3>
+                    <p data-i18n="ai_coach_body">
+                        Coach vastaa harjoitteluun liittyviin kysymyksiin ja käyttää kontekstinaan käyttäjän
+                        omaa aktiivista ohjelmaa, kirjattuja treenejä ja kehityssignaaleja. Se selittää, mitä
+                        data kertoo, ja nostaa esiin seuraavat kehityskohteet. Coach ei muuta ohjelmaa itse,
+                        vaan muutoksista päättää käyttäjä.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="ai_analysis_title">Analyysi ja priorisointi</h3>
+                    <p data-i18n="ai_analysis_body">
+                        Backend laskee harjoitushistoriasta kehitys-, palautumis- ja johdonmukaisuussignaalit
+                        ja järjestää ne tärkeysjärjestykseen. Käyttäjälle näytetään muutama olennainen havainto
+                        koko datamassan sijaan.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="ai_content_title">Ateriasuunnitelmat ja tekstit</h3>
+                    <p data-i18n="ai_content_body">
+                        Ateriasuunnitelmat, suositustekstit ja osa käyttäjälle näytettävistä sisällöistä
+                        tuotetaan tekoälyllä ja käännetään sovelluksen tukemille kielille.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="ai_safety_title">Turvallisuus ja valvonta</h3>
+                    <p data-i18n="ai_safety_body">
+                        Coachin vastaukset kulkevat erillisen turvakerroksen läpi, ja käyttäjä voi ilmoittaa
+                        ongelmallisesta tekoälyvastauksesta suoraan sovelluksesta. Ilmoitukset käsitellään
+                        backendissa.
+                    </p>
+                </div>
+            </div>
+
+            <p class="disclaimer" data-i18n="ai_disclaimer">
+                GainsAI on kuntoilu- ja hyvinvointisovellus. Se ei korvaa henkilökohtaista valmentajaa,
+                fysioterapeuttia tai terveydenhuollon ammattilaista, eikä sitä ole tarkoitettu sairauksien
+                diagnosointiin tai hoitoon.
+            </p>
+        </div>
+    </section>
+
+    <section id="tech" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title" data-i18n="tech_title">Tekninen toteutus</h2>
+            <p class="section-intro" data-i18n="tech_intro">
+                GainsAI on tuotannossa oleva järjestelmä, ei käyttöliittymäprototyyppi. Android-sovellus,
+                rajapinta, tietokanta, tunnistautuminen, maksut ja varmuuskopiointi on suunniteltu,
+                toteutettu ja julkaistu yhtenä kokonaisuutena.
+            </p>
+
+            <div class="project-grid">
+                <article class="card project-card">
+                    <h3 data-i18n="tech_android_title">Android-sovellus</h3>
+                    <p class="project-meta" data-i18n="tech_android_meta">
+                        Kotlin · Jetpack Compose · Material 3 · Navigation Compose · DataStore · WorkManager · Retrofit / OkHttp / Moshi · Coil
+                    </p>
+                    <ul class="project-points">
+                        <li data-i18n="tech_android_1">MVVM- ja repository-rakenne sekä StateFlow-pohjainen tilanhallinta</li>
+                        <li data-i18n="tech_android_2">Tuki Android 8:sta (API 26) alkaen, käännetty API 36:ta vasten</li>
+                        <li data-i18n="tech_android_3">Käyttöliittymä 17 lokalisoidulla kielellä oletusresurssien lisäksi</li>
+                        <li data-i18n="tech_android_4">Käännösten kattavuus ja kovakoodatut tekstit tarkistetaan automaattisesti build-vaiheessa</li>
+                    </ul>
+                </article>
+
+                <article class="card project-card">
+                    <h3 data-i18n="tech_backend_title">Backend ja tietokanta</h3>
+                    <p class="project-meta" data-i18n="tech_backend_meta">
+                        FastAPI · Python · Pydantic · SQLAlchemy · MariaDB
+                    </p>
+                    <ul class="project-points">
+                        <li data-i18n="tech_backend_1">REST-rajapinta ohjelmille, treeneille, kehitykselle, ravitsemukselle, check-ineille, Coachille ja tilauksille</li>
+                        <li data-i18n="tech_backend_2">Versioidut SQL-migraatiot ja yksi kanoninen tietokantaskeema</li>
+                        <li data-i18n="tech_backend_3">Pitkäkestoiset generoinnit ajetaan taustatöinä, jotta käyttöliittymä ei jää odottamaan</li>
+                        <li data-i18n="tech_backend_4">Sovelluslogiikka on jaettu selkeisiin palvelukerroksiin domain-alueittain</li>
+                    </ul>
+                </article>
+
+                <article class="card project-card">
+                    <h3 data-i18n="tech_auth_title">Tunnistautuminen ja sovelluksen eheys</h3>
+                    <p class="project-meta" data-i18n="tech_auth_meta">
+                        Firebase Authentication · Firebase App Check · Google Play Integrity
+                    </p>
+                    <ul class="project-points">
+                        <li data-i18n="tech_auth_1">Kirjautuminen sähköpostilla tai Google-tilillä</li>
+                        <li data-i18n="tech_auth_2">Jokainen suojattu pyyntö vaatii varmennetun Firebase ID -tokenin ja App Check -tokenin</li>
+                        <li data-i18n="tech_auth_3">Play Integrity varmistaa, että pyyntö tulee aidosta sovellusasennuksesta</li>
+                        <li data-i18n="tech_auth_4">Tilin ja siihen liittyvän datan poisto onnistuu suoraan sovelluksesta</li>
+                    </ul>
+                </article>
+
+                <article class="card project-card">
+                    <h3 data-i18n="tech_billing_title">Tilaukset</h3>
+                    <p class="project-meta" data-i18n="tech_billing_meta">
+                        Google Play Billing · Google Play Developer API
+                    </p>
+                    <ul class="project-points">
+                        <li data-i18n="tech_billing_1">GainsAI Pro kuukausi- tai vuositilauksena, hinnat suoraan Google Playstä</li>
+                        <li data-i18n="tech_billing_2">Backend varmentaa ostot Google Play Developer APIlla; sovellus ei myönnä käyttöoikeuksia itse</li>
+                        <li data-i18n="tech_billing_3">Ostotunnisteet käsitellään salattuna palvelinpuolella</li>
+                        <li data-i18n="tech_billing_4">Ostojen palautus ja tilauksen hallinta ohjataan Google Playhin</li>
+                    </ul>
+                </article>
+
+                <article class="card project-card">
+                    <h3 data-i18n="tech_backup_title">Varmuuskopiointi ja pilvipalvelut</h3>
+                    <p class="project-meta" data-i18n="tech_backup_meta">
+                        Google Drive API · Health Connect · Firebase
+                    </p>
+                    <ul class="project-points">
+                        <li data-i18n="tech_backup_1">Varmuuskopio tallennetaan käyttäjän omaan Google Driveen sovelluskohtaiseen kansioon</li>
+                        <li data-i18n="tech_backup_2">Palautus tarkistaa käytetyn tilin ja pyytää vahvistuksen ennen ylikirjoitusta</li>
+                        <li data-i18n="tech_backup_3">Valinnainen Health Connect -integraatio painodatalle käyttäjän luvalla</li>
+                        <li data-i18n="tech_backup_4">Sovellusdata säilytetään backendissa, joten se seuraa laitteen vaihtuessa</li>
+                    </ul>
+                </article>
+
+                <article class="card project-card">
+                    <h3 data-i18n="tech_ops_title">Laatu, seuranta ja julkaisu</h3>
+                    <p class="project-meta" data-i18n="tech_ops_meta">
+                        Firebase Crashlytics · Firebase Analytics · Play In-App Updates · Linux-palvelinympäristö
+                    </p>
+                    <ul class="project-points">
+                        <li data-i18n="tech_ops_1">Kaatumisraportointi käytössä vain tuotantoreleasessa</li>
+                        <li data-i18n="tech_ops_2">Backend ajetaan omassa Linux-palvelinympäristössä varmuuskopioinnin kanssa</li>
+                        <li data-i18n="tech_ops_3">Julkaisu vietiin suljetun testauksen kautta tuotantoon Google Playssa</li>
+                        <li data-i18n="tech_ops_4">Play Consolen edellyttämät ilmoitukset terveys- ja AI-sisällöstä käytiin läpi ennen julkaisua</li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="screens" class="section">
+        <div class="container">
+            <h2 class="section-title" data-i18n="screens_title">Kuvakaappaukset</h2>
+            <p class="section-intro" data-i18n="screens_note">
+                Kuvat ovat sovelluksen Google Play -esittelykuvia. Käyttöliittymä näkyy niissä englanniksi,
+                mutta sovellus tukee 17:ää lokalisoitua kieltä. Klikkaamalla kuva avautuu täysikokoisena.
+            </p>
+
+            <div class="shot-grid">
+                <figure class="shot">
+                    <a href="../images/ga_1.jpeg" target="_blank" rel="noopener noreferrer">
+                        <img src="../images/ga_1.jpeg" width="941" height="1672"
+                             loading="lazy" decoding="async"
+                             data-i18n-alt="shot_1_alt"
+                             alt="GainsAI-sovelluksen ohjelmanäkymä, jossa näkyvät Upper/Lower-split, ohjelman kesto ja viikon harjoituspäivät." />
+                    </a>
+                    <figcaption data-i18n="shot_1_caption">
+                        Viikko-ohjelma: aktiivisen ohjelman split, kesto, tavoite ja treenipäivät sekä
+                        viikkonäkymä päivittäisine harjoituksineen.
+                    </figcaption>
+                </figure>
+
+                <figure class="shot">
+                    <a href="../images/ga_2.jpeg" target="_blank" rel="noopener noreferrer">
+                        <img src="../images/ga_2.jpeg" width="941" height="1672"
+                             loading="lazy" decoding="async"
+                             data-i18n-alt="shot_2_alt"
+                             alt="GainsAI-sovelluksen treeninäkymä, jossa näkyvät penkkipunnerrus, liikkeen tiedot, havainnekuva ja lepoajastin." />
+                    </a>
+                    <figcaption data-i18n="shot_2_caption">
+                        Ohjattu treeni: päivän liikkeet järjestyksessä, liikkeen tiedot ja havainnekuva,
+                        liikkeen korvaaminen sekä lepoajastin.
+                    </figcaption>
+                </figure>
+
+                <figure class="shot">
+                    <a href="../images/ga_3.jpeg" target="_blank" rel="noopener noreferrer">
+                        <img src="../images/ga_3.jpeg" width="941" height="1672"
+                             loading="lazy" decoding="async"
+                             data-i18n-alt="shot_3_alt"
+                             alt="GainsAI-sovelluksen kirjausnäkymä, jossa syötetään sarjan toistot, paino kilogrammoina ja RIR-arvo." />
+                    </a>
+                    <figcaption data-i18n="shot_3_caption">
+                        Sarjojen kirjaaminen: toistot, paino ja RIR sarjakohtaisesti, tavoitearvot sekä
+                        nopeat säädöt.
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    <section id="status" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title" data-i18n="status_title">Julkaisutilanne</h2>
+            <p class="section-intro" data-i18n="status_body">
+                GainsAI on julkaistu Google Play -kauppaan tuotantoon paketilla
+                <code>com.janstech.gainsai</code>. Julkaisua edelsi suljettu testaus sekä Play Consolen
+                edellyttämät ilmoitukset terveys- ja fitness-sovelluksista, generatiivisesta
+                tekoälysisällöstä ja tietosuojakäytännöistä. Osa ominaisuuksista on käytettävissä ilman
+                tilausta, ja GainsAI Pro avaa muun muassa lisäohjelmat, kehityksen analytiikan,
+                ateriasuunnitelmat, Drive-varmuuskopioinnin ja laajemman AI Coach -käytön.
+            </p>
+
+            <div class="project-links" style="padding-top:0;">
+                <a href="https://play.google.com/store/apps/details?id=com.janstech.gainsai"
+                   target="_blank" rel="noopener noreferrer" style="font-weight:bold;"
+                   data-i18n="status_link_play">Google Play – Sovellussivu</a>
+                <a href="https://github.com/janstech" target="_blank" rel="noopener noreferrer"
+                   data-i18n="status_link_git">GitHub – Janstech</a>
+                <a href="../index.html#projects" data-i18n="status_link_portfolio">Takaisin portfolion projekteihin</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="container footer-inner">
+        <span>&copy; <span id="year"></span> Jan Sarivuo</span>
+        <span class="footer-note" data-i18n="footer_note">Portfolio-sivusto · Jan Sarivuo</span>
+    </div>
+</footer>
+
+<script data-goatcounter="https://janstech.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+<script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+<script>
+const dict = {
+    fi: {
+        page_title: "GainsAI – Android-sovellus | Jan Sarivuo",
+        nav_aria: "Sovellussivun navigaatio",
+        nav_back: "&larr; Portfolio",
+        nav_overview: "Yleiskuva",
+        nav_features: "Ominaisuudet",
+        nav_ai: "Tekoäly",
+        nav_tech: "Tekniikka",
+        nav_screens: "Kuvat",
+        lang_label: "Kieli",
+
+        hero_label: "Android-sovellus",
+        hero_logo_alt: "GainsAI-sovelluksen logo",
+        hero_subtitle: "Tekoälyavusteinen kuntosaliharjoittelun suunnittelu, kirjaaminen ja seuranta",
+        hero_status: "Julkaistu Google Playssa",
+        hero_lede: "GainsAI rakentaa käyttäjälle henkilökohtaisen harjoitusohjelman, ohjaa treenit läpi liike kerrallaan ja kokoaa harjoitushistoriasta selkeän kuvan kehityksestä. Kyseessä ei ole käyttöliittymädemo: kokonaisuuteen kuuluu Android-sovelluksen lisäksi oma FastAPI-backend, tietokanta, käyttäjätunnistus, tilausmaksut ja varmuuskopiointi.",
+        hero_cta_play: "Google Play",
+        hero_cta_back: "Kaikki projektit",
+
+        overview_title: "Tuote",
+        overview_intro: "Kuntosaliharjoittelu kaatuu usein samaan asiaan: ohjelma on joko liian yleinen tai se jää päivittämättä, ja treenipäiväkirja jää täyttämättä. GainsAI hoitaa ohjelman rakenteen, tekee kirjaamisesta nopeaa ja näyttää kehityksen ilman erillistä taulukkolaskentaa.",
+        overview_who_title: "Kenelle",
+        overview_who_body: "Kuntosalilla treenaaville, jotka haluavat selkeän viikko-ohjelman ilman sen käsin rakentamista – vasta aloittaneesta pidempään harjoitelleeseen.",
+        overview_problem_title: "Mitä se ratkaisee",
+        overview_problem_body: "Valmiit ohjelmat eivät huomioi tavoitetta, käytettävissä olevia treenipäiviä tai välineitä. GainsAI muodostaa ohjelman näiden perusteella ja pitää harjoitushistorian, kehon mittarit ja ravitsemuksen samassa paikassa.",
+        overview_how_title: "Miten sitä käytetään",
+        overview_how_body: "Käyttöönotossa kysytään tavoite, kokemustaso, treenipäivien määrä ja käytettävissä olevat välineet. Niistä syntyy ensimmäinen ohjelma, jonka voi vaihtaa, muokata käsin tai generoida uudelleen.",
+
+        features_title: "Keskeiset ominaisuudet",
+        feat_programs_title: "Harjoitusohjelmat",
+        feat_programs_1: "Tekoälyn luomat ohjelmat tavoitteen, tason, treenipäivien ja välineiden perusteella",
+        feat_programs_2: "Manuaalinen ohjelmaeditori: split, kesto viikkoina, treenipäivät ja liikkeet",
+        feat_programs_3: "Ohjelmakirjasto: tallennetut ohjelmat, aktiivisen ohjelman vaihto ja poisto",
+
+        feat_log_title: "Treenien kirjaaminen",
+        feat_log_1: "Viikkonäkymä ja päiväkohtaiset harjoitukset liikelistoineen",
+        feat_log_2: "Sarjat, toistot, painot, RIR ja lepoajat samassa näkymässä",
+        feat_log_3: "Liikkeen korvaaminen, liikkeen tiedot ja lepoajastin",
+
+        feat_progress_title: "Kehityksen seuranta",
+        feat_progress_1: "Harjoitushistoria ja treenikohtaiset yhteenvedot",
+        feat_progress_2: "Voimakehityksen analytiikka ja arvioitu 1RM",
+        feat_progress_3: "Nostot kehityksestä, palautumisesta ja viikkorytmin johdonmukaisuudesta",
+
+        feat_body_title: "Kehon mittarit",
+        feat_body_1: "Painon ja mittojen kirjaaminen sekä niiden kehityssuunta",
+        feat_body_2: "Valinnainen Health Connect -yhteys painolukemien lukemiseen ja kirjaamiseen",
+        feat_body_3: "Kehon mittarit näytetään harjoitusdatan rinnalla seurantanäkymissä",
+
+        feat_nutrition_title: "Ravitsemus",
+        feat_nutrition_1: "Ravintotavoitteet: kalorit ja makroravinteet",
+        feat_nutrition_2: "Tekoälyn luomat ateriasuunnitelmat, jotka voi generoida uudelleen",
+        feat_nutrition_3: "Päiväkohtainen kirjaus ja tavoitteiden toteutumisen seuranta",
+
+        feat_checkin_title: "Viikoittainen check-in",
+        feat_checkin_1: "Energia, palautuminen, motivaatio, uni ja stressi",
+        feat_checkin_2: "Harjoittelun ja ravitsemuksen toteutuminen omana arviona",
+        feat_checkin_3: "Vastauksista koostetaan tilannekuva ja seuraavan jakson painopiste",
+
+        ai_title: "Tekoälyn rooli",
+        ai_intro: "Tekoäly on GainsAI:ssa työkalu, joka nopeuttaa ohjelman rakentamista ja datan tulkintaa. Se ei toimi itsenäisesti taustalla eikä tee muutoksia käyttäjän puolesta.",
+        ai_gen_title: "Ohjelmien generointi",
+        ai_gen_body: "Käyttöönoton vastaukset muunnetaan viikko-ohjelmaksi: split, treenipäivät, liikkeet, sarja- ja toistoalueet sekä lepoajat. Ohjelman voi generoida uudelleen tai korvata käsin tehdyllä ohjelmalla.",
+        ai_coach_title: "AI Coach",
+        ai_coach_body: "Coach vastaa harjoitteluun liittyviin kysymyksiin ja käyttää kontekstinaan käyttäjän omaa aktiivista ohjelmaa, kirjattuja treenejä ja kehityssignaaleja. Se selittää, mitä data kertoo, ja nostaa esiin seuraavat kehityskohteet. Coach ei muuta ohjelmaa itse, vaan muutoksista päättää käyttäjä.",
+        ai_analysis_title: "Analyysi ja priorisointi",
+        ai_analysis_body: "Backend laskee harjoitushistoriasta kehitys-, palautumis- ja johdonmukaisuussignaalit ja järjestää ne tärkeysjärjestykseen. Käyttäjälle näytetään muutama olennainen havainto koko datamassan sijaan.",
+        ai_content_title: "Ateriasuunnitelmat ja tekstit",
+        ai_content_body: "Ateriasuunnitelmat, suositustekstit ja osa käyttäjälle näytettävistä sisällöistä tuotetaan tekoälyllä ja käännetään sovelluksen tukemille kielille.",
+        ai_safety_title: "Turvallisuus ja valvonta",
+        ai_safety_body: "Coachin vastaukset kulkevat erillisen turvakerroksen läpi, ja käyttäjä voi ilmoittaa ongelmallisesta tekoälyvastauksesta suoraan sovelluksesta. Ilmoitukset käsitellään backendissa.",
+        ai_disclaimer: "GainsAI on kuntoilu- ja hyvinvointisovellus. Se ei korvaa henkilökohtaista valmentajaa, fysioterapeuttia tai terveydenhuollon ammattilaista, eikä sitä ole tarkoitettu sairauksien diagnosointiin tai hoitoon.",
+
+        tech_title: "Tekninen toteutus",
+        tech_intro: "GainsAI on tuotannossa oleva järjestelmä, ei käyttöliittymäprototyyppi. Android-sovellus, rajapinta, tietokanta, tunnistautuminen, maksut ja varmuuskopiointi on suunniteltu, toteutettu ja julkaistu yhtenä kokonaisuutena.",
+
+        tech_android_title: "Android-sovellus",
+        tech_android_meta: "Kotlin · Jetpack Compose · Material 3 · Navigation Compose · DataStore · WorkManager · Retrofit / OkHttp / Moshi · Coil",
+        tech_android_1: "MVVM- ja repository-rakenne sekä StateFlow-pohjainen tilanhallinta",
+        tech_android_2: "Tuki Android 8:sta (API 26) alkaen, käännetty API 36:ta vasten",
+        tech_android_3: "Käyttöliittymä 17 lokalisoidulla kielellä oletusresurssien lisäksi",
+        tech_android_4: "Käännösten kattavuus ja kovakoodatut tekstit tarkistetaan automaattisesti build-vaiheessa",
+
+        tech_backend_title: "Backend ja tietokanta",
+        tech_backend_meta: "FastAPI · Python · Pydantic · SQLAlchemy · MariaDB",
+        tech_backend_1: "REST-rajapinta ohjelmille, treeneille, kehitykselle, ravitsemukselle, check-ineille, Coachille ja tilauksille",
+        tech_backend_2: "Versioidut SQL-migraatiot ja yksi kanoninen tietokantaskeema",
+        tech_backend_3: "Pitkäkestoiset generoinnit ajetaan taustatöinä, jotta käyttöliittymä ei jää odottamaan",
+        tech_backend_4: "Sovelluslogiikka on jaettu selkeisiin palvelukerroksiin domain-alueittain",
+
+        tech_auth_title: "Tunnistautuminen ja sovelluksen eheys",
+        tech_auth_meta: "Firebase Authentication · Firebase App Check · Google Play Integrity",
+        tech_auth_1: "Kirjautuminen sähköpostilla tai Google-tilillä",
+        tech_auth_2: "Jokainen suojattu pyyntö vaatii varmennetun Firebase ID -tokenin ja App Check -tokenin",
+        tech_auth_3: "Play Integrity varmistaa, että pyyntö tulee aidosta sovellusasennuksesta",
+        tech_auth_4: "Tilin ja siihen liittyvän datan poisto onnistuu suoraan sovelluksesta",
+
+        tech_billing_title: "Tilaukset",
+        tech_billing_meta: "Google Play Billing · Google Play Developer API",
+        tech_billing_1: "GainsAI Pro kuukausi- tai vuositilauksena, hinnat suoraan Google Playstä",
+        tech_billing_2: "Backend varmentaa ostot Google Play Developer APIlla; sovellus ei myönnä käyttöoikeuksia itse",
+        tech_billing_3: "Ostotunnisteet käsitellään salattuna palvelinpuolella",
+        tech_billing_4: "Ostojen palautus ja tilauksen hallinta ohjataan Google Playhin",
+
+        tech_backup_title: "Varmuuskopiointi ja pilvipalvelut",
+        tech_backup_meta: "Google Drive API · Health Connect · Firebase",
+        tech_backup_1: "Varmuuskopio tallennetaan käyttäjän omaan Google Driveen sovelluskohtaiseen kansioon",
+        tech_backup_2: "Palautus tarkistaa käytetyn tilin ja pyytää vahvistuksen ennen ylikirjoitusta",
+        tech_backup_3: "Valinnainen Health Connect -integraatio painodatalle käyttäjän luvalla",
+        tech_backup_4: "Sovellusdata säilytetään backendissa, joten se seuraa laitteen vaihtuessa",
+
+        tech_ops_title: "Laatu, seuranta ja julkaisu",
+        tech_ops_meta: "Firebase Crashlytics · Firebase Analytics · Play In-App Updates · Linux-palvelinympäristö",
+        tech_ops_1: "Kaatumisraportointi käytössä vain tuotantoreleasessa",
+        tech_ops_2: "Backend ajetaan omassa Linux-palvelinympäristössä varmuuskopioinnin kanssa",
+        tech_ops_3: "Julkaisu vietiin suljetun testauksen kautta tuotantoon Google Playssa",
+        tech_ops_4: "Play Consolen edellyttämät ilmoitukset terveys- ja AI-sisällöstä käytiin läpi ennen julkaisua",
+
+        screens_title: "Kuvakaappaukset",
+        screens_note: "Kuvat ovat sovelluksen Google Play -esittelykuvia. Käyttöliittymä näkyy niissä englanniksi, mutta sovellus tukee 17:ää lokalisoitua kieltä. Klikkaamalla kuva avautuu täysikokoisena.",
+        shot_1_alt: "GainsAI-sovelluksen ohjelmanäkymä, jossa näkyvät Upper/Lower-split, ohjelman kesto ja viikon harjoituspäivät.",
+        shot_1_caption: "Viikko-ohjelma: aktiivisen ohjelman split, kesto, tavoite ja treenipäivät sekä viikkonäkymä päivittäisine harjoituksineen.",
+        shot_2_alt: "GainsAI-sovelluksen treeninäkymä, jossa näkyvät penkkipunnerrus, liikkeen tiedot, havainnekuva ja lepoajastin.",
+        shot_2_caption: "Ohjattu treeni: päivän liikkeet järjestyksessä, liikkeen tiedot ja havainnekuva, liikkeen korvaaminen sekä lepoajastin.",
+        shot_3_alt: "GainsAI-sovelluksen kirjausnäkymä, jossa syötetään sarjan toistot, paino kilogrammoina ja RIR-arvo.",
+        shot_3_caption: "Sarjojen kirjaaminen: toistot, paino ja RIR sarjakohtaisesti, tavoitearvot sekä nopeat säädöt.",
+
+        status_title: "Julkaisutilanne",
+        status_body: "GainsAI on julkaistu Google Play -kauppaan tuotantoon paketilla <code>com.janstech.gainsai</code>. Julkaisua edelsi suljettu testaus sekä Play Consolen edellyttämät ilmoitukset terveys- ja fitness-sovelluksista, generatiivisesta tekoälysisällöstä ja tietosuojakäytännöistä. Osa ominaisuuksista on käytettävissä ilman tilausta, ja GainsAI Pro avaa muun muassa lisäohjelmat, kehityksen analytiikan, ateriasuunnitelmat, Drive-varmuuskopioinnin ja laajemman AI Coach -käytön.",
+        status_link_play: "Google Play – Sovellussivu",
+        status_link_git: "GitHub – Janstech",
+        status_link_portfolio: "Takaisin portfolion projekteihin",
+
+        footer_note: "Portfolio-sivusto · Jan Sarivuo",
+
+        stack_code: `// gainsai · tuotannossa
+const stack = {
+  app: ["Kotlin", "Jetpack Compose",
+        "Material 3"],
+  api: ["FastAPI", "Python", "MariaDB"],
+  platform: ["Firebase Auth", "App Check",
+             "Play Integrity", "Play Billing",
+             "Google Drive API"]
+}`
+    },
+
+    en: {
+        page_title: "GainsAI – Android App | Jan Sarivuo",
+        nav_aria: "App page navigation",
+        nav_back: "&larr; Portfolio",
+        nav_overview: "Overview",
+        nav_features: "Features",
+        nav_ai: "AI",
+        nav_tech: "Technology",
+        nav_screens: "Screenshots",
+        lang_label: "Language",
+
+        hero_label: "Android app",
+        hero_logo_alt: "GainsAI app logo",
+        hero_subtitle: "AI-assisted planning, logging, and progress tracking for gym training",
+        hero_status: "Published on Google Play",
+        hero_lede: "GainsAI builds a personal training program, guides each session exercise by exercise, and turns the training history into a clear picture of progress. This is not a UI demo: alongside the Android app, the product includes its own FastAPI backend, a database, user authentication, subscription billing, and cloud backup.",
+        hero_cta_play: "Google Play",
+        hero_cta_back: "All projects",
+
+        overview_title: "The Product",
+        overview_intro: "Gym training usually stalls for the same reasons: the program is either too generic or never gets updated, and the training log stops being filled in. GainsAI takes care of the program structure, makes logging fast, and shows progress without a separate spreadsheet.",
+        overview_who_title: "Who it is for",
+        overview_who_body: "People who train with weights and want a clear weekly program without building it by hand — from beginners to more experienced lifters.",
+        overview_problem_title: "What it solves",
+        overview_problem_body: "Off-the-shelf programs ignore your goal, the training days you actually have, and the equipment available to you. GainsAI builds the program around those inputs and keeps training history, body metrics, and nutrition in one place.",
+        overview_how_title: "How it works",
+        overview_how_body: "Onboarding asks for the goal, experience level, number of training days, and available equipment. Those inputs produce the first program, which can then be switched, edited manually, or regenerated.",
+
+        features_title: "Key Features",
+        feat_programs_title: "Training programs",
+        feat_programs_1: "AI-generated programs based on goal, experience level, training days, and equipment",
+        feat_programs_2: "Manual program editor: split, duration in weeks, training days, and exercises",
+        feat_programs_3: "Program library: saved programs, switching the active program, and deletion",
+
+        feat_log_title: "Workout logging",
+        feat_log_1: "Week view and per-day workouts with their exercise lists",
+        feat_log_2: "Sets, reps, load, RIR, and rest times in a single view",
+        feat_log_3: "Exercise substitution, exercise details, and a rest timer",
+
+        feat_progress_title: "Progress tracking",
+        feat_progress_1: "Session history and per-workout summaries",
+        feat_progress_2: "Strength analytics and estimated 1RM",
+        feat_progress_3: "Highlighted signals on progress, recovery, and weekly consistency",
+
+        feat_body_title: "Body metrics",
+        feat_body_1: "Logging body weight and measurements, plus their trend over time",
+        feat_body_2: "Optional Health Connect integration for reading and writing weight data",
+        feat_body_3: "Body metrics shown alongside training data in the progress views",
+
+        feat_nutrition_title: "Nutrition",
+        feat_nutrition_1: "Nutrition targets: calories and macronutrients",
+        feat_nutrition_2: "AI-generated meal plans that can be regenerated",
+        feat_nutrition_3: "Daily logging and tracking of how well targets are met",
+
+        feat_checkin_title: "Weekly check-in",
+        feat_checkin_1: "Energy, recovery, motivation, sleep, and stress",
+        feat_checkin_2: "Self-assessed training and nutrition adherence",
+        feat_checkin_3: "The answers are summarised into a status and a focus for the next period",
+
+        ai_title: "How AI Is Used",
+        ai_intro: "In GainsAI, AI is a tool that speeds up building a program and interpreting the data behind it. It does not run on its own in the background and it does not make changes on the user's behalf.",
+        ai_gen_title: "Program generation",
+        ai_gen_body: "The onboarding answers are turned into a weekly program: split, training days, exercises, set and rep ranges, and rest times. The program can be regenerated or replaced with a manually built one.",
+        ai_coach_title: "AI Coach",
+        ai_coach_body: "Coach answers training-related questions using the user's own active program, logged workouts, and progress signals as context. It explains what the data shows and points out the next things worth improving. Coach does not modify the program itself — the user decides on any changes.",
+        ai_analysis_title: "Analysis and prioritisation",
+        ai_analysis_body: "The backend derives progress, recovery, and consistency signals from the training history and ranks them by importance, so the user sees a few relevant findings instead of the whole data set.",
+        ai_content_title: "Meal plans and generated text",
+        ai_content_body: "Meal plans, recommendation texts, and part of the user-facing content are generated with AI and translated into the languages the app supports.",
+        ai_safety_title: "Safety and moderation",
+        ai_safety_body: "Coach responses pass through a dedicated safety layer, and users can report a problematic AI response directly from the app. Reports are handled on the backend.",
+        ai_disclaimer: "GainsAI is a fitness and wellness app. It does not replace a personal trainer, a physiotherapist, or a healthcare professional, and it is not intended for diagnosing or treating any medical condition.",
+
+        tech_title: "Technical Implementation",
+        tech_intro: "GainsAI is a system running in production, not a UI prototype. The Android app, the API, the database, authentication, payments, and backup were designed, built, and shipped as a single whole.",
+
+        tech_android_title: "Android app",
+        tech_android_meta: "Kotlin · Jetpack Compose · Material 3 · Navigation Compose · DataStore · WorkManager · Retrofit / OkHttp / Moshi · Coil",
+        tech_android_1: "MVVM and repository structure with StateFlow-based state management",
+        tech_android_2: "Supports Android 8 (API 26) and newer, compiled against API 36",
+        tech_android_3: "User interface in 17 localised languages on top of the default resources",
+        tech_android_4: "Translation coverage and hardcoded strings are checked automatically during the build",
+
+        tech_backend_title: "Backend and database",
+        tech_backend_meta: "FastAPI · Python · Pydantic · SQLAlchemy · MariaDB",
+        tech_backend_1: "REST API for programs, workouts, progress, nutrition, check-ins, Coach, and subscriptions",
+        tech_backend_2: "Versioned SQL migrations and a single canonical database schema",
+        tech_backend_3: "Long-running generation is executed as background jobs so the UI never has to wait",
+        tech_backend_4: "Application logic is split into clear service layers by domain area",
+
+        tech_auth_title: "Authentication and app integrity",
+        tech_auth_meta: "Firebase Authentication · Firebase App Check · Google Play Integrity",
+        tech_auth_1: "Sign-in with email or a Google account",
+        tech_auth_2: "Every protected request requires a verified Firebase ID token and an App Check token",
+        tech_auth_3: "Play Integrity verifies that the request comes from a genuine app installation",
+        tech_auth_4: "Account and related data can be deleted directly from within the app",
+
+        tech_billing_title: "Subscriptions",
+        tech_billing_meta: "Google Play Billing · Google Play Developer API",
+        tech_billing_1: "GainsAI Pro as a monthly or yearly subscription, with prices served by Google Play",
+        tech_billing_2: "The backend verifies purchases against the Google Play Developer API; the app never grants entitlements on its own",
+        tech_billing_3: "Purchase tokens are handled in encrypted form on the server side",
+        tech_billing_4: "Purchase restore and subscription management are handed off to Google Play",
+
+        tech_backup_title: "Backup and cloud services",
+        tech_backup_meta: "Google Drive API · Health Connect · Firebase",
+        tech_backup_1: "Backups are stored in the user's own Google Drive, in the app-specific folder",
+        tech_backup_2: "Restore verifies the account in use and asks for confirmation before overwriting",
+        tech_backup_3: "Optional Health Connect integration for weight data, with the user's permission",
+        tech_backup_4: "App data lives on the backend, so it follows the user when the device changes",
+
+        tech_ops_title: "Quality, monitoring, and release",
+        tech_ops_meta: "Firebase Crashlytics · Firebase Analytics · Play In-App Updates · Linux server environment",
+        tech_ops_1: "Crash reporting is enabled only in the production release",
+        tech_ops_2: "The backend runs in a dedicated Linux server environment with backups in place",
+        tech_ops_3: "The release went through closed testing before reaching production on Google Play",
+        tech_ops_4: "Play Console declarations for health and AI-generated content were completed before release",
+
+        screens_title: "Screenshots",
+        screens_note: "The images are the app's Google Play feature graphics. The interface is shown in English in them, but the app ships with 17 localised languages. Click an image to open it at full size.",
+        shot_1_alt: "GainsAI plan screen showing an Upper/Lower split, the program duration, and the training days of the week.",
+        shot_1_caption: "Weekly program: the active program's split, duration, goal, and training days, plus a week view of the daily workouts.",
+        shot_2_alt: "GainsAI workout screen showing a bench press exercise with its details, a demonstration image, and a rest timer.",
+        shot_2_caption: "Guided session: the day's exercises in order, exercise details and imagery, exercise substitution, and a rest timer.",
+        shot_3_alt: "GainsAI set logging screen with input fields for reps, load in kilograms, and RIR.",
+        shot_3_caption: "Set logging: reps, load, and RIR per set, together with target values and quick adjustments.",
+
+        status_title: "Release Status",
+        status_body: "GainsAI has been published to Google Play production under the package <code>com.janstech.gainsai</code>. The release was preceded by closed testing and by the Play Console declarations required for health and fitness apps, generative AI content, and data safety. Some features are available without a subscription, while GainsAI Pro unlocks additional programs, progress analytics, meal plans, Drive backup, and extended AI Coach usage.",
+        status_link_play: "Google Play – App page",
+        status_link_git: "GitHub – Janstech",
+        status_link_portfolio: "Back to portfolio projects",
+
+        footer_note: "Portfolio website · Jan Sarivuo",
+
+        stack_code: `// gainsai · in production
+const stack = {
+  app: ["Kotlin", "Jetpack Compose",
+        "Material 3"],
+  api: ["FastAPI", "Python", "MariaDB"],
+  platform: ["Firebase Auth", "App Check",
+             "Play Integrity", "Play Billing",
+             "Google Drive API"]
+}`
+    }
+};
+
+function setLang(lang) {
+    localStorage.setItem("portfolio_lang", lang);
+    document.documentElement.lang = (lang === "fi") ? "fi" : "en";
+    document.title = dict[lang].page_title;
+
+    for (const el of document.querySelectorAll("[data-i18n]")) {
+        const key = el.getAttribute("data-i18n");
+        if (dict[lang] && dict[lang][key] != null) {
+            el.innerHTML = dict[lang][key];
+        }
+    }
+
+    for (const el of document.querySelectorAll("[data-i18n-alt]")) {
+        const key = el.getAttribute("data-i18n-alt");
+        if (dict[lang] && dict[lang][key] != null) {
+            el.setAttribute("alt", dict[lang][key]);
+        }
+    }
+
+    for (const el of document.querySelectorAll("[data-i18n-aria]")) {
+        const key = el.getAttribute("data-i18n-aria");
+        if (dict[lang] && dict[lang][key] != null) {
+            el.setAttribute("aria-label", dict[lang][key]);
+        }
+    }
+
+    const stackCode = document.getElementById("stackCode");
+    if (stackCode) {
+        stackCode.textContent = dict[lang].stack_code;
+    }
+
+    const btnFi = document.getElementById("btnFi");
+    const btnEn = document.getElementById("btnEn");
+    btnFi.classList.toggle("active", lang === "fi");
+    btnEn.classList.toggle("active", lang === "en");
+    btnFi.setAttribute("aria-pressed", String(lang === "fi"));
+    btnEn.setAttribute("aria-pressed", String(lang === "en"));
+}
+
+const savedLang = localStorage.getItem("portfolio_lang") || "fi";
+document.getElementById("btnFi").addEventListener("click", () => setLang("fi"));
+document.getElementById("btnEn").addEventListener("click", () => setLang("en"));
+setLang(savedLang);
+</script>
+
+</body>
+</html>
