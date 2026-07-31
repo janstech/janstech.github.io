@@ -23,9 +23,8 @@ Tiedostot on organisoitu selkeisiin kokonaisuuksiin ylläpidettävyyden parantam
 * `documents/` – Ladattavat tiedostot (CV, arkkitehtuurikuvaukset).
 * `gainsai/`, `kauppalista/`, `waveiq/` – julkaistujen sovellusten omat
   projektisivut (`/gainsai/`, `/kauppalista/`, `/waveiq/`).
-* `apps/` – Janstech Android -sovellusten koontisivu, joka kokoaa sovellusten
-  Google Play-, tietosuoja- ja tukilinkit. Sivu käyttää omaa tyylitiedostoaan
-  (`apps/css/style.css`) eikä jaettuja design tokeneita.
+* `apps/` – legacy-osoite. Vanha sovellusten koontisivu on korvattu kevyellä
+  siirtymäsivulla, joka ohjaa osoitteeseen `https://janstechapps.com/`.
 * `sitemap.xml`, `robots.txt` – Hakukoneille tarkoitetut tiedostot.
 
 ## Kaksikielisyys (FI/EN)
@@ -61,13 +60,18 @@ Projektisivujen yhteiset tyylit ovat `css/style.css`-tiedoston osiossa
 
 ## Sivustojen työnjako
 
-Kolme osoitetta palvelee eri tarkoitusta, ja jokainen linkittää kahteen muuhun:
+Kaksi sivustoa palvelee eri tarkoitusta ja linkittää toisiinsa:
 
 * **janstech.github.io** – tämä portfolio: kehittäjäprofiili, projektit ja
   tekninen dokumentaatio.
-* **janstech.github.io/apps/** – julkaistujen sovellusten koontisivu Google
-  Play-, tietosuoja- ja tukilinkkeineen.
-* **janstechapps.com** – sovellusten varsinainen tuotesivusto.
+* **janstechapps.com** – sovellusten varsinainen tuotesivusto: sovellukset,
+  latauslinkit sekä tietosuoja- ja tukisivut.
+
+Vanha koontisivu `janstech.github.io/apps/` on poistunut käytöstä. Osoite on
+säilytetty kevyenä siirtymäsivuna (`noindex, follow`, canonical
+`https://janstechapps.com/`), jotta vanhat linkit ja hakukoneosumat eivät johda
+404-sivulle. Sivu ei ole sitemapissa, eikä uusia linkkejä tule ohjata sen
+kautta.
 
 ## Dokumentit
 

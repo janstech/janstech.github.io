@@ -345,6 +345,13 @@ Use the exact domain:
 janstechapps.com
 ```
 
+New links to the application site must point directly to `https://janstechapps.com/`.
+
+The path `/apps/` is a legacy redirect only. It is not a content page, it is not
+in `sitemap.xml`, and it is marked `noindex, follow`. Do not add new links to it,
+do not restore application content there, and do not route product-site links
+through it.
+
 ---
 
 ## Visual design principles

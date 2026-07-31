@@ -399,10 +399,10 @@ vielä käytetä. Ne ovat sopimus tuleville vaiheille, eivät kuollutta koodia:
 
 ## 12. Tiedossa olevat ristiriidat
 
-- **`apps/css/style.css` on erillinen järjestelmä.** Sillä ei ole yhteisiä
-  tokeneita eikä se peri mitään `css/style.css`:stä. Sivu näyttää yhä eri
-  sukupolvelta kuin muu sivusto. Ehdotus: käsitellään auditoinnin luvun 12.5
-  päätöksen yhteydessä.
+- ~~**`apps/css/style.css` on erillinen järjestelmä.**~~ **Ratkaistu:**
+  auditoinnin luvun 12.5 vaihtoehto A toteutettiin. `apps/index.html` on nyt
+  kevyt siirtymäsivu janstechapps.comiin omalla minimaalisella inline-CSS:llään,
+  ja `apps/css/style.css` on poistettu. Toista tyylijärjestelmää ei enää ole.
 - **`gainsai/index.html` käyttää yhä vanhoja `.project-card`-, `.project-grid`-,
   `.project-meta`-, `.project-points`- ja `.project-links`-luokkia.** Etusivu
   siirtyi uusiin projektikomponentteihin, mutta säännöt jätettiin jaettuun
