@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8" />
+    <title>WaveIQ Radio – Android-sovellus | Jan Sarivuo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="description" content="WaveIQ Radio on Google Playssa julkaistu Android-sovellus internet-radion kuunteluun: Media3-taustatoisto, asemahaku, suosikit ja kuunteluhistoriaan perustuvat suositukset. Taustalla oma FastAPI- ja MariaDB-palvelu.">
+    <meta name="author" content="Jan Sarivuo">
+    <meta name="robots" content="index,follow" />
+
+    <link rel="canonical" href="https://janstech.github.io/waveiq/">
+
+    <meta property="og:title" content="WaveIQ Radio – Android-sovellus | Jan Sarivuo">
+    <meta property="og:description" content="Internet-radiosovellus, jossa Media3-taustatoisto, asemahaku ja kuunteluhistoriaan perustuvat suositukset. Oma FastAPI-backend, MariaDB-analytiikka ja App Check -suojatut rajapinnat.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://janstech.github.io/waveiq/">
+    <meta property="og:image" content="https://janstech.github.io/images/waveiq-logo.png">
+    <meta property="og:locale" content="fi_FI">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:site_name" content="Jan Sarivuo – Portfolio">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="WaveIQ Radio – Android-sovellus | Jan Sarivuo">
+    <meta name="twitter:description" content="Android-radiosovellus: Media3-taustatoisto, asemahaku, suositukset ja oma FastAPI + MariaDB -backend.">
+    <meta name="twitter:image" content="https://janstech.github.io/images/waveiq-logo.png">
+
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="../images/favicon-48x48.png">
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+    <link rel="manifest" href="../manifest.json">
+</head>
+
+<body>
+<a class="skip-link" href="#main" data-i18n="skip_link">Siirry pääsisältöön</a>
+
+<header class="site-header">
+    <div class="container header-inner">
+        <a class="logo" href="../index.html">
+            <span class="logo-name">Jan Sarivuo</span>
+            <span class="logo-role" data-i18n="logo_role">Kehittäjä</span>
+        </a>
+        <nav class="nav" data-i18n-aria="nav_aria" aria-label="Sovellussivun navigaatio">
+            <a href="../index.html#projects" data-i18n="nav_back">&larr; Portfolio</a>
+            <a href="#overview" data-i18n="nav_overview">Yleiskuva</a>
+            <a href="#features" data-i18n="nav_features">Ominaisuudet</a>
+            <a href="#intelligence" data-i18n="nav_extra">Suositukset</a>
+            <a href="#tech" data-i18n="nav_tech">Tekniikka</a>
+            <a href="#screens" data-i18n="nav_screens">Kuvat</a>
+        </nav>
+
+        <div class="lang-switch">
+            <span class="lang-label" data-i18n="lang_label">Kieli</span>
+            <button id="btnFi" type="button">FI</button>
+            <button id="btnEn" type="button">EN</button>
+        </div>
+    </div>
+</header>
+
+<main id="main" tabindex="-1">
+    <section class="hero" id="top">
+        <div class="container hero-inner">
+            <div>
+                <div class="app-hero-head">
+                    <img class="app-hero-logo" src="../images/waveiq-logo.png"
+                         data-i18n-alt="logo_alt" alt="WaveIQ Radio -sovelluksen logo"
+                         width="512" height="512" decoding="async" />
+                    <div>
+                        <p class="hero-label" data-i18n="hero_label">Android-sovellus</p>
+                        <h1>WaveIQ Radio</h1>
+                    </div>
+                </div>
+
+                <h2 class="hero-subtitle" data-i18n="hero_subtitle">Internet-radio, joka oppii kuunteluhistoriasta ja perustelee suosituksensa</h2>
+
+                <p class="status-pill" data-i18n="hero_status">Julkaistu Google Playssa</p>
+
+                <p class="lede" data-i18n="hero_lede">WaveIQ Radio yhdistää vakaan taustatoiston, laajan asemahaun ja suosituskerroksen, joka rakentuu käyttäjän oman kuunteluhistorian päälle. Sovellus ei ole pelkkä soitin: taustalla on oma palvelu, joka kerää kuuntelutapahtumat, kuvaa asemien ominaisuuksia ja seuraa striimien toimintakuntoa.</p>
+
+                <div class="hero-actions">
+                    <a href="https://play.google.com/store/apps/details?id=com.janstech.radioplayer" target="_blank" rel="noopener noreferrer" class="btn-primary"
+                       data-i18n="cta_play">Google Play</a>
+                    <a href="../index.html#projects" class="btn-ghost" data-i18n="cta_back">Kaikki projektit</a>
+                </div>
+            </div>
+
+            <aside class="spec" data-i18n-aria="spec_aria" aria-label="Sovelluksen tekninen yhteenveto">
+                <p class="spec-title" data-i18n="spec_title">Tekninen yhteenveto</p>
+                <dl class="spec-list">
+                    <div class="spec-row">
+                        <dt data-i18n="spec_platform_label">Alusta</dt>
+                        <dd data-i18n="spec_platform_value">Android 8+ · Kotlin · Jetpack Compose</dd>
+                    </div>
+                    <div class="spec-row">
+                        <dt data-i18n="spec_playback_label">Toisto</dt>
+                        <dd data-i18n="spec_playback_value">Media3 · taustatoisto · mediakontrollit · uniajastin</dd>
+                    </div>
+                    <div class="spec-row">
+                        <dt data-i18n="spec_backend_label">Backend</dt>
+                        <dd data-i18n="spec_backend_value">FastAPI · Python · MariaDB</dd>
+                    </div>
+                    <div class="spec-row">
+                        <dt data-i18n="spec_reco_label">Suositukset</dt>
+                        <dd data-i18n="spec_reco_value">Kuunteluhistoria · makuprofiili · Station DNA</dd>
+                    </div>
+                    <div class="spec-row">
+                        <dt data-i18n="spec_protect_label">Suojaus</dt>
+                        <dd data-i18n="spec_protect_value">Firebase App Check · Google Play Integrity</dd>
+                    </div>
+                    <div class="spec-row">
+                        <dt data-i18n="spec_release_label">Julkaisu</dt>
+                        <dd data-i18n="spec_release_value">Google Play -tuotanto</dd>
+                    </div>
+                </dl>
+            </aside>
+        </div>
+    </section>
+
+    <section id="overview" class="section">
+        <div class="container">
+            <h2 class="section-title" data-i18n="overview_title">Tuote</h2>
+            <p class="section-intro" data-i18n="overview_intro">Internet-radioita on tarjolla kymmeniä tuhansia, ja niistä oman suosikin löytäminen on hankalampaa kuin itse kuuntelu. WaveIQ Radio keskittyy juuri tähän: löytämiseen, luotettavaan toistoon ja siihen, että sovellus osaa kertoa miksi se ehdottaa tiettyä asemaa.</p>
+
+            <div class="info-grid">
+                <div class="card">
+                    <h3 data-i18n="ov1_title">Kenelle</h3>
+                    <p data-i18n="ov1_body">Radion kuuntelijoille, jotka haluavat muutakin kuin listan valmiiksi valittuja asemia: hakua maittain, kielittäin ja genreittäin sekä ehdotuksia oman kuuntelun perusteella.</p>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="ov2_title">Mitä se ratkaisee</h3>
+                    <p data-i18n="ov2_body">Verkkoradiot katkeilevat ja kuolevat. Sovellus seuraa striimien toimintakuntoa, palautuu katkoista hallitusti ja auttaa löytämään uusia asemia sen sijaan että käyttäjä selaisi loputonta listaa.</p>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="ov3_title">Miten sitä käytetään</h3>
+                    <p data-i18n="ov3_body">Asemia haetaan nimellä, genrellä, maalla tai kielellä – tai kuvaamalla haluttu tunnelma omin sanoin. Löydetyt asemat tallentuvat omaan listaan, ja suositukset tarkentuvat kuuntelun myötä.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title" data-i18n="features_title">Keskeiset ominaisuudet</h2>
+
+            <div class="skills-grid">
+                <div class="card">
+                    <h3 data-i18n="f1_title">Toisto</h3>
+                    <ul>
+                        <li data-i18n="f1_1">Media3-pohjainen taustatoisto ja mediakontrollit</li>
+                        <li data-i18n="f1_2">Hallittu palautuminen verkkokatkoista</li>
+                        <li data-i18n="f1_3">Uniajastin häivytyksellä</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="f2_title">Oma asemalista</h3>
+                    <ul>
+                        <li data-i18n="f2_1">Asemien lisäys, muokkaus ja järjestäminen</li>
+                        <li data-i18n="f2_2">Suosikit ja pyyhkäisypoisto peruutuksella</li>
+                        <li data-i18n="f2_3">Asemat tunnistetaan striimin osoitteesta, ei nimestä</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="f3_title">Asemien haku</h3>
+                    <ul>
+                        <li data-i18n="f3_1">Haku nimen, genren, maan ja kielen mukaan</li>
+                        <li data-i18n="f3_2">Selaus genreittäin, maittain ja kielittäin</li>
+                        <li data-i18n="f3_3">Esikuuntelu ja striimin toimivuusmerkintä</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="f4_title">Älyhaku</h3>
+                    <ul>
+                        <li data-i18n="f4_1">Vapaa kuvaus halutusta tunnelmasta tai tyylistä</li>
+                        <li data-i18n="f4_2">Haku käynnistyy vain käyttäjän pyynnöstä</li>
+                        <li data-i18n="f4_3">Selitteet käyttäjän omalla kielellä</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="f5_title">Varmuuskopiot</h3>
+                    <ul>
+                        <li data-i18n="f5_1">Asemat, logot ja asetukset yhtenä kokonaisuutena</li>
+                        <li data-i18n="f5_2">Automaattinen varmuuskopio valinnaisena</li>
+                        <li data-i18n="f5_3">Google Drive -varmuuskopio ja palautus</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="f6_title">Yhteysasetukset</h3>
+                    <ul>
+                        <li data-i18n="f6_1">Varmuuskopiot voi rajata pelkkään Wi-Fi-yhteyteen</li>
+                        <li data-i18n="f6_2">Mobiilidatan käytön toiston vakauttamiseksi voi sallia erikseen</li>
+                        <li data-i18n="f6_3">Data Saver ja verkkovierailu estävät mobiilidatan käytön</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="intelligence" class="section">
+        <div class="container">
+            <h2 class="section-title" data-i18n="extra_title">Suositukset ja asemien analyysi</h2>
+            <p class="section-intro" data-i18n="extra_intro">Suosituskerros on backend-vetoinen ja rakentuu kuunteluhistorian, makuprofiilin ja asemista kerätyn metadatan päälle. Se ei toimi itsenäisesti taustalla eikä muuta soittolistaa käyttäjän puolesta.</p>
+
+            <div class="info-grid">
+                <div class="card">
+                    <h3 data-i18n="e1_title">Suositukset</h3>
+                    <p data-i18n="e1_body">Backend muodostaa ehdotukset kuuntelutapahtumista ja makuprofiilista. Ehdotus on aina lista asemia, jotka käyttäjä voi kuunnella tai ohittaa – sovellus ei vaihda asemaa automaattisesti.</p>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="e2_title">Station DNA</h3>
+                    <p data-i18n="e2_body">Palvelinpuolen kerros kuvaa asemaa kuuntelu- ja metadatahistorian perusteella: kuinka musiikkipainotteinen tai puhevoittoinen asema on ja kuinka vakaa sen striimi on.</p>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="e3_title">Samankaltaiset asemat</h3>
+                    <p data-i18n="e3_body">Yhdestä asemasta voi hypätä listaan samankaltaisia asemia. Vertailu perustuu Station DNA -tietoon, ja hakua voi tarkentaa eri painotuksilla.</p>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="e4_title">Miksi tätä suositellaan</h3>
+                    <p data-i18n="e4_body">Suosituskortti voi avata lyhyen selityksen siitä, mihin ehdotus perustuu. Selitys näytetään vain, jos asemasta on siihen riittävästi tietoa, ja se tuotetaan käyttäjän kielellä.</p>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="e5_title">Striimien toimintakunto</h3>
+                    <p data-i18n="e5_body">Taustatyö tarkistaa striimien tilan säännöllisesti. Tietoa käytetään hakutulosten merkintöihin; asemia ei poisteta listalta automaattisesti.</p>
+                </div>
+            </div>
+
+            <p class="disclaimer" data-i18n="extra_note">Suositukset perustuvat kuunteluhistoriaan ja asemien metadataan. Ne ovat ehdotuksia, eivät automaattisia valintoja.</p>
+        </div>
+    </section>
+
+    <section id="tech" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title" data-i18n="tech_title">Tekninen toteutus</h2>
+            <p class="section-intro" data-i18n="tech_intro">Kokonaisuus on Android-sovellus, oma rajapintapalvelu ja analytiikkatietokanta. Suosituslogiikka ja asemien analyysi on tarkoituksella palvelinpuolella.</p>
+
+            <div class="project-grid">
+                <article class="card project-card">
+                    <h3 data-i18n="t1_title">Android-sovellus</h3>
+                    <p class="project-meta" data-i18n="t1_meta">Kotlin · Jetpack Compose · Media3 · DataStore</p>
+                    <ul class="project-points">
+                        <li data-i18n="t1_1">Compose-käyttöliittymä ja Media3-toistokerros</li>
+                        <li data-i18n="t1_2">Taustatoisto omana palvelunaan mediakontrolleineen</li>
+                        <li data-i18n="t1_3">Asemien ja asetusten pysyvyys DataStoressa</li>
+                        <li data-i18n="t1_4">Tuki Android 8:sta (API 26) alkaen, käännetty API 36:ta vasten</li>
+                    </ul>
+                </article>
+
+                <article class="card project-card">
+                    <h3 data-i18n="t2_title">Toiston vakaus</h3>
+                    <p class="project-meta" data-i18n="t2_meta">OkHttp-datasource · uudelleenyhdistys · verkkovalinta</p>
+                    <ul class="project-points">
+                        <li data-i18n="t2_1">Heikon verkon tunnistus liukuvassa aikaikkunassa</li>
+                        <li data-i18n="t2_2">Porrastettu uudelleenyhdistys ja soittimen uudelleenrakennus</li>
+                        <li data-i18n="t2_3">Erikseen sallittava mobiilidatan käyttö vain radiotoistolle</li>
+                        <li data-i18n="t2_4">Muu liikenne pysyy alkuperäisessä verkossa</li>
+                    </ul>
+                </article>
+
+                <article class="card project-card">
+                    <h3 data-i18n="t3_title">Backend</h3>
+                    <p class="project-meta" data-i18n="t3_meta">FastAPI · Python · SQLAlchemy · OpenAI</p>
+                    <ul class="project-points">
+                        <li data-i18n="t3_1">Rajapinnat haulle, suosituksille ja selityksille</li>
+                        <li data-i18n="t3_2">Kuuntelutapahtumien ja asemametadatan vastaanotto</li>
+                        <li data-i18n="t3_3">Tekoälypyyntöjen käyttöseuranta päiväkohtaisesti</li>
+                        <li data-i18n="t3_4">App Check -tarkistus ennen suojatun endpointin suoritusta</li>
+                    </ul>
+                </article>
+
+                <article class="card project-card">
+                    <h3 data-i18n="t4_title">Tietokanta ja taustatyöt</h3>
+                    <p class="project-meta" data-i18n="t4_meta">MariaDB · utf8mb4 · ajastettu taustatyö</p>
+                    <ul class="project-points">
+                        <li data-i18n="t4_1">Taulut kuuntelutapahtumille, asemille ja makuprofiilille</li>
+                        <li data-i18n="t4_2">Station DNA omana tuotantotauluna</li>
+                        <li data-i18n="t4_3">Striimien toimintakuntoa päivittävä ajastettu työ</li>
+                        <li data-i18n="t4_4">utf8mb4-merkistö monikielisille asemanimille</li>
+                    </ul>
+                </article>
+
+                <article class="card project-card">
+                    <h3 data-i18n="t5_title">Suojaus ja julkaisu</h3>
+                    <p class="project-meta" data-i18n="t5_meta">Firebase App Check · Play Integrity · Google Drive API</p>
+                    <ul class="project-points">
+                        <li data-i18n="t5_1">Play Integrity ja App Check ennen palvelinkutsuja</li>
+                        <li data-i18n="t5_2">Suojatut rajapinnat eivät vastaa sovelluksen ulkopuolelta</li>
+                        <li data-i18n="t5_3">Google Drive -varmuuskopiointi OAuth-tuotantotilassa</li>
+                        <li data-i18n="t5_4">Google Play -tuotantojulkaisu ja Play App Signing</li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="privacy" class="section">
+        <div class="container">
+            <h2 class="section-title" data-i18n="privacy_title">Tietoturva ja tietosuoja</h2>
+            <p class="section-intro" data-i18n="privacy_intro">Sovellus toimii ilman käyttäjätiliä. Kirjautumista tarvitaan vain Google Drive -varmuuskopioon.</p>
+
+            <div class="info-grid">
+                <div class="card">
+                    <h3 data-i18n="p1_title">Ei pakollista tiliä</h3>
+                    <p data-i18n="p1_body">Radion kuuntelu, asemahaku, suosikit ja suositukset toimivat ilman käyttäjätiliä. Google-kirjautuminen liittyy ainoastaan Drive-varmuuskopiointiin.</p>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="p2_title">Sovelluksen eheys</h3>
+                    <p data-i18n="p2_body">Suojatut rajapinnat vaativat Play Integrity -varmennuksen ja Firebase App Check -tokenin. Ilman niitä palvelin ei suorita pyyntöä, joten rajapintaa ei voi käyttää suoraan sovelluksen ulkopuolelta.</p>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="p3_title">Mitä palvelin tallentaa</h3>
+                    <p data-i18n="p3_body">Palvelin tallentaa kuuntelutapahtumia, asemien metatietoja, striimien toimintakuntoa ja niistä johdettua makuprofiilia suosituksia varten. Käyttäjä tunnistetaan sovelluskohtaisella laitetunnisteella, ei henkilötiedoilla.</p>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="p4_title">Varmuuskopiot</h3>
+                    <p data-i18n="p4_body">Varmuuskopio sisältää asemat, logot ja asetukset ja tallentuu käyttäjän omaan Google Driveen. Automaattisen varmuuskopion voi rajata Wi-Fi-yhteyteen.</p>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="p5_title">Verkon käyttö</h3>
+                    <p data-i18n="p5_body">Mobiilidataa käytetään toiston vakauttamiseen vain, jos käyttäjä on sallinut sen erikseen. Data Saver ja verkkovierailu estävät sen, ja rajoitus koskee vain radiotoistoa.</p>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="p6_title">Julkiset käytännöt</h3>
+                    <p data-i18n="p6_body">Sovelluksella on julkiset tietosuoja-, tuki-, käyttöehto- ja tietojen poistosivut Play Consolen vaatimusten mukaisesti.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="screens" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title" data-i18n="screens_title">Kuvakaappaukset</h2>
+            <p class="section-intro" data-i18n="screens_note">Kuvat ovat sovelluksen Google Play -kuvakaappauksia. Klikkaamalla kuva avautuu täysikokoisena.</p>
+
+            <div class="shot-grid">
+                <figure class="shot">
+                    <a href="../images/iq_1.jpeg" target="_blank" rel="noopener noreferrer">
+                        <img src="../images/iq_1.jpeg" width="1040" height="2048"
+                             loading="lazy" decoding="async"
+                             data-i18n-alt="shot1_alt"
+                             alt="WaveIQ Radio – oma asemalista, jossa näkyvät asemien logot ja suosikkimerkinnät." />
+                    </a>
+                    <figcaption data-i18n="shot1_cap">Oma asemalista: suosikit, järjestäminen ja pääsy samankaltaisiin asemiin.</figcaption>
+                </figure>
+
+                <figure class="shot">
+                    <a href="../images/iq_2.jpeg" target="_blank" rel="noopener noreferrer">
+                        <img src="../images/iq_2.jpeg" width="1040" height="2048"
+                             loading="lazy" decoding="async"
+                             data-i18n-alt="shot2_alt"
+                             alt="WaveIQ Radio – selausnäkymä, jossa asemia suodatetaan genren ja maan mukaan." />
+                    </a>
+                    <figcaption data-i18n="shot2_cap">Selaus: asemia voi käydä läpi genren, maan ja kielen mukaan.</figcaption>
+                </figure>
+
+                <figure class="shot">
+                    <a href="../images/iq_3.jpeg" target="_blank" rel="noopener noreferrer">
+                        <img src="../images/iq_3.jpeg" width="1040" height="2048"
+                             loading="lazy" decoding="async"
+                             data-i18n-alt="shot3_alt"
+                             alt="WaveIQ Radio – asemahaku, jossa näkyvät hakusuodattimet ja hakutulokset." />
+                    </a>
+                    <figcaption data-i18n="shot3_cap">Asemahaku: haku käynnistyy vasta käyttäjän pyynnöstä, ei kirjoituksen aikana.</figcaption>
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    <section id="status" class="section">
+        <div class="container">
+            <h2 class="section-title" data-i18n="status_title">Julkaisutilanne</h2>
+            <p class="section-intro" data-i18n="status_body">Sovellus on Google Play -kaupan tuotantoraiteella paketilla <code>com.janstech.radioplayer</code> ja käyttää Play App Signing -allekirjoitusta. Google Drive -varmuuskopioinnin OAuth-konfiguraatio on tuotantotilassa. Kuuntelu, haku ja suositukset toimivat ilman käyttäjätiliä.</p>
+
+            <div class="project-links" style="padding-top:0;">
+                <a class="link-primary" href="https://play.google.com/store/apps/details?id=com.janstech.radioplayer" target="_blank" rel="noopener noreferrer"
+                   data-i18n="link_play">Google Play – Sovellussivu</a>
+                <a href="https://github.com/janstech" target="_blank" rel="noopener noreferrer" data-i18n="link_repo">GitHub – Janstech</a>
+                <a href="../index.html#projects" data-i18n="link_back">Takaisin portfolion projekteihin</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="container footer-inner">
+        <span>&copy; <span id="year"></span> Jan Sarivuo</span>
+        <span class="footer-note" data-i18n="footer_note">Portfolio-sivusto · Jan Sarivuo</span>
+    </div>
+</footer>
+
+<script data-goatcounter="https://janstech.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+<script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+<script>
+const dict = {
+    fi: {
+        skip_link: "Siirry pääsisältöön",
+        logo_role: "Kehittäjä",
+        nav_aria: "Sovellussivun navigaatio",
+        nav_back: "&larr; Portfolio",
+        nav_overview: "Yleiskuva",
+        nav_features: "Ominaisuudet",
+        nav_tech: "Tekniikka",
+        nav_privacy: "Tietoturva",
+        nav_screens: "Kuvat",
+        lang_label: "Kieli",
+        hero_label: "Android-sovellus",
+        hero_status: "Julkaistu Google Playssa",
+        spec_aria: "Sovelluksen tekninen yhteenveto",
+        spec_title: "Tekninen yhteenveto",
+        cta_play: "Google Play",
+        cta_back: "Kaikki projektit",
+        footer_note: "Portfolio-sivusto · Jan Sarivuo",
+        page_title: "WaveIQ Radio – Android-sovellus | Jan Sarivuo",
+        meta_desc: "WaveIQ Radio on Google Playssa julkaistu Android-sovellus internet-radion kuunteluun: Media3-taustatoisto, asemahaku, suosikit ja kuunteluhistoriaan perustuvat suositukset. Taustalla oma FastAPI- ja MariaDB-palvelu.",
+        og_desc: "Internet-radiosovellus, jossa Media3-taustatoisto, asemahaku ja kuunteluhistoriaan perustuvat suositukset. Oma FastAPI-backend, MariaDB-analytiikka ja App Check -suojatut rajapinnat.",
+        tw_desc: "Android-radiosovellus: Media3-taustatoisto, asemahaku, suositukset ja oma FastAPI + MariaDB -backend.",
+        app_name: "WaveIQ Radio",
+        logo_alt: "WaveIQ Radio -sovelluksen logo",
+        hero_subtitle: "Internet-radio, joka oppii kuunteluhistoriasta ja perustelee suosituksensa",
+        hero_lede: "WaveIQ Radio yhdistää vakaan taustatoiston, laajan asemahaun ja suosituskerroksen, joka rakentuu käyttäjän oman kuunteluhistorian päälle. Sovellus ei ole pelkkä soitin: taustalla on oma palvelu, joka kerää kuuntelutapahtumat, kuvaa asemien ominaisuuksia ja seuraa striimien toimintakuntoa.",
+        spec_platform_label: "Alusta",
+        spec_platform_value: "Android 8+ · Kotlin · Jetpack Compose",
+        spec_playback_label: "Toisto",
+        spec_playback_value: "Media3 · taustatoisto · mediakontrollit · uniajastin",
+        spec_backend_label: "Backend",
+        spec_backend_value: "FastAPI · Python · MariaDB",
+        spec_reco_label: "Suositukset",
+        spec_reco_value: "Kuunteluhistoria · makuprofiili · Station DNA",
+        spec_protect_label: "Suojaus",
+        spec_protect_value: "Firebase App Check · Google Play Integrity",
+        spec_release_label: "Julkaisu",
+        spec_release_value: "Google Play -tuotanto",
+        nav_extra: "Suositukset",
+        overview_title: "Tuote",
+        overview_intro: "Internet-radioita on tarjolla kymmeniä tuhansia, ja niistä oman suosikin löytäminen on hankalampaa kuin itse kuuntelu. WaveIQ Radio keskittyy juuri tähän: löytämiseen, luotettavaan toistoon ja siihen, että sovellus osaa kertoa miksi se ehdottaa tiettyä asemaa.",
+        ov1_title: "Kenelle",
+        ov1_body: "Radion kuuntelijoille, jotka haluavat muutakin kuin listan valmiiksi valittuja asemia: hakua maittain, kielittäin ja genreittäin sekä ehdotuksia oman kuuntelun perusteella.",
+        ov2_title: "Mitä se ratkaisee",
+        ov2_body: "Verkkoradiot katkeilevat ja kuolevat. Sovellus seuraa striimien toimintakuntoa, palautuu katkoista hallitusti ja auttaa löytämään uusia asemia sen sijaan että käyttäjä selaisi loputonta listaa.",
+        ov3_title: "Miten sitä käytetään",
+        ov3_body: "Asemia haetaan nimellä, genrellä, maalla tai kielellä – tai kuvaamalla haluttu tunnelma omin sanoin. Löydetyt asemat tallentuvat omaan listaan, ja suositukset tarkentuvat kuuntelun myötä.",
+        features_title: "Keskeiset ominaisuudet",
+        f1_title: "Toisto",
+        f1_1: "Media3-pohjainen taustatoisto ja mediakontrollit",
+        f1_2: "Hallittu palautuminen verkkokatkoista",
+        f1_3: "Uniajastin häivytyksellä",
+        f2_title: "Oma asemalista",
+        f2_1: "Asemien lisäys, muokkaus ja järjestäminen",
+        f2_2: "Suosikit ja pyyhkäisypoisto peruutuksella",
+        f2_3: "Asemat tunnistetaan striimin osoitteesta, ei nimestä",
+        f3_title: "Asemien haku",
+        f3_1: "Haku nimen, genren, maan ja kielen mukaan",
+        f3_2: "Selaus genreittäin, maittain ja kielittäin",
+        f3_3: "Esikuuntelu ja striimin toimivuusmerkintä",
+        f4_title: "Älyhaku",
+        f4_1: "Vapaa kuvaus halutusta tunnelmasta tai tyylistä",
+        f4_2: "Haku käynnistyy vain käyttäjän pyynnöstä",
+        f4_3: "Selitteet käyttäjän omalla kielellä",
+        f5_title: "Varmuuskopiot",
+        f5_1: "Asemat, logot ja asetukset yhtenä kokonaisuutena",
+        f5_2: "Automaattinen varmuuskopio valinnaisena",
+        f5_3: "Google Drive -varmuuskopio ja palautus",
+        f6_title: "Yhteysasetukset",
+        f6_1: "Varmuuskopiot voi rajata pelkkään Wi-Fi-yhteyteen",
+        f6_2: "Mobiilidatan käytön toiston vakauttamiseksi voi sallia erikseen",
+        f6_3: "Data Saver ja verkkovierailu estävät mobiilidatan käytön",
+        extra_title: "Suositukset ja asemien analyysi",
+        extra_intro: "Suosituskerros on backend-vetoinen ja rakentuu kuunteluhistorian, makuprofiilin ja asemista kerätyn metadatan päälle. Se ei toimi itsenäisesti taustalla eikä muuta soittolistaa käyttäjän puolesta.",
+        e1_title: "Suositukset",
+        e1_body: "Backend muodostaa ehdotukset kuuntelutapahtumista ja makuprofiilista. Ehdotus on aina lista asemia, jotka käyttäjä voi kuunnella tai ohittaa – sovellus ei vaihda asemaa automaattisesti.",
+        e2_title: "Station DNA",
+        e2_body: "Palvelinpuolen kerros kuvaa asemaa kuuntelu- ja metadatahistorian perusteella: kuinka musiikkipainotteinen tai puhevoittoinen asema on ja kuinka vakaa sen striimi on.",
+        e3_title: "Samankaltaiset asemat",
+        e3_body: "Yhdestä asemasta voi hypätä listaan samankaltaisia asemia. Vertailu perustuu Station DNA -tietoon, ja hakua voi tarkentaa eri painotuksilla.",
+        e4_title: "Miksi tätä suositellaan",
+        e4_body: "Suosituskortti voi avata lyhyen selityksen siitä, mihin ehdotus perustuu. Selitys näytetään vain, jos asemasta on siihen riittävästi tietoa, ja se tuotetaan käyttäjän kielellä.",
+        e5_title: "Striimien toimintakunto",
+        e5_body: "Taustatyö tarkistaa striimien tilan säännöllisesti. Tietoa käytetään hakutulosten merkintöihin; asemia ei poisteta listalta automaattisesti.",
+        extra_note: "Suositukset perustuvat kuunteluhistoriaan ja asemien metadataan. Ne ovat ehdotuksia, eivät automaattisia valintoja.",
+        tech_title: "Tekninen toteutus",
+        tech_intro: "Kokonaisuus on Android-sovellus, oma rajapintapalvelu ja analytiikkatietokanta. Suosituslogiikka ja asemien analyysi on tarkoituksella palvelinpuolella.",
+        t1_title: "Android-sovellus",
+        t1_meta: "Kotlin · Jetpack Compose · Media3 · DataStore",
+        t1_1: "Compose-käyttöliittymä ja Media3-toistokerros",
+        t1_2: "Taustatoisto omana palvelunaan mediakontrolleineen",
+        t1_3: "Asemien ja asetusten pysyvyys DataStoressa",
+        t1_4: "Tuki Android 8:sta (API 26) alkaen, käännetty API 36:ta vasten",
+        t2_title: "Toiston vakaus",
+        t2_meta: "OkHttp-datasource · uudelleenyhdistys · verkkovalinta",
+        t2_1: "Heikon verkon tunnistus liukuvassa aikaikkunassa",
+        t2_2: "Porrastettu uudelleenyhdistys ja soittimen uudelleenrakennus",
+        t2_3: "Erikseen sallittava mobiilidatan käyttö vain radiotoistolle",
+        t2_4: "Muu liikenne pysyy alkuperäisessä verkossa",
+        t3_title: "Backend",
+        t3_meta: "FastAPI · Python · SQLAlchemy · OpenAI",
+        t3_1: "Rajapinnat haulle, suosituksille ja selityksille",
+        t3_2: "Kuuntelutapahtumien ja asemametadatan vastaanotto",
+        t3_3: "Tekoälypyyntöjen käyttöseuranta päiväkohtaisesti",
+        t3_4: "App Check -tarkistus ennen suojatun endpointin suoritusta",
+        t4_title: "Tietokanta ja taustatyöt",
+        t4_meta: "MariaDB · utf8mb4 · ajastettu taustatyö",
+        t4_1: "Taulut kuuntelutapahtumille, asemille ja makuprofiilille",
+        t4_2: "Station DNA omana tuotantotauluna",
+        t4_3: "Striimien toimintakuntoa päivittävä ajastettu työ",
+        t4_4: "utf8mb4-merkistö monikielisille asemanimille",
+        t5_title: "Suojaus ja julkaisu",
+        t5_meta: "Firebase App Check · Play Integrity · Google Drive API",
+        t5_1: "Play Integrity ja App Check ennen palvelinkutsuja",
+        t5_2: "Suojatut rajapinnat eivät vastaa sovelluksen ulkopuolelta",
+        t5_3: "Google Drive -varmuuskopiointi OAuth-tuotantotilassa",
+        t5_4: "Google Play -tuotantojulkaisu ja Play App Signing",
+        privacy_title: "Tietoturva ja tietosuoja",
+        privacy_intro: "Sovellus toimii ilman käyttäjätiliä. Kirjautumista tarvitaan vain Google Drive -varmuuskopioon.",
+        p1_title: "Ei pakollista tiliä",
+        p1_body: "Radion kuuntelu, asemahaku, suosikit ja suositukset toimivat ilman käyttäjätiliä. Google-kirjautuminen liittyy ainoastaan Drive-varmuuskopiointiin.",
+        p2_title: "Sovelluksen eheys",
+        p2_body: "Suojatut rajapinnat vaativat Play Integrity -varmennuksen ja Firebase App Check -tokenin. Ilman niitä palvelin ei suorita pyyntöä, joten rajapintaa ei voi käyttää suoraan sovelluksen ulkopuolelta.",
+        p3_title: "Mitä palvelin tallentaa",
+        p3_body: "Palvelin tallentaa kuuntelutapahtumia, asemien metatietoja, striimien toimintakuntoa ja niistä johdettua makuprofiilia suosituksia varten. Käyttäjä tunnistetaan sovelluskohtaisella laitetunnisteella, ei henkilötiedoilla.",
+        p4_title: "Varmuuskopiot",
+        p4_body: "Varmuuskopio sisältää asemat, logot ja asetukset ja tallentuu käyttäjän omaan Google Driveen. Automaattisen varmuuskopion voi rajata Wi-Fi-yhteyteen.",
+        p5_title: "Verkon käyttö",
+        p5_body: "Mobiilidataa käytetään toiston vakauttamiseen vain, jos käyttäjä on sallinut sen erikseen. Data Saver ja verkkovierailu estävät sen, ja rajoitus koskee vain radiotoistoa.",
+        p6_title: "Julkiset käytännöt",
+        p6_body: "Sovelluksella on julkiset tietosuoja-, tuki-, käyttöehto- ja tietojen poistosivut Play Consolen vaatimusten mukaisesti.",
+        screens_title: "Kuvakaappaukset",
+        screens_note: "Kuvat ovat sovelluksen Google Play -kuvakaappauksia. Klikkaamalla kuva avautuu täysikokoisena.",
+        shot1_alt: "WaveIQ Radio – oma asemalista, jossa näkyvät asemien logot ja suosikkimerkinnät.",
+        shot1_cap: "Oma asemalista: suosikit, järjestäminen ja pääsy samankaltaisiin asemiin.",
+        shot2_alt: "WaveIQ Radio – selausnäkymä, jossa asemia suodatetaan genren ja maan mukaan.",
+        shot2_cap: "Selaus: asemia voi käydä läpi genren, maan ja kielen mukaan.",
+        shot3_alt: "WaveIQ Radio – asemahaku, jossa näkyvät hakusuodattimet ja hakutulokset.",
+        shot3_cap: "Asemahaku: haku käynnistyy vasta käyttäjän pyynnöstä, ei kirjoituksen aikana.",
+        status_title: "Julkaisutilanne",
+        status_body: "Sovellus on Google Play -kaupan tuotantoraiteella paketilla <code>com.janstech.radioplayer</code> ja käyttää Play App Signing -allekirjoitusta. Google Drive -varmuuskopioinnin OAuth-konfiguraatio on tuotantotilassa. Kuuntelu, haku ja suositukset toimivat ilman käyttäjätiliä.",
+        link_play: "Google Play – Sovellussivu",
+        link_repo: "GitHub – Janstech",
+        link_back: "Takaisin portfolion projekteihin",
+    },
+
+    en: {
+        skip_link: "Skip to main content",
+        logo_role: "Developer",
+        nav_aria: "App page navigation",
+        nav_back: "&larr; Portfolio",
+        nav_overview: "Overview",
+        nav_features: "Features",
+        nav_tech: "Technology",
+        nav_privacy: "Security",
+        nav_screens: "Screenshots",
+        lang_label: "Language",
+        hero_label: "Android app",
+        hero_status: "Published on Google Play",
+        spec_aria: "Technical summary of the application",
+        spec_title: "Technical summary",
+        cta_play: "Google Play",
+        cta_back: "All projects",
+        footer_note: "Portfolio website · Jan Sarivuo",
+        page_title: "WaveIQ Radio – Android App | Jan Sarivuo",
+        meta_desc: "WaveIQ Radio is an Android app on Google Play for internet radio: Media3 background playback, station search, favourites and recommendations built on listening history. Backed by a custom FastAPI and MariaDB service.",
+        og_desc: "An internet radio app with Media3 background playback, station search and recommendations based on listening history. Custom FastAPI backend, MariaDB analytics and App Check protected APIs.",
+        tw_desc: "Android radio app: Media3 background playback, station search, recommendations and a custom FastAPI + MariaDB backend.",
+        app_name: "WaveIQ Radio",
+        logo_alt: "WaveIQ Radio app logo",
+        hero_subtitle: "Internet radio that learns from listening history and explains its suggestions",
+        hero_lede: "WaveIQ Radio combines stable background playback, broad station search and a recommendation layer built on the listener’s own history. It is more than a player: behind it runs a service that collects listening events, describes what each station is like, and monitors whether streams are still alive.",
+        spec_platform_label: "Platform",
+        spec_platform_value: "Android 8+ · Kotlin · Jetpack Compose",
+        spec_playback_label: "Playback",
+        spec_playback_value: "Media3 · background playback · media controls · sleep timer",
+        spec_backend_label: "Backend",
+        spec_backend_value: "FastAPI · Python · MariaDB",
+        spec_reco_label: "Recommendations",
+        spec_reco_value: "Listening history · taste profile · Station DNA",
+        spec_protect_label: "Protection",
+        spec_protect_value: "Firebase App Check · Google Play Integrity",
+        spec_release_label: "Release",
+        spec_release_value: "Google Play production",
+        nav_extra: "Recommendations",
+        overview_title: "The Product",
+        overview_intro: "There are tens of thousands of internet radio stations, and finding one you like is harder than listening to it. WaveIQ Radio concentrates on exactly that: discovery, reliable playback, and being able to say why a particular station is being suggested.",
+        ov1_title: "Who it is for",
+        ov1_body: "Radio listeners who want more than a fixed list of preset stations: search by country, language and genre, plus suggestions based on what they actually listen to.",
+        ov2_title: "What it solves",
+        ov2_body: "Internet streams drop out and go dead. The app monitors stream health, recovers from interruptions in a controlled way, and helps surface new stations instead of leaving the user to scroll an endless list.",
+        ov3_title: "How it works",
+        ov3_body: "Search stations by name, genre, country or language — or describe the mood you want in your own words. Stations you find are saved to your own list, and the recommendations sharpen as you listen.",
+        features_title: "Key Features",
+        f1_title: "Playback",
+        f1_1: "Media3 background playback with media controls",
+        f1_2: "Controlled recovery from connection drops",
+        f1_3: "Sleep timer with fade-out",
+        f2_title: "Your own stations",
+        f2_1: "Adding, editing and ordering stations",
+        f2_2: "Favourites and swipe-to-delete with undo",
+        f2_3: "Stations are identified by stream URL, not by name",
+        f3_title: "Station search",
+        f3_1: "Search by name, genre, country and language",
+        f3_2: "Browse by genre, country and language",
+        f3_3: "Preview playback and a stream playability badge",
+        f4_title: "Smart search",
+        f4_1: "Describe the mood or style you are after in free text",
+        f4_2: "Search runs only when the user asks for it",
+        f4_3: "Explanations in the user’s own language",
+        f5_title: "Backups",
+        f5_1: "Stations, logos and settings as one bundle",
+        f5_2: "Automatic backup available as an option",
+        f5_3: "Google Drive backup and restore",
+        f6_title: "Connection settings",
+        f6_1: "Backups can be limited to Wi-Fi only",
+        f6_2: "Mobile data for playback stability can be allowed separately",
+        f6_3: "Data Saver and roaming block the mobile-data fallback",
+        extra_title: "Recommendations and station analysis",
+        extra_intro: "The recommendation layer runs on the backend and builds on listening history, a taste profile and metadata collected about stations. It does not act on its own in the background and never changes what is playing for the user.",
+        e1_title: "Recommendations",
+        e1_body: "The backend forms suggestions from listening events and the taste profile. A suggestion is always a list of stations the user can play or ignore — the app never switches station automatically.",
+        e2_title: "Station DNA",
+        e2_body: "A server-side layer that describes a station from listening and metadata history: how music-driven or talk-heavy it is, and how stable its stream has been.",
+        e3_title: "Similar stations",
+        e3_body: "From any station you can jump to a list of similar ones. The comparison uses Station DNA data, and the search can be tuned with different emphases.",
+        e4_title: "Why this station",
+        e4_body: "A recommendation card can open a short explanation of what the suggestion is based on. It appears only when there is enough data about the station, and it is produced in the user’s language.",
+        e5_title: "Stream health",
+        e5_body: "A scheduled job checks the state of streams regularly. The result is used to badge search results; stations are never removed from a list automatically.",
+        extra_note: "Recommendations are based on listening history and station metadata. They are suggestions, not automatic choices.",
+        tech_title: "Technical Implementation",
+        tech_intro: "The system is an Android app, a dedicated API service and an analytics database. The recommendation logic and station analysis live on the server by design.",
+        t1_title: "Android app",
+        t1_meta: "Kotlin · Jetpack Compose · Media3 · DataStore",
+        t1_1: "Compose interface with a Media3 playback layer",
+        t1_2: "Background playback as its own service with media controls",
+        t1_3: "Stations and settings persisted in DataStore",
+        t1_4: "Supports Android 8 (API 26) and newer, compiled against API 36",
+        t2_title: "Playback stability",
+        t2_meta: "OkHttp data source · reconnection · network selection",
+        t2_1: "Weak-network detection over a rolling time window",
+        t2_2: "Staged reconnection and player rebuild",
+        t2_3: "Opt-in mobile-data fallback for radio playback only",
+        t2_4: "All other traffic stays on the original network",
+        t3_title: "Backend",
+        t3_meta: "FastAPI · Python · SQLAlchemy · OpenAI",
+        t3_1: "APIs for search, recommendations and explanations",
+        t3_2: "Ingestion of listening events and station metadata",
+        t3_3: "Daily usage tracking for AI requests",
+        t3_4: "App Check verification before a protected endpoint runs",
+        t4_title: "Database and background work",
+        t4_meta: "MariaDB · utf8mb4 · scheduled job",
+        t4_1: "Tables for listening events, stations and the taste profile",
+        t4_2: "Station DNA as its own production table",
+        t4_3: "A scheduled job that refreshes stream health",
+        t4_4: "utf8mb4 charset for multilingual station names",
+        t5_title: "Protection and release",
+        t5_meta: "Firebase App Check · Play Integrity · Google Drive API",
+        t5_1: "Play Integrity and App Check before any server call",
+        t5_2: "Protected APIs do not answer from outside the app",
+        t5_3: "Google Drive backup with OAuth in production status",
+        t5_4: "Google Play production release with Play App Signing",
+        privacy_title: "Security and Privacy",
+        privacy_intro: "The app works without a user account. Signing in is only needed for Google Drive backup.",
+        p1_title: "No mandatory account",
+        p1_body: "Listening, station search, favourites and recommendations all work without an account. Google sign-in relates only to Drive backup.",
+        p2_title: "App integrity",
+        p2_body: "Protected APIs require a Play Integrity verification and a Firebase App Check token. Without them the server does not run the request, so the API cannot be called directly from outside the app.",
+        p3_title: "What the server stores",
+        p3_body: "The server stores listening events, station metadata, stream health and the taste profile derived from them for recommendations. The user is identified by an app-specific device identifier, not by personal details.",
+        p4_title: "Backups",
+        p4_body: "A backup contains stations, logos and settings and is stored in the user’s own Google Drive. Automatic backup can be restricted to Wi-Fi.",
+        p5_title: "Network usage",
+        p5_body: "Mobile data is used to stabilise playback only if the user has explicitly allowed it. Data Saver and roaming block it, and the fallback applies to radio playback only.",
+        p6_title: "Public policies",
+        p6_body: "The app has public privacy, support, terms and data deletion pages as required by Play Console.",
+        screens_title: "Screenshots",
+        screens_note: "The images are the app’s Google Play screenshots. Click an image to open it at full size.",
+        shot1_alt: "WaveIQ Radio – your own station list showing station logos and favourite markers.",
+        shot1_cap: "Your station list: favourites, ordering and access to similar stations.",
+        shot2_alt: "WaveIQ Radio – browse view filtering stations by genre and country.",
+        shot2_cap: "Browsing: stations can be explored by genre, country and language.",
+        shot3_alt: "WaveIQ Radio – station search showing search filters and results.",
+        shot3_cap: "Station search: the search runs when the user asks for it, not while typing.",
+        status_title: "Release Status",
+        status_body: "The app is on the Google Play production track under the package <code>com.janstech.radioplayer</code> and uses Play App Signing. The OAuth configuration for Google Drive backup is in production status. Listening, search and recommendations all work without a user account.",
+        link_play: "Google Play – App page",
+        link_repo: "GitHub – Janstech",
+        link_back: "Back to portfolio projects",
+    }
+};
+
+function setLang(lang) {
+    localStorage.setItem("portfolio_lang", lang);
+    document.documentElement.lang = (lang === "fi") ? "fi" : "en";
+    document.title = dict[lang].page_title;
+
+    for (const el of document.querySelectorAll("[data-i18n]")) {
+        const key = el.getAttribute("data-i18n");
+        if (dict[lang] && dict[lang][key] != null) {
+            el.innerHTML = dict[lang][key];
+        }
+    }
+
+    for (const el of document.querySelectorAll("[data-i18n-alt]")) {
+        const key = el.getAttribute("data-i18n-alt");
+        if (dict[lang] && dict[lang][key] != null) {
+            el.setAttribute("alt", dict[lang][key]);
+        }
+    }
+
+    for (const el of document.querySelectorAll("[data-i18n-aria]")) {
+        const key = el.getAttribute("data-i18n-aria");
+        if (dict[lang] && dict[lang][key] != null) {
+            el.setAttribute("aria-label", dict[lang][key]);
+        }
+    }
+
+    const btnFi = document.getElementById("btnFi");
+    const btnEn = document.getElementById("btnEn");
+    btnFi.classList.toggle("active", lang === "fi");
+    btnEn.classList.toggle("active", lang === "en");
+    btnFi.setAttribute("aria-pressed", String(lang === "fi"));
+    btnEn.setAttribute("aria-pressed", String(lang === "en"));
+}
+
+const savedLang = localStorage.getItem("portfolio_lang") || "fi";
+document.getElementById("btnFi").addEventListener("click", () => setLang("fi"));
+document.getElementById("btnEn").addEventListener("click", () => setLang("en"));
+setLang(savedLang);
+</script>
+
+</body>
+</html>

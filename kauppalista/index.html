@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8" />
+    <title>Kauppalista & Muistiinpanot – Android-sovellus | Jan Sarivuo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="description" content="Kauppalista & Muistiinpanot on Google Playssa julkaistu Android-sovellus arjen hallintaan: ostoslistat, muistiinpanot, reseptit ja syntymäpäivät toimivat offline-tilassa. Valinnaisina lisinä tekoälyavusteiset reseptit ja reaaliaikaiset jaetut listat.">
+    <meta name="author" content="Jan Sarivuo">
+    <meta name="robots" content="index,follow" />
+
+    <link rel="canonical" href="https://janstech.github.io/kauppalista/">
+
+    <meta property="og:title" content="Kauppalista & Muistiinpanot – Android-sovellus | Jan Sarivuo">
+    <meta property="og:description" content="Yksityisyys edellä rakennettu Android-sovellus: offline-first Room-tietokanta, 14 kieltä, valinnainen FastAPI-tekoälybackend ja Firestore-pohjaiset jaetut listat.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://janstech.github.io/kauppalista/">
+    <meta property="og:image" content="https://janstech.github.io/images/kauppalista-logo.png">
+    <meta property="og:locale" content="fi_FI">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:site_name" content="Jan Sarivuo – Portfolio">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Kauppalista & Muistiinpanot – Android-sovellus | Jan Sarivuo">
+    <meta name="twitter:description" content="Offline-first Android-sovellus arjen hallintaan: Room, DataStore, 14 kieltä, valinnaiset AI- ja jaetut listat -ominaisuudet.">
+    <meta name="twitter:image" content="https://janstech.github.io/images/kauppalista-logo.png">
+
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="../images/favicon-48x48.png">
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+    <link rel="manifest" href="../manifest.json">
+</head>
+
+<body>
+<a class="skip-link" href="#main" data-i18n="skip_link">Siirry pääsisältöön</a>
+
+<header class="site-header">
+    <div class="container header-inner">
+        <a class="logo" href="../index.html">
+            <span class="logo-name">Jan Sarivuo</span>
+            <span class="logo-role" data-i18n="logo_role">Kehittäjä</span>
+        </a>
+        <nav class="nav" data-i18n-aria="nav_aria" aria-label="Sovellussivun navigaatio">
+            <a href="../index.html#projects" data-i18n="nav_back">&larr; Portfolio</a>
+            <a href="#overview" data-i18n="nav_overview">Yleiskuva</a>
+            <a href="#features" data-i18n="nav_features">Ominaisuudet</a>
+            <a href="#cloud" data-i18n="nav_extra">Pilvi & AI</a>
+            <a href="#tech" data-i18n="nav_tech">Tekniikka</a>
+            <a href="#screens" data-i18n="nav_screens">Kuvat</a>
+        </nav>
+
+        <div class="lang-switch">
+            <span class="lang-label" data-i18n="lang_label">Kieli</span>
+            <button id="btnFi" type="button">FI</button>
+            <button id="btnEn" type="button">EN</button>
+        </div>
+    </div>
+</header>
+
+<main id="main" tabindex="-1">
+    <section class="hero" id="top">
+        <div class="container hero-inner">
+            <div>
+                <div class="app-hero-head">
+                    <img class="app-hero-logo" src="../images/kauppalista-logo.png"
+                         data-i18n-alt="logo_alt" alt="Kauppalista & Muistiinpanot -sovelluksen logo"
+                         width="512" height="512" decoding="async" />
+                    <div>
+                        <p class="hero-label" data-i18n="hero_label">Android-sovellus</p>
+                        <h1>Kauppalista &amp; Muistiinpanot</h1>
+                    </div>
+                </div>
+
+                <h2 class="hero-subtitle" data-i18n="hero_subtitle">Offline-first arjen hallinta, jossa pilvi ja tekoäly ovat vapaaehtoisia</h2>
+
+                <p class="status-pill" data-i18n="hero_status">Julkaistu Google Playssa</p>
+
+                <p class="lede" data-i18n="hero_lede">Kauppalista & Muistiinpanot pitää ostoslistat, muistiinpanot, reseptit, tehtävät ja syntymäpäivät yhdessä paikassa – ilman tiliä ja ilman verkkoyhteyttä. Kirjautuminen tarvitaan vain jaettuihin listoihin, ja tekoälytoiminnot ovat erillinen, valinnainen kerros paikallisen ytimen päällä.</p>
+
+                <div class="hero-actions">
+                    <a href="https://play.google.com/store/apps/details?id=com.janstech.kauppalista" target="_blank" rel="noopener noreferrer" class="btn-primary"
+                       data-i18n="cta_play">Google Play</a>
+                    <a href="../index.html#projects" class="btn-ghost" data-i18n="cta_back">Kaikki projektit</a>
+                </div>
+            </div>
+
+            <aside class="spec" data-i18n-aria="spec_aria" aria-label="Sovelluksen tekninen yhteenveto">
+                <p class="spec-title" data-i18n="spec_title">Tekninen yhteenveto</p>
+                <dl class="spec-list">
+                    <div class="spec-row">
+                        <dt data-i18n="spec_platform_label">Alusta</dt>
+                        <dd data-i18n="spec_platform_value">Android 8+ · Kotlin · Jetpack Compose · Material 3</dd>
+                    </div>
+                    <div class="spec-row">
+                        <dt data-i18n="spec_arch_label">Arkkitehtuuri</dt>
+                        <dd data-i18n="spec_arch_value">MVVM · Kotlin Flow · repository-rajapinnat</dd>
+                    </div>
+                    <div class="spec-row">
+                        <dt data-i18n="spec_data_label">Paikallinen data</dt>
+                        <dd data-i18n="spec_data_value">Room-skeema v23 · DataStore · varmuuskopio v5</dd>
+                    </div>
+                    <div class="spec-row">
+                        <dt data-i18n="spec_cloud_label">Pilvi</dt>
+                        <dd data-i18n="spec_cloud_value">FastAPI-tekoälybackend · Firestore-jaetut listat</dd>
+                    </div>
+                    <div class="spec-row">
+                        <dt data-i18n="spec_lang_label">Kielet</dt>
+                        <dd data-i18n="spec_lang_value">14 kieltä</dd>
+                    </div>
+                    <div class="spec-row">
+                        <dt data-i18n="spec_release_label">Julkaisu</dt>
+                        <dd data-i18n="spec_release_value">Google Play -tuotanto</dd>
+                    </div>
+                </dl>
+            </aside>
+        </div>
+    </section>
+
+    <section id="overview" class="section">
+        <div class="container">
+            <h2 class="section-title" data-i18n="overview_title">Tuote</h2>
+            <p class="section-intro" data-i18n="overview_intro">Useimmat listasovellukset vaativat tilin ennen kuin niillä voi tehdä mitään. Tämä sovellus kääntää asetelman: kaikki arjen perustoiminnot ovat käytettävissä heti asennuksen jälkeen, ja verkkoa tarvitaan vasta silloin, kun käyttäjä itse haluaa jakaa listan tai pyytää tekoälyltä apua.</p>
+
+            <div class="info-grid">
+                <div class="card">
+                    <h3 data-i18n="ov1_title">Kenelle</h3>
+                    <p data-i18n="ov1_body">Arjen suunnitteluun: ostokset, muistiinpanot, reseptit, tehtävät ja muistettavat päivät. Myös niille, jotka eivät halua luoda tiliä pelkkää kauppalistaa varten.</p>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="ov2_title">Mitä se ratkaisee</h3>
+                    <p data-i18n="ov2_body">Tiedot pysyvät laitteella eivätkä katoa verkkokatkoon. Samalla käytettävissä ovat myös ne toiminnot, joita paikallinen sovellus ei yksin pysty tarjoamaan: reaaliaikainen jakaminen ja tekoälyn tuottamat ehdotukset.</p>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="ov3_title">Miten sitä käytetään</h3>
+                    <p data-i18n="ov3_body">Listat, muistiinpanot ja reseptit toimivat suoraan. Jaetun listan luominen pyytää Google-kirjautumisen, ja tekoälytoiminnot käynnistyvät vain käyttäjän pyynnöstä.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title" data-i18n="features_title">Keskeiset ominaisuudet</h2>
+
+            <div class="skills-grid">
+                <div class="card">
+                    <h3 data-i18n="f1_title">Listat ja tehtävät</h3>
+                    <ul>
+                        <li data-i18n="f1_1">Ostoslistat, suosikit ja tehtävälistat</li>
+                        <li data-i18n="f1_2">Vedä ja pudota -järjestäminen sekä pikavalinnat</li>
+                        <li data-i18n="f1_3">Sanelu inline-puheentunnistuksella lisäyksen yhteydessä</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="f2_title">Muistiinpanot ja reseptit</h3>
+                    <ul>
+                        <li data-i18n="f2_1">Muistiinpanot ja kansiorakenne</li>
+                        <li data-i18n="f2_2">Reseptit ja viikkoruokalistat samassa näkymässä</li>
+                        <li data-i18n="f2_3">Tekoälyn tuottamat reseptit voi tallentaa muistiinpanoihin</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="f3_title">Muistettavat päivät</h3>
+                    <ul>
+                        <li data-i18n="f3_1">Syntymäpäivät ja paikalliset muistutukset</li>
+                        <li data-i18n="f3_2">Tehtävien määräajat</li>
+                        <li data-i18n="f3_3">Toimii ilman verkkoyhteyttä</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="f4_title">Terveysmerkinnät</h3>
+                    <ul>
+                        <li data-i18n="f4_1">Verenpaine, paino, pituus ja pulssi</li>
+                        <li data-i18n="f4_2">Omat mukautetut merkinnät</li>
+                        <li data-i18n="f4_3">Biometrinen lukitus arkaluontoisille osioille</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="f5_title">Varmuuskopiot</h3>
+                    <ul>
+                        <li data-i18n="f5_1">Käyttäjän hallitsema vienti ja tuonti yhtenä tiedostona</li>
+                        <li data-i18n="f5_2">Varmuuskopion skeemaversio 5</li>
+                        <li data-i18n="f5_3">Palautus laitteen vaihtuessa</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="f6_title">Monikielisyys</h3>
+                    <ul>
+                        <li data-i18n="f6_1">Käyttöliittymä 14 kielellä</li>
+                        <li data-i18n="f6_2">Suomi, englanti, saksa, espanja, ranska, italia, japani</li>
+                        <li data-i18n="f6_3">Ruotsi, norja, tanska, unkari, viro, ukraina, kiina</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cloud" class="section">
+        <div class="container">
+            <h2 class="section-title" data-i18n="extra_title">Valinnaiset pilvi- ja tekoälyominaisuudet</h2>
+            <p class="section-intro" data-i18n="extra_intro">Nämä kerrokset on eristetty paikallisesta ytimestä. Ne eivät ole käytössä ennen kuin käyttäjä ottaa ne käyttöön, eivätkä ne siirrä paikallisia listoja, muistiinpanoja tai terveysmerkintöjä pilveen.</p>
+
+            <div class="info-grid">
+                <div class="card">
+                    <h3 data-i18n="e1_title">Tekoälyn ateriaehdotukset</h3>
+                    <p data-i18n="e1_body">Yksittäinen ateriaehdotus tai usean päivän ruokalista. Ehdotuksen ainekset voi lisätä suoraan kauppalistalle, ja valmiin reseptin voi tallentaa muistiinpanoihin.</p>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="e2_title">Ainesten skannaus</h3>
+                    <p data-i18n="e2_body">Kuvasta tunnistetut ainekset muodostavat pohjan reseptiehdotuksille. Käyttäjä vahvistaa tunnistetut ainekset ennen kuin niistä pyydetään reseptiä.</p>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="e3_title">Jaetut listat reaaliajassa</h3>
+                    <p data-i18n="e3_body">Erillinen yhteistyökerros ostos- ja tehtävälistoille. Kutsulinkit, omistaja-, muokkaaja- ja katselijaroolit sekä reaaliaikainen synkronointi Firestoren kautta. Ei korvaa paikallisia listoja.</p>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="e4_title">Ilmoitukset</h3>
+                    <p data-i18n="e4_body">Jaettujen listojen muutoksista voi saada push-ilmoituksen. Ilmoitusasetukset ovat käyttäjäkohtaisia, ja ilmoituksia rajoitetaan niin ettei yksi muokkausrypäs tuota ilmoitustulvaa.</p>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="e5_title">Palvelinpuolen rajoitukset</h3>
+                    <p data-i18n="e5_body">Tekoälypyynnöt kulkevat oman FastAPI-backendin kautta, joka tarkistaa pyynnön aitouden ja rajoittaa käyttöä. Vastaukset validoidaan palvelimella ennen kuin ne palautetaan sovellukselle.</p>
+                </div>
+            </div>
+
+            <p class="disclaimer" data-i18n="extra_note">Terveysmerkinnät ovat käyttäjän omia kirjauksia. Sovellus ei tulkitse arvoja eikä anna terveysneuvontaa.</p>
+        </div>
+    </section>
+
+    <section id="tech" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title" data-i18n="tech_title">Tekninen toteutus</h2>
+            <p class="section-intro" data-i18n="tech_intro">Sovellus on rakennettu paikallinen ydin edellä. Verkkoa käyttävät osat ovat erillisiä kerroksia, jotka voidaan ottaa käyttöön ilman että paikallinen toiminta muuttuu.</p>
+
+            <div class="project-grid">
+                <article class="card project-card">
+                    <h3 data-i18n="t1_title">Android-sovellus</h3>
+                    <p class="project-meta" data-i18n="t1_meta">Kotlin · Jetpack Compose · Material 3 · ViewModel · Kotlin Flow</p>
+                    <ul class="project-points">
+                        <li data-i18n="t1_1">Compose-käyttöliittymä ja Material 3 -komponentit</li>
+                        <li data-i18n="t1_2">ViewModel- ja StateFlow-pohjainen tilanhallinta</li>
+                        <li data-i18n="t1_3">Repository-rajapinnat, mapperit ja Room-DAO:t</li>
+                        <li data-i18n="t1_4">Tuki Android 8:sta (API 26) alkaen, käännetty API 36:ta vasten</li>
+                    </ul>
+                </article>
+
+                <article class="card project-card">
+                    <h3 data-i18n="t2_title">Paikallinen tallennus</h3>
+                    <p class="project-meta" data-i18n="t2_meta">Room · DataStore · skeemamigraatiot</p>
+                    <ul class="project-points">
+                        <li data-i18n="t2_1">Room-tietokanta listoille, muistiinpanoille, resepteille ja merkinnöille</li>
+                        <li data-i18n="t2_2">Skeemaversio 23 ja hallitut migraatiot</li>
+                        <li data-i18n="t2_3">DataStore-pohjaiset asetukset</li>
+                        <li data-i18n="t2_4">Vienti ja tuonti omalla varmuuskopioskeemallaan</li>
+                    </ul>
+                </article>
+
+                <article class="card project-card">
+                    <h3 data-i18n="t3_title">Tekoälybackend</h3>
+                    <p class="project-meta" data-i18n="t3_meta">FastAPI · Python · SQLAlchemy · MariaDB · OpenAI</p>
+                    <ul class="project-points">
+                        <li data-i18n="t3_1">Oma FastAPI-palvelu tekoälypyynnöille</li>
+                        <li data-i18n="t3_2">Vastausten validointi ja siistiminen palvelimella</li>
+                        <li data-i18n="t3_3">Käyttörajat MariaDB:ssä sekä hetkellisenä että päiväkohtaisena</li>
+                        <li data-i18n="t3_4">Asiakastunnisteeseen perustuva väärinkäytön esto</li>
+                    </ul>
+                </article>
+
+                <article class="card project-card">
+                    <h3 data-i18n="t4_title">Yhteistyökerros</h3>
+                    <p class="project-meta" data-i18n="t4_meta">Firebase Auth · Firestore · Cloud Functions · FCM · App Links</p>
+                    <ul class="project-points">
+                        <li data-i18n="t4_1">Google-kirjautuminen vain jaettuja listoja varten</li>
+                        <li data-i18n="t4_2">Firestore-pohjainen reaaliaikainen synkronointi</li>
+                        <li data-i18n="t4_3">Kutsulinkit HTTPS App Linkeillä</li>
+                        <li data-i18n="t4_4">Roolit: omistaja, muokkaaja ja katselija</li>
+                    </ul>
+                </article>
+
+                <article class="card project-card">
+                    <h3 data-i18n="t5_title">Julkaisu ja ylläpito</h3>
+                    <p class="project-meta" data-i18n="t5_meta">Google Play · In-App Review · In-App Updates</p>
+                    <ul class="project-points">
+                        <li data-i18n="t5_1">Allekirjoitetut Android App Bundlet tuotantoraiteelle</li>
+                        <li data-i18n="t5_2">Play In-App Review sovelluksen hallitsemana</li>
+                        <li data-i18n="t5_3">Play-joustavat sovelluspäivitykset</li>
+                        <li data-i18n="t5_4">Analytiikka sallittujen tapahtumien kääreen kautta, poiskytkettävissä</li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="privacy" class="section">
+        <div class="container">
+            <h2 class="section-title" data-i18n="privacy_title">Tietoturva ja tietosuoja</h2>
+            <p class="section-intro" data-i18n="privacy_intro">Sovelluksen tietosuojaratkaisu perustuu siihen, mitä ei lähetetä eteenpäin.</p>
+
+            <div class="info-grid">
+                <div class="card">
+                    <h3 data-i18n="p1_title">Paikallinen ydin</h3>
+                    <p data-i18n="p1_body">Listat, muistiinpanot, reseptit, tehtävät, syntymäpäivät ja terveysmerkinnät tallentuvat laitteelle. Niitä ei siirretä pilveen automaattisesti.</p>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="p2_title">Kirjautuminen vain tarvittaessa</h3>
+                    <p data-i18n="p2_body">Perustoiminnot eivät vaadi tiliä. Google-kirjautumista pyydetään vasta, kun käyttäjä luo tai liittyy jaettuun listaan.</p>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="p3_title">Sovelluksen eheys</h3>
+                    <p data-i18n="p3_body">Tekoälypyynnöt vaativat Firebase App Check -tarkistuksen ja Google Play Integrity -varmennuksen nonce-menettelyllä, joten rajapintaa ei voi käyttää sovelluksen ulkopuolelta.</p>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="p4_title">Rajattu pilvidata</h3>
+                    <p data-i18n="p4_body">Jaetuista listoista pilveen tallentuvat vain listan tiedot, rivit, jäsenyydet, roolit, kutsut ja ilmoitusasetukset. Profiilikuvina käytetään ainoastaan Google-tilin kuvalinkkiä.</p>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="p5_title">Analytiikka</h3>
+                    <p data-i18n="p5_body">Käyttöanalytiikka on poiskytkettävissä ja kulkee sallittujen tapahtumien kääreen kautta. Tapahtumiin ei sisällytetä listojen sisältöä, muistiinpanoja, hakuja, terveysmerkintöjä eikä käyttäjätunnisteita.</p>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="p6_title">Laitetason suojaus</h3>
+                    <p data-i18n="p6_body">Muistiinpanot, reseptit, ruokalistat, asetukset ja terveysosio voidaan lukita biometrisesti.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="screens" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title" data-i18n="screens_title">Kuvakaappaukset</h2>
+            <p class="section-intro" data-i18n="screens_note">Kuvat ovat sovelluksen Google Play -kuvakaappauksia. Klikkaamalla kuva avautuu täysikokoisena.</p>
+
+            <div class="shot-grid">
+                <figure class="shot">
+                    <a href="../images/kl_1.jpeg" target="_blank" rel="noopener noreferrer">
+                        <img src="../images/kl_1.jpeg" width="1040" height="2048"
+                             loading="lazy" decoding="async"
+                             data-i18n-alt="shot1_alt"
+                             alt="Kauppalista &amp; Muistiinpanot – ostoslistanäkymä, jossa näkyvät listan tuotteet ja suosikit." />
+                    </a>
+                    <figcaption data-i18n="shot1_cap">Ostoslista: tuotteet, suosikit ja järjestäminen. Näkymä toimii ilman verkkoyhteyttä.</figcaption>
+                </figure>
+
+                <figure class="shot">
+                    <a href="../images/kl_2.jpeg" target="_blank" rel="noopener noreferrer">
+                        <img src="../images/kl_2.jpeg" width="1040" height="2048"
+                             loading="lazy" decoding="async"
+                             data-i18n-alt="shot2_alt"
+                             alt="Kauppalista &amp; Muistiinpanot – ainesten skannausnäkymä, jossa kuvasta tunnistetaan ruoka-aineita." />
+                    </a>
+                    <figcaption data-i18n="shot2_cap">Ainesten skannaus: kuvasta tunnistetut ainekset vahvistetaan ennen reseptiehdotusta.</figcaption>
+                </figure>
+
+                <figure class="shot">
+                    <a href="../images/kl_3.jpeg" target="_blank" rel="noopener noreferrer">
+                        <img src="../images/kl_3.jpeg" width="1040" height="2048"
+                             loading="lazy" decoding="async"
+                             data-i18n-alt="shot3_alt"
+                             alt="Kauppalista &amp; Muistiinpanot – tekoälyn ateriaehdotusnäkymä toiveineen ja rajoituksineen." />
+                    </a>
+                    <figcaption data-i18n="shot3_cap">Ateriaehdotus: toiveet ja rajoitteet syötetään kirjoittamalla tai sanelemalla.</figcaption>
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    <section id="status" class="section">
+        <div class="container">
+            <h2 class="section-title" data-i18n="status_title">Julkaisutilanne</h2>
+            <p class="section-intro" data-i18n="status_body">Sovellus on Google Play -kaupan tuotantoraiteella paketilla <code>com.janstech.kauppalista</code>. Julkaisut tehdään allekirjoitettuina Android App Bundleina. Paikalliset ominaisuudet ovat käytettävissä ilman tiliä; jaetut listat ja tekoälytoiminnot vaativat verkkoyhteyden ja jaetut listat lisäksi Google-kirjautumisen.</p>
+
+            <div class="project-links" style="padding-top:0;">
+                <a class="link-primary" href="https://play.google.com/store/apps/details?id=com.janstech.kauppalista" target="_blank" rel="noopener noreferrer"
+                   data-i18n="link_play">Google Play – Sovellussivu</a>
+                <a href="https://github.com/janstech/shoppinglist-portfolio" target="_blank" rel="noopener noreferrer" data-i18n="link_repo">GitHub – Arkkitehtuurin esittely</a>
+                <a href="../index.html#projects" data-i18n="link_back">Takaisin portfolion projekteihin</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="container footer-inner">
+        <span>&copy; <span id="year"></span> Jan Sarivuo</span>
+        <span class="footer-note" data-i18n="footer_note">Portfolio-sivusto · Jan Sarivuo</span>
+    </div>
+</footer>
+
+<script data-goatcounter="https://janstech.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+<script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+<script>
+const dict = {
+    fi: {
+        skip_link: "Siirry pääsisältöön",
+        logo_role: "Kehittäjä",
+        nav_aria: "Sovellussivun navigaatio",
+        nav_back: "&larr; Portfolio",
+        nav_overview: "Yleiskuva",
+        nav_features: "Ominaisuudet",
+        nav_tech: "Tekniikka",
+        nav_privacy: "Tietoturva",
+        nav_screens: "Kuvat",
+        lang_label: "Kieli",
+        hero_label: "Android-sovellus",
+        hero_status: "Julkaistu Google Playssa",
+        spec_aria: "Sovelluksen tekninen yhteenveto",
+        spec_title: "Tekninen yhteenveto",
+        cta_play: "Google Play",
+        cta_back: "Kaikki projektit",
+        footer_note: "Portfolio-sivusto · Jan Sarivuo",
+        page_title: "Kauppalista & Muistiinpanot – Android-sovellus | Jan Sarivuo",
+        meta_desc: "Kauppalista & Muistiinpanot on Google Playssa julkaistu Android-sovellus arjen hallintaan: ostoslistat, muistiinpanot, reseptit ja syntymäpäivät toimivat offline-tilassa. Valinnaisina lisinä tekoälyavusteiset reseptit ja reaaliaikaiset jaetut listat.",
+        og_desc: "Yksityisyys edellä rakennettu Android-sovellus: offline-first Room-tietokanta, 14 kieltä, valinnainen FastAPI-tekoälybackend ja Firestore-pohjaiset jaetut listat.",
+        tw_desc: "Offline-first Android-sovellus arjen hallintaan: Room, DataStore, 14 kieltä, valinnaiset AI- ja jaetut listat -ominaisuudet.",
+        app_name: "Kauppalista &amp; Muistiinpanot",
+        logo_alt: "Kauppalista & Muistiinpanot -sovelluksen logo",
+        hero_subtitle: "Offline-first arjen hallinta, jossa pilvi ja tekoäly ovat vapaaehtoisia",
+        hero_lede: "Kauppalista & Muistiinpanot pitää ostoslistat, muistiinpanot, reseptit, tehtävät ja syntymäpäivät yhdessä paikassa – ilman tiliä ja ilman verkkoyhteyttä. Kirjautuminen tarvitaan vain jaettuihin listoihin, ja tekoälytoiminnot ovat erillinen, valinnainen kerros paikallisen ytimen päällä.",
+        spec_platform_label: "Alusta",
+        spec_platform_value: "Android 8+ · Kotlin · Jetpack Compose · Material 3",
+        spec_arch_label: "Arkkitehtuuri",
+        spec_arch_value: "MVVM · Kotlin Flow · repository-rajapinnat",
+        spec_data_label: "Paikallinen data",
+        spec_data_value: "Room-skeema v23 · DataStore · varmuuskopio v5",
+        spec_cloud_label: "Pilvi",
+        spec_cloud_value: "FastAPI-tekoälybackend · Firestore-jaetut listat",
+        spec_lang_label: "Kielet",
+        spec_lang_value: "14 kieltä",
+        spec_release_label: "Julkaisu",
+        spec_release_value: "Google Play -tuotanto",
+        nav_extra: "Pilvi & AI",
+        overview_title: "Tuote",
+        overview_intro: "Useimmat listasovellukset vaativat tilin ennen kuin niillä voi tehdä mitään. Tämä sovellus kääntää asetelman: kaikki arjen perustoiminnot ovat käytettävissä heti asennuksen jälkeen, ja verkkoa tarvitaan vasta silloin, kun käyttäjä itse haluaa jakaa listan tai pyytää tekoälyltä apua.",
+        ov1_title: "Kenelle",
+        ov1_body: "Arjen suunnitteluun: ostokset, muistiinpanot, reseptit, tehtävät ja muistettavat päivät. Myös niille, jotka eivät halua luoda tiliä pelkkää kauppalistaa varten.",
+        ov2_title: "Mitä se ratkaisee",
+        ov2_body: "Tiedot pysyvät laitteella eivätkä katoa verkkokatkoon. Samalla käytettävissä ovat myös ne toiminnot, joita paikallinen sovellus ei yksin pysty tarjoamaan: reaaliaikainen jakaminen ja tekoälyn tuottamat ehdotukset.",
+        ov3_title: "Miten sitä käytetään",
+        ov3_body: "Listat, muistiinpanot ja reseptit toimivat suoraan. Jaetun listan luominen pyytää Google-kirjautumisen, ja tekoälytoiminnot käynnistyvät vain käyttäjän pyynnöstä.",
+        features_title: "Keskeiset ominaisuudet",
+        f1_title: "Listat ja tehtävät",
+        f1_1: "Ostoslistat, suosikit ja tehtävälistat",
+        f1_2: "Vedä ja pudota -järjestäminen sekä pikavalinnat",
+        f1_3: "Sanelu inline-puheentunnistuksella lisäyksen yhteydessä",
+        f2_title: "Muistiinpanot ja reseptit",
+        f2_1: "Muistiinpanot ja kansiorakenne",
+        f2_2: "Reseptit ja viikkoruokalistat samassa näkymässä",
+        f2_3: "Tekoälyn tuottamat reseptit voi tallentaa muistiinpanoihin",
+        f3_title: "Muistettavat päivät",
+        f3_1: "Syntymäpäivät ja paikalliset muistutukset",
+        f3_2: "Tehtävien määräajat",
+        f3_3: "Toimii ilman verkkoyhteyttä",
+        f4_title: "Terveysmerkinnät",
+        f4_1: "Verenpaine, paino, pituus ja pulssi",
+        f4_2: "Omat mukautetut merkinnät",
+        f4_3: "Biometrinen lukitus arkaluontoisille osioille",
+        f5_title: "Varmuuskopiot",
+        f5_1: "Käyttäjän hallitsema vienti ja tuonti yhtenä tiedostona",
+        f5_2: "Varmuuskopion skeemaversio 5",
+        f5_3: "Palautus laitteen vaihtuessa",
+        f6_title: "Monikielisyys",
+        f6_1: "Käyttöliittymä 14 kielellä",
+        f6_2: "Suomi, englanti, saksa, espanja, ranska, italia, japani",
+        f6_3: "Ruotsi, norja, tanska, unkari, viro, ukraina, kiina",
+        extra_title: "Valinnaiset pilvi- ja tekoälyominaisuudet",
+        extra_intro: "Nämä kerrokset on eristetty paikallisesta ytimestä. Ne eivät ole käytössä ennen kuin käyttäjä ottaa ne käyttöön, eivätkä ne siirrä paikallisia listoja, muistiinpanoja tai terveysmerkintöjä pilveen.",
+        e1_title: "Tekoälyn ateriaehdotukset",
+        e1_body: "Yksittäinen ateriaehdotus tai usean päivän ruokalista. Ehdotuksen ainekset voi lisätä suoraan kauppalistalle, ja valmiin reseptin voi tallentaa muistiinpanoihin.",
+        e2_title: "Ainesten skannaus",
+        e2_body: "Kuvasta tunnistetut ainekset muodostavat pohjan reseptiehdotuksille. Käyttäjä vahvistaa tunnistetut ainekset ennen kuin niistä pyydetään reseptiä.",
+        e3_title: "Jaetut listat reaaliajassa",
+        e3_body: "Erillinen yhteistyökerros ostos- ja tehtävälistoille. Kutsulinkit, omistaja-, muokkaaja- ja katselijaroolit sekä reaaliaikainen synkronointi Firestoren kautta. Ei korvaa paikallisia listoja.",
+        e4_title: "Ilmoitukset",
+        e4_body: "Jaettujen listojen muutoksista voi saada push-ilmoituksen. Ilmoitusasetukset ovat käyttäjäkohtaisia, ja ilmoituksia rajoitetaan niin ettei yksi muokkausrypäs tuota ilmoitustulvaa.",
+        e5_title: "Palvelinpuolen rajoitukset",
+        e5_body: "Tekoälypyynnöt kulkevat oman FastAPI-backendin kautta, joka tarkistaa pyynnön aitouden ja rajoittaa käyttöä. Vastaukset validoidaan palvelimella ennen kuin ne palautetaan sovellukselle.",
+        extra_note: "Terveysmerkinnät ovat käyttäjän omia kirjauksia. Sovellus ei tulkitse arvoja eikä anna terveysneuvontaa.",
+        tech_title: "Tekninen toteutus",
+        tech_intro: "Sovellus on rakennettu paikallinen ydin edellä. Verkkoa käyttävät osat ovat erillisiä kerroksia, jotka voidaan ottaa käyttöön ilman että paikallinen toiminta muuttuu.",
+        t1_title: "Android-sovellus",
+        t1_meta: "Kotlin · Jetpack Compose · Material 3 · ViewModel · Kotlin Flow",
+        t1_1: "Compose-käyttöliittymä ja Material 3 -komponentit",
+        t1_2: "ViewModel- ja StateFlow-pohjainen tilanhallinta",
+        t1_3: "Repository-rajapinnat, mapperit ja Room-DAO:t",
+        t1_4: "Tuki Android 8:sta (API 26) alkaen, käännetty API 36:ta vasten",
+        t2_title: "Paikallinen tallennus",
+        t2_meta: "Room · DataStore · skeemamigraatiot",
+        t2_1: "Room-tietokanta listoille, muistiinpanoille, resepteille ja merkinnöille",
+        t2_2: "Skeemaversio 23 ja hallitut migraatiot",
+        t2_3: "DataStore-pohjaiset asetukset",
+        t2_4: "Vienti ja tuonti omalla varmuuskopioskeemallaan",
+        t3_title: "Tekoälybackend",
+        t3_meta: "FastAPI · Python · SQLAlchemy · MariaDB · OpenAI",
+        t3_1: "Oma FastAPI-palvelu tekoälypyynnöille",
+        t3_2: "Vastausten validointi ja siistiminen palvelimella",
+        t3_3: "Käyttörajat MariaDB:ssä sekä hetkellisenä että päiväkohtaisena",
+        t3_4: "Asiakastunnisteeseen perustuva väärinkäytön esto",
+        t4_title: "Yhteistyökerros",
+        t4_meta: "Firebase Auth · Firestore · Cloud Functions · FCM · App Links",
+        t4_1: "Google-kirjautuminen vain jaettuja listoja varten",
+        t4_2: "Firestore-pohjainen reaaliaikainen synkronointi",
+        t4_3: "Kutsulinkit HTTPS App Linkeillä",
+        t4_4: "Roolit: omistaja, muokkaaja ja katselija",
+        t5_title: "Julkaisu ja ylläpito",
+        t5_meta: "Google Play · In-App Review · In-App Updates",
+        t5_1: "Allekirjoitetut Android App Bundlet tuotantoraiteelle",
+        t5_2: "Play In-App Review sovelluksen hallitsemana",
+        t5_3: "Play-joustavat sovelluspäivitykset",
+        t5_4: "Analytiikka sallittujen tapahtumien kääreen kautta, poiskytkettävissä",
+        privacy_title: "Tietoturva ja tietosuoja",
+        privacy_intro: "Sovelluksen tietosuojaratkaisu perustuu siihen, mitä ei lähetetä eteenpäin.",
+        p1_title: "Paikallinen ydin",
+        p1_body: "Listat, muistiinpanot, reseptit, tehtävät, syntymäpäivät ja terveysmerkinnät tallentuvat laitteelle. Niitä ei siirretä pilveen automaattisesti.",
+        p2_title: "Kirjautuminen vain tarvittaessa",
+        p2_body: "Perustoiminnot eivät vaadi tiliä. Google-kirjautumista pyydetään vasta, kun käyttäjä luo tai liittyy jaettuun listaan.",
+        p3_title: "Sovelluksen eheys",
+        p3_body: "Tekoälypyynnöt vaativat Firebase App Check -tarkistuksen ja Google Play Integrity -varmennuksen nonce-menettelyllä, joten rajapintaa ei voi käyttää sovelluksen ulkopuolelta.",
+        p4_title: "Rajattu pilvidata",
+        p4_body: "Jaetuista listoista pilveen tallentuvat vain listan tiedot, rivit, jäsenyydet, roolit, kutsut ja ilmoitusasetukset. Profiilikuvina käytetään ainoastaan Google-tilin kuvalinkkiä.",
+        p5_title: "Analytiikka",
+        p5_body: "Käyttöanalytiikka on poiskytkettävissä ja kulkee sallittujen tapahtumien kääreen kautta. Tapahtumiin ei sisällytetä listojen sisältöä, muistiinpanoja, hakuja, terveysmerkintöjä eikä käyttäjätunnisteita.",
+        p6_title: "Laitetason suojaus",
+        p6_body: "Muistiinpanot, reseptit, ruokalistat, asetukset ja terveysosio voidaan lukita biometrisesti.",
+        screens_title: "Kuvakaappaukset",
+        screens_note: "Kuvat ovat sovelluksen Google Play -kuvakaappauksia. Klikkaamalla kuva avautuu täysikokoisena.",
+        shot1_alt: "Kauppalista & Muistiinpanot – ostoslistanäkymä, jossa näkyvät listan tuotteet ja suosikit.",
+        shot1_cap: "Ostoslista: tuotteet, suosikit ja järjestäminen. Näkymä toimii ilman verkkoyhteyttä.",
+        shot2_alt: "Kauppalista & Muistiinpanot – ainesten skannausnäkymä, jossa kuvasta tunnistetaan ruoka-aineita.",
+        shot2_cap: "Ainesten skannaus: kuvasta tunnistetut ainekset vahvistetaan ennen reseptiehdotusta.",
+        shot3_alt: "Kauppalista & Muistiinpanot – tekoälyn ateriaehdotusnäkymä toiveineen ja rajoituksineen.",
+        shot3_cap: "Ateriaehdotus: toiveet ja rajoitteet syötetään kirjoittamalla tai sanelemalla.",
+        status_title: "Julkaisutilanne",
+        status_body: "Sovellus on Google Play -kaupan tuotantoraiteella paketilla <code>com.janstech.kauppalista</code>. Julkaisut tehdään allekirjoitettuina Android App Bundleina. Paikalliset ominaisuudet ovat käytettävissä ilman tiliä; jaetut listat ja tekoälytoiminnot vaativat verkkoyhteyden ja jaetut listat lisäksi Google-kirjautumisen.",
+        link_play: "Google Play – Sovellussivu",
+        link_repo: "GitHub – Arkkitehtuurin esittely",
+        link_back: "Takaisin portfolion projekteihin",
+    },
+
+    en: {
+        skip_link: "Skip to main content",
+        logo_role: "Developer",
+        nav_aria: "App page navigation",
+        nav_back: "&larr; Portfolio",
+        nav_overview: "Overview",
+        nav_features: "Features",
+        nav_tech: "Technology",
+        nav_privacy: "Security",
+        nav_screens: "Screenshots",
+        lang_label: "Language",
+        hero_label: "Android app",
+        hero_status: "Published on Google Play",
+        spec_aria: "Technical summary of the application",
+        spec_title: "Technical summary",
+        cta_play: "Google Play",
+        cta_back: "All projects",
+        footer_note: "Portfolio website · Jan Sarivuo",
+        page_title: "Shopping List & Notes – Android App | Jan Sarivuo",
+        meta_desc: "Shopping List & Notes is an Android app on Google Play for everyday organisation: shopping lists, notes, recipes and birthdays all work offline. AI recipes and real-time shared lists are optional add-ons.",
+        og_desc: "A privacy-first Android app: offline-first Room database, 14 languages, an optional FastAPI AI backend and Firestore-based shared lists.",
+        tw_desc: "Offline-first Android app for everyday organisation: Room, DataStore, 14 languages, optional AI and shared-list features.",
+        app_name: "Shopping List &amp; Notes",
+        logo_alt: "Shopping List & Notes app logo",
+        hero_subtitle: "Offline-first everyday organisation where the cloud and AI stay optional",
+        hero_lede: "Shopping List & Notes keeps shopping lists, notes, recipes, tasks and birthdays in one place — with no account and no connection required. Signing in is only needed for shared lists, and the AI features are a separate, optional layer on top of the local core.",
+        spec_platform_label: "Platform",
+        spec_platform_value: "Android 8+ · Kotlin · Jetpack Compose · Material 3",
+        spec_arch_label: "Architecture",
+        spec_arch_value: "MVVM · Kotlin Flow · repository boundaries",
+        spec_data_label: "Local data",
+        spec_data_value: "Room schema v23 · DataStore · backup schema v5",
+        spec_cloud_label: "Cloud",
+        spec_cloud_value: "FastAPI AI backend · Firestore shared lists",
+        spec_lang_label: "Languages",
+        spec_lang_value: "14 languages",
+        spec_release_label: "Release",
+        spec_release_value: "Google Play production",
+        nav_extra: "Cloud & AI",
+        overview_title: "The Product",
+        overview_intro: "Most list apps ask for an account before you can do anything. This one inverts that: everything you need for daily use works the moment the app is installed, and the network is only involved when you choose to share a list or ask the AI for help.",
+        ov1_title: "Who it is for",
+        ov1_body: "Everyday planning: shopping, notes, recipes, tasks and dates worth remembering. Also for people who would rather not create an account just to write a shopping list.",
+        ov2_title: "What it solves",
+        ov2_body: "The data stays on the device and survives a lost connection. At the same time the features a purely local app cannot offer are still there: real-time sharing and AI-generated suggestions.",
+        ov3_title: "How it works",
+        ov3_body: "Lists, notes and recipes work straight away. Creating a shared list asks for Google sign-in, and the AI features only run when the user asks for them.",
+        features_title: "Key Features",
+        f1_title: "Lists and tasks",
+        f1_1: "Shopping lists, favourites and task lists",
+        f1_2: "Drag-and-drop ordering and quick actions",
+        f1_3: "Dictation through inline speech recognition while adding items",
+        f2_title: "Notes and recipes",
+        f2_1: "Notes with a folder structure",
+        f2_2: "Recipes and weekly meal plans in the same place",
+        f2_3: "AI-generated recipes can be saved into notes",
+        f3_title: "Dates to remember",
+        f3_1: "Birthdays and local reminders",
+        f3_2: "Due dates for tasks",
+        f3_3: "Works without a connection",
+        f4_title: "Health entries",
+        f4_1: "Blood pressure, weight, height and pulse",
+        f4_2: "Custom entries of your own",
+        f4_3: "Biometric lock for sensitive sections",
+        f5_title: "Backups",
+        f5_1: "User-controlled export and import in a single file",
+        f5_2: "Backup schema version 5",
+        f5_3: "Restore when changing devices",
+        f6_title: "Multiple languages",
+        f6_1: "User interface in 14 languages",
+        f6_2: "Finnish, English, German, Spanish, French, Italian, Japanese",
+        f6_3: "Swedish, Norwegian, Danish, Hungarian, Estonian, Ukrainian, Chinese",
+        extra_title: "Optional cloud and AI features",
+        extra_intro: "These layers are isolated from the local core. They stay dormant until the user turns them on, and they do not move local lists, notes or health entries into the cloud.",
+        e1_title: "AI meal suggestions",
+        e1_body: "A single meal idea or a multi-day plan. The ingredients from a suggestion can go straight onto the shopping list, and a finished recipe can be saved into notes.",
+        e2_title: "Ingredient scanning",
+        e2_body: "Ingredients recognised from a photo become the basis for recipe suggestions. The user confirms what was recognised before a recipe is requested.",
+        e3_title: "Shared lists in real time",
+        e3_body: "A separate collaboration layer for shopping and task lists: invite links, owner, editor and viewer roles, and real-time synchronisation through Firestore. It does not replace the local lists.",
+        e4_title: "Notifications",
+        e4_body: "Changes to a shared list can raise a push notification. Notification preferences are per user, and notifications are debounced so a burst of edits does not become a flood.",
+        e5_title: "Server-side limits",
+        e5_body: "AI requests go through a FastAPI backend that verifies the request is genuine and rate-limits usage. Responses are validated on the server before they reach the app.",
+        extra_note: "Health entries are the user’s own records. The app does not interpret the values and does not give health advice.",
+        tech_title: "Technical Implementation",
+        tech_intro: "The app was built local core first. The parts that use the network are separate layers that can be enabled without changing how the app behaves offline.",
+        t1_title: "Android app",
+        t1_meta: "Kotlin · Jetpack Compose · Material 3 · ViewModel · Kotlin Flow",
+        t1_1: "Compose interface with Material 3 components",
+        t1_2: "ViewModel and StateFlow based state management",
+        t1_3: "Repository boundaries, mappers and Room DAOs",
+        t1_4: "Supports Android 8 (API 26) and newer, compiled against API 36",
+        t2_title: "Local storage",
+        t2_meta: "Room · DataStore · schema migrations",
+        t2_1: "Room database for lists, notes, recipes and entries",
+        t2_2: "Schema version 23 with managed migrations",
+        t2_3: "DataStore-backed preferences",
+        t2_4: "Export and import with a dedicated backup schema",
+        t3_title: "AI backend",
+        t3_meta: "FastAPI · Python · SQLAlchemy · MariaDB · OpenAI",
+        t3_1: "A dedicated FastAPI service for AI requests",
+        t3_2: "Server-side validation and sanitisation of responses",
+        t3_3: "Burst and daily rate limits held in MariaDB",
+        t3_4: "Client-identifier based abuse protection",
+        t4_title: "Collaboration layer",
+        t4_meta: "Firebase Auth · Firestore · Cloud Functions · FCM · App Links",
+        t4_1: "Google sign-in only for shared lists",
+        t4_2: "Real-time synchronisation through Firestore",
+        t4_3: "Invite links over HTTPS App Links",
+        t4_4: "Owner, editor and viewer roles",
+        t5_title: "Release and maintenance",
+        t5_meta: "Google Play · In-App Review · In-App Updates",
+        t5_1: "Signed Android App Bundles on the production track",
+        t5_2: "Play In-App Review controlled by the app",
+        t5_3: "Play flexible in-app updates",
+        t5_4: "Analytics through an allowlisted event wrapper, opt-out available",
+        privacy_title: "Security and Privacy",
+        privacy_intro: "The privacy design rests on what the app does not send anywhere.",
+        p1_title: "A local core",
+        p1_body: "Lists, notes, recipes, tasks, birthdays and health entries are stored on the device. They are not moved to the cloud automatically.",
+        p2_title: "Sign in only when needed",
+        p2_body: "The core features need no account. Google sign-in is requested only when the user creates or joins a shared list.",
+        p3_title: "App integrity",
+        p3_body: "AI requests require a Firebase App Check verification and a Google Play Integrity check with a nonce flow, so the API cannot be called from outside the app.",
+        p4_title: "Limited cloud data",
+        p4_body: "Only list metadata, rows, memberships, roles, invites and notification preferences are stored in the cloud for shared lists. Member avatars use the Google account photo URL only.",
+        p5_title: "Analytics",
+        p5_body: "Usage analytics can be turned off and go through an allowlisted event wrapper. Events never carry list contents, notes, searches, health data or user identifiers.",
+        p6_title: "On-device protection",
+        p6_body: "Notes, recipes, meal plans, settings and the health section can be locked behind biometrics.",
+        screens_title: "Screenshots",
+        screens_note: "The images are the app’s Google Play screenshots. Click an image to open it at full size.",
+        shot1_alt: "Shopping List & Notes – shopping list view showing list items and favourites.",
+        shot1_cap: "Shopping list: items, favourites and ordering. The view works without a connection.",
+        shot2_alt: "Shopping List & Notes – ingredient scanning view recognising food items from a photo.",
+        shot2_cap: "Ingredient scanning: items recognised from a photo are confirmed before a recipe is requested.",
+        shot3_alt: "Shopping List & Notes – AI meal suggestion view with wishes and restrictions.",
+        shot3_cap: "Meal suggestion: wishes and restrictions are entered by typing or by dictation.",
+        status_title: "Release Status",
+        status_body: "The app is on the Google Play production track under the package <code>com.janstech.kauppalista</code>. Releases are shipped as signed Android App Bundles. The local features work without an account; shared lists and AI features need a connection, and shared lists additionally need Google sign-in.",
+        link_play: "Google Play – App page",
+        link_repo: "GitHub – Architecture showcase",
+        link_back: "Back to portfolio projects",
+    }
+};
+
+function setLang(lang) {
+    localStorage.setItem("portfolio_lang", lang);
+    document.documentElement.lang = (lang === "fi") ? "fi" : "en";
+    document.title = dict[lang].page_title;
+
+    for (const el of document.querySelectorAll("[data-i18n]")) {
+        const key = el.getAttribute("data-i18n");
+        if (dict[lang] && dict[lang][key] != null) {
+            el.innerHTML = dict[lang][key];
+        }
+    }
+
+    for (const el of document.querySelectorAll("[data-i18n-alt]")) {
+        const key = el.getAttribute("data-i18n-alt");
+        if (dict[lang] && dict[lang][key] != null) {
+            el.setAttribute("alt", dict[lang][key]);
+        }
+    }
+
+    for (const el of document.querySelectorAll("[data-i18n-aria]")) {
+        const key = el.getAttribute("data-i18n-aria");
+        if (dict[lang] && dict[lang][key] != null) {
+            el.setAttribute("aria-label", dict[lang][key]);
+        }
+    }
+
+    const btnFi = document.getElementById("btnFi");
+    const btnEn = document.getElementById("btnEn");
+    btnFi.classList.toggle("active", lang === "fi");
+    btnEn.classList.toggle("active", lang === "en");
+    btnFi.setAttribute("aria-pressed", String(lang === "fi"));
+    btnEn.setAttribute("aria-pressed", String(lang === "en"));
+}
+
+const savedLang = localStorage.getItem("portfolio_lang") || "fi";
+document.getElementById("btnFi").addEventListener("click", () => setLang("fi"));
+document.getElementById("btnEn").addEventListener("click", () => setLang("en"));
+setLang(savedLang);
+</script>
+
+</body>
+</html>

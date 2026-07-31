@@ -1107,9 +1107,9 @@ main:focus {
     }
 }
 
-/* --- Vanhat projektikorttiluokat. Etusivu ei enää käytä näitä, mutta
-       gainsai/index.html rakentaa niillä Tekninen toteutus -osionsa.
-       Yhtenäistetään uusiin komponentteihin Vaiheessa 5. --- */
+/* --- Projektisivujen tekniikkaruudukko. Etusivu käyttää omia
+       .project-feature / .project-app / .case-card -komponenttejaan; nämä
+       palvelevat projektisivujen "Tekninen toteutus" -osioita. --- */
 
 .project-card {
     display: flex;
@@ -1172,7 +1172,115 @@ p.project-meta {
 }
 
 /* ==========================================================================
-   13. ARKKITEHTUURI
+   13. PROJEKTISIVUT
+   Jaetut komponentit sovelluskohtaisille sivuille (gainsai/, kauppalista/,
+   waveiq/). Olivat aiemmin GainsAI-sivun inline-<style>-lohkossa; siirretty
+   tänne, jotta jokainen projektisivu käyttää samaa rakennetta.
+   ========================================================================== */
+
+/* Sovelluksen hero */
+.app-hero-head {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    flex-wrap: wrap;
+    margin-bottom: var(--space-3);
+}
+
+.app-hero-logo {
+    width: 64px;
+    height: 64px;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    flex: none;
+}
+
+.status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--color-accent);
+    background: var(--color-accent-soft);
+    color: var(--color-accent);
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+    line-height: 1.4;
+    margin-bottom: var(--space-4);
+}
+
+.status-pill::before {
+    content: "●";
+    font-size: 0.6rem;
+}
+
+.lede {
+    max-width: var(--width-reading);
+    color: var(--color-text-secondary);
+}
+
+.section-intro {
+    margin-bottom: var(--space-5);
+}
+
+.info-grid {
+    display: grid;
+    gap: var(--space-5);
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.info-grid .card p {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+}
+
+.disclaimer {
+    margin-top: var(--space-5);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    border-left: 2px solid var(--color-border-strong);
+    padding-left: var(--space-4);
+}
+
+/* Kuvagalleria */
+.shot-grid {
+    display: grid;
+    gap: var(--space-5);
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    margin-top: var(--space-5);
+}
+
+.shot {
+    margin: 0;
+}
+
+.shot a {
+    display: block;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    transition: border-color var(--transition-fast) var(--ease-standard);
+}
+
+.shot a:hover {
+    border-color: var(--color-accent);
+}
+
+.shot img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.shot figcaption {
+    margin-top: var(--space-3);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+}
+
+/* ==========================================================================
+   14. ARKKITEHTUURI
    ========================================================================== */
 
 .architecture-grid {
@@ -1212,7 +1320,7 @@ p.project-meta {
 }
 
 /* ==========================================================================
-   14. YHTEYSTIEDOT JA LINKIT
+   15. YHTEYSTIEDOT JA LINKIT
    ========================================================================== */
 
 .contact-grid {
@@ -1259,7 +1367,7 @@ p.project-meta {
 }
 
 /* ==========================================================================
-   15. FOOTER
+   16. FOOTER
    ========================================================================== */
 
 .site-footer {
@@ -1284,7 +1392,7 @@ p.project-meta {
 }
 
 /* ==========================================================================
-   16. RESPONSIIVISUUS
+   17. RESPONSIIVISUUS
    Yksi joustava rakenne, ei laitekohtaisia poikkeuksia.
    ========================================================================== */
 
@@ -1391,7 +1499,7 @@ p.project-meta {
 }
 
 /* ==========================================================================
-   17. LIIKKEEN VÄHENTÄMINEN
+   18. LIIKKEEN VÄHENTÄMINEN
    Sivun on toimittava täysin ilman animaatioita.
    ========================================================================== */
 

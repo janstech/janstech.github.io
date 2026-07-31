@@ -11,6 +11,16 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://janstech.github.io/kauppalista/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://janstech.github.io/waveiq/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://janstech.github.io/apps/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>

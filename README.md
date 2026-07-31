@@ -21,7 +21,8 @@ Tiedostot on organisoitu selkeisiin kokonaisuuksiin ylläpidettävyyden parantam
 * `css/` – Tyylitiedostot ja visuaalinen ilme.
 * `images/` – Projektikuvat, ikonit ja grafiikka.
 * `documents/` – Ladattavat tiedostot (CV, arkkitehtuurikuvaukset).
-* `gainsai/` – GainsAI-sovelluksen oma projektisivu (`/gainsai/`).
+* `gainsai/`, `kauppalista/`, `waveiq/` – julkaistujen sovellusten omat
+  projektisivut (`/gainsai/`, `/kauppalista/`, `/waveiq/`).
 * `apps/` – Janstech Android -sovellusten koontisivu.
 * `sitemap.xml`, `robots.txt` – Hakukoneille tarkoitetut tiedostot.
 
@@ -43,9 +44,18 @@ kielivalinta säilyy myös projektisivuille siirryttäessä. Oletuskieli on suom
 Sovellusprojektit esitellään etusivun projektikorteissa. Laajemmat kokonaisuudet
 voivat saada oman sivun samalla rakenteella, tyylillä ja i18n-ratkaisulla:
 
-* **GainsAI** – `gainsai/index.html`. Sisältää tuotekuvauksen, ominaisuudet,
-  tekoälyn roolin, teknisen toteutuksen, kuvakaappaukset ja julkaisutilanteen
-  molemmilla kielillä sekä omat SEO- ja Open Graph -metatiedot.
+Jokaisella julkaistulla Android-sovelluksella on oma sivunsa, joka noudattaa
+samaa rakennetta: hero + tekninen yhteenvetopaneeli (`<dl>`), tuotekuvaus,
+keskeiset ominaisuudet, sovelluskohtainen syventävä osio, tekninen toteutus,
+tietoturva ja tietosuoja, kuvakaappaukset ja julkaisutilanne. Kaikki sisältö on
+FI/EN, ja jokaisella sivulla on omat SEO- ja Open Graph -metatiedot.
+
+* **GainsAI** – `gainsai/index.html` (`/gainsai/`)
+* **Kauppalista & Muistiinpanot** – `kauppalista/index.html` (`/kauppalista/`)
+* **WaveIQ Radio** – `waveiq/index.html` (`/waveiq/`)
+
+Projektisivujen yhteiset tyylit ovat `css/style.css`-tiedoston osiossa
+*13. PROJEKTISIVUT*; sivuilla ei ole omia inline-tyylilohkoja.
 
 ## Ominaisuudet
 
