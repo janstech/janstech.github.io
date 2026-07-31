@@ -23,7 +23,9 @@ Tiedostot on organisoitu selkeisiin kokonaisuuksiin ylläpidettävyyden parantam
 * `documents/` – Ladattavat tiedostot (CV, arkkitehtuurikuvaukset).
 * `gainsai/`, `kauppalista/`, `waveiq/` – julkaistujen sovellusten omat
   projektisivut (`/gainsai/`, `/kauppalista/`, `/waveiq/`).
-* `apps/` – Janstech Android -sovellusten koontisivu.
+* `apps/` – Janstech Android -sovellusten koontisivu, joka kokoaa sovellusten
+  Google Play-, tietosuoja- ja tukilinkit. Sivu käyttää omaa tyylitiedostoaan
+  (`apps/css/style.css`) eikä jaettuja design tokeneita.
 * `sitemap.xml`, `robots.txt` – Hakukoneille tarkoitetut tiedostot.
 
 ## Kaksikielisyys (FI/EN)
@@ -56,6 +58,23 @@ FI/EN, ja jokaisella sivulla on omat SEO- ja Open Graph -metatiedot.
 
 Projektisivujen yhteiset tyylit ovat `css/style.css`-tiedoston osiossa
 *13. PROJEKTISIVUT*; sivuilla ei ole omia inline-tyylilohkoja.
+
+## Sivustojen työnjako
+
+Kolme osoitetta palvelee eri tarkoitusta, ja jokainen linkittää kahteen muuhun:
+
+* **janstech.github.io** – tämä portfolio: kehittäjäprofiili, projektit ja
+  tekninen dokumentaatio.
+* **janstech.github.io/apps/** – julkaistujen sovellusten koontisivu Google
+  Play-, tietosuoja- ja tukilinkkeineen.
+* **janstechapps.com** – sovellusten varsinainen tuotesivusto.
+
+## Dokumentit
+
+Arkkitehtuuri- ja dokumentaatio-osio (`#architecture`) listaa `documents/`-kansion
+PDF:t dokumenttihakemistona: formaatti, tekninen aihealue, nimi ja yhden virkkeen
+kuvaus. CV linkitetään yhteysosiosta. Dokumentti lisätään vain, jos tiedosto on
+todella olemassa.
 
 ## Ominaisuudet
 

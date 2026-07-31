@@ -458,104 +458,118 @@
     <section id="architecture" class="section section-alt">
         <div class="container">
             <h2 class="section-title" data-i18n="arch_title">Arkkitehtuuri &amp; dokumentaatio</h2>
-            <p data-i18n="arch_desc">
-                Dokumentoin työssäoppimisjakson aikana järjestelmien rakennetta ja
-                toiminnallisuuksia kirjallisilla arkkitehtuurikuvauksilla. Niissä käydään läpi,
-                miten eri osat — WordPress, FastAPI, tietokanta, integraatiot ja ulkoiset rajapinnat —
-                toimivat kokonaisuutena ja tukevat järjestelmän toimintaa.
-            </p><br>
+            <p class="section-intro" data-i18n="arch_desc">
+                Kirjoitan järjestelmistä arkkitehtuurikuvaukset toteutuksen rinnalla.
+                Dokumentit kertovat, miten komponentit — WordPress, FastAPI, tietokanta
+                ja ulkoiset rajapinnat — muodostavat toimivan kokonaisuuden.
+            </p>
 
-            <div class="architecture-grid">
-                <figure class="card arch-card">
-                    <div class="arch-placeholder">
-                        <span data-i18n="arch_card_1_label">Tuotehaku-arkkitehtuuri<br> (PDF)</span>
+            <ul class="doc-list">
+                <li class="doc-row">
+                    <div class="doc-meta">
+                        <span class="doc-format">PDF</span>
+                        <span class="doc-topic" data-i18n="doc_search_topic">Järjestelmäarkkitehtuuri</span>
                     </div>
-                    <figcaption>
-                        <a href="documents/Tuotehaku-arkkitehtuuri.pdf" target="_blank" rel="noopener noreferrer" data-i18n="arch_card_1_link">
-                            Avaa Tuotehaku-järjestelmän tekninen dokumentaatio (PDF)
-                        </a>
-                    </figcaption>
-                </figure>
+                    <div class="doc-main">
+                        <h3 class="doc-title">
+                            <a href="documents/Tuotehaku-arkkitehtuuri.pdf" target="_blank" rel="noopener noreferrer" data-i18n="doc_search_title">Tuotehaku – hakujärjestelmän arkkitehtuuri</a>
+                        </h3>
+                        <p class="doc-desc" data-i18n="doc_search_desc">Miten WordPress, FastAPI-hakupalvelu, MySQL-tietokanta ja tukkujen datasyötteet toimivat yhtenä hakujärjestelmänä: komponenttien vastuut ja tiedonkulku.</p>
+                    </div>
+                </li>
 
-                <figure class="card arch-card">
-                    <div class="arch-placeholder">
-                        <span data-i18n="arch_card_2_label">Icecat-integraation arkkitehtuuri<br> (PDF)</span>
+                <li class="doc-row">
+                    <div class="doc-meta">
+                        <span class="doc-format">PDF</span>
+                        <span class="doc-topic" data-i18n="doc_icecat_topic">Integraatioarkkitehtuuri</span>
                     </div>
-                    <figcaption>
-                        <a href="documents/icecat_arkkitehtuuri.pdf" target="_blank" rel="noopener noreferrer" data-i18n="arch_card_2_link">
-                            Avaa Icecat → WooCommerce -integraation tekninen dokumentaatio (PDF)
-                        </a>
-                    </figcaption>
-                </figure>
+                    <div class="doc-main">
+                        <h3 class="doc-title">
+                            <a href="documents/icecat_arkkitehtuuri.pdf" target="_blank" rel="noopener noreferrer" data-i18n="doc_icecat_title">Icecat → WooCommerce -integraatio</a>
+                        </h3>
+                        <p class="doc-desc" data-i18n="doc_icecat_desc">Tuotetietojen kulku Icecatista WooCommerceen: haku, validointi ja rikastus sekä kuva- ja kieliversioiden vienti verkkokauppaan.</p>
+                    </div>
+                </li>
 
-                <figure class="card arch-card">
-                    <div class="arch-placeholder">
-                        <span data-i18n="arch_card_3_label">Työssäoppimisjakson portfolio<br> (PDF)</span>
+                <li class="doc-row">
+                    <div class="doc-meta">
+                        <span class="doc-format">PDF</span>
+                        <span class="doc-topic" data-i18n="doc_portfolio_topic">Työssäoppimisjakso</span>
                     </div>
-                    <figcaption>
-                        <a href="documents/Työssäoppimisjakso_portfolio_Jan_Sarivuo_11-25.pdf" target="_blank" rel="noopener noreferrer" data-i18n="arch_card_3_link">
-                            Avaa koko työssäoppimisjakson portfolio (PDF)
-                        </a>
-                    </figcaption>
-                </figure>
-            </div>
+                    <div class="doc-main">
+                        <h3 class="doc-title">
+                            <a href="documents/Työssäoppimisjakso_portfolio_Jan_Sarivuo_11-25.pdf" target="_blank" rel="noopener noreferrer" data-i18n="doc_portfolio_title">Työssäoppimisjakson portfolio</a>
+                        </h3>
+                        <p class="doc-desc" data-i18n="doc_portfolio_desc">Koko jakson kirjallinen yhteenveto: toteutetut järjestelmät ja niiden tekniset ratkaisut.</p>
+                    </div>
+                </li>
+            </ul>
         </div>
     </section>
 
     <section id="contact" class="section">
-        <div class="container">
-            <h2 class="section-title" data-i18n="contact_title">Yhteys &amp; linkit</h2>
-            <p data-i18n="contact_desc">
-                Olen avoin junior-tason tehtäville ja
-                kasvurooleille. Vastaan mielelläni kysymyksiin
-                projekteistani, osaamisestani ja työssäoppimisjaksosta.
-            </p><br>
+        <div class="container contact-layout">
+            <div class="contact-main">
+                <h2 class="section-title" data-i18n="contact_title">Yhteys</h2>
+                <p class="contact-lead" data-i18n="contact_lead">
+                    Olen kiinnostunut Android-, backend- ja full stack -kehitystehtävistä
+                    sekä mahdollisuuksista kasvaa tuotantojärjestelmien kehittäjänä.
+                </p>
+                <p class="contact-note" data-i18n="contact_note">
+                    Olen Suomessa ja avoin sekä junior- että kasvurooleihin. Vastaan
+                    mielelläni kysymyksiin projekteistani, osaamisestani ja
+                    työssäoppimisjaksosta.
+                </p>
 
-            <div class="contact-grid">
-                <div class="card">
-                    <h3 data-i18n="contact_info_title">Yhteystiedot</h3>
-                    <ul class="contact-list">
-                        <li><span data-i18n="contact_email">Email:</span> <span id="email"></span></li>
-                        <li><span data-i18n="contact_phone">Puhelin:</span> <span id="phone" class="contact-value"></span></li>
-                        <li><span data-i18n="contact_location">Sijainti:</span> <span data-i18n="contact_location_value">Suomi</span></li>
-                        <li><span data-i18n="contact_start">Aloitus:</span> <span data-i18n="contact_start_value">Sopimuksen mukaan</span></li>
-                    </ul>
-                </div>
-
-                <div class="card">
-                    <h3 data-i18n="contact_links_title">Linkit</h3>
-                    <ul class="link-list">
-                        <li>
-                            <a href="https://github.com/janstech" target="_blank" rel="noopener noreferrer" data-i18n="contact_link_git">
-                                GitHub – projektit &amp; koodi
-                            </a>
-                        </li>
-                        <li>
-                            <a href="documents/Työssäoppimisjakso_portfolio_Jan_Sarivuo_11-25.pdf" target="_blank" rel="noopener noreferrer" data-i18n="contact_link_portfolio">
-                                Työssäoppimisjakson portfolio (PDF)
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://www.linkedin.com/in/jan-sarivuo" target="_blank" rel="noopener noreferrer" data-i18n="contact_link_linkedin">
-                                LinkedIn-profiili
-                            </a>
-                        </li>
-                        <li>
-                            <a href="documents/Jan_Sarivuo_cv.pdf" target="_blank" rel="noopener noreferrer" data-i18n="contact_link_cv">
-                                Lataa CV (PDF)
-                            </a>
-                        </li>
-                    </ul>
+                <div class="contact-actions">
+                    <a class="btn-primary" id="emailCta" href="#contact" data-i18n="contact_cta_email">Lähetä sähköpostia</a>
+                    <a class="btn-ghost" href="documents/Jan_Sarivuo_cv.pdf" target="_blank" rel="noopener noreferrer" data-i18n="contact_link_cv">Lataa CV (PDF)</a>
                 </div>
             </div>
+
+            <aside class="contact-side" data-i18n-aria="contact_side_aria" aria-label="Yhteystiedot ja linkit">
+                <p class="contact-side-title" data-i18n="contact_info_title">Yhteystiedot</p>
+                <dl class="contact-facts">
+                    <div class="contact-fact">
+                        <dt data-i18n="contact_location">Sijainti</dt>
+                        <dd data-i18n="contact_location_value">Suomi</dd>
+                    </div>
+                    <div class="contact-fact">
+                        <dt data-i18n="contact_start">Aloitus</dt>
+                        <dd data-i18n="contact_start_value">Sopimuksen mukaan</dd>
+                    </div>
+                    <div class="contact-fact">
+                        <dt data-i18n="contact_phone">Puhelin</dt>
+                        <dd id="phone"></dd>
+                    </div>
+                </dl>
+
+                <p class="contact-side-title" data-i18n="contact_links_title">Linkit</p>
+                <ul class="contact-links">
+                    <li><a href="https://github.com/janstech" target="_blank" rel="noopener noreferrer" data-i18n="contact_link_git">GitHub – projektit &amp; koodi</a></li>
+                    <li><a href="https://janstechapps.com/" target="_blank" rel="noopener noreferrer" data-i18n="contact_link_brand">JanstechApps – julkaistut sovellukset</a></li>
+                    <li><a href="https://www.linkedin.com/in/jan-sarivuo" target="_blank" rel="noopener noreferrer" data-i18n="contact_link_linkedin">LinkedIn-profiili</a></li>
+                </ul>
+            </aside>
         </div>
     </section>
 </main>
 
 <footer class="site-footer">
     <div class="container footer-inner">
-        <span>&copy; <span id="year"></span> Jan Sarivuo</span>
-        <span class="footer-note" data-i18n="footer_note">Portfolio-sivusto · Jan Sarivuo</span>
+        <div class="footer-identity">
+            <span class="footer-name">Jan Sarivuo</span>
+            <span class="footer-role" data-i18n="footer_role">Android- ja full stack -kehittäjä · Suomi</span>
+        </div>
+
+        <nav class="footer-nav" data-i18n-aria="footer_nav_aria" aria-label="Footerin linkit">
+            <a href="#top" data-i18n="footer_link_top">Takaisin alkuun</a>
+            <a id="footerEmail" href="#contact" data-i18n="footer_link_email">Sähköposti</a>
+            <a href="https://github.com/janstech" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://janstechapps.com/" target="_blank" rel="noopener noreferrer">JanstechApps</a>
+        </nav>
+
+        <span class="footer-copy">&copy; <span id="year"></span> Jan Sarivuo</span>
     </div>
 </footer>
 
@@ -564,23 +578,17 @@
 
 <script>
     document.getElementById("year").textContent = new Date().getFullYear();
-</script>
 
-<script>
-    const p1 = "+358";
-    const p2 = " 40";
-    const p3 = " 839";
-    const p4 = " 5777";
-    document.getElementById("phone").textContent = p1 + p2 + p3 + p4;
-</script>
+    /* Puhelin ja sähköposti kootaan osista, jotta ne eivät ole suoraan
+       poimittavissa sivun lähdekoodista. Linkeillä on toimiva oletus-href,
+       joten ne eivät jää rikki jos skripti ei suoritu. */
+    document.getElementById("phone").textContent = "+358" + " 40" + " 839" + " 5777";
 
-<script>
-    const e1 = "jan.sarivuo";
-    const e2 = "@";
-    const e3 = "gmail.com";
-    const email = e1 + e2 + e3;
-    const el = document.getElementById("email");
-    el.innerHTML = '<a href="mailto:' + email + '">Lähetä sähköpostia</a>';
+    const email = "jan.sarivuo" + "@" + "gmail.com";
+    for (const id of ["emailCta", "footerEmail"]) {
+        const el = document.getElementById(id);
+        if (el) el.setAttribute("href", "mailto:" + email);
+    }
 </script>
 
 <script>
@@ -688,42 +696,39 @@ const dict = {
 
         skills_additional: "Muu kokemus: Unity/C#, HTML5 Canvas, Web Audio API sekä IT-laitteiden huolto ja vianmääritys.",
 
-
-
-
-
-
-
-
-
-
-
-
         arch_title: "Arkkitehtuuri & dokumentaatio",
-        arch_desc: "Dokumentoin työssäoppimisjakson aikana järjestelmien rakennetta ja toiminnallisuuksia kirjallisilla arkkitehtuurikuvauksilla. Niissä käydään läpi, miten eri osat — WordPress, FastAPI, tietokanta, integraatiot ja ulkoiset rajapinnat — toimivat kokonaisuutena ja tukevat järjestelmän toimintaa.",
-        arch_card_1_label: "Tuotehaku-arkkitehtuuri<br> (PDF)",
-        arch_card_1_link: "Avaa Tuotehaku-järjestelmän tekninen dokumentaatio (PDF)",
-        arch_card_2_label: "Icecat-integraation arkkitehtuuri<br> (PDF)",
-        arch_card_2_link: "Avaa Icecat → WooCommerce -integraation tekninen dokumentaatio (PDF)",
-        arch_card_3_label: "Työssäoppimisjakson portfolio<br> (PDF)",
-        arch_card_3_link: "Avaa koko työssäoppimisjakson portfolio (PDF)",
+        arch_desc: "Kirjoitan järjestelmistä arkkitehtuurikuvaukset toteutuksen rinnalla. Dokumentit kertovat, miten komponentit — WordPress, FastAPI, tietokanta ja ulkoiset rajapinnat — muodostavat toimivan kokonaisuuden.",
+        doc_search_topic: "Järjestelmäarkkitehtuuri",
+        doc_search_title: "Tuotehaku – hakujärjestelmän arkkitehtuuri",
+        doc_search_desc: "Miten WordPress, FastAPI-hakupalvelu, MySQL-tietokanta ja tukkujen datasyötteet toimivat yhtenä hakujärjestelmänä: komponenttien vastuut ja tiedonkulku.",
+        doc_icecat_topic: "Integraatioarkkitehtuuri",
+        doc_icecat_title: "Icecat → WooCommerce -integraatio",
+        doc_icecat_desc: "Tuotetietojen kulku Icecatista WooCommerceen: haku, validointi ja rikastus sekä kuva- ja kieliversioiden vienti verkkokauppaan.",
+        doc_portfolio_topic: "Työssäoppimisjakso",
+        doc_portfolio_title: "Työssäoppimisjakson portfolio",
+        doc_portfolio_desc: "Koko jakson kirjallinen yhteenveto: toteutetut järjestelmät ja niiden tekniset ratkaisut.",
 
-        contact_title: "Yhteys & linkit",
-        contact_desc: "Olen avoin junior-tason tehtäville ja kasvurooleille. Vastaan mielelläni kysymyksiin projekteistani, osaamisestani ja työssäoppimisjaksosta.",
+        contact_title: "Yhteys",
+        contact_lead: "Olen kiinnostunut Android-, backend- ja full stack -kehitystehtävistä sekä mahdollisuuksista kasvaa tuotantojärjestelmien kehittäjänä.",
+        contact_note: "Olen Suomessa ja avoin sekä junior- että kasvurooleihin. Vastaan mielelläni kysymyksiin projekteistani, osaamisestani ja työssäoppimisjaksosta.",
+        contact_cta_email: "Lähetä sähköpostia",
+        contact_side_aria: "Yhteystiedot ja linkit",
         contact_info_title: "Yhteystiedot",
-        contact_email: "Email:",
-        contact_phone: "Puhelin:",
-        contact_location: "Sijainti:",
+        contact_phone: "Puhelin",
+        contact_location: "Sijainti",
         contact_location_value: "Suomi",
-        contact_start: "Aloitus:",
+        contact_start: "Aloitus",
         contact_start_value: "Sopimuksen mukaan",
         contact_links_title: "Linkit",
         contact_link_git: "GitHub – projektit & koodi",
-        contact_link_portfolio: "Työssäoppimisjakson portfolio (PDF)",
+        contact_link_brand: "JanstechApps – julkaistut sovellukset",
         contact_link_linkedin: "LinkedIn-profiili",
         contact_link_cv: "Lataa CV (PDF)",
 
-        footer_note: "Portfolio-sivusto · Jan Sarivuo",
+        footer_role: "Android- ja full stack -kehittäjä · Suomi",
+        footer_nav_aria: "Footerin linkit",
+        footer_link_top: "Takaisin alkuun",
+        footer_link_email: "Sähköposti",
 
         projects_title: "Projektit",
         projects_intro: "Julkaistuja Android-sovelluksia, omia backend-palveluita sekä tuotannossa käytettyjä full stack- ja infrastruktuuriratkaisuja.",
@@ -920,42 +925,39 @@ const dict = {
 
         skills_additional: "Additional experience: Unity/C#, HTML5 Canvas, Web Audio API, and IT hardware maintenance and troubleshooting.",
 
-
-
-
-
-
-
-        
-        
-
-
-
         arch_title: "Architecture & Documentation",
-        arch_desc: "During my on-the-job learning period, I documented system structures and functionality in written architecture descriptions. They explain how the different parts — WordPress, FastAPI, database, integrations, and external APIs — work together as a complete solution.",
-        arch_card_1_label: "Product Search Architecture<br> (PDF)",
-        arch_card_1_link: "Open the technical documentation for the Product Search system (PDF)",
-        arch_card_2_label: "Icecat Integration Architecture<br> (PDF)",
-        arch_card_2_link: "Open the technical documentation for the Icecat → WooCommerce integration (PDF)",
-        arch_card_3_label: "On-the-Job Learning Portfolio<br> (PDF)",
-        arch_card_3_link: "Open the full on-the-job learning portfolio (PDF)",
+        arch_desc: "I write architecture descriptions alongside the implementation. The documents explain how the components — WordPress, FastAPI, the database, and external APIs — form a working system.",
+        doc_search_topic: "System architecture",
+        doc_search_title: "Product search – search system architecture",
+        doc_search_desc: "How WordPress, the FastAPI search service, the MySQL database, and supplier data feeds work as a single search system: component responsibilities and data flow.",
+        doc_icecat_topic: "Integration architecture",
+        doc_icecat_title: "Icecat → WooCommerce integration",
+        doc_icecat_desc: "The path product data takes from Icecat to WooCommerce: fetching, validation, and enrichment, plus publishing images and language versions to the store.",
+        doc_portfolio_topic: "Work placement",
+        doc_portfolio_title: "On-the-job learning portfolio",
+        doc_portfolio_desc: "A written summary of the whole placement: the systems built and the technical solutions behind them.",
 
-        contact_title: "Contact & Links",
-        contact_desc: "I am open to junior-level roles and growth positions. I am happy to answer questions about my projects, skills, and on-the-job learning period.",
+        contact_title: "Contact",
+        contact_lead: "I am interested in Android, backend, and full-stack development roles, as well as opportunities to grow as a developer of production systems.",
+        contact_note: "I am based in Finland and open to both junior and growth roles. I am happy to answer questions about my projects, my skills, and my on-the-job learning period.",
+        contact_cta_email: "Send email",
+        contact_side_aria: "Contact details and links",
         contact_info_title: "Contact Information",
-        contact_email: "Email:",
-        contact_phone: "Phone:",
-        contact_location: "Location:",
+        contact_phone: "Phone",
+        contact_location: "Location",
         contact_location_value: "Finland",
-        contact_start: "Availability:",
+        contact_start: "Availability",
         contact_start_value: "By agreement",
         contact_links_title: "Links",
         contact_link_git: "GitHub – projects & code",
-        contact_link_portfolio: "On-the-job learning portfolio (PDF)",
+        contact_link_brand: "JanstechApps – published applications",
         contact_link_linkedin: "LinkedIn profile",
         contact_link_cv: "Download CV (PDF)",
 
-        footer_note: "Portfolio website · Jan Sarivuo",
+        footer_role: "Android & full stack developer · Finland",
+        footer_nav_aria: "Footer links",
+        footer_link_top: "Back to top",
+        footer_link_email: "Email",
 
         projects_title: "Projects",
         projects_intro: "Published Android applications, custom backend services, and full-stack and infrastructure systems used in production.",
@@ -1074,14 +1076,6 @@ function setLang(lang) {
         if (dict[lang] && dict[lang][key] != null) {
             el.setAttribute("aria-label", dict[lang][key]);
         }
-    }
-
-    const emailEl = document.getElementById("email");
-    const email = "jan.sarivuo" + "@" + "gmail.com";
-    if (emailEl) {
-        emailEl.innerHTML = (lang === "fi")
-            ? '<a href="mailto:' + email + '">Lähetä sähköpostia</a>'
-            : '<a href="mailto:' + email + '">Send email</a>';
     }
 
     const btnFi = document.getElementById("btnFi");

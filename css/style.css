@@ -774,9 +774,7 @@ main:focus {
 }
 
 .skills-grid,
-.project-grid,
-.architecture-grid,
-.contact-grid {
+.project-grid {
     display: grid;
     gap: var(--space-5);
 }
@@ -1280,90 +1278,160 @@ p.project-meta {
 }
 
 /* ==========================================================================
-   14. ARKKITEHTUURI
+   14. DOKUMENTIT
+   Dokumenttihakemisto, ei projektikortteja: hiusviivalla erotetut rivit,
+   vasemmalla formaatti ja aihealue, oikealla nimi ja tiiviste. Tarkoituksella
+   litteä - ilman korttipintaa dokumentit eivät kilpaile projektien kanssa.
    ========================================================================== */
 
-.architecture-grid {
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+.doc-list {
+    list-style: none;
+    border-top: 1px solid var(--color-border);
 }
 
-.arch-card figcaption {
-    margin-top: var(--space-4);
+.doc-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 3fr);
+    gap: var(--space-3) var(--space-6);
+    padding: var(--space-4) 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.doc-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+}
+
+/* Formaatti kerrotaan ennen linkkiä, jotta lukija tietää mitä avaa. */
+.doc-format {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-text-muted);
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--radius-sm);
+    padding: var(--space-1) var(--space-2);
+}
+
+.doc-topic {
     font-size: var(--font-size-sm);
     color: var(--color-text-muted);
 }
 
-.arch-card figcaption a {
-    color: var(--color-accent);
+/* Kosketuskohde >= 24 px (WCAG 2.5.8) ilman että otsikko kasvaa. */
+.doc-title {
+    font-size: var(--font-size-md);
+    line-height: var(--line-height-snug);
+}
+
+.doc-title a {
+    display: inline-block;
+    padding: var(--space-1) 0;
+    color: var(--color-text);
     text-decoration: none;
     transition: color var(--transition-fast) var(--ease-standard);
 }
 
-.arch-card figcaption a:hover {
+.doc-title a:hover {
+    color: var(--color-accent);
     text-decoration: underline;
-    color: var(--color-accent-hover);
 }
 
-.arch-placeholder {
-    border-radius: var(--radius-sm);
-    border: 1px solid var(--color-border);
-    min-height: 150px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--color-surface-subtle);
-    font-family: var(--font-mono);
-    font-size: var(--font-size-xs);
-    color: var(--color-text-muted);
-    text-align: center;
-    padding: var(--space-4);
+.doc-desc {
+    margin-top: var(--space-2);
+    max-width: var(--width-reading);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
 }
 
 /* ==========================================================================
-   15. YHTEYSTIEDOT JA LINKIT
+   15. YHTEYS
+   Sivun päätös: vasemmalla ydinviesti ja ensisijainen CTA, oikealla
+   varmennetut yhteystiedot ja linkit. Painotus tulee typografiasta ja
+   yhdestä ensisijaisesta painikkeesta - ei taustasta eikä laatikosta.
    ========================================================================== */
 
-.contact-grid {
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+.contact-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    gap: var(--space-7);
+    align-items: start;
 }
 
-.contact-list,
-.link-list {
-    list-style: none;
-    font-size: var(--font-size-sm);
+.contact-lead {
+    max-width: var(--width-reading);
+    font-size: var(--font-size-lg);
+    line-height: var(--line-height-snug);
+    color: var(--color-text);
+}
+
+.contact-note {
+    margin-top: var(--space-4);
+    max-width: var(--width-reading);
+    color: var(--color-text-secondary);
+}
+
+.contact-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-top: var(--space-6);
+}
+
+.contact-side-title {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-3);
+}
+
+.contact-facts + .contact-side-title {
+    margin-top: var(--space-6);
+}
+
+.contact-fact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1) var(--space-4);
+    padding: var(--space-3) 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.contact-fact dt {
+    min-width: 6rem;
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+    letter-spacing: var(--tracking-wide);
     color: var(--color-text-muted);
 }
 
-.contact-list li {
-    display: flex;
-    align-items: center;
-    margin-bottom: var(--space-2);
-    flex-wrap: wrap;
-}
-
-.contact-list li span:first-child {
+.contact-fact dd {
+    font-size: var(--font-size-sm);
     color: var(--color-text);
-    font-weight: var(--font-weight-medium);
-    display: inline-block;
-    min-width: 60px;
-    margin-right: var(--space-3);
 }
 
-.contact-list a,
-.link-list a {
+.contact-links {
+    list-style: none;
+    font-size: var(--font-size-sm);
+}
+
+.contact-links li + li {
+    margin-top: var(--space-3);
+}
+
+.contact-links a {
     color: var(--color-accent);
     text-decoration: none;
     transition: color var(--transition-fast) var(--ease-standard);
 }
 
-.contact-list a:hover,
-.link-list a:hover {
+.contact-links a:hover {
     text-decoration: underline;
     color: var(--color-accent-hover);
-}
-
-.link-list li + li {
-    margin-top: var(--space-2);
 }
 
 /* ==========================================================================
@@ -1386,9 +1454,46 @@ p.project-meta {
     flex-wrap: wrap;
 }
 
+/* Projektisivut käyttävät yhä kahden elementin footeria. */
 .footer-note {
     font-family: var(--font-mono);
     letter-spacing: var(--tracking-wide);
+}
+
+/* Etusivun footer: identiteetti, linkit ja copyright yhdellä matalalla
+   rivillä. Ei toinen yhteysosio - vain nimi, rooli ja lyhyt linkkirivi. */
+.footer-identity {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+}
+
+.footer-name {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-text);
+}
+
+.footer-role,
+.footer-copy {
+    color: var(--color-text-muted);
+}
+
+.footer-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-5);
+}
+
+.footer-nav a {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: color var(--transition-fast) var(--ease-standard);
+}
+
+.footer-nav a:hover {
+    color: var(--color-accent);
+    text-decoration: underline;
 }
 
 /* ==========================================================================
@@ -1435,9 +1540,17 @@ p.project-meta {
 
 @media (max-width: 840px) {
     .hero-inner,
-    .about-layout {
+    .about-layout,
+    .contact-layout {
         grid-template-columns: 1fr;
         gap: var(--space-6);
+    }
+
+    /* Yhteystietopaneeli erottuu omaksi lohkokseen vasta kun se ei enää ole
+       omassa sarakkeessaan. */
+    .contact-side {
+        border-top: 1px solid var(--color-border);
+        padding-top: var(--space-5);
     }
 
     /* Profiilipaneelin rata siirtyy vasemmasta reunasta yläreunaan. */
@@ -1495,6 +1608,19 @@ p.project-meta {
     .spec-row {
         grid-template-columns: 1fr;
         gap: var(--space-1);
+    }
+
+    /* Dokumenttirivi latautuu allekkain, ja metatiedot kääntyvät yhdelle
+       riville, jotta rivistä ei tule tarpeettoman korkea. */
+    .doc-row {
+        grid-template-columns: 1fr;
+        gap: var(--space-3);
+    }
+
+    .doc-meta {
+        flex-direction: row;
+        align-items: center;
+        gap: var(--space-3);
     }
 }
 

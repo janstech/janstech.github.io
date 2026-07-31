@@ -1,7 +1,8 @@
 # Portfolion visuaalinen perusta ja design tokenit
 
 **Vaiheet:** 1 – visuaalinen perusta · 2 – header ja hero ·
-3 – Minusta ja osaaminen · 4 – projektit ja JanstechApps
+3 – Minusta ja osaaminen · 4 – projektit ja JanstechApps ·
+5 – dokumentit, yhteys ja footer
 (auditointidokumentin vaiheistuksen mukaan)
 **Lähde:** `docs/portfolio-redesign-audit.md`
 **Toteutus:** `css/style.css` (`:root`-lohko + migroidut säännöt)
@@ -313,7 +314,67 @@ näyttöä → linkit. Julkaisutieto kerrotaan **vain** tilamerkinnässä, tekno
 | 641–900 px | 1 palsta | 2 | 2 | 1 rivi |
 | ≥ 901 px | 2 palstaa | 2 | 3 | 1 rivi |
 
-## 9. Varatut tokenit
+## 9. Dokumentit, yhteys ja footer
+
+### Dokumenttihakemisto, ei projektikortteja
+
+Arkkitehtuuridokumentit esitetään `.doc-list`-listana, jossa jokainen rivi on
+hiusviivoilla erotettu `.doc-row` – **ei korttipintaa**. Näin dokumentit eivät
+kilpaile projektikorttien kanssa eivätkä näytä kolmannelta projektiryhmältä.
+Aiemmat `.arch-placeholder`-laatikot (150 px korkeaa tyhjää mono-tekstillä)
+poistettiin: ne olivat koristetta, joka vei tilaa kertomatta mitään.
+
+Jokaisella rivillä on sama neljä tietoa:
+
+| Osa | Rooli |
+|---|---|
+| `.doc-format` | Formaatti (PDF / GitHub) mono-labelina reunuksen sisällä – lukija tietää mitä avaa **ennen** klikkausta |
+| `.doc-topic` | Tekninen aihealue, esim. *Integraatioarkkitehtuuri* |
+| `.doc-title` | `<h3>`, jonka sisällä linkki – linkin saavutettava nimi on dokumentin nimi |
+| `.doc-desc` | Yksi virke siitä, mitä dokumentti osoittaa |
+
+Desktopilla rivi on `1fr / 3fr` -grid (metatiedot vasemmalla), alle 640 px
+yksipalstainen ja metatiedot kääntyvät vaakariviksi. Linkin kosketuskohde on
+32 px (WCAG 2.5.8 vaatii 24 px); painikemainen 44 px olisi tehnyt listasta
+raskaan.
+
+**Sääntö:** dokumentti lisätään vain, jos tiedosto on olemassa repossa tai
+varmennetussa ulkoisessa osoitteessa. Kuvaus kertoo, mitä dokumentti käsittelee
+– ei sitä, kuinka hyvä se on.
+
+### Yhteysosion CTA-hierarkia
+
+Yhteysosio on sivun päätös, ei mainosbanneri. Painotus tulee typografiasta ja
+**yhdestä** ensisijaisesta painikkeesta – ei taustaväristä, laatikosta eikä
+korostusgradientista.
+
+1. `.contact-lead` – ydinviesti `--font-size-lg`, ensisijaisessa tekstivärissä
+2. `.contact-note` – tarkennus (sijainti, roolityyppi) toissijaisessa sävyssä
+3. `.contact-actions` – **täsmälleen yksi** `.btn-primary` (sähköposti) ja yksi
+   `.btn-ghost` (CV). Ei kolmatta painiketta.
+4. `.contact-side` – varmennetut yhteystiedot `<dl>`:nä ja linkit listana
+
+Kaksi aiempaa `.card`-laatikkoa purettiin: koko etusivun reunallisten pintojen
+määrä laski 18:sta 13:een.
+
+Sähköpostiosoite kootaan osista JavaScriptissä, jotta se ei ole suoraan
+poimittavissa lähdekoodista. Linkeillä on toimiva oletus-`href` (`#contact`),
+joten ne eivät jää rikki ilman JavaScriptiä.
+
+### Footerin rakenne
+
+Footer on **matala tunnisterivi, ei toista yhteysosiota**: identiteetti
+vasemmalla, lyhyt linkkirivi keskellä, copyright oikealla. Mitattu korkeus
+106 px desktopilla.
+
+- ei otsikoita (`<h1>`–`<h3>`), ei lomakkeita, ei analytiikka- tai evästetekstejä
+- vuosi on dynaaminen (`#year`), koska rakenne tuki sitä jo valmiiksi
+- linkit: takaisin alkuun, sähköposti, GitHub, JanstechApps
+
+Projektisivut käyttävät yhä kahden elementin footeria (`.footer-note`);
+`.footer-inner` pidettiin muuttumattomana, jotta ne eivät regressoi.
+
+## 10. Varatut tokenit
 
 Nämä on määritelty tehtävänannon vaatiman täyden asteikon vuoksi, mutta niitä ei
 vielä käytetä. Ne ovat sopimus tuleville vaiheille, eivät kuollutta koodia:
@@ -329,29 +390,30 @@ vielä käytetä. Ne ovat sopimus tuleville vaiheille, eivät kuollutta koodia:
 
 ---
 
-## 10. Rajaukset – mitä Vaiheet 1–4 **eivät** tehneet
+## 11. Rajaukset – mitä Vaiheet 1–5 **eivät** tehneet
 
-- `apps/index.html` ja `apps/css/style.css` jäivät koskematta – oma tyylitiedosto,
-  ei jaettuja tokeneita. Yhtenäistäminen on erillinen päätös.
-- Sisältötekstejä ei muutettu.
+- `apps/index.html` ja `apps/css/style.css` jäivät visuaalisesti koskematta – oma
+  tyylitiedosto, ei jaettuja tokeneita. Yhtenäistäminen on erillinen päätös.
+  Vaihe 5 lisäsi sivulle vain roolia selventävän tekstin ja kaksi linkkiä.
+- Projektiosion hierarkiaa ja projektisivujen sisältöä ei muutettu.
 
-## 11. Tiedossa olevat ristiriidat
+## 12. Tiedossa olevat ristiriidat
 
 - **`apps/css/style.css` on erillinen järjestelmä.** Sillä ei ole yhteisiä
-  tokeneita eikä se peri mitään `css/style.css`:stä. Sivu näyttää nyt eri
+  tokeneita eikä se peri mitään `css/style.css`:stä. Sivu näyttää yhä eri
   sukupolvelta kuin muu sivusto. Ehdotus: käsitellään auditoinnin luvun 12.5
-  päätöksen yhteydessä, ei tässä vaiheessa.
+  päätöksen yhteydessä.
 - **`gainsai/index.html` käyttää yhä vanhoja `.project-card`-, `.project-grid`-,
   `.project-meta`-, `.project-points`- ja `.project-links`-luokkia.** Etusivu
   siirtyi uusiin projektikomponentteihin, mutta säännöt jätettiin jaettuun
-  CSS:ään GainsAI-sivua varten. Yhtenäistetään Vaiheessa 5.
+  CSS:ään GainsAI-sivua varten. Yhtenäistäminen kuuluu erilliseen
+  projektisivujen tehtävään, ei etusivun viimeistelyyn.
 - **`gainsai/index.html` käyttää yhä `.hero-ascii`-koodilohkoa.** Etusivun hero
   siirtyi spec-paneeliin, mutta GainsAI-sivun lohko esittää aitoa stack-koodia,
-  joten sääntö jätettiin jaettuun CSS:ään. Ratkaistaan Vaiheessa 5.
-- **`gainsai/index.html` sisältää yhä oman `<style>`-lohkon** (~95 riviä
-  sivukohtaisia sääntöjä). Ne käyttävät nyt jaettuja tokeneita, joten ristiriitaa
-  ei ole – mutta säännöt kuuluisivat pitkällä tähtäimellä jaettuun CSS:ään
-  komponentteina (`.status-pill`, `.shot-grid`, `.info-grid`). Tämä tehdään
-  Vaiheessa 5, kun komponenttien lopullinen muoto on päätetty.
+  joten sääntö jätettiin jaettuun CSS:ään.
 - Yksi kertaluonteinen inline-tyyli (`style="padding-top:0"`) jätettiin
   `gainsai/index.html`:ään; se ei ole osa perusjärjestelmää.
+
+**Ratkaistu:** projektisivujen omat `<style>`-lohkot on siirretty jaettuun
+CSS:ään (osio *13. PROJEKTISIVUT*). Yhdelläkään sivulla ei ole enää omaa
+inline-tyylilohkoa.
