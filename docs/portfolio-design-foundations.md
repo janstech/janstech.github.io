@@ -1,6 +1,7 @@
 # Portfolion visuaalinen perusta ja design tokenit
 
-**Vaiheet:** 1 – visuaalinen perusta · 2 – header ja hero
+**Vaiheet:** 1 – visuaalinen perusta · 2 – header ja hero ·
+3 – Minusta ja osaaminen
 (auditointidokumentin vaiheistuksen mukaan)
 **Lähde:** `docs/portfolio-redesign-audit.md`
 **Toteutus:** `css/style.css` (`:root`-lohko + migroidut säännöt)
@@ -206,7 +207,64 @@ Sääntöjä:
 - ei koodisyntaksia, ei animaatiota, ei laskureita
 - alle 640 px label ja arvo latautuvat allekkain
 
-## 7. Varatut tokenit
+## 7. Minusta- ja osaamisperiaatteet
+
+### Toimituksellinen Minusta-asettelu
+
+Kaksipalstainen desktopilla (`3fr / 2fr`): teksti vasemmalla `--width-reading`
+-mitassa, ammatillinen profiili oikealla. Alle 840 px yksi sarake, teksti ensin.
+
+Kappaleväli tulee säännöstä `.about-main p + p, .section > .container > p + p`.
+Se on rajattu leipätekstiin: kortit, footer ja määrittelylistat eivät saa
+ylimääräisiä marginaaleja globaalin resetin `margin: 0` päälle.
+
+### Ammatillinen faktapaneeli
+
+`.profile-facts` on `<dl>` `<aside>`-elementissä, jolla on lokalisoitu
+`aria-label`. **Se on tarkoituksella eri näköinen kuin heron spec-paneeli:**
+ei laatikkoa eikä taustaa, vaan vasen hiusviivarata, ja label/arvo latautuvat
+allekkain. Hero kertoo teknologiat, Minusta-paneeli ammatillisen profiilin
+(koulutus, painopiste, julkaisut, tuotanto, työskentelytapa, tavoite).
+
+### Osaamisen hierarkia
+
+Viisi osaamisaluetta yhden tasapaksun seitsikon sijaan:
+
+1. Android-kehitys · 2. Backend & rajapinnat · 3. Tietokannat & integraatiot
+4. Infrastruktuuri & julkaisut · 5. AI-avusteinen kehitys
+
+Ruudukko on mitoitettu niin, ettei orpoa riviä synny:
+
+| Leveys | Asettelu |
+|---|---|
+| < 641 px | 1 sarake, 5 riviä |
+| 641–900 px | Android täysleveänä + 2 × 2 |
+| ≥ 901 px | 6 sarakkeen grid: 3 + 3, sitten 2 + 2 + 2 |
+
+### Ensisijaisen osaamisalueen korostus
+
+Android on ensisijainen kolmella hillityllä keinolla — **ei värillä**:
+
+- leveämpi sarake (≥901 px: 3/6 vs. muiden 2/6)
+- `.capability-eyebrow`, pieni amber-mono-label
+- `--color-border-strong` reunana `--color-border`in sijaan
+
+Ei amber-taustaa, ei varjoa, ei kokoeroa otsikoissa.
+
+### Kortin sisältörakenne
+
+Jokainen `<article class="capability">` sisältää saman rytmin: otsikko →
+1–2 virkkeen tiiviste → mono-teknologiarivi hiusviivojen välissä → 5 ydinpointtia.
+Teknologiarivi ei koskaan ole kortin ainoa sisältö, eikä teknologioita esitetä
+pill-badgeina.
+
+### Muu kokemus
+
+`.additional-experience` on yksi rivi osaamisosion lopussa vasemmalla
+rataviivalla — ei kuudetta korttia. Sinne siirtyivät pelikehitys ja
+IT-laitehuolto, jotka eivät kuulu nykyiseen ammatilliseen ytimeen.
+
+## 8. Varatut tokenit
 
 Nämä on määritelty tehtävänannon vaatiman täyden asteikon vuoksi, mutta niitä ei
 vielä käytetä. Ne ovat sopimus tuleville vaiheille, eivät kuollutta koodia:
@@ -222,16 +280,15 @@ vielä käytetä. Ne ovat sopimus tuleville vaiheille, eivät kuollutta koodia:
 
 ---
 
-## 8. Rajaukset – mitä Vaiheet 1–2 **eivät** tehneet
+## 9. Rajaukset – mitä Vaiheet 1–3 **eivät** tehneet
 
 - Projektien järjestystä, ryhmittelyä tai sisältöä ei muutettu.
-- Osaamiskorttien rakennetta (7 korttia) ei muutettu.
 - SureKeepiä, Työtoria eikä JanstechApps-kaistaa ei lisätty.
 - `apps/index.html` ja `apps/css/style.css` jäivät koskematta – oma tyylitiedosto,
   ei jaettuja tokeneita. Yhtenäistäminen on erillinen päätös.
 - Sisältötekstejä ei muutettu.
 
-## 9. Tiedossa olevat ristiriidat
+## 10. Tiedossa olevat ristiriidat
 
 - **`apps/css/style.css` on erillinen järjestelmä.** Sillä ei ole yhteisiä
   tokeneita eikä se peri mitään `css/style.css`:stä. Sivu näyttää nyt eri

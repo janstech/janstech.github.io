@@ -106,29 +106,49 @@
     </section>
 
     <section id="about" class="section">
-        <div class="container">
-            <h2 class="section-title" data-i18n="about_title">Minusta</h2>
-            <p data-i18n="about_p1">
-                Olen 11/2025 valmistunut ohjelmistokehityksen osaaja ja toiminut
-                työssäoppimisjaksolla käytännönläheisessä full stack -roolissa.
-                Jakson aikana suunnittelin ja toteutin alusta loppuun useita
-                tuotantokäytössä olevia järjestelmiä: käyttöliittymät,
-                API-kerros, tietokantaratkaisut, integraatiot ja palvelinylläpito.
-            </p>
-            <p data-i18n="about_p2">
-                Erityisosaamistani ovat WordPress- ja FastAPI-pohjaiset
-                ratkaisukokonaisuudet, MySQL / InnoDB -tietokannat sekä
-                erilaisten datavirtojen käsittely (XML, CSV, JSON) ja integraatiot
-                tukkujen rajapintoihin. Lisäksi minulla on käytännön kokemusta
-                Linux-palvelimista, lokien tulkinnasta, varmuuskopioinnista ja
-                tietokantojen palauttamisesta.
-            </p>
-            <p data-i18n="about_p3">
-                Haen junior-tason tehtäviä, joissa pääsen yhdistämään UI-kehityksen,
-                backend-logiikan ja tietokantaosaamisen. Olen oppimishaluinen,
-                pidän ongelmanratkaisusta ja dokumentoin mielelläni myös
-                arkkitehtuurin ja kokonaisuuden.
-            </p>
+        <div class="container about-layout">
+            <div class="about-main">
+                <h2 class="section-title" data-i18n="about_title">Minusta</h2>
+                <p data-i18n="about_p1">
+                    Valmistuin ohjelmistokehittäjäksi marraskuussa 2025. Työssäoppimisjaksolla vastasin yrityksen tuotantojärjestelmistä alusta loppuun: rakensin WordPress- ja FastAPI-pohjaisen tuotehaun, Icecat-integraation WooCommerceen ja niiden taustalla olevat MySQL-ratkaisut. Selvitin myös korruptoituneita InnoDB-tauluja ja pystytin salatun varmuuskopioinnin. Järjestelmät ovat edelleen yrityksen tuotantokäytössä.
+                </p>
+                <p data-i18n="about_p2">
+                    Sen rinnalla olen suunnitellut, toteuttanut ja julkaissut omat Android-sovellukseni sekä niiden backendit. Vastaan koko ketjusta itse: Compose-käyttöliittymästä REST-rajapintoihin, tietokantaan, tunnistautumiseen, tilausmaksuihin ja palvelimeen, jolla palvelu ajetaan. Julkaisuun kuuluu myös suljettu testaus, Play Consolen edellyttämät ilmoitukset ja ylläpito julkaisun jälkeen.
+                </p>
+                <p data-i18n="about_p3">
+                    Kirjoitan arkkitehtuuridokumentit ja päätöskirjaukset työn rinnalla, koska ne pitävät kokonaisuuden hallittavana silloinkin kun projekti kasvaa. Ennen alanvaihtoa työskentelin pitkään automaalarina, jossa tarkkuus ja viimeistely ratkaisivat lopputuloksen. Sama pätee ohjelmistoihin. Haen junior- tai kasvuroolia, jossa pääsen viemään kokonaisuuksia suunnittelusta tuotantoon asti.
+                </p>
+            </div>
+
+            <aside class="profile-facts" data-i18n-aria="profile_aria" aria-label="Ammatillinen profiili">
+                <p class="profile-facts-title" data-i18n="profile_title">Profiili</p>
+                <dl>
+                    <div class="profile-row">
+                        <dt data-i18n="prof_edu_label">Koulutus</dt>
+                        <dd data-i18n="prof_edu_value">Ohjelmistokehittäjä, valmistunut 11/2025</dd>
+                    </div>
+                    <div class="profile-row">
+                        <dt data-i18n="prof_focus_label">Painopiste</dt>
+                        <dd data-i18n="prof_focus_value">Android-sovellukset ja niiden backendit</dd>
+                    </div>
+                    <div class="profile-row">
+                        <dt data-i18n="prof_releases_label">Julkaisut</dt>
+                        <dd data-i18n="prof_releases_value">Kolme omaa sovellusta Google Playssa</dd>
+                    </div>
+                    <div class="profile-row">
+                        <dt data-i18n="prof_production_label">Tuotanto</dt>
+                        <dd data-i18n="prof_production_value">Työssäoppimisjakson järjestelmät yrityksen käytössä</dd>
+                    </div>
+                    <div class="profile-row">
+                        <dt data-i18n="prof_style_label">Työskentelytapa</dt>
+                        <dd data-i18n="prof_style_value">Dokumentoitu arkkitehtuuri, tarkistettu toteutus</dd>
+                    </div>
+                    <div class="profile-row">
+                        <dt data-i18n="prof_goal_label">Tavoite</dt>
+                        <dd data-i18n="prof_goal_value">Junior- tai kasvurooli</dd>
+                    </div>
+                </dl>
+            </aside>
         </div>
     </section>
 
@@ -136,84 +156,77 @@
         <div class="container">
             <h2 class="section-title" data-i18n="skills_title">Osaaminen</h2>
 
-            <div class="skills-grid">
-                <div class="card">
-                    <h3 data-i18n="skills_prog_title">Ohjelmointi &amp; web-kehitys</h3>
+            <div class="capability-grid">
+                <article class="capability capability--primary">
+                    <p class="capability-eyebrow" data-i18n="cap_android_eyebrow">Painopiste</p>
+                    <h3 data-i18n="cap_android_title">Android-kehitys</h3>
+                    <p class="capability-summary" data-i18n="cap_android_summary">Rakennan Android-sovellukset käyttöliittymästä julkaisuun asti. Kolme sovellusta on Google Playssa, ja vastaan niiden ylläpidosta itse.</p>
+                    <p class="capability-tech" data-i18n="cap_android_tech">Kotlin · Jetpack Compose · Material 3 · Room · DataStore · Retrofit / OkHttp</p>
                     <ul>
-                        <li data-i18n="skills_prog_1">Python &amp; FastAPI (REST-palvelut)</li>
-                        <li data-i18n="skills_prog_2">WordPress-kehitys (custom-lisäosat, PHP, shortcodet)</li>
-                        <li data-i18n="skills_prog_3">HTML, CSS, JavaScript (ES6+)</li>
-                        <li data-i18n="skills_prog_4">Full Stack -kehitys (UI + API + tietokanta)</li>
+                        <li data-i18n="cap_android_1">Compose-käyttöliittymät sekä MVVM- ja repository-rakenne</li>
+                        <li data-i18n="cap_android_2">Offline-first-toteutus ja paikallinen tallennus</li>
+                        <li data-i18n="cap_android_3">Firebase Authentication, App Check ja Play Integrity</li>
+                        <li data-i18n="cap_android_4">Google Play Billing ja palvelinvarmennetut ostot</li>
+                        <li data-i18n="cap_android_5">Julkaisu suljetusta testauksesta tuotantoon</li>
                     </ul>
-                </div>
+                </article>
 
-                <div class="card">
-                    <h3 data-i18n="skills_db_title">Tietokannat &amp; palvelinpuoli</h3>
+                <article class="capability capability--wide">
+                    <h3 data-i18n="cap_backend_title">Backend &amp; rajapinnat</h3>
+                    <p class="capability-summary" data-i18n="cap_backend_summary">Toteutan sovellusteni taustapalvelut itse: rajapinnat, käyttöoikeudet ja tietomallin.</p>
+                    <p class="capability-tech" data-i18n="cap_backend_tech">FastAPI · Python · Pydantic · SQLAlchemy · REST</p>
                     <ul>
-                        <li data-i18n="skills_db_1">MySQL / MariaDB / InnoDB</li>
-                        <li data-i18n="skills_db_2">Indeksointi, optimointi ja vianetsintä</li>
-                        <li data-i18n="skills_db_3">Korruptoituneiden taulujen korjaus ja recovery-tilat</li>
-                        <li data-i18n="skills_db_4">Linux-palvelimet, Apache, virhelokit</li>
-                        <li data-i18n="skills_db_5">Varmuuskopiointi ja testipalautukset</li>
+                        <li data-i18n="cap_backend_1">REST-rajapintojen suunnittelu ja versiointi</li>
+                        <li data-i18n="cap_backend_2">Tunnistautuminen ja käyttöoikeuksien hallinta</li>
+                        <li data-i18n="cap_backend_3">Ostotapahtumien palvelinvarmennus</li>
+                        <li data-i18n="cap_backend_4">Validointi, virheenkäsittely ja lokitus</li>
+                        <li data-i18n="cap_backend_5">Taustatyöt pitkäkestoisille pyynnöille</li>
                     </ul>
-                </div>
+                </article>
 
-                <div class="card">
-                    <h3 data-i18n="skills_devops_title">Palvelinympäristöt &amp; DevOps</h3>
+                <article class="capability">
+                    <h3 data-i18n="cap_data_title">Tietokannat &amp; integraatiot</h3>
+                    <p class="capability-summary" data-i18n="cap_data_summary">Suunnittelen tietomallit ja siirrän dataa järjestelmien välillä — myös silloin, kun tuotantokanta on rikki.</p>
+                    <p class="capability-tech" data-i18n="cap_data_tech">MariaDB · MySQL · InnoDB · XML / CSV / JSON</p>
                     <ul>
-                        <li data-i18n="skills_devops_1">Hetzner- ja Radicenter-palvelinympäristöissä toimiminen</li>
-                        <li data-i18n="skills_devops_2">Linux-palvelimet, SSH, systemd-palvelut ja palvelinlokien tulkinta</li>
-                        <li data-i18n="skills_devops_3">Nginx / Apache, domainit, HTTPS ja reverse proxy -ratkaisut</li>
-                        <li data-i18n="skills_devops_4">FastAPI-backendien julkaisu, migraatiot ja palveluiden uudelleenkäynnistykset</li>
-                        <li data-i18n="skills_devops_5">Restic + rclone -varmuuskopiot, Google Drive -offsite ja testipalautukset</li>
+                        <li data-i18n="cap_data_1">Skeemasuunnittelu, migraatiot ja indeksointi</li>
+                        <li data-i18n="cap_data_2">Korruptoituneiden InnoDB-taulujen korjaus ja recovery</li>
+                        <li data-i18n="cap_data_3">Icecat → WooCommerce -tuotetietointegraatio</li>
+                        <li data-i18n="cap_data_4">Tukkujen rajapinnat (Aurdel, Also)</li>
+                        <li data-i18n="cap_data_5">Datan muunnokset ja validointi</li>
                     </ul>
-                </div>
+                </article>
 
-                <div class="card">
-                    <h3 data-i18n="skills_integ_title">Integraatiot &amp; muut</h3>
+                <article class="capability">
+                    <h3 data-i18n="cap_infra_title">Infrastruktuuri &amp; julkaisut</h3>
+                    <p class="capability-summary" data-i18n="cap_infra_summary">Ylläpidän palvelimia, joilla omat ja työssäoppimisjakson palvelut ajetaan.</p>
+                    <p class="capability-tech" data-i18n="cap_infra_tech">Linux · Hetzner · Nginx · systemd · restic / rclone</p>
                     <ul>
-                        <li data-i18n="skills_integ_1">Integraatiot tukkujen rajapintoihin (Aurdel, Also)</li>
-                        <li data-i18n="skills_integ_2">Icecat → WooCommerce -tuotetietointegraatio</li>
-                        <li data-i18n="skills_integ_3">XML, CSV, JSON -datan käsittely ja muunto</li>
-                        <li data-i18n="skills_integ_4">Slack-hälytykset ja Signed URL -polut (.htaccess)</li>
-                        <li data-i18n="skills_integ_5">IT-laitteiden huolto, vianmääritys ja asennukset</li>
+                        <li data-i18n="cap_infra_1">Palveluiden julkaisu, migraatiot ja uudelleenkäynnistykset</li>
+                        <li data-i18n="cap_infra_2">Nginx, HTTPS ja reverse proxy -asetukset</li>
+                        <li data-i18n="cap_infra_3">Lokien tulkinta ja vianetsintä</li>
+                        <li data-i18n="cap_infra_4">Salatut varmuuskopiot ja testipalautukset</li>
+                        <li data-i18n="cap_infra_5">Health checkit ja palveluiden seuranta</li>
                     </ul>
-                </div>
+                </article>
 
-                <div class="card">
-                    <h3 data-i18n="skills_android_title">Android &amp; mobiilisovellukset</h3>
+                <article class="capability">
+                    <h3 data-i18n="cap_ai_title">AI-avusteinen kehitys</h3>
+                    <p class="capability-summary" data-i18n="cap_ai_summary">Käytän AI-työkaluja osana kehitysprosessia: suunnitteluun, auditointiin ja dokumentointiin. Lopputuloksen tarkistan aina itse.</p>
+                    <p class="capability-tech" data-i18n="cap_ai_tech">ChatGPT · Codex · Claude Code · GitHub Copilot</p>
                     <ul>
-                        <li data-i18n="skills_android_1">Kotlin &amp; Jetpack Compose (UI)</li>
-                        <li data-i18n="skills_android_2">Room (SQLite), DataStore, MVVM / repository-arkkitehtuuri</li>
-                        <li data-i18n="skills_android_3">Offline-first toteutus, varmuuskopiointi (export/import)</li>
-                        <li data-i18n="skills_android_4">REST-integraatiot (Retrofit/OkHttp), virheenkäsittely &amp; lokitus</li>
-                        <li data-i18n="skills_android_5">Tuotannon suojaus: Firebase App Check &amp; Play Integrity</li>
+                        <li data-i18n="cap_ai_1">Arkkitehtuurin suunnittelu ja tekninen auditointi</li>
+                        <li data-i18n="cap_ai_2">Vaihtoehtojen vertailu ennen toteutusta</li>
+                        <li data-i18n="cap_ai_3">Testauksen ja refaktoroinnin tukeminen</li>
+                        <li data-i18n="cap_ai_4">Dokumentoinnin ylläpito koodin rinnalla</li>
+                        <li data-i18n="cap_ai_5">Tuotosten manuaalinen validointi ennen käyttöönottoa</li>
                     </ul>
-                </div>
-
-                <div class="card">
-                    <h3 data-i18n="skills_game_title">Pelikehitys &amp; Multimedia</h3>
-                    <ul>
-                        <li data-i18n="skills_game_1">Unity 3D &amp; C# (AI, NavMesh, fysiikat)</li>
-                        <li data-i18n="skills_game_2">HTML5 Canvas &amp; JavaScript-pelilogiikka</li>
-                        <li data-i18n="skills_game_3">Web Audio API &amp; dynaaminen äänimaailma</li>
-                        <li data-i18n="skills_game_4">Sprite-animaatiot &amp; partikkeliefektit</li>
-                        <li data-i18n="skills_game_5">Pelitilojen hallinta (State Management)</li>
-                    </ul>
-                </div>
-
-                <div class="card">
-            <h3 data-i18n="skills_ai_title">AI-avusteinen ohjelmistokehitys</h3>
-            <ul>
-                <li data-i18n="skills_ai_1">ChatGPT, Codex, Claude Code ja GitHub Copilot ohjelmistokehityksen tukena</li>
-                <li data-i18n="skills_ai_2">Arkkitehtuurin suunnittelu ja tekninen auditointi AI-työkaluilla</li>
-                <li data-i18n="skills_ai_3">Testauksen, refaktoroinnin ja dokumentoinnin tehostaminen</li>
-                <li data-i18n="skills_ai_4">Prompt Engineering osana kehitysprosessia</li>
-                <li data-i18n="skills_ai_5">AI-avusteinen ongelmanratkaisu oikeissa tuotantoprojekteissa</li>
-            </ul>
-        </div>
-                
+                </article>
             </div>
+
+            <p class="additional-experience" data-i18n="skills_additional">
+                Muu kokemus: Unity/C#, HTML5 Canvas, Web Audio API sekä IT-laitteiden huolto ja vianmääritys.
+            </p>
         </div>
     </section>
 
@@ -718,58 +731,74 @@ const dict = {
         spec_brand_label: "Sovellusbrändi",
 
         about_title: "Minusta",
-        about_p1: "Olen 11/2025 valmistunut ohjelmistokehityksen osaaja ja toiminut työssäoppimisjaksolla käytännönläheisessä full stack -roolissa. Jakson aikana suunnittelin ja toteutin alusta loppuun useita tuotantokäytössä olevia järjestelmiä: käyttöliittymät, API-kerros, tietokantaratkaisut, integraatiot ja palvelinylläpito.",
-        about_p2: "Erityisosaamistani ovat WordPress- ja FastAPI-pohjaiset ratkaisukokonaisuudet, MySQL / InnoDB -tietokannat sekä erilaisten datavirtojen käsittely (XML, CSV, JSON) ja integraatiot tukkujen rajapintoihin. Lisäksi minulla on käytännön kokemusta Linux-palvelimista, lokien tulkinnasta, varmuuskopioinnista ja tietokantojen palauttamisesta.",
-        about_p3: "Haen junior-tason tehtäviä, joissa pääsen yhdistämään UI-kehityksen, backend-logiikan ja tietokantaosaamisen. Olen oppimishaluinen, pidän ongelmanratkaisusta ja dokumentoin mielelläni myös arkkitehtuurin ja kokonaisuuden.",
+        about_p1: "Valmistuin ohjelmistokehittäjäksi marraskuussa 2025. Työssäoppimisjaksolla vastasin yrityksen tuotantojärjestelmistä alusta loppuun: rakensin WordPress- ja FastAPI-pohjaisen tuotehaun, Icecat-integraation WooCommerceen ja niiden taustalla olevat MySQL-ratkaisut. Selvitin myös korruptoituneita InnoDB-tauluja ja pystytin salatun varmuuskopioinnin. Järjestelmät ovat edelleen yrityksen tuotantokäytössä.",
+        about_p2: "Sen rinnalla olen suunnitellut, toteuttanut ja julkaissut omat Android-sovellukseni sekä niiden backendit. Vastaan koko ketjusta itse: Compose-käyttöliittymästä REST-rajapintoihin, tietokantaan, tunnistautumiseen, tilausmaksuihin ja palvelimeen, jolla palvelu ajetaan. Julkaisuun kuuluu myös suljettu testaus, Play Consolen edellyttämät ilmoitukset ja ylläpito julkaisun jälkeen.",
+        about_p3: "Kirjoitan arkkitehtuuridokumentit ja päätöskirjaukset työn rinnalla, koska ne pitävät kokonaisuuden hallittavana silloinkin kun projekti kasvaa. Ennen alanvaihtoa työskentelin pitkään automaalarina, jossa tarkkuus ja viimeistely ratkaisivat lopputuloksen. Sama pätee ohjelmistoihin. Haen junior- tai kasvuroolia, jossa pääsen viemään kokonaisuuksia suunnittelusta tuotantoon asti.",
+
+        profile_aria: "Ammatillinen profiili",
+        profile_title: "Profiili",
+        prof_edu_label: "Koulutus",
+        prof_edu_value: "Ohjelmistokehittäjä, valmistunut 11/2025",
+        prof_focus_label: "Painopiste",
+        prof_focus_value: "Android-sovellukset ja niiden backendit",
+        prof_releases_label: "Julkaisut",
+        prof_releases_value: "Kolme omaa sovellusta Google Playssa",
+        prof_production_label: "Tuotanto",
+        prof_production_value: "Työssäoppimisjakson järjestelmät yrityksen käytössä",
+        prof_style_label: "Työskentelytapa",
+        prof_style_value: "Dokumentoitu arkkitehtuuri, tarkistettu toteutus",
+        prof_goal_label: "Tavoite",
+        prof_goal_value: "Junior- tai kasvurooli",
 
         skills_title: "Osaaminen",
-        skills_prog_title: "Ohjelmointi & web-kehitys",
-        skills_prog_1: "Python & FastAPI (REST-palvelut)",
-        skills_prog_2: "WordPress-kehitys (custom-lisäosat, PHP, shortcodet)",
-        skills_prog_3: "HTML, CSS, JavaScript (ES6+)",
-        skills_prog_4: "Full Stack -kehitys (UI + API + tietokanta)",
 
-        skills_db_title: "Tietokannat & palvelinpuoli",
-        skills_db_1: "MySQL / MariaDB / InnoDB",
-        skills_db_2: "Indeksointi, optimointi ja vianetsintä",
-        skills_db_3: "Korruptoituneiden taulujen korjaus ja recovery-tilat",
-        skills_db_4: "Linux-palvelimet, Apache, virhelokit",
-        skills_db_5: "Varmuuskopiointi ja testipalautukset",
+        cap_android_eyebrow: "Painopiste",
+        cap_android_title: "Android-kehitys",
+        cap_android_summary: "Rakennan Android-sovellukset käyttöliittymästä julkaisuun asti. Kolme sovellusta on Google Playssa, ja vastaan niiden ylläpidosta itse.",
+        cap_android_tech: "Kotlin · Jetpack Compose · Material 3 · Room · DataStore · Retrofit / OkHttp",
+        cap_android_1: "Compose-käyttöliittymät sekä MVVM- ja repository-rakenne",
+        cap_android_2: "Offline-first-toteutus ja paikallinen tallennus",
+        cap_android_3: "Firebase Authentication, App Check ja Play Integrity",
+        cap_android_4: "Google Play Billing ja palvelinvarmennetut ostot",
+        cap_android_5: "Julkaisu suljetusta testauksesta tuotantoon",
 
-        skills_devops_title: "Palvelinympäristöt & DevOps",
-        skills_devops_1: "Hetzner- ja Radicenter-palvelinympäristöissä toimiminen",
-        skills_devops_2: "Linux-palvelimet, SSH, systemd-palvelut ja palvelinlokien tulkinta",
-        skills_devops_3: "Nginx / Apache, domainit, HTTPS ja reverse proxy -ratkaisut",
-        skills_devops_4: "FastAPI-backendien julkaisu, migraatiot ja palveluiden uudelleenkäynnistykset",
-        skills_devops_5: "Restic + rclone -varmuuskopiot, Google Drive -offsite ja testipalautukset",
+        cap_backend_title: "Backend &amp; rajapinnat",
+        cap_backend_summary: "Toteutan sovellusteni taustapalvelut itse: rajapinnat, käyttöoikeudet ja tietomallin.",
+        cap_backend_tech: "FastAPI · Python · Pydantic · SQLAlchemy · REST",
+        cap_backend_1: "REST-rajapintojen suunnittelu ja versiointi",
+        cap_backend_2: "Tunnistautuminen ja käyttöoikeuksien hallinta",
+        cap_backend_3: "Ostotapahtumien palvelinvarmennus",
+        cap_backend_4: "Validointi, virheenkäsittely ja lokitus",
+        cap_backend_5: "Taustatyöt pitkäkestoisille pyynnöille",
 
-        skills_integ_title: "Integraatiot & muut",
-        skills_integ_1: "Integraatiot tukkujen rajapintoihin (Aurdel, Also)",
-        skills_integ_2: "Icecat → WooCommerce -tuotetietointegraatio",
-        skills_integ_3: "XML, CSV, JSON -datan käsittely ja muunto",
-        skills_integ_4: "Slack-hälytykset ja Signed URL -polut (.htaccess)",
-        skills_integ_5: "IT-laitteiden huolto, vianmääritys ja asennukset",
+        cap_data_title: "Tietokannat &amp; integraatiot",
+        cap_data_summary: "Suunnittelen tietomallit ja siirrän dataa järjestelmien välillä — myös silloin, kun tuotantokanta on rikki.",
+        cap_data_tech: "MariaDB · MySQL · InnoDB · XML / CSV / JSON",
+        cap_data_1: "Skeemasuunnittelu, migraatiot ja indeksointi",
+        cap_data_2: "Korruptoituneiden InnoDB-taulujen korjaus ja recovery",
+        cap_data_3: "Icecat → WooCommerce -tuotetietointegraatio",
+        cap_data_4: "Tukkujen rajapinnat (Aurdel, Also)",
+        cap_data_5: "Datan muunnokset ja validointi",
 
-        skills_android_title: "Android & mobiilisovellukset",
-        skills_android_1: "Kotlin & Jetpack Compose (UI)",
-        skills_android_2: "Room (SQLite), DataStore, MVVM / repository-arkkitehtuuri",
-        skills_android_3: "Offline-first toteutus, varmuuskopiointi (export/import)",
-        skills_android_4: "REST-integraatiot (Retrofit/OkHttp), virheenkäsittely & lokitus",
-        skills_android_5: "Tuotannon suojaus: Firebase App Check & Play Integrity",
+        cap_infra_title: "Infrastruktuuri &amp; julkaisut",
+        cap_infra_summary: "Ylläpidän palvelimia, joilla omat ja työssäoppimisjakson palvelut ajetaan.",
+        cap_infra_tech: "Linux · Hetzner · Nginx · systemd · restic / rclone",
+        cap_infra_1: "Palveluiden julkaisu, migraatiot ja uudelleenkäynnistykset",
+        cap_infra_2: "Nginx, HTTPS ja reverse proxy -asetukset",
+        cap_infra_3: "Lokien tulkinta ja vianetsintä",
+        cap_infra_4: "Salatut varmuuskopiot ja testipalautukset",
+        cap_infra_5: "Health checkit ja palveluiden seuranta",
 
-        skills_game_title: "Pelikehitys & Multimedia",
-        skills_game_1: "Unity 3D & C# (AI, NavMesh, fysiikat)",
-        skills_game_2: "HTML5 Canvas & JavaScript-pelilogiikka",
-        skills_game_3: "Web Audio API & dynaaminen äänimaailma",
-        skills_game_4: "Sprite-animaatiot & partikkeliefektit",
-        skills_game_5: "Pelitilojen hallinta (State Management)",
+        cap_ai_title: "AI-avusteinen kehitys",
+        cap_ai_summary: "Käytän AI-työkaluja osana kehitysprosessia: suunnitteluun, auditointiin ja dokumentointiin. Lopputuloksen tarkistan aina itse.",
+        cap_ai_tech: "ChatGPT · Codex · Claude Code · GitHub Copilot",
+        cap_ai_1: "Arkkitehtuurin suunnittelu ja tekninen auditointi",
+        cap_ai_2: "Vaihtoehtojen vertailu ennen toteutusta",
+        cap_ai_3: "Testauksen ja refaktoroinnin tukeminen",
+        cap_ai_4: "Dokumentoinnin ylläpito koodin rinnalla",
+        cap_ai_5: "Tuotosten manuaalinen validointi ennen käyttöönottoa",
 
-        skills_ai_title: "AI-avusteinen ohjelmistokehitys",
-        skills_ai_1: "ChatGPT, Codex, Claude Code ja GitHub Copilot ohjelmistokehityksen tukena",
-        skills_ai_2: "Arkkitehtuurin suunnittelu ja tekninen auditointi AI-työkaluilla",
-        skills_ai_3: "Testauksen, refaktoroinnin ja dokumentoinnin tehostaminen",
-        skills_ai_4: "Prompt Engineering osana kehitysprosessia",
-        skills_ai_5: "AI-avusteinen ongelmanratkaisu oikeissa tuotantoprojekteissa",
+        skills_additional: "Muu kokemus: Unity/C#, HTML5 Canvas, Web Audio API sekä IT-laitteiden huolto ja vianmääritys.",
 
         projects_title: "Projektit – työssäoppimisjakso & muut toteutukset",
 
@@ -942,58 +971,74 @@ const dict = {
         spec_brand_label: "App brand",
 
         about_title: "About",
-        about_p1: "I graduated in software development in 11/2025 and worked in a practical full stack role during my on-the-job learning period. During that time, I designed and implemented multiple production-used systems end to end: user interfaces, API layer, database solutions, integrations, and server maintenance.",
-        about_p2: "My core strengths include WordPress and FastAPI based solution stacks, MySQL / InnoDB databases, and processing data flows such as XML, CSV, and JSON, including integrations to wholesaler APIs. I also have hands-on experience with Linux servers, log analysis, backups, and database restoration.",
-        about_p3: "I am seeking junior-level roles where I can combine UI development, backend logic, and database expertise. I am eager to learn, enjoy problem solving, and like documenting architecture and the overall system clearly.",
+        about_p1: "I graduated as a software developer in November 2025. During my work placement I was responsible for the company's production systems end to end: I built a WordPress and FastAPI based product search, an Icecat integration into WooCommerce, and the MySQL work behind them. I also repaired corrupted InnoDB tables and set up encrypted backups. Those systems are still in production use at the company.",
+        about_p2: "Alongside that I have designed, built and published my own Android apps together with their backends. I own the whole chain myself: from the Compose interface to the REST API, the database, authentication, subscription billing, and the server the service runs on. Shipping also means closed testing, the declarations Play Console requires, and maintenance after release.",
+        about_p3: "I write the architecture documents and decision records as I go, because they keep a project manageable once it grows. Before changing careers I worked for a long time as a car painter, where precision and finishing decided the result. The same is true of software. I am looking for a junior or growth role where I can take a product from design all the way to production.",
+
+        profile_aria: "Professional profile",
+        profile_title: "Profile",
+        prof_edu_label: "Education",
+        prof_edu_value: "Software developer, graduated 11/2025",
+        prof_focus_label: "Focus",
+        prof_focus_value: "Android apps and the backends behind them",
+        prof_releases_label: "Releases",
+        prof_releases_value: "Three of my own apps on Google Play",
+        prof_production_label: "Production",
+        prof_production_value: "Work-placement systems still used by the company",
+        prof_style_label: "Working style",
+        prof_style_value: "Documented architecture, verified implementation",
+        prof_goal_label: "Open to",
+        prof_goal_value: "Junior or growth role",
 
         skills_title: "Skills",
-        skills_prog_title: "Programming & Web Development",
-        skills_prog_1: "Python & FastAPI (REST services)",
-        skills_prog_2: "WordPress development (custom plugins, PHP, shortcodes)",
-        skills_prog_3: "HTML, CSS, JavaScript (ES6+)",
-        skills_prog_4: "Full stack development (UI + API + database)",
 
-        skills_db_title: "Databases & Backend",
-        skills_db_1: "MySQL / MariaDB / InnoDB",
-        skills_db_2: "Indexing, optimization, and troubleshooting",
-        skills_db_3: "Corrupted table fixes and recovery modes",
-        skills_db_4: "Linux servers, Apache, error logs",
-        skills_db_5: "Backups and test restores",
+        cap_android_eyebrow: "Focus area",
+        cap_android_title: "Android development",
+        cap_android_summary: "I build Android apps from the interface all the way to release. Three of them are on Google Play, and I maintain them myself.",
+        cap_android_tech: "Kotlin · Jetpack Compose · Material 3 · Room · DataStore · Retrofit / OkHttp",
+        cap_android_1: "Compose interfaces with an MVVM and repository structure",
+        cap_android_2: "Offline-first behaviour and local storage",
+        cap_android_3: "Firebase Authentication, App Check and Play Integrity",
+        cap_android_4: "Google Play Billing with server-verified purchases",
+        cap_android_5: "Release from closed testing into production",
 
-        skills_devops_title: "Server Environments & DevOps",
-        skills_devops_1: "Hands-on experience with Hetzner and Radicenter server environments",
-        skills_devops_2: "Linux servers, SSH, systemd services, and server log analysis",
-        skills_devops_3: "Nginx / Apache, domains, HTTPS, and reverse proxy setups",
-        skills_devops_4: "Deploying FastAPI backends, migrations, and service restarts",
-        skills_devops_5: "Restic + rclone backups, Google Drive offsite storage, and test restores",
+        cap_backend_title: "Backend &amp; APIs",
+        cap_backend_summary: "I build the services behind my apps myself: the APIs, the access rules and the data model.",
+        cap_backend_tech: "FastAPI · Python · Pydantic · SQLAlchemy · REST",
+        cap_backend_1: "REST API design and versioning",
+        cap_backend_2: "Authentication and entitlement handling",
+        cap_backend_3: "Server-side verification of purchases",
+        cap_backend_4: "Validation, error handling and logging",
+        cap_backend_5: "Background jobs for long-running requests",
 
-        skills_integ_title: "Integrations & Other",
-        skills_integ_1: "Wholesaler API integrations (Aurdel, Also)",
-        skills_integ_2: "Icecat → WooCommerce product data integration",
-        skills_integ_3: "XML, CSV, JSON data processing and transformation",
-        skills_integ_4: "Slack alerts and Signed URL paths (.htaccess)",
-        skills_integ_5: "IT hardware maintenance, troubleshooting, and installations",
+        cap_data_title: "Databases &amp; integrations",
+        cap_data_summary: "I design the data models and move data between systems — including when a production database is broken.",
+        cap_data_tech: "MariaDB · MySQL · InnoDB · XML / CSV / JSON",
+        cap_data_1: "Schema design, migrations and indexing",
+        cap_data_2: "Repairing corrupted InnoDB tables and running recovery",
+        cap_data_3: "Icecat to WooCommerce product data integration",
+        cap_data_4: "Wholesaler APIs (Aurdel, Also)",
+        cap_data_5: "Data transformation and validation",
 
-        skills_android_title: "Android & Mobile Apps",
-        skills_android_1: "Kotlin & Jetpack Compose (UI)",
-        skills_android_2: "Room (SQLite), DataStore, MVVM / repository architecture",
-        skills_android_3: "Offline-first implementation, backup/export/import",
-        skills_android_4: "REST integrations (Retrofit/OkHttp), error handling & logging",
-        skills_android_5: "Production protection: Firebase App Check & Play Integrity",
+        cap_infra_title: "Infrastructure &amp; delivery",
+        cap_infra_summary: "I run the servers that host both my own services and the ones from my work placement.",
+        cap_infra_tech: "Linux · Hetzner · Nginx · systemd · restic / rclone",
+        cap_infra_1: "Deployments, migrations and service restarts",
+        cap_infra_2: "Nginx, HTTPS and reverse proxy configuration",
+        cap_infra_3: "Log analysis and troubleshooting",
+        cap_infra_4: "Encrypted backups and test restores",
+        cap_infra_5: "Health checks and service monitoring",
 
-        skills_game_title: "Game Development & Multimedia",
-        skills_game_1: "Unity 3D & C# (AI, NavMesh, physics)",
-        skills_game_2: "HTML5 Canvas & JavaScript game logic",
-        skills_game_3: "Web Audio API & dynamic sound design",
-        skills_game_4: "Sprite animations & particle effects",
-        skills_game_5: "State management for game systems",
+        cap_ai_title: "AI-assisted engineering",
+        cap_ai_summary: "I use AI tools as part of the development process: for planning, auditing and documentation. I verify the result myself every time.",
+        cap_ai_tech: "ChatGPT · Codex · Claude Code · GitHub Copilot",
+        cap_ai_1: "Architecture planning and technical audits",
+        cap_ai_2: "Comparing alternatives before implementation",
+        cap_ai_3: "Support for testing and refactoring",
+        cap_ai_4: "Keeping documentation in step with the code",
+        cap_ai_5: "Manual validation of generated output before it ships",
 
-        skills_ai_title: "AI-Assisted Software Development",
-        skills_ai_1: "ChatGPT, Codex, Claude Code, and GitHub Copilot as part of the development workflow",
-        skills_ai_2: "Architecture planning and technical audits with AI tools",
-        skills_ai_3: "Improving testing, refactoring, and documentation workflows",
-        skills_ai_4: "Prompt engineering as part of the development process",
-        skills_ai_5: "AI-assisted problem solving in real production projects",
+        skills_additional: "Additional experience: Unity/C#, HTML5 Canvas, Web Audio API, and IT hardware maintenance and troubleshooting.",
 
         projects_title: "Projects – On-the-Job Learning & Other Implementations",
 
