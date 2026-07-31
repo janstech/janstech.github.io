@@ -1,7 +1,7 @@
 # Portfolion visuaalinen perusta ja design tokenit
 
 **Vaiheet:** 1 – visuaalinen perusta · 2 – header ja hero ·
-3 – Minusta ja osaaminen
+3 – Minusta ja osaaminen · 4 – projektit ja JanstechApps
 (auditointidokumentin vaiheistuksen mukaan)
 **Lähde:** `docs/portfolio-redesign-audit.md`
 **Toteutus:** `css/style.css` (`:root`-lohko + migroidut säännöt)
@@ -264,7 +264,56 @@ pill-badgeina.
 rataviivalla — ei kuudetta korttia. Sinne siirtyivät pelikehitys ja
 IT-laitehuolto, jotka eivät kuulu nykyiseen ammatilliseen ytimeen.
 
-## 8. Varatut tokenit
+## 8. Projektihierarkia
+
+### Neljä ryhmää, eri painoarvo
+
+Projektiosio ei ole tasainen korttiruudukko vaan neljä `.project-group`-ryhmää,
+joilla on oma `<h3>`-otsikko ja `aria-labelledby`. Projektien nimet ovat `<h4>`,
+joten otsikkohierarkia pysyy h1 → h2 → h3 → h4.
+
+1. **Julkaistut Android-sovellukset** – vahvin esitys
+2. **Työn alla** – tarkka tilamerkintä, ei kuvia
+3. **Tuotantojärjestelmät ja integraatiot** – kolme tiivistä case-korttia
+4. **Aiemmat ja täydentävät projektit** – tiiviit rivit, ei kortteja
+
+### Nostettu sovellus
+
+`.project-feature` erottuu **tilalla ja rakenteella, ei värillä**: oma rivi koko
+leveydeltä, kaksipalstainen asettelu (teksti + kuvanauha) yli 900 px,
+`--color-border-strong` reunana, `.project-eyebrow` amber-labelilla ja
+`--font-size-lg` otsikko. Ei amber-taustaa eikä varjoa.
+
+### Tilamerkinnät
+
+`.project-status` on aina **tekstiä**, ei pelkkä väri: mono-label ohuen
+`--color-border-strong`-reunuksen sisällä. Käytössä olevat tilat ovat
+julkaistu / tuotantovalmistelussa / kehityksessä / tuotantokäytössä /
+tuotantovastuu. Tilan saa asettaa vain lähderepoista todennetun tiedon
+perusteella; testiraita ei ole tuotantojulkaisu.
+
+### JanstechApps-kaista
+
+`.brand-strip` on yksi vaakakaista julkaistujen sovellusten jälkeen: teksti
+vasemmalla, yksi toissijainen CTA oikealla, `--color-bg-alt` pintana. Ei logoa,
+ei kuvaa, ei ensisijaista painiketta — kaista selittää brändin, ei myy sitä.
+
+### Kortin sisältörytmi
+
+Jokainen projektikortti noudattaa samaa järjestystä: otsikko → tilamerkintä →
+1–3 virkkeen tiiviste → mono-teknologiarivi hiusviivojen välissä → 3–4
+näyttöä → linkit. Julkaisutieto kerrotaan **vain** tilamerkinnässä, teknologiat
+**vain** teknologiarivillä.
+
+### Responsiivisuus
+
+| Leveys | Nosto | Sovelluskortit | Case-kortit | Aiemmat |
+|---|---|---|---|---|
+| < 641 px | 1 palsta | 1 | 1 | 1 rivi |
+| 641–900 px | 1 palsta | 2 | 2 | 1 rivi |
+| ≥ 901 px | 2 palstaa | 2 | 3 | 1 rivi |
+
+## 9. Varatut tokenit
 
 Nämä on määritelty tehtävänannon vaatiman täyden asteikon vuoksi, mutta niitä ei
 vielä käytetä. Ne ovat sopimus tuleville vaiheille, eivät kuollutta koodia:
@@ -280,20 +329,22 @@ vielä käytetä. Ne ovat sopimus tuleville vaiheille, eivät kuollutta koodia:
 
 ---
 
-## 9. Rajaukset – mitä Vaiheet 1–3 **eivät** tehneet
+## 10. Rajaukset – mitä Vaiheet 1–4 **eivät** tehneet
 
-- Projektien järjestystä, ryhmittelyä tai sisältöä ei muutettu.
-- SureKeepiä, Työtoria eikä JanstechApps-kaistaa ei lisätty.
 - `apps/index.html` ja `apps/css/style.css` jäivät koskematta – oma tyylitiedosto,
   ei jaettuja tokeneita. Yhtenäistäminen on erillinen päätös.
 - Sisältötekstejä ei muutettu.
 
-## 10. Tiedossa olevat ristiriidat
+## 11. Tiedossa olevat ristiriidat
 
 - **`apps/css/style.css` on erillinen järjestelmä.** Sillä ei ole yhteisiä
   tokeneita eikä se peri mitään `css/style.css`:stä. Sivu näyttää nyt eri
   sukupolvelta kuin muu sivusto. Ehdotus: käsitellään auditoinnin luvun 12.5
   päätöksen yhteydessä, ei tässä vaiheessa.
+- **`gainsai/index.html` käyttää yhä vanhoja `.project-card`-, `.project-grid`-,
+  `.project-meta`-, `.project-points`- ja `.project-links`-luokkia.** Etusivu
+  siirtyi uusiin projektikomponentteihin, mutta säännöt jätettiin jaettuun
+  CSS:ään GainsAI-sivua varten. Yhtenäistetään Vaiheessa 5.
 - **`gainsai/index.html` käyttää yhä `.hero-ascii`-koodilohkoa.** Etusivun hero
   siirtyi spec-paneeliin, mutta GainsAI-sivun lohko esittää aitoa stack-koodia,
   joten sääntö jätettiin jaettuun CSS:ään. Ratkaistaan Vaiheessa 5.

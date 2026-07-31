@@ -232,338 +232,226 @@
 
     <section id="projects" class="section">
         <div class="container">
-            <h2 class="section-title" data-i18n="projects_title">Projektit – työssäoppimisjakso &amp; muut toteutukset</h2>
+            <h2 class="section-title" data-i18n="projects_title">Projektit</h2>
+            <p class="section-intro" data-i18n="projects_intro">
+                Julkaistuja Android-sovelluksia, omia backend-palveluita sekä tuotannossa käytettyjä full stack- ja infrastruktuuriratkaisuja.
+</p>
 
-            <div class="project-grid">
+            <section class="project-group" aria-labelledby="group-published">
+                <h3 class="project-group-heading" id="group-published" data-i18n="group_published">Julkaistut Android-sovellukset</h3>
 
-                <article class="card project-card">
-                    <h3 data-i18n="proj_shop_title">Kauppalista &amp; Muistiinpanot (Android)</h3>
-                    <p class="project-meta" data-i18n="proj_shop_meta">
-                        Kotlin · Jetpack Compose · Room · DataStore · Offline-first · Monikielisyys (14 kieltä) · FastAPI (AI) · App Check · Play Integrity
-                    </p>
-
-                    <p data-i18n="proj_shop_desc">
-                        Kehitin Android-sovelluksen arjen ostosten ja muistiinpanojen hallintaan. Sovellus on
-                        yksityisyys edellä suunniteltu: ei kirjautumista, tiedot tallentuvat laitteelle ja perustoiminnot
-                        toimivat offline-tilassa. Lisäksi toteutin tuotantotasoisen AI-ominaisuuden, joka generoi
-                        resepti- ja viikkoruokalistaehdotuksia sekä lisää ainekset suoraan kauppalistalle.
-                    </p>
-
-                    <ul class="project-points">
-                        <li data-i18n="proj_shop_1"><strong>Offline-first:</strong> listat, muistiinpanot, suosikit ja syntymäpäivät toimivat ilman verkkoyhteyttä</li>
-                        <li data-i18n="proj_shop_2"><strong>AI-reseptit &amp; viikkoruokalistat:</strong> reseptiehdotukset + “Lisää ainekset kauppalistalle”</li>
-                        <li data-i18n="proj_shop_3"><strong>Päiväkohtainen regenerointi:</strong> viikkoruokalistassa “Vaihda ruoka” -toiminto yksittäiselle päivälle (toive + regen)</li>
-                        <li data-i18n="proj_shop_4"><strong>Puheesta tekstiksi:</strong> lisäys sanelulla (laitteen puheentunnistus; voi vaatia netin asetuksista riippuen)</li>
-                        <li data-i18n="proj_shop_5"><strong>Tietoturva &amp; abuse-suojaus:</strong> Firebase App Check + Play Integrity (nonce, single-use) + rate limit (burst + daily)</li>
-                        <li data-i18n="proj_shop_6"><strong>Varmuuskopiot:</strong> export/import yhteen tiedostoon (Android share) ja palautus laitevaihdossa</li>
-                        <li data-i18n="proj_shop_7"><strong>Käytettävyys:</strong> drag-and-drop järjestys, pikavalinnat (rajoitteet), snackbar-palautteet ja lataus-/korostus-tilat</li>
-                    </ul>
-
-                    <div class="project-links">
-                        <a class="link-primary" href="https://play.google.com/store/apps/details?id=com.janstech.kauppalista" target="_blank" data-i18n="proj_shop_link_play">
-                            Google Play – Sovellussivu
-                        </a>
-                        <a href="https://github.com/janstech/shoppinglist-portfolio" target="_blank" data-i18n="proj_shop_link_git">
-                            GitHub – Repository / Showcase
-                        </a>
+                <article class="project-feature">
+                    <div class="project-feature-content">
+                        <p class="project-eyebrow" data-i18n="feature_label">Nostettu projekti</p>
+                        <h4 data-i18n="proj_gains_title">GainsAI</h4>
+                        <p class="project-status" data-i18n="status_published">Julkaistu Google Playssa</p>
+                        <p class="project-lead" data-i18n="proj_gains_desc">
+                            Tekoälyavusteinen kuntosalisovellus, joka rakentaa henkilökohtaisen harjoitusohjelman, ohjaa treenit läpi liike kerrallaan ja seuraa kehitystä. Toteutin sekä sovelluksen että sen taustajärjestelmän: rajapinnat, tietokannan, käyttäjätunnistuksen, tilausmaksut ja varmuuskopioinnin.
+</p>
+                        <p class="project-tech" data-i18n="proj_gains_meta">
+                            Kotlin · Jetpack Compose · Material 3 · FastAPI · MariaDB · Firebase Auth · Play Integrity · Play Billing · Google Drive API
+</p>
+                        <ul class="project-evidence">
+                            <li data-i18n="proj_gains_1">Tekoälyn luomat harjoitusohjelmat ja ohjelmakirjaston hallinta</li>
+                            <li data-i18n="proj_gains_2">Treenien kirjaaminen, voima-analytiikka ja kehon mittarit</li>
+                            <li data-i18n="proj_gains_3">AI Coach, joka vastaa käyttäjän omaan harjoitusdataan perustuen</li>
+                            <li data-i18n="proj_gains_4">GainsAI Pro -tilaus palvelinvarmennetuilla ostoilla</li>
+                        </ul>
+                        <div class="project-actions">
+                            <a class="btn-primary" href="gainsai/" data-i18n="proj_gains_link_page">Lue lisää projektista</a>
+                            <a class="btn-ghost" href="https://play.google.com/store/apps/details?id=com.janstech.gainsai" target="_blank" rel="noopener noreferrer" data-i18n="proj_gains_link_play">Google Play</a>
+                        </div>
                     </div>
+                    <div class="project-feature-media">
+                        <div class="project-shots">
+                            <a href="images/ga_1.jpeg" target="_blank" rel="noopener noreferrer">
+                                <img src="images/ga_1.jpeg" width="941" height="1672" loading="lazy" decoding="async"
+                                     data-i18n-alt="proj_gains_img1_alt" alt="GainsAI – viikko-ohjelman näkymä, jossa näkyvät split, ohjelman kesto ja treenipäivät" />
+                            </a>
+                            <a href="images/ga_2.jpeg" target="_blank" rel="noopener noreferrer">
+                                <img src="images/ga_2.jpeg" width="941" height="1672" loading="lazy" decoding="async"
+                                     data-i18n-alt="proj_gains_img2_alt" alt="GainsAI – ohjatun treenin näkymä, jossa näkyvät liikkeen tiedot ja lepoajastin" />
+                            </a>
+                            <a href="images/ga_3.jpeg" target="_blank" rel="noopener noreferrer">
+                                <img src="images/ga_3.jpeg" width="941" height="1672" loading="lazy" decoding="async"
+                                     data-i18n-alt="proj_gains_img3_alt" alt="GainsAI – sarjojen kirjaamisen näkymä, jossa syötetään toistot, paino ja RIR" />
+                            </a>
+                        </div>
+                    </div>
+                </article>
 
-                    <div class="project-images">
-                    <a href="images/kl_1.jpeg" target="_blank">
-                        <img src="images/kl_1.jpeg" width="1040" height="2048" loading="lazy" decoding="async" alt="Kauppalista & Muistiinpanot – näkymä 1" />
-                    </a>
-                    <a href="images/kl_2.jpeg" target="_blank">
-                        <img src="images/kl_2.jpeg" width="1040" height="2048" loading="lazy" decoding="async" alt="Kauppalista & Muistiinpanot – näkymä 2" />
-                    </a>
-                    <a href="images/kl_3.jpeg" target="_blank">
-                        <img src="images/kl_3.jpeg" width="1040" height="2048" loading="lazy" decoding="async" alt="Kauppalista & Muistiinpanot – näkymä 3" />
-                    </a>
+                <div class="app-grid">
+                    <article class="project-app">
+                        <h4 data-i18n="proj_shop_title">Kauppalista &amp; Muistiinpanot</h4>
+                        <p class="project-status" data-i18n="status_published">Julkaistu Google Playssa</p>
+                        <p class="project-lead" data-i18n="proj_shop_desc">Ostoslista-, muistiinpano- ja reseptisovellus, joka on suunniteltu yksityisyys edellä: ei kirjautumista, tiedot laitteella ja perustoiminnot offline-tilassa. Vapaaehtoiset AI-toiminnot tuottavat reseptejä ja viikkoruokalistoja.</p>
+                        <p class="project-tech" data-i18n="proj_shop_meta">Kotlin · Jetpack Compose · Room · DataStore · FastAPI · App Check · Play Integrity</p>
+                        <ul class="project-evidence">
+                            <li data-i18n="proj_shop_1">Offline-first-toteutus 14 kielellä</li>
+                            <li data-i18n="proj_shop_2">AI-reseptit ja viikkoruokalistat ainesten lisäyksellä kauppalistalle</li>
+                            <li data-i18n="proj_shop_3">Väärinkäytön esto: App Check, Play Integrity ja rate limit</li>
+                        </ul>
+                        <div class="project-shots">
+                            <a href="images/kl_1.jpeg" target="_blank" rel="noopener noreferrer">
+                                <img src="images/kl_1.jpeg" width="1040" height="2048" loading="lazy" decoding="async"
+                                     data-i18n-alt="proj_shop_img1_alt" alt="Kauppalista &amp; Muistiinpanot – ostoslistanäkymä" />
+                            </a>
+                            <a href="images/kl_2.jpeg" target="_blank" rel="noopener noreferrer">
+                                <img src="images/kl_2.jpeg" width="1040" height="2048" loading="lazy" decoding="async"
+                                     data-i18n-alt="proj_shop_img2_alt" alt="Kauppalista &amp; Muistiinpanot – ainesten skannaus" />
+                            </a>
+                            <a href="images/kl_3.jpeg" target="_blank" rel="noopener noreferrer">
+                                <img src="images/kl_3.jpeg" width="1040" height="2048" loading="lazy" decoding="async"
+                                     data-i18n-alt="proj_shop_img3_alt" alt="Kauppalista &amp; Muistiinpanot – reseptinäkymä" />
+                            </a>
+                        </div>
+                        <div class="project-actions">
+                            <a class="link-primary" href="https://play.google.com/store/apps/details?id=com.janstech.kauppalista" target="_blank" rel="noopener noreferrer" data-i18n="proj_shop_link_play">Google Play</a>
+                            <a href="https://github.com/janstech/shoppinglist-portfolio" target="_blank" rel="noopener noreferrer" data-i18n="proj_shop_link_git">GitHub</a>
+                        </div>
+                    </article>
+
+                    <article class="project-app">
+                        <h4 data-i18n="proj_wave_title">WaveIQ Radio</h4>
+                        <p class="project-status" data-i18n="status_published">Julkaistu Google Playssa</p>
+                        <p class="project-lead" data-i18n="proj_wave_desc">Internet-radiosovellus, joka yhdistää taustatoiston, asemahaun ja kuunteluhistoriaan perustuvat suositukset. Toteutin sekä Android-sovelluksen että FastAPI- ja MariaDB-pohjaisen taustapalvelun.</p>
+                        <p class="project-tech" data-i18n="proj_wave_meta">Kotlin · Jetpack Compose · Media3 · FastAPI · MariaDB · App Check · Play Integrity</p>
+                        <ul class="project-evidence">
+                            <li data-i18n="proj_wave_1">Media3-taustatoisto ja vakaa stream-käsittely</li>
+                            <li data-i18n="proj_wave_2">Asemahaku nimen, genren, maan ja kielen mukaan</li>
+                            <li data-i18n="proj_wave_3">Kuuntelutapahtumien tallennus ja suosituspipeline</li>
+                        </ul>
+                        <div class="project-shots">
+                            <a href="images/iq_1.jpeg" target="_blank" rel="noopener noreferrer">
+                                <img src="images/iq_1.jpeg" width="1040" height="2048" loading="lazy" decoding="async"
+                                     data-i18n-alt="proj_wave_img1_alt" alt="WaveIQ Radio – asemalistaus ja soitin" />
+                            </a>
+                            <a href="images/iq_2.jpeg" target="_blank" rel="noopener noreferrer">
+                                <img src="images/iq_2.jpeg" width="1040" height="2048" loading="lazy" decoding="async"
+                                     data-i18n-alt="proj_wave_img2_alt" alt="WaveIQ Radio – asemien selausnäkymä" />
+                            </a>
+                            <a href="images/iq_3.jpeg" target="_blank" rel="noopener noreferrer">
+                                <img src="images/iq_3.jpeg" width="1040" height="2048" loading="lazy" decoding="async"
+                                     data-i18n-alt="proj_wave_img3_alt" alt="WaveIQ Radio – asemahaku suodattimilla" />
+                            </a>
+                        </div>
+                        <div class="project-actions">
+                            <a class="link-primary" href="https://play.google.com/store/apps/details?id=com.janstech.radioplayer" target="_blank" rel="noopener noreferrer" data-i18n="proj_wave_link_play">Google Play</a>
+                            <a href="https://github.com/janstech" target="_blank" rel="noopener noreferrer" data-i18n="proj_wave_link_git">GitHub</a>
+                        </div>
+                    </article>
                 </div>
-                </article>
+            </section>
 
-                <article class="card project-card">
-                    <h3 data-i18n="proj_wave_title">WaveIQ Radio (Android)</h3>
-                    <p class="project-meta" data-i18n="proj_wave_meta">
-                        Kotlin · Jetpack Compose · Media3 · DataStore · FastAPI · MariaDB · Firebase App Check · Play Integrity · Google Play Production
-                    </p>
-
-                    <p data-i18n="proj_wave_desc">
-                        Kehitin modernin internet-radiosovelluksen, joka yhdistää taustatoiston,
-                        radioasemien haun, kuunteluhistorian ja AI-avusteisen suosituslogiikan.
-                        Sovellus on julkaistu Google Playhin ja sen tuotantokäyttöoikeus on hyväksytty.
-                        Toteutin kokonaisuuteen sekä Android-sovelluksen että FastAPI + MariaDB -pohjaisen backendin.
-                    </p>
-
-                    <ul class="project-points">
-                        <li data-i18n="proj_wave_1"><strong>Internet-radio &amp; taustatoisto:</strong> Media3-pohjainen toisto, mediakontrollit ja vakaa stream-käsittely</li>
-                        <li data-i18n="proj_wave_2"><strong>Asemien haku &amp; selaus:</strong> haku nimen, genren, maan ja kielen perusteella sekä browse-näkymät</li>
-                        <li data-i18n="proj_wave_3"><strong>AI-suositukset:</strong> kuunteluhistoriaan ja taste-profileen perustuvat asemien suositukset</li>
-                        <li data-i18n="proj_wave_4"><strong>Tietoturva:</strong> Firebase App Check + Play Integrity backend-endpointtien suojaamiseksi</li>
-                        <li data-i18n="proj_wave_5"><strong>Backend &amp; data:</strong> FastAPI, MariaDB, kuuntelutapahtumien tallennus, stream health -seuranta ja recommendation-pipeline</li>
-                        <li data-i18n="proj_wave_6"><strong>Julkaisuprosessi:</strong> suljettu testaus, Google Play production access -hyväksyntä ja Play Store -julkaisu</li>
-                    </ul>
-
-                    <div class="project-links">
-                        <a class="link-primary" href="https://play.google.com/store/apps/details?id=com.janstech.radioplayer" target="_blank" data-i18n="proj_wave_link_play">
-                            Google Play – Sovellussivu
-                        </a>
-                        <a href="https://github.com/janstech" target="_blank" data-i18n="proj_wave_link_git">
-                            GitHub – Janstech
-                        </a>
-                    </div>
-
-                    <div class="project-images">
-                    <a href="images/iq_1.jpeg" target="_blank">
-                        <img src="images/iq_1.jpeg" width="1040" height="2048" loading="lazy" decoding="async" alt="WaveIQ Radio – näkymä 1" />
-                    </a>
-                    <a href="images/iq_2.jpeg" target="_blank">
-                        <img src="images/iq_2.jpeg" width="1040" height="2048" loading="lazy" decoding="async" alt="WaveIQ Radio – näkymä 2" />
-                    </a>
-                    <a href="images/iq_3.jpeg" target="_blank">
-                        <img src="images/iq_3.jpeg" width="1040" height="2048" loading="lazy" decoding="async" alt="WaveIQ Radio – näkymä 3" />
-                    </a>
+            <aside class="brand-strip" data-i18n-aria="brand_aria" aria-label="JanstechApps-brändisivusto">
+                <div class="brand-strip-text">
+                    <h3 class="brand-strip-title" data-i18n="brand_title">JanstechApps – julkaistujen sovellusteni koti</h3>
+                    <p data-i18n="brand_text">Suunnittelen, kehitän, julkaisen ja ylläpidän Android-sovelluksia JanstechApps-nimen alla. Brändisivusto kokoaa sovellukset, niiden ominaisuudet, latauslinkit sekä tietosuoja- ja tukisivut yhteen paikkaan.</p>
                 </div>
-                </article>
+                <a class="btn-ghost" href="https://janstechapps.com/" target="_blank" rel="noopener noreferrer" data-i18n="brand_cta">Tutustu JanstechApps-sovelluksiin</a>
+            </aside>
 
-                <article class="card project-card">
-                    <h3 data-i18n="proj_gains_title">GainsAI (Android)</h3>
-                    <p class="project-meta" data-i18n="proj_gains_meta">
-                        Kotlin · Jetpack Compose · Material 3 · FastAPI · MariaDB · Firebase Auth · App Check · Play Integrity · Play Billing · Google Drive API
-                    </p>
+            <section class="project-group" aria-labelledby="group-building">
+                <h3 class="project-group-heading" id="group-building" data-i18n="group_building">Työn alla</h3>
 
-                    <p data-i18n="proj_gains_desc">
-                        Kehitin tekoälyavusteisen kuntosalisovelluksen, joka rakentaa käyttäjälle
-                        henkilökohtaisen harjoitusohjelman, ohjaa treenit läpi liike kerrallaan ja seuraa
-                        kehitystä. Sovellus on julkaistu Google Play -kaupassa tuotantoon. Toteutin
-                        kokonaisuuden end-to-end: Android-sovellus (Kotlin, Jetpack Compose), FastAPI +
-                        MariaDB -backend, käyttäjätunnistus, tilausmaksut ja varmuuskopiointi.
-                    </p>
+                <div class="app-grid">
+                    <article class="project-app">
+                        <h4 data-i18n="proj_surekeep_title">SureKeep</h4>
+                        <p class="project-status" data-i18n="status_preparing">Tuotantovalmistelussa</p>
+                        <p class="project-lead" data-i18n="proj_surekeep_desc">Sovellus kuittien, takuiden ja liitteiden hallintaan. Kuitin voi kuvata, ja tekoäly poimii siitä tiedot käyttäjän tarkistettavaksi. Takuuajoista muistutetaan, ja tiedot synkronoidaan omaan backendiin.</p>
+                        <p class="project-tech" data-i18n="proj_surekeep_meta">Kotlin · Jetpack Compose · FastAPI · SQLAlchemy · Alembic · MariaDB · Firebase Auth</p>
+                        <ul class="project-evidence">
+                            <li data-i18n="proj_surekeep_1">Kuitin kuvaus ja tekoälyavusteinen tietojen poiminta</li>
+                            <li data-i18n="proj_surekeep_2">Takuumuistutukset sekä kuittien arkistointi ja palautus aktiiviseksi</li>
+                            <li data-i18n="proj_surekeep_3">Käyttäjätilit, pilvisynkronointi, Drive-varmuuskopio ja tilin poisto</li>
+                        </ul>
+                    </article>
 
-                    <ul class="project-points">
-                        <li data-i18n="proj_gains_1"><strong>Harjoitusohjelmat:</strong> tekoälyn luomat ja käsin muokattavat ohjelmat, ohjelmakirjasto ja aktiivisen ohjelman hallinta</li>
-                        <li data-i18n="proj_gains_2"><strong>Treenien kirjaaminen:</strong> liikkeet, sarjat, toistot, painot, RIR ja lepoajastin</li>
-                        <li data-i18n="proj_gains_3"><strong>Seuranta:</strong> harjoitushistoria, voima-analytiikka ja arvioitu 1RM, kehon mittarit ja viikoittainen check-in</li>
-                        <li data-i18n="proj_gains_4"><strong>AI Coach:</strong> vastaa käyttäjän omaan dataan perustuen ja nostaa esiin seuraavat kehityskohteet</li>
-                        <li data-i18n="proj_gains_5"><strong>Backend &amp; tietoturva:</strong> FastAPI, MariaDB, Firebase Authentication, App Check + Play Integrity</li>
-                        <li data-i18n="proj_gains_6"><strong>Tilaukset &amp; varmuuskopiot:</strong> Google Play Billing (GainsAI Pro), palvelinvarmennetut ostot ja Google Drive -varmuuskopiointi</li>
-                    </ul>
+                    <article class="project-app">
+                        <h4 data-i18n="proj_tyotori_title">Työtori</h4>
+                        <p class="project-status" data-i18n="status_development">Kehityksessä</p>
+                        <p class="project-lead" data-i18n="proj_tyotori_desc">Suomalaisen työnhaun avustaja, joka kokoaa avoimet työpaikat useasta lähteestä ja auttaa hakemusten sekä määräaikojen hallinnassa. Tekoäly tiivistää ilmoituksia ja luonnostelee hakemustekstejä, mutta ei lähetä hakemuksia käyttäjän puolesta.</p>
+                        <p class="project-tech" data-i18n="proj_tyotori_meta">Kotlin · Jetpack Compose · FastAPI · MariaDB · Firebase Auth · App Check</p>
+                        <ul class="project-evidence">
+                            <li data-i18n="proj_tyotori_1">Työpaikkahaku useasta lähteestä, mm. Duunitori ja Kuntarekry</li>
+                            <li data-i18n="proj_tyotori_2">Hakemusten, määräaikojen ja työnhakuvelvoitteen seuranta</li>
+                            <li data-i18n="proj_tyotori_3">Backend päättää käyttöoikeudet; sovellus ei ohita tarkistuksia</li>
+                        </ul>
+                    </article>
+                </div>
+            </section>
 
-                    <div class="project-links">
-                        <a class="link-primary" href="gainsai/" data-i18n="proj_gains_link_page">
-                            Lue lisää – GainsAI-projektisivu
-                        </a>
-                        <a href="https://play.google.com/store/apps/details?id=com.janstech.gainsai" target="_blank" rel="noopener noreferrer" data-i18n="proj_gains_link_play">
-                            Google Play – Sovellussivu
-                        </a>
-                    </div>
+            <section class="project-group" aria-labelledby="group-systems">
+                <h3 class="project-group-heading" id="group-systems" data-i18n="group_systems">Tuotantojärjestelmät ja integraatiot</h3>
+                <p class="group-note" data-i18n="group_systems_note">Työssäoppimisjaksolla toteutettuja järjestelmiä, jotka ovat edelleen yrityksen käytössä.</p>
 
-                    <div class="project-images">
-                        <a href="images/ga_1.jpeg" target="_blank" rel="noopener noreferrer">
-                            <img src="images/ga_1.jpeg" width="941" height="1672" loading="lazy" decoding="async"
-                                 data-i18n-alt="proj_gains_img1_alt"
-                                 alt="GainsAI – viikko-ohjelman näkymä" />
-                        </a>
-                        <a href="images/ga_2.jpeg" target="_blank" rel="noopener noreferrer">
-                            <img src="images/ga_2.jpeg" width="941" height="1672" loading="lazy" decoding="async"
-                                 data-i18n-alt="proj_gains_img2_alt"
-                                 alt="GainsAI – ohjatun treenin näkymä" />
-                        </a>
-                        <a href="images/ga_3.jpeg" target="_blank" rel="noopener noreferrer">
-                            <img src="images/ga_3.jpeg" width="941" height="1672" loading="lazy" decoding="async"
-                                 data-i18n-alt="proj_gains_img3_alt"
-                                 alt="GainsAI – sarjojen kirjaamisen näkymä" />
-                        </a>
-                    </div>
-                </article>
+                <div class="case-grid">
+                    <article class="case-card">
+                        <h4 data-i18n="case_search_title">Tuotehaku</h4>
+                        <p class="project-status" data-i18n="status_production">Tuotantokäytössä</p>
+                        <p data-i18n="case_search_desc">Hakujärjestelmä ATK-tuotteiden tiedoille ja hinnoille. Yhdistää WordPressin, FastAPI-hakumoottorin, MySQL-tietokannan ja toimittajien datavirrat.</p>
+                        <p class="project-tech" data-i18n="case_search_tech">FastAPI · WordPress · MySQL · REST</p>
+                        <div class="project-actions">
+                            <a class="link-primary" href="https://github.com/janstech/tuotehaku-showcase" target="_blank" rel="noopener noreferrer" data-i18n="case_search_link_git">GitHub</a>
+                            <a href="documents/Tuotehaku-arkkitehtuuri.pdf" target="_blank" rel="noopener noreferrer" data-i18n="case_search_link_doc">Arkkitehtuuri (PDF)</a>
+                        </div>
+                    </article>
 
-                <article class="card project-card">
-                    <h3 data-i18n="proj_product_title">Tuotehaku-järjestelmä (Full Stack)</h3>
-                    <p class="project-meta" data-i18n="proj_product_meta">
-                        FastAPI · WordPress · REST · MySQL · integraatiot
-                    </p>
-                    <p data-i18n="proj_product_desc">
-                        Suunnittelin ja toteutin tuotehaun, joka yhdistää
-                        WordPressin, FastAPI:n, MySQL-tietokannan ja toimittajien
-                        datavirrat. Järjestelmä on yrityksen tuotantokäytössä ja
-                        sitä käytetään ATK-tuotteiden tietojen ja hintojen hakuun.
-                    </p>
-                    <ul class="project-points">
-                        <li data-i18n="proj_product_1">Rakensin FastAPI-pohjaisen hakumoottorin ja REST-päätepisteet</li>
-                        <li data-i18n="proj_product_2">Toteutin /wp-json/tuotehaku/v1/* -rajapinnan WordPressiin</li>
-                        <li data-i18n="proj_product_3">Suunnittelin tietokantakyselyt, validoinnit ja välimuistikerroksen</li>
-                        <li data-i18n="proj_product_4">Tein WordPress-shortcode-pohjaisen hakukäyttöliittymän</li>
-                        <li data-i18n="proj_product_5">Rakensin JavaScript-pohjaisen dynaamisen hakunäkymän (JSON-vastaukset)</li>
-                    </ul>
-                    <div class="project-links">
-                        <a class="link-primary" href="https://github.com/janstech/tuotehaku-showcase" target="_blank" data-i18n="proj_product_link_git">
-                            GitHub – Repository
-                        </a>
-                        <a href="documents/Tuotehaku-arkkitehtuuri.pdf" target="_blank" data-i18n="proj_product_link_doc">
-                            Dokumentaatio (PDF)
-                        </a>
-                    </div>
-                </article>
+                    <article class="case-card">
+                        <h4 data-i18n="case_icecat_title">Icecat &rarr; WooCommerce</h4>
+                        <p class="project-status" data-i18n="status_production">Tuotantokäytössä</p>
+                        <p data-i18n="case_icecat_desc">Integraatio, joka hakee tuotetiedot Icecatista, validoi ja rikastaa datan sekä vie sen WooCommerceen kuvineen ja kieliversioineen.</p>
+                        <p class="project-tech" data-i18n="case_icecat_tech">FastAPI · WooCommerce · XML / JSON</p>
+                        <div class="project-actions">
+                            <a class="link-primary" href="https://github.com/janstech/icecat-woocommerce-integration" target="_blank" rel="noopener noreferrer" data-i18n="case_icecat_link_git">GitHub</a>
+                            <a href="documents/icecat_arkkitehtuuri.pdf" target="_blank" rel="noopener noreferrer" data-i18n="case_icecat_link_doc">Arkkitehtuuri (PDF)</a>
+                        </div>
+                    </article>
 
-                <article class="card project-card">
-                    <h3 data-i18n="proj_icecat_title">Icecat → WooCommerce -integraatio</h3>
-                    <p class="project-meta" data-i18n="proj_icecat_meta">
-                        Icecat · WooCommerce · FastAPI · JSON/XML
-                    </p>
-                    <p data-i18n="proj_icecat_desc">
-                        Toteutin integraation, joka hakee tuotetietoja Icecatista,
-                        muuntaa ja rikastaa datan sekä tallentaa sen WooCommerceen.
-                        Integraatio automatisoi ja nopeuttaa tuotteiden ylläpitoa.
-                    </p>
-                    <ul class="project-points">
-                        <li data-i18n="proj_icecat_1">JSON/XML-datan haku, muunto ja validointi</li>
-                        <li data-i18n="proj_icecat_2">Tuotekuvien ja kieliversioiden käsittely</li>
-                        <li data-i18n="proj_icecat_3">WordPressin ja FastAPI:n välinen dataliikenne</li>
-                        <li data-i18n="proj_icecat_4">Prosessin suunnittelu niin, että se on toistettavissa ja ylläpidettävissä</li>
-                    </ul>
-                    <div class="project-links">
-                        <a class="link-primary" href="https://github.com/janstech/icecat-woocommerce-integration" target="_blank" data-i18n="proj_icecat_link_git">
-                            GitHub – Repository
-                        </a>
-                        <a href="documents/icecat_arkkitehtuuri.pdf" target="_blank" data-i18n="proj_icecat_link_doc">
-                            Dokumentaatio (PDF)
-                        </a>
-                    </div>
-                </article>
+                    <article class="case-card">
+                        <h4 data-i18n="case_infra_title">Tietokannat ja palvelinympäristöt</h4>
+                        <p class="project-status" data-i18n="status_responsibility">Tuotantovastuu</p>
+                        <p data-i18n="case_infra_desc">Tuotantokantojen ja Linux-palvelimien ylläpito: korruptoituneen InnoDB-taulun korjaus ja recovery-ajo, testipalautukset sekä salattu varmuuskopiointi paikallisesti ja offsite-kopiona.</p>
+                        <p class="project-tech" data-i18n="case_infra_tech">MySQL / MariaDB · InnoDB · Linux · Hetzner · systemd · restic / rclone</p>
+                    </article>
+                </div>
+            </section>
 
-                <article class="card project-card">
-                    <h3 data-i18n="proj_mysql_title">MySQL-korjaukset &amp; recovery</h3>
-                    <p class="project-meta" data-i18n="proj_mysql_meta">
-                        MySQL · InnoDB · Linux-palvelin · recovery-tila
-                    </p>
-                    <p data-i18n="proj_mysql_desc">
-                        Työssäoppimisjakson aikana ratkoin useita tietokantaan liittyviä
-                        ongelmia, kuten korruptoituneita tauluja ja MySQL:n
-                        kaatumista. Toteutin sekä korjaukset että varmuuskopiointiratkaisut.
-                    </p>
-                    <ul class="project-points">
-                        <li data-i18n="proj_mysql_1">Korruptoituneen InnoDB-taulun (phppos_items) korjaus</li>
-                        <li data-i18n="proj_mysql_2">LONGBLOB + page corruption -ongelman selvittäminen (phppos_app_files)</li>
-                        <li data-i18n="proj_mysql_3">MySQL:n ajo recovery-tilassa ja onnistunut full dump</li>
-                        <li data-i18n="proj_mysql_4">Full dumpit ja erillisdumpit suurista tauluista</li>
-                        <li data-i18n="proj_mysql_5">Testipalautukset erilliselle kassa_test-tietokannalle</li>
-                    </ul>
-                </article>
-                
-                <article class="card project-card">
-                    <h3 data-i18n="proj_infra_title">Palvelinympäristöt, julkaisut ja varmuuskopiointi</h3>
-                    <p class="project-meta" data-i18n="proj_infra_meta">
-                        Linux · Hetzner · Radicenter · systemd · MariaDB · Nginx / Apache · restic · rclone · Google Drive offsite
-                    </p>
-                    <p data-i18n="proj_infra_desc">
-                        Toimin palvelinympäristöissä, joissa ajetaan tuotantokäytössä olevia
-                        verkkopalveluita, API-palveluita ja tietokantoja. Hallitsen Linux-palvelinten
-                        ylläpitoa, palveluiden valvontaa, lokien tulkintaa sekä salattuja
-                        varmuuskopiointiratkaisuja, joissa tietokannat ja keskeiset palvelinpolut
-                        varmistetaan paikallisesti ja offsite-kopiona Google Driveen.
-                    </p>
-                    <ul class="project-points">
-                        <li data-i18n="proj_infra_1">Linux-palvelimien ylläpito SSH-yhteydellä ja systemd-palveluiden hallinta</li>
-                        <li data-i18n="proj_infra_2">FastAPI-backendien julkaisut, health checkit, lokien seuranta ja vianetsintä</li>
-                        <li data-i18n="proj_infra_3">MariaDB/MySQL-tietokantojen dumpit, palautukset, migraatiot ja varmistukset</li>
-                        <li data-i18n="proj_infra_4">Salattu restic-varmuuskopiointi paikalliseen ja Google Drive -offsite-repoon</li>
-                        <li data-i18n="proj_infra_5">Automaattinen ajastus systemd timerillä ja retention-politiikka snapshot-historialle</li>
-                    </ul>
-                </article>
+            <section class="project-group" aria-labelledby="group-earlier">
+                <h3 class="project-group-heading" id="group-earlier" data-i18n="group_earlier">Aiemmat ja täydentävät projektit</h3>
 
-                    <article class="card project-card">
-                    <h3 data-i18n="proj_it_title">IT-laitteiden huolto ja optimointi</h3>
-                    <p class="project-meta" data-i18n="proj_it_meta">
-                        Laitteistot · käyttöjärjestelmät · vianmääritys
-                    </p>
-                    <p data-i18n="proj_it_desc">
-                        Ohjelmistokehityksen ohella osallistuin IT-laitteiden
-                        huoltoon ja käyttökuntoon saattamiseen asiakkaille.
-                    </p>
-                    <ul class="project-points">
-                        <li data-i18n="proj_it_1">Käyttöjärjestelmä- ja ohjelmistoasennukset</li>
-                        <li data-i18n="proj_it_2">Laitteiden optimointi ja käyttökuntoon saattaminen</li>
-                        <li data-i18n="proj_it_3">Vianmääritys ja laitteistotestaukset</li>
-                        <li data-i18n="proj_it_4">Tietokoneiden, kannettavien ja oheislaitteiden huolto ja korjaukset</li>
-                    </ul>
-                </article>
-
-                <article class="card project-card">
-                    <h3 data-i18n="proj_unity_title">The Game – Unity-peliprojekti</h3>
-                    <p class="project-meta" data-i18n="proj_unity_meta">
-                        Unity 3D · C# · NavMesh · AI · pelimekaniikat
-                    </p>
-                    <p data-i18n="proj_unity_desc">
-                        Rakensin Unity-pelin, jossa ohjataan pelaajaa labyrinttimäisessä kentässä,
-                        kerätään orb-objekteja ja vältellään vihollisia. Projekti sisältää
-                        peliohjauksen, vihollis-AI:n, NavMesh-navigoinnin, partikkeliefektit sekä
-                        UI-logiikan (elämämittari, orbilaskuri, restart-näyttö).
-                    </p>
-                    <ul class="project-points">
-                        <li data-i18n="proj_unity_1">Pelaajan liike, hyppy ja kameran hallinta</li>
-                        <li data-i18n="proj_unity_2">Vihollis-AI NavMesh-pohjaisella reitinetsinnällä</li>
-                        <li data-i18n="proj_unity_3">Kerättävät orbit, health-bar ja game over / restart -logiikka</li>
-                        <li data-i18n="proj_unity_4">Partikkeli- ja valotehosteet sekä omat materiaalit</li>
-                        <li data-i18n="proj_unity_5">Valmiiksi paketoitu Windows-versio (GitHub Releases)</li>
-                    </ul>
-
-                    <div class="project-images">
-                        <a href="images/the-game-start_menu.png" target="_blank">
-                            <img src="images/the-game-start_menu.png" width="1550" height="869" loading="lazy" decoding="async" alt="The Game – aloitusvalikko" />
-                        </a>
-
-                        <a href="images/the-game-editor.png" target="_blank">
-                            <img src="images/the-game-editor.png" width="1024" height="492" loading="lazy" decoding="async" alt="The Game – Unity-editorin näkymä" />
-                        </a>
-
-                        <a href="images/the-game-action.png" target="_blank">
-                            <img src="images/the-game-action.png" width="1024" height="574" loading="lazy" decoding="async" alt="The Game – pelitilanne vihollisten kanssa" />
-                        </a>
-
-                        <a href="images/the-game-restart.png" target="_blank">
-                            <img src="images/the-game-restart.png" width="1024" height="573" loading="lazy" decoding="async" alt="The Game – Restart-näkymä" />
-                        </a>
-                    </div>
-
-                    <div class="project-links">
-                        <a href="https://github.com/janstech/The-Game" target="_blank" data-i18n="proj_unity_link_git">
-                            GitHub – Repository
-                        </a>
-                        <a href="https://github.com/janstech/The-Game/releases" target="_blank" data-i18n="proj_unity_link_release">
-                            Lataa Windows-versio (Releases)
-                        </a>
-                    </div>
-                </article>
-
-                <article class="card project-card">
-                    <h3 data-i18n="proj_webgame_title">The Game – Selainminipeli (Vanilla JS)</h3>
-                    <p class="project-meta" data-i18n="proj_webgame_meta">
-                        HTML5 · Canvas · JavaScript · REST API · UI/UX
-                    </p>
-                    <p data-i18n="proj_webgame_desc">
-                        Rakensin Unity-pelistäni kevyen mutta ominaisuuksiltaan rikkaan 2D-selainversion.
-                        Peli on toteutettu puhtaalla JavaScriptillä (ei pelimoottoreita) ja HTML5 Canvas -tekniikalla.
-                        Projekti demonstroi pelilogiikan lisäksi rajapintojen (API) käyttöä ja modernia käyttöliittymäsuunnittelua.
-                    </p>
-                    <ul class="project-points">
-                        <li data-i18n="proj_webgame_1"><strong>Global High Score:</strong> Reaaliaikainen tuloslista toteutettu REST API -yhteydellä (Dreamlo) ja Fetch-komennoilla</li>
-                        <li data-i18n="proj_webgame_2"><strong>Moderni UI/UX:</strong> Glassmorphism-ilme, kustomoidut modaali-ikkunat ja automaattinen kursorin hallinta</li>
-                        <li data-i18n="proj_webgame_3"><strong>Pelimekaniikka:</strong> Sulava WASD-ohjaus, kiihtyvä vaikeustaso, törmäystarkistukset ja partikkeliefektit</li>
-                        <li data-i18n="proj_webgame_4"><strong>Äänimaailma:</strong> Web Audio API:lla toteutettu taustamusiikki ja dynaamiset ääniefektit</li>
-                        <li data-i18n="proj_webgame_5">Julkaistu GitHub Pages -ympäristössä (HTML5 Canvas / ES6+ JavaScript)</li>
-                    </ul>
-
-                    <div class="project-links">
-                        <a href="https://github.com/janstech/thegame-web-edition" target="_blank" data-i18n="proj_webgame_link_git">
-                            GitHub – Repository
-                        </a>
-                        <a href="https://janstech.github.io/thegame-web-edition/" target="_blank" data-i18n="proj_webgame_link_play">
-                            Pelaa selainversiota (HTML5/JS)
-                        </a>
-                    </div>
-                </article>
-
-
-            </div>
+                <ul class="compact-project-list">
+                    <li class="compact-project">
+                        <div class="compact-project-main">
+                            <h4 data-i18n="prev_unity_title">The Game – Unity-peliprojekti</h4>
+                            <p data-i18n="prev_unity_desc">3D-peli, jossa toteutin pelaajan ohjauksen, NavMesh-pohjaisen vihollis-AI:n, partikkeliefektit ja UI-logiikan.</p>
+                            <p class="project-tech" data-i18n="prev_unity_tech">Unity 3D · C# · NavMesh</p>
+                        </div>
+                        <div class="project-actions">
+                            <a class="link-primary" href="https://github.com/janstech/The-Game" target="_blank" rel="noopener noreferrer" data-i18n="prev_unity_link_git">GitHub</a>
+                            <a href="https://github.com/janstech/The-Game/releases" target="_blank" rel="noopener noreferrer" data-i18n="prev_unity_link_release">Windows-versio</a>
+                        </div>
+                    </li>
+                    <li class="compact-project">
+                        <div class="compact-project-main">
+                            <h4 data-i18n="prev_web_title">The Game – selainversio</h4>
+                            <p data-i18n="prev_web_desc">Sama peli 2D-selainversiona ilman pelimoottoria. Sisältää REST-rajapinnalla toteutetun tuloslistan ja Web Audio API -äänet.</p>
+                            <p class="project-tech" data-i18n="prev_web_tech">HTML5 Canvas · JavaScript · REST API</p>
+                        </div>
+                        <div class="project-actions">
+                            <a class="link-primary" href="https://janstech.github.io/thegame-web-edition/" target="_blank" rel="noopener noreferrer" data-i18n="prev_web_link_play">Pelaa selaimessa</a>
+                            <a href="https://github.com/janstech/thegame-web-edition" target="_blank" rel="noopener noreferrer" data-i18n="prev_web_link_git">GitHub</a>
+                        </div>
+                    </li>
+                    <li class="compact-project">
+                        <div class="compact-project-main">
+                            <h4 data-i18n="prev_it_title">IT-laitteiden huolto ja vianmääritys</h4>
+                            <p data-i18n="prev_it_desc">Ohjelmistokehityksen ohella tietokoneiden, kannettavien ja oheislaitteiden huoltoa, asennuksia ja vianmääritystä asiakkaille.</p>
+                            <p class="project-tech" data-i18n="prev_it_tech">Laitteistot · käyttöjärjestelmät · vianmääritys</p>
+                        </div>
+                    </li>
+                </ul>
+            </section>
         </div>
     </section>
 
@@ -583,7 +471,7 @@
                         <span data-i18n="arch_card_1_label">Tuotehaku-arkkitehtuuri<br> (PDF)</span>
                     </div>
                     <figcaption>
-                        <a href="documents/Tuotehaku-arkkitehtuuri.pdf" target="_blank" data-i18n="arch_card_1_link">
+                        <a href="documents/Tuotehaku-arkkitehtuuri.pdf" target="_blank" rel="noopener noreferrer" data-i18n="arch_card_1_link">
                             Avaa Tuotehaku-järjestelmän tekninen dokumentaatio (PDF)
                         </a>
                     </figcaption>
@@ -594,7 +482,7 @@
                         <span data-i18n="arch_card_2_label">Icecat-integraation arkkitehtuuri<br> (PDF)</span>
                     </div>
                     <figcaption>
-                        <a href="documents/icecat_arkkitehtuuri.pdf" target="_blank" data-i18n="arch_card_2_link">
+                        <a href="documents/icecat_arkkitehtuuri.pdf" target="_blank" rel="noopener noreferrer" data-i18n="arch_card_2_link">
                             Avaa Icecat → WooCommerce -integraation tekninen dokumentaatio (PDF)
                         </a>
                     </figcaption>
@@ -605,7 +493,7 @@
                         <span data-i18n="arch_card_3_label">Työssäoppimisjakson portfolio<br> (PDF)</span>
                     </div>
                     <figcaption>
-                        <a href="documents/Työssäoppimisjakso_portfolio_Jan_Sarivuo_11-25.pdf" target="_blank" data-i18n="arch_card_3_link">
+                        <a href="documents/Työssäoppimisjakso_portfolio_Jan_Sarivuo_11-25.pdf" target="_blank" rel="noopener noreferrer" data-i18n="arch_card_3_link">
                             Avaa koko työssäoppimisjakson portfolio (PDF)
                         </a>
                     </figcaption>
@@ -638,22 +526,22 @@
                     <h3 data-i18n="contact_links_title">Linkit</h3>
                     <ul class="link-list">
                         <li>
-                            <a href="https://github.com/janstech" target="_blank" data-i18n="contact_link_git">
+                            <a href="https://github.com/janstech" target="_blank" rel="noopener noreferrer" data-i18n="contact_link_git">
                                 GitHub – projektit &amp; koodi
                             </a>
                         </li>
                         <li>
-                            <a href="documents/Työssäoppimisjakso_portfolio_Jan_Sarivuo_11-25.pdf" target="_blank" data-i18n="contact_link_portfolio">
+                            <a href="documents/Työssäoppimisjakso_portfolio_Jan_Sarivuo_11-25.pdf" target="_blank" rel="noopener noreferrer" data-i18n="contact_link_portfolio">
                                 Työssäoppimisjakson portfolio (PDF)
                             </a>
                         </li>
                         <li>
-                            <a href="https://www.linkedin.com/in/jan-sarivuo" target="_blank" data-i18n="contact_link_linkedin">
+                            <a href="https://www.linkedin.com/in/jan-sarivuo" target="_blank" rel="noopener noreferrer" data-i18n="contact_link_linkedin">
                                 LinkedIn-profiili
                             </a>
                         </li>
                         <li>
-                            <a href="documents/Jan_Sarivuo_cv.pdf" target="_blank" data-i18n="contact_link_cv">
+                            <a href="documents/Jan_Sarivuo_cv.pdf" target="_blank" rel="noopener noreferrer" data-i18n="contact_link_cv">
                                 Lataa CV (PDF)
                             </a>
                         </li>
@@ -800,115 +688,16 @@ const dict = {
 
         skills_additional: "Muu kokemus: Unity/C#, HTML5 Canvas, Web Audio API sekä IT-laitteiden huolto ja vianmääritys.",
 
-        projects_title: "Projektit – työssäoppimisjakso & muut toteutukset",
 
-        proj_shop_title: "Kauppalista & Muistiinpanot (Android)",
-        proj_shop_meta: "Kotlin · Jetpack Compose · Room · DataStore · Offline-first · Monikielisyys (14 kieltä) · FastAPI (AI) · App Check · Play Integrity",
-        proj_shop_desc: "Kehitin Android-sovelluksen arjen ostosten ja muistiinpanojen hallintaan. Sovellus on julkaistu Google Play -kaupassa tuotantoon. Toteutin kokonaisuuden end-to-end: Android-sovellus (Kotlin, Jetpack Compose), paikallinen tietokanta (Room) sekä AI-backend-integraatiot. Sovellus on suunniteltu yksityisyys edellä: ei kirjautumista, tiedot tallentuvat laitteelle ja perustoiminnot toimivat offline-tilassa.",
-        proj_shop_1: "<strong>Offline-first:</strong> listat, muistiinpanot, suosikit ja syntymäpäivät toimivat ilman verkkoyhteyttä",
-        proj_shop_2: "<strong>AI-reseptit & viikkoruokalistat:</strong> reseptiehdotukset + “Lisää ainekset kauppalistalle”",
-        proj_shop_3: "<strong>Päiväkohtainen regenerointi:</strong> viikkoruokalistassa “Vaihda ruoka” -toiminto yksittäiselle päivälle (toive + regen)",
-        proj_shop_4: "<strong>Puheesta tekstiksi:</strong> lisäys sanelulla (laitteen puheentunnistus; voi vaatia netin asetuksista riippuen)",
-        proj_shop_5: "<strong>Tietoturva & abuse-suojaus:</strong> Firebase App Check + Play Integrity (nonce, single-use) + rate limit (burst + daily)",
-        proj_shop_6: "<strong>Varmuuskopiot:</strong> export/import yhteen tiedostoon (Android share) ja palautus laitevaihdossa",
-        proj_shop_7: "<strong>Käytettävyys:</strong> drag-and-drop järjestys, pikavalinnat (rajoitteet), snackbar-palautteet ja lataus-/korostus-tilat",
-        proj_shop_link_play: "Google Play – Sovellussivu",
-        proj_shop_link_git: "GitHub – Repository / Showcase",
 
-        proj_wave_title: "WaveIQ Radio (Android)",
-        proj_wave_meta: "Kotlin · Jetpack Compose · Media3 · DataStore · FastAPI · MariaDB · Firebase App Check · Play Integrity · Google Play Production",
-        proj_wave_desc: "Kehitin modernin internet-radiosovelluksen, joka yhdistää taustatoiston, radioasemien haun, kuunteluhistorian ja AI-avusteisen suosituslogiikan. Sovellus on julkaistu Google Play -kaupassa tuotantoon. Toteutin kokonaisuuden end-to-end: Android-sovellus (Kotlin, Jetpack Compose) sekä FastAPI + MariaDB -pohjainen backend.",        proj_wave_1: "<strong>Internet-radio & taustatoisto:</strong> Media3-pohjainen toisto, mediakontrollit ja vakaa stream-käsittely",
-        proj_wave_2: "<strong>Asemien haku & selaus:</strong> haku nimen, genren, maan ja kielen perusteella sekä browse-näkymät",
-        proj_wave_3: "<strong>AI-suositukset:</strong> kuunteluhistoriaan ja taste-profileen perustuvat asemien suositukset",
-        proj_wave_4: "<strong>Tietoturva:</strong> Firebase App Check + Play Integrity backend-endpointtien suojaamiseksi",
-        proj_wave_5: "<strong>Backend & data:</strong> FastAPI, MariaDB, kuuntelutapahtumien tallennus, stream health -seuranta ja recommendation-pipeline",
-        proj_wave_6: "<strong>Julkaisuprosessi:</strong> suljettu testaus, Google Play production access -hyväksyntä ja Play Store -julkaisu",
-        proj_wave_link_play: "Google Play – Sovellussivu",
-        proj_wave_link_git: "GitHub – Janstech",
 
-        proj_gains_title: "GainsAI (Android)",
-        proj_gains_meta: "Kotlin · Jetpack Compose · Material 3 · FastAPI · MariaDB · Firebase Auth · App Check · Play Integrity · Play Billing · Google Drive API",
-        proj_gains_desc: "Kehitin tekoälyavusteisen kuntosalisovelluksen, joka rakentaa käyttäjälle henkilökohtaisen harjoitusohjelman, ohjaa treenit läpi liike kerrallaan ja seuraa kehitystä. Sovellus on julkaistu Google Play -kaupassa tuotantoon. Toteutin kokonaisuuden end-to-end: Android-sovellus (Kotlin, Jetpack Compose), FastAPI + MariaDB -backend, käyttäjätunnistus, tilausmaksut ja varmuuskopiointi.",
-        proj_gains_1: "<strong>Harjoitusohjelmat:</strong> tekoälyn luomat ja käsin muokattavat ohjelmat, ohjelmakirjasto ja aktiivisen ohjelman hallinta",
-        proj_gains_2: "<strong>Treenien kirjaaminen:</strong> liikkeet, sarjat, toistot, painot, RIR ja lepoajastin",
-        proj_gains_3: "<strong>Seuranta:</strong> harjoitushistoria, voima-analytiikka ja arvioitu 1RM, kehon mittarit ja viikoittainen check-in",
-        proj_gains_4: "<strong>AI Coach:</strong> vastaa käyttäjän omaan dataan perustuen ja nostaa esiin seuraavat kehityskohteet",
-        proj_gains_5: "<strong>Backend & tietoturva:</strong> FastAPI, MariaDB, Firebase Authentication, App Check + Play Integrity",
-        proj_gains_6: "<strong>Tilaukset & varmuuskopiot:</strong> Google Play Billing (GainsAI Pro), palvelinvarmennetut ostot ja Google Drive -varmuuskopiointi",
-        proj_gains_link_page: "Lue lisää – GainsAI-projektisivu",
-        proj_gains_link_play: "Google Play – Sovellussivu",
-        proj_gains_img1_alt: "GainsAI – viikko-ohjelman näkymä, jossa näkyvät split, ohjelman kesto ja treenipäivät",
-        proj_gains_img2_alt: "GainsAI – ohjatun treenin näkymä, jossa näkyvät liikkeen tiedot ja lepoajastin",
-        proj_gains_img3_alt: "GainsAI – sarjojen kirjaamisen näkymä, jossa syötetään toistot, paino ja RIR",
 
-        proj_product_title: "Tuotehaku-järjestelmä (Full Stack)",
-        proj_product_meta: "FastAPI · WordPress · REST · MySQL · integraatiot",
-        proj_product_desc: "Suunnittelin ja toteutin tuotehaun, joka yhdistää WordPressin, FastAPI:n, MySQL-tietokannan ja toimittajien datavirrat. Järjestelmä on yrityksen tuotantokäytössä ja sitä käytetään ATK-tuotteiden tietojen ja hintojen hakuun.",
-        proj_product_1: "Rakensin FastAPI-pohjaisen hakumoottorin ja REST-päätepisteet",
-        proj_product_2: "Toteutin /wp-json/tuotehaku/v1/* -rajapinnan WordPressiin",
-        proj_product_3: "Suunnittelin tietokantakyselyt, validoinnit ja välimuistikerroksen",
-        proj_product_4: "Tein WordPress-shortcode-pohjaisen hakukäyttöliittymän",
-        proj_product_5: "Rakensin JavaScript-pohjaisen dynaamisen hakunäkymän (JSON-vastaukset)",
-        proj_product_link_git: "GitHub – Repository",
-        proj_product_link_doc: "Dokumentaatio (PDF)",
 
-        proj_icecat_title: "Icecat → WooCommerce -integraatio",
-        proj_icecat_meta: "Icecat · WooCommerce · FastAPI · JSON/XML",
-        proj_icecat_desc: "Toteutin integraation, joka hakee tuotetietoja Icecatista, muuntaa ja rikastaa datan sekä tallentaa sen WooCommerceen. Integraatio automatisoi ja nopeuttaa tuotteiden ylläpitoa.",
-        proj_icecat_1: "JSON/XML-datan haku, muunto ja validointi",
-        proj_icecat_2: "Tuotekuvien ja kieliversioiden käsittely",
-        proj_icecat_3: "WordPressin ja FastAPI:n välinen dataliikenne",
-        proj_icecat_4: "Prosessin suunnittelu niin, että se on toistettavissa ja ylläpidettävissä",
-        proj_icecat_link_git: "GitHub – Repository",
-        proj_icecat_link_doc: "Dokumentaatio (PDF)",
 
-        proj_mysql_title: "MySQL-korjaukset & recovery",
-        proj_mysql_meta: "MySQL · InnoDB · Linux-palvelin · recovery-tila",
-        proj_mysql_desc: "Työssäoppimisjakson aikana ratkoin useita tietokantaan liittyviä ongelmia, kuten korruptoituneita tauluja ja MySQL:n kaatumista. Toteutin sekä korjaukset että varmuuskopiointiratkaisut.",
-        proj_mysql_1: "Korruptoituneen InnoDB-taulun (phppos_items) korjaus",
-        proj_mysql_2: "LONGBLOB + page corruption -ongelman selvittäminen (phppos_app_files)",
-        proj_mysql_3: "MySQL:n ajo recovery-tilassa ja onnistunut full dump",
-        proj_mysql_4: "Full dumpit ja erillisdumpit suurista tauluista",
-        proj_mysql_5: "Testipalautukset erilliselle kassa_test-tietokannalle",
 
-        proj_infra_title: "Palvelinympäristöt, julkaisut ja varmuuskopiointi",
-        proj_infra_meta: "Linux · Hetzner · Radicenter · systemd · MariaDB · Nginx / Apache · restic · rclone · Google Drive offsite",
-        proj_infra_desc: "Toimin palvelinympäristöissä, joissa ajetaan tuotantokäytössä olevia verkkopalveluita, API-palveluita ja tietokantoja. Hallitsen Linux-palvelinten ylläpitoa, palveluiden valvontaa, lokien tulkintaa sekä salattuja varmuuskopiointiratkaisuja, joissa tietokannat ja keskeiset palvelinpolut varmistetaan paikallisesti ja offsite-kopiona Google Driveen.",
-        proj_infra_1: "Linux-palvelimien ylläpito SSH-yhteydellä ja systemd-palveluiden hallinta",
-        proj_infra_2: "FastAPI-backendien julkaisut, health checkit, lokien seuranta ja vianetsintä",
-        proj_infra_3: "MariaDB/MySQL-tietokantojen dumpit, palautukset, migraatiot ja varmistukset",
-        proj_infra_4: "Salattu restic-varmuuskopiointi paikalliseen ja Google Drive -offsite-repoon",
-        proj_infra_5: "Automaattinen ajastus systemd timerillä ja retention-politiikka snapshot-historialle",
 
-        proj_it_title: "IT-laitteiden huolto ja optimointi",
-        proj_it_meta: "Laitteistot · käyttöjärjestelmät · vianmääritys",
-        proj_it_desc: "Ohjelmistokehityksen ohella osallistuin IT-laitteiden huoltoon ja käyttökuntoon saattamiseen asiakkaille.",
-        proj_it_1: "Käyttöjärjestelmä- ja ohjelmistoasennukset",
-        proj_it_2: "Laitteiden optimointi ja käyttökuntoon saattaminen",
-        proj_it_3: "Vianmääritys ja laitteistotestaukset",
-        proj_it_4: "Tietokoneiden, kannettavien ja oheislaitteiden huolto ja korjaukset",
 
-        proj_unity_title: "The Game – Unity-peliprojekti",
-        proj_unity_meta: "Unity 3D · C# · NavMesh · AI · pelimekaniikat",
-        proj_unity_desc: "Rakensin Unity-pelin, jossa ohjataan pelaajaa labyrinttimäisessä kentässä, kerätään orb-objekteja ja vältellään vihollisia. Projekti sisältää peliohjauksen, vihollis-AI:n, NavMesh-navigoinnin, partikkeliefektit sekä UI-logiikan (elämämittari, orbilaskuri, restart-näyttö).",
-        proj_unity_1: "Pelaajan liike, hyppy ja kameran hallinta",
-        proj_unity_2: "Vihollis-AI NavMesh-pohjaisella reitinetsinnällä",
-        proj_unity_3: "Kerättävät orbit, health-bar ja game over / restart -logiikka",
-        proj_unity_4: "Partikkeli- ja valotehosteet sekä omat materiaalit",
-        proj_unity_5: "Valmiiksi paketoitu Windows-versio (GitHub Releases)",
-        proj_unity_link_git: "GitHub – Repository",
-        proj_unity_link_release: "Lataa Windows-versio (Releases)",
 
-        proj_webgame_title: "The Game – Selainminipeli (Vanilla JS)",
-        proj_webgame_meta: "HTML5 · Canvas · JavaScript · REST API · UI/UX",
-        proj_webgame_desc: "Rakensin Unity-pelistäni kevyen mutta ominaisuuksiltaan rikkaan 2D-selainversion. Peli on toteutettu puhtaalla JavaScriptillä (ei pelimoottoreita) ja HTML5 Canvas -tekniikalla. Projekti demonstroi pelilogiikan lisäksi rajapintojen (API) käyttöä ja modernia käyttöliittymäsuunnittelua.",
-        proj_webgame_1: "<strong>Global High Score:</strong> Reaaliaikainen tuloslista toteutettu REST API -yhteydellä (Dreamlo) ja Fetch-komennoilla",
-        proj_webgame_2: "<strong>Moderni UI/UX:</strong> Glassmorphism-ilme, kustomoidut modaali-ikkunat ja automaattinen kursorin hallinta",
-        proj_webgame_3: "<strong>Pelimekaniikka:</strong> Sulava WASD-ohjaus, kiihtyvä vaikeustaso, törmäystarkistukset ja partikkeliefektit",
-        proj_webgame_4: "<strong>Äänimaailma:</strong> Web Audio API:lla toteutettu taustamusiikki ja dynaamiset ääniefektit",
-        proj_webgame_5: "Julkaistu GitHub Pages -ympäristössä (HTML5 Canvas / ES6+ JavaScript)",
-        proj_webgame_link_git: "GitHub – Repository",
-        proj_webgame_link_play: "Pelaa selainversiota (HTML5/JS)",
 
         arch_title: "Arkkitehtuuri & dokumentaatio",
         arch_desc: "Dokumentoin työssäoppimisjakson aikana järjestelmien rakennetta ja toiminnallisuuksia kirjallisilla arkkitehtuurikuvauksilla. Niissä käydään läpi, miten eri osat — WordPress, FastAPI, tietokanta, integraatiot ja ulkoiset rajapinnat — toimivat kokonaisuutena ja tukevat järjestelmän toimintaa.",
@@ -935,6 +724,97 @@ const dict = {
         contact_link_cv: "Lataa CV (PDF)",
 
         footer_note: "Portfolio-sivusto · Jan Sarivuo",
+
+        projects_title: "Projektit",
+        projects_intro: "Julkaistuja Android-sovelluksia, omia backend-palveluita sekä tuotannossa käytettyjä full stack- ja infrastruktuuriratkaisuja.",
+        group_published: "Julkaistut Android-sovellukset",
+        group_building: "Työn alla",
+        group_systems: "Tuotantojärjestelmät ja integraatiot",
+        group_systems_note: "Työssäoppimisjaksolla toteutettuja järjestelmiä, jotka ovat edelleen yrityksen käytössä.",
+        group_earlier: "Aiemmat ja täydentävät projektit",
+        status_published: "Julkaistu Google Playssa",
+        status_preparing: "Tuotantovalmistelussa",
+        status_development: "Kehityksessä",
+        status_production: "Tuotantokäytössä",
+        status_responsibility: "Tuotantovastuu",
+        feature_label: "Nostettu projekti",
+        proj_gains_title: "GainsAI",
+        proj_gains_desc: "Tekoälyavusteinen kuntosalisovellus, joka rakentaa henkilökohtaisen harjoitusohjelman, ohjaa treenit läpi liike kerrallaan ja seuraa kehitystä. Toteutin sekä sovelluksen että sen taustajärjestelmän: rajapinnat, tietokannan, käyttäjätunnistuksen, tilausmaksut ja varmuuskopioinnin.",
+        proj_gains_meta: "Kotlin · Jetpack Compose · Material 3 · FastAPI · MariaDB · Firebase Auth · Play Integrity · Play Billing · Google Drive API",
+        proj_gains_1: "Tekoälyn luomat harjoitusohjelmat ja ohjelmakirjaston hallinta",
+        proj_gains_2: "Treenien kirjaaminen, voima-analytiikka ja kehon mittarit",
+        proj_gains_3: "AI Coach, joka vastaa käyttäjän omaan harjoitusdataan perustuen",
+        proj_gains_4: "GainsAI Pro -tilaus palvelinvarmennetuilla ostoilla",
+        proj_gains_link_page: "Lue lisää projektista",
+        proj_gains_link_play: "Google Play",
+        proj_gains_img1_alt: "GainsAI – viikko-ohjelman näkymä, jossa näkyvät split, ohjelman kesto ja treenipäivät",
+        proj_gains_img2_alt: "GainsAI – ohjatun treenin näkymä, jossa näkyvät liikkeen tiedot ja lepoajastin",
+        proj_gains_img3_alt: "GainsAI – sarjojen kirjaamisen näkymä, jossa syötetään toistot, paino ja RIR",
+        proj_shop_title: "Kauppalista &amp; Muistiinpanot",
+        proj_shop_desc: "Ostoslista-, muistiinpano- ja reseptisovellus, joka on suunniteltu yksityisyys edellä: ei kirjautumista, tiedot laitteella ja perustoiminnot offline-tilassa. Vapaaehtoiset AI-toiminnot tuottavat reseptejä ja viikkoruokalistoja.",
+        proj_shop_meta: "Kotlin · Jetpack Compose · Room · DataStore · FastAPI · App Check · Play Integrity",
+        proj_shop_1: "Offline-first-toteutus 14 kielellä",
+        proj_shop_2: "AI-reseptit ja viikkoruokalistat ainesten lisäyksellä kauppalistalle",
+        proj_shop_3: "Väärinkäytön esto: App Check, Play Integrity ja rate limit",
+        proj_shop_link_play: "Google Play",
+        proj_shop_link_git: "GitHub",
+        proj_shop_img1_alt: "Kauppalista & Muistiinpanot – ostoslistanäkymä",
+        proj_shop_img2_alt: "Kauppalista & Muistiinpanot – ainesten skannaus",
+        proj_shop_img3_alt: "Kauppalista & Muistiinpanot – reseptinäkymä",
+        proj_wave_title: "WaveIQ Radio",
+        proj_wave_desc: "Internet-radiosovellus, joka yhdistää taustatoiston, asemahaun ja kuunteluhistoriaan perustuvat suositukset. Toteutin sekä Android-sovelluksen että FastAPI- ja MariaDB-pohjaisen taustapalvelun.",
+        proj_wave_meta: "Kotlin · Jetpack Compose · Media3 · FastAPI · MariaDB · App Check · Play Integrity",
+        proj_wave_1: "Media3-taustatoisto ja vakaa stream-käsittely",
+        proj_wave_2: "Asemahaku nimen, genren, maan ja kielen mukaan",
+        proj_wave_3: "Kuuntelutapahtumien tallennus ja suosituspipeline",
+        proj_wave_link_play: "Google Play",
+        proj_wave_link_git: "GitHub",
+        proj_wave_img1_alt: "WaveIQ Radio – asemalistaus ja soitin",
+        proj_wave_img2_alt: "WaveIQ Radio – asemien selausnäkymä",
+        proj_wave_img3_alt: "WaveIQ Radio – asemahaku suodattimilla",
+        brand_aria: "JanstechApps-brändisivusto",
+        brand_title: "JanstechApps – julkaistujen sovellusteni koti",
+        brand_text: "Suunnittelen, kehitän, julkaisen ja ylläpidän Android-sovelluksia JanstechApps-nimen alla. Brändisivusto kokoaa sovellukset, niiden ominaisuudet, latauslinkit sekä tietosuoja- ja tukisivut yhteen paikkaan.",
+        brand_cta: "Tutustu JanstechApps-sovelluksiin",
+        proj_surekeep_title: "SureKeep",
+        proj_surekeep_desc: "Sovellus kuittien, takuiden ja liitteiden hallintaan. Kuitin voi kuvata, ja tekoäly poimii siitä tiedot käyttäjän tarkistettavaksi. Takuuajoista muistutetaan, ja tiedot synkronoidaan omaan backendiin.",
+        proj_surekeep_meta: "Kotlin · Jetpack Compose · FastAPI · SQLAlchemy · Alembic · MariaDB · Firebase Auth",
+        proj_surekeep_1: "Kuitin kuvaus ja tekoälyavusteinen tietojen poiminta",
+        proj_surekeep_2: "Takuumuistutukset sekä kuittien arkistointi ja palautus aktiiviseksi",
+        proj_surekeep_3: "Käyttäjätilit, pilvisynkronointi, Drive-varmuuskopio ja tilin poisto",
+        proj_tyotori_title: "Työtori",
+        proj_tyotori_desc: "Suomalaisen työnhaun avustaja, joka kokoaa avoimet työpaikat useasta lähteestä ja auttaa hakemusten sekä määräaikojen hallinnassa. Tekoäly tiivistää ilmoituksia ja luonnostelee hakemustekstejä, mutta ei lähetä hakemuksia käyttäjän puolesta.",
+        proj_tyotori_meta: "Kotlin · Jetpack Compose · FastAPI · MariaDB · Firebase Auth · App Check",
+        proj_tyotori_1: "Työpaikkahaku useasta lähteestä, mm. Duunitori ja Kuntarekry",
+        proj_tyotori_2: "Hakemusten, määräaikojen ja työnhakuvelvoitteen seuranta",
+        proj_tyotori_3: "Backend päättää käyttöoikeudet; sovellus ei ohita tarkistuksia",
+        case_search_title: "Tuotehaku",
+        case_search_desc: "Hakujärjestelmä ATK-tuotteiden tiedoille ja hinnoille. Yhdistää WordPressin, FastAPI-hakumoottorin, MySQL-tietokannan ja toimittajien datavirrat.",
+        case_search_tech: "FastAPI · WordPress · MySQL · REST",
+        case_search_link_git: "GitHub",
+        case_search_link_doc: "Arkkitehtuuri (PDF)",
+        case_icecat_title: "Icecat &rarr; WooCommerce",
+        case_icecat_desc: "Integraatio, joka hakee tuotetiedot Icecatista, validoi ja rikastaa datan sekä vie sen WooCommerceen kuvineen ja kieliversioineen.",
+        case_icecat_tech: "FastAPI · WooCommerce · XML / JSON",
+        case_icecat_link_git: "GitHub",
+        case_icecat_link_doc: "Arkkitehtuuri (PDF)",
+        case_infra_title: "Tietokannat ja palvelinympäristöt",
+        case_infra_desc: "Tuotantokantojen ja Linux-palvelimien ylläpito: korruptoituneen InnoDB-taulun korjaus ja recovery-ajo, testipalautukset sekä salattu varmuuskopiointi paikallisesti ja offsite-kopiona.",
+        case_infra_tech: "MySQL / MariaDB · InnoDB · Linux · Hetzner · systemd · restic / rclone",
+        prev_unity_title: "The Game – Unity-peliprojekti",
+        prev_unity_desc: "3D-peli, jossa toteutin pelaajan ohjauksen, NavMesh-pohjaisen vihollis-AI:n, partikkeliefektit ja UI-logiikan.",
+        prev_unity_tech: "Unity 3D · C# · NavMesh",
+        prev_unity_link_git: "GitHub",
+        prev_unity_link_release: "Windows-versio",
+        prev_web_title: "The Game – selainversio",
+        prev_web_desc: "Sama peli 2D-selainversiona ilman pelimoottoria. Sisältää REST-rajapinnalla toteutetun tuloslistan ja Web Audio API -äänet.",
+        prev_web_tech: "HTML5 Canvas · JavaScript · REST API",
+        prev_web_link_play: "Pelaa selaimessa",
+        prev_web_link_git: "GitHub",
+        prev_it_title: "IT-laitteiden huolto ja vianmääritys",
+        prev_it_desc: "Ohjelmistokehityksen ohella tietokoneiden, kannettavien ja oheislaitteiden huoltoa, asennuksia ja vianmääritystä asiakkaille.",
+        prev_it_tech: "Laitteistot · käyttöjärjestelmät · vianmääritys",
+
     },
 
     en: {
@@ -1040,114 +920,16 @@ const dict = {
 
         skills_additional: "Additional experience: Unity/C#, HTML5 Canvas, Web Audio API, and IT hardware maintenance and troubleshooting.",
 
-        projects_title: "Projects – On-the-Job Learning & Other Implementations",
 
-        proj_shop_title: "Shopping List & Notes (Android)",
-        proj_shop_meta: "Kotlin · Jetpack Compose · Room · DataStore · Offline-first · Multilingual (14 languages) · FastAPI (AI) · App Check · Play Integrity",
-        proj_shop_desc: "I developed an Android app for managing everyday shopping and notes. The app has been published to Google Play for production. I delivered the solution end to end: Android app (Kotlin, Jetpack Compose), local database (Room), and AI backend integrations. The app is designed with privacy first: no login, data is stored on the device, and core features work offline.",        proj_shop_1: "<strong>Offline-first:</strong> lists, notes, favorites, and birthdays work without an internet connection",
-        proj_shop_2: "<strong>AI recipes & weekly meal plans:</strong> recipe suggestions + “Add ingredients to shopping list”",
-        proj_shop_3: "<strong>Day-specific regeneration:</strong> “Change meal” feature for a single day in the weekly plan (wish + regen)",
-        proj_shop_4: "<strong>Speech to text:</strong> add items by dictation (device speech recognition; may require internet depending on settings)",
-        proj_shop_5: "<strong>Security & abuse protection:</strong> Firebase App Check + Play Integrity (nonce, single-use) + rate limits (burst + daily)",
-        proj_shop_6: "<strong>Backups:</strong> export/import into a single file (Android share) and restore on device change",
-        proj_shop_7: "<strong>Usability:</strong> drag-and-drop ordering, quick actions, snackbar feedback, loading and highlight states",
-        proj_shop_link_play: "Google Play – App page",
-        proj_shop_link_git: "GitHub – Repository / Showcase",
 
-        proj_wave_title: "WaveIQ Radio (Android)",
-        proj_wave_meta: "Kotlin · Jetpack Compose · Media3 · DataStore · FastAPI · MariaDB · Firebase App Check · Play Integrity · Google Play Production",
-        proj_wave_desc: "I developed a modern internet radio app that combines background playback, station search, listening history, and AI-assisted recommendation logic. The app has been published to Google Play for production. I delivered the solution end to end: Android app (Kotlin, Jetpack Compose) and a FastAPI + MariaDB based backend.",        proj_wave_1: "<strong>Internet radio & background playback:</strong> Media3-based playback, media controls, and stable stream handling",
-        proj_wave_2: "<strong>Station search & browsing:</strong> search by name, genre, country, and language, plus browse views",
-        proj_wave_3: "<strong>AI recommendations:</strong> station recommendations based on listening history and taste profile",
-        proj_wave_4: "<strong>Security:</strong> Firebase App Check + Play Integrity for backend endpoint protection",
-        proj_wave_5: "<strong>Backend & data:</strong> FastAPI, MariaDB, listening event storage, stream health monitoring, and recommendation pipeline",
-        proj_wave_6: "<strong>Release process:</strong> closed testing, Google Play production access approval, and Play Store release",
-        proj_wave_link_play: "Google Play – App page",
-        proj_wave_link_git: "GitHub – Janstech",
 
-        proj_gains_title: "GainsAI (Android)",
-        proj_gains_meta: "Kotlin · Jetpack Compose · Material 3 · FastAPI · MariaDB · Firebase Auth · App Check · Play Integrity · Play Billing · Google Drive API",
-        proj_gains_desc: "I developed an AI-assisted gym training app that builds a personal training program, guides each session exercise by exercise, and tracks progress over time. The app has been published to Google Play for production. I delivered the solution end to end: Android app (Kotlin, Jetpack Compose), a FastAPI + MariaDB backend, user authentication, subscription billing, and cloud backup.",
-        proj_gains_1: "<strong>Training programs:</strong> AI-generated and manually editable programs, a program library, and active program management",
-        proj_gains_2: "<strong>Workout logging:</strong> exercises, sets, reps, load, RIR, and a rest timer",
-        proj_gains_3: "<strong>Tracking:</strong> session history, strength analytics with estimated 1RM, body metrics, and a weekly check-in",
-        proj_gains_4: "<strong>AI Coach:</strong> answers based on the user's own training data and highlights the next things worth improving",
-        proj_gains_5: "<strong>Backend & security:</strong> FastAPI, MariaDB, Firebase Authentication, App Check + Play Integrity",
-        proj_gains_6: "<strong>Subscriptions & backups:</strong> Google Play Billing (GainsAI Pro), server-verified purchases, and Google Drive backup",
-        proj_gains_link_page: "Read more – GainsAI project page",
-        proj_gains_link_play: "Google Play – App page",
-        proj_gains_img1_alt: "GainsAI – weekly program view showing the split, program duration, and training days",
-        proj_gains_img2_alt: "GainsAI – guided workout view showing exercise details and a rest timer",
-        proj_gains_img3_alt: "GainsAI – set logging view with fields for reps, load, and RIR",
 
-        proj_product_title: "Product Search System (Full Stack)",
-        proj_product_meta: "FastAPI · WordPress · REST · MySQL · integrations",
-        proj_product_desc: "I designed and implemented a product search system that combines WordPress, FastAPI, a MySQL database, and supplier data flows. The system is used in production and helps search product information and pricing for IT products.",
-        proj_product_1: "Built a FastAPI-based search engine and REST endpoints",
-        proj_product_2: "Implemented the /wp-json/tuotehaku/v1/* interface for WordPress",
-        proj_product_3: "Designed database queries, validations, and a caching layer",
-        proj_product_4: "Created a WordPress shortcode-based search UI",
-        proj_product_5: "Built a JavaScript-based dynamic search view (JSON responses)",
-        proj_product_link_git: "GitHub – Repository",
-        proj_product_link_doc: "Documentation (PDF)",
 
-        proj_icecat_title: "Icecat → WooCommerce Integration",
-        proj_icecat_meta: "Icecat · WooCommerce · FastAPI · JSON/XML",
-        proj_icecat_desc: "I implemented an integration that fetches product data from Icecat, transforms and enriches it, and stores it in WooCommerce. The integration automates and speeds up product maintenance.",
-        proj_icecat_1: "JSON/XML data fetching, transformation, and validation",
-        proj_icecat_2: "Handling product images and language versions",
-        proj_icecat_3: "Data flow between WordPress and FastAPI",
-        proj_icecat_4: "Process design for repeatability and maintainability",
-        proj_icecat_link_git: "GitHub – Repository",
-        proj_icecat_link_doc: "Documentation (PDF)",
 
-        proj_mysql_title: "MySQL Fixes & Recovery",
-        proj_mysql_meta: "MySQL · InnoDB · Linux server · recovery mode",
-        proj_mysql_desc: "During my on-the-job learning period, I solved multiple database-related issues such as corrupted tables and MySQL crashes. I implemented both the fixes and backup solutions.",
-        proj_mysql_1: "Fixed a corrupted InnoDB table (phppos_items)",
-        proj_mysql_2: "Investigated LONGBLOB + page corruption issue (phppos_app_files)",
-        proj_mysql_3: "Ran MySQL in recovery mode and completed a full dump successfully",
-        proj_mysql_4: "Created full dumps and separate dumps for large tables",
-        proj_mysql_5: "Performed test restores to a separate kassa_test database",
         
-        proj_infra_title: "Server Environments, Deployments and Backups",
-        proj_infra_meta: "Linux · Hetzner · Radicenter · systemd · MariaDB · Nginx / Apache · restic · rclone · Google Drive offsite",
-        proj_infra_desc: "I work with server environments running production web services, API services, and databases. I have hands-on experience with Linux server maintenance, service monitoring, log analysis, and encrypted backup solutions where databases and key server paths are backed up locally and to an offsite Google Drive repository.",
-        proj_infra_1: "Linux server maintenance over SSH and systemd service management",
-        proj_infra_2: "FastAPI backend deployments, health checks, log monitoring, and troubleshooting",
-        proj_infra_3: "MariaDB/MySQL database dumps, restores, migrations, and backup verification",
-        proj_infra_4: "Encrypted restic backups to local and Google Drive offsite repositories",
-        proj_infra_5: "Automated scheduling with systemd timers and retention policy for snapshot history",
         
-        proj_it_title: "IT Hardware Maintenance and Optimization",
-        proj_it_meta: "Hardware · operating systems · troubleshooting",
-        proj_it_desc: "Alongside software development, I participated in maintaining and preparing IT devices for customer use.",
-        proj_it_1: "Operating system and software installations",
-        proj_it_2: "Device optimization and setup for use",
-        proj_it_3: "Troubleshooting and hardware testing",
-        proj_it_4: "Maintenance and repair of desktops, laptops, and peripherals",
 
-        proj_unity_title: "The Game – Unity Game Project",
-        proj_unity_meta: "Unity 3D · C# · NavMesh · AI · gameplay systems",
-        proj_unity_desc: "I built a Unity game where the player moves through a maze-like level, collects orb objects, and avoids enemies. The project includes player controls, enemy AI, NavMesh navigation, particle effects, and UI logic such as a health bar, orb counter, and restart screen.",
-        proj_unity_1: "Player movement, jump, and camera control",
-        proj_unity_2: "Enemy AI with NavMesh pathfinding",
-        proj_unity_3: "Collectible orbs, health bar, and game over / restart logic",
-        proj_unity_4: "Particle and lighting effects plus custom materials",
-        proj_unity_5: "Packaged Windows version available in GitHub Releases",
-        proj_unity_link_git: "GitHub – Repository",
-        proj_unity_link_release: "Download Windows version (Releases)",
 
-        proj_webgame_title: "The Game – Browser Mini Game (Vanilla JS)",
-        proj_webgame_meta: "HTML5 · Canvas · JavaScript · REST API · UI/UX",
-        proj_webgame_desc: "I built a lightweight but feature-rich 2D browser version of my Unity game. The game is implemented with plain JavaScript and HTML5 Canvas, without external game engines. Besides gameplay logic, the project demonstrates API usage and modern UI design.",
-        proj_webgame_1: "<strong>Global High Score:</strong> real-time leaderboard implemented via REST API (Dreamlo) and Fetch calls",
-        proj_webgame_2: "<strong>Modern UI/UX:</strong> glassmorphism style, custom modal dialogs, and automatic cursor handling",
-        proj_webgame_3: "<strong>Gameplay:</strong> smooth WASD controls, increasing difficulty, collision checks, and particle effects",
-        proj_webgame_4: "<strong>Audio:</strong> background music and dynamic sound effects built with Web Audio API",
-        proj_webgame_5: "Published on GitHub Pages (HTML5 Canvas / ES6+ JavaScript)",
-        proj_webgame_link_git: "GitHub – Repository",
-        proj_webgame_link_play: "Play browser version (HTML5/JS)",
 
         arch_title: "Architecture & Documentation",
         arch_desc: "During my on-the-job learning period, I documented system structures and functionality in written architecture descriptions. They explain how the different parts — WordPress, FastAPI, database, integrations, and external APIs — work together as a complete solution.",
@@ -1174,6 +956,97 @@ const dict = {
         contact_link_cv: "Download CV (PDF)",
 
         footer_note: "Portfolio website · Jan Sarivuo",
+
+        projects_title: "Projects",
+        projects_intro: "Published Android applications, custom backend services, and full-stack and infrastructure systems used in production.",
+        group_published: "Published Android applications",
+        group_building: "In progress",
+        group_systems: "Production systems and integrations",
+        group_systems_note: "Systems built during my work placement that the company still runs today.",
+        group_earlier: "Earlier and complementary work",
+        status_published: "Published on Google Play",
+        status_preparing: "Preparing for release",
+        status_development: "In development",
+        status_production: "Running in production",
+        status_responsibility: "Production responsibility",
+        feature_label: "Featured project",
+        proj_gains_title: "GainsAI",
+        proj_gains_desc: "An AI-assisted gym training app that builds a personal training program, guides each session exercise by exercise, and tracks progress. I built both the app and the system behind it: the APIs, the database, authentication, subscription billing, and backup.",
+        proj_gains_meta: "Kotlin · Jetpack Compose · Material 3 · FastAPI · MariaDB · Firebase Auth · Play Integrity · Play Billing · Google Drive API",
+        proj_gains_1: "AI-generated training programs and a saved program library",
+        proj_gains_2: "Workout logging, strength analytics, and body metrics",
+        proj_gains_3: "An AI Coach that answers from the user\u2019s own training data",
+        proj_gains_4: "GainsAI Pro subscription with server-verified purchases",
+        proj_gains_link_page: "Read more about this project",
+        proj_gains_link_play: "Google Play",
+        proj_gains_img1_alt: "GainsAI – weekly program view showing the split, duration, and training days",
+        proj_gains_img2_alt: "GainsAI – guided workout view showing exercise details and a rest timer",
+        proj_gains_img3_alt: "GainsAI – set logging view with fields for reps, load, and RIR",
+        proj_shop_title: "Shopping List &amp; Notes",
+        proj_shop_desc: "A shopping list, notes, and recipe app designed privacy first: no account, data stays on the device, and the core features work offline. Optional AI features generate recipes and weekly meal plans.",
+        proj_shop_meta: "Kotlin · Jetpack Compose · Room · DataStore · FastAPI · App Check · Play Integrity",
+        proj_shop_1: "Offline-first implementation in 14 languages",
+        proj_shop_2: "AI recipes and weekly meal plans that add ingredients to the list",
+        proj_shop_3: "Abuse protection: App Check, Play Integrity, and rate limiting",
+        proj_shop_link_play: "Google Play",
+        proj_shop_link_git: "GitHub",
+        proj_shop_img1_alt: "Shopping List & Notes – shopping list view",
+        proj_shop_img2_alt: "Shopping List & Notes – ingredient scanning",
+        proj_shop_img3_alt: "Shopping List & Notes – recipe view",
+        proj_wave_title: "WaveIQ Radio",
+        proj_wave_desc: "An internet radio app combining background playback, station search, and recommendations based on listening history. I built both the Android app and the FastAPI and MariaDB service behind it.",
+        proj_wave_meta: "Kotlin · Jetpack Compose · Media3 · FastAPI · MariaDB · App Check · Play Integrity",
+        proj_wave_1: "Media3 background playback with stable stream handling",
+        proj_wave_2: "Station search by name, genre, country, and language",
+        proj_wave_3: "Listening event storage and a recommendation pipeline",
+        proj_wave_link_play: "Google Play",
+        proj_wave_link_git: "GitHub",
+        proj_wave_img1_alt: "WaveIQ Radio – station list and player",
+        proj_wave_img2_alt: "WaveIQ Radio – station browsing view",
+        proj_wave_img3_alt: "WaveIQ Radio – station search with filters",
+        brand_aria: "JanstechApps product site",
+        brand_title: "JanstechApps – home of my published applications",
+        brand_text: "I design, develop, publish, and maintain Android applications under the JanstechApps name. The product site brings the applications, their features, download links, and the privacy and support pages together in one place.",
+        brand_cta: "Explore JanstechApps applications",
+        proj_surekeep_title: "SureKeep",
+        proj_surekeep_desc: "An app for managing receipts, warranties, and attachments. You photograph a receipt and AI extracts the details for you to review. Warranty periods trigger reminders, and the data syncs to a backend I built.",
+        proj_surekeep_meta: "Kotlin · Jetpack Compose · FastAPI · SQLAlchemy · Alembic · MariaDB · Firebase Auth",
+        proj_surekeep_1: "Receipt capture with AI-assisted data extraction",
+        proj_surekeep_2: "Warranty reminders, archiving, and restoring receipts",
+        proj_surekeep_3: "User accounts, cloud sync, Drive backup, and account deletion",
+        proj_tyotori_title: "Työtori",
+        proj_tyotori_desc: "A Finnish job-search assistant that collects open positions from several sources and helps manage applications and deadlines. AI summarises listings and drafts application text, but never submits an application on the user\u2019s behalf.",
+        proj_tyotori_meta: "Kotlin · Jetpack Compose · FastAPI · MariaDB · Firebase Auth · App Check",
+        proj_tyotori_1: "Job search across several sources, including Duunitori and Kuntarekry",
+        proj_tyotori_2: "Tracking applications, deadlines, and job-search obligations",
+        proj_tyotori_3: "The backend decides entitlements; the app cannot bypass the checks",
+        case_search_title: "Product search",
+        case_search_desc: "A search system for IT product data and pricing. It connects WordPress, a FastAPI search engine, a MySQL database, and supplier data feeds.",
+        case_search_tech: "FastAPI · WordPress · MySQL · REST",
+        case_search_link_git: "GitHub",
+        case_search_link_doc: "Architecture (PDF)",
+        case_icecat_title: "Icecat &rarr; WooCommerce",
+        case_icecat_desc: "An integration that fetches product data from Icecat, validates and enriches it, and pushes it into WooCommerce with images and language versions.",
+        case_icecat_tech: "FastAPI · WooCommerce · XML / JSON",
+        case_icecat_link_git: "GitHub",
+        case_icecat_link_doc: "Architecture (PDF)",
+        case_infra_title: "Databases and server environments",
+        case_infra_desc: "Maintaining production databases and Linux servers: repairing a corrupted InnoDB table and running recovery, performing test restores, and running encrypted backups locally and offsite.",
+        case_infra_tech: "MySQL / MariaDB · InnoDB · Linux · Hetzner · systemd · restic / rclone",
+        prev_unity_title: "The Game – Unity project",
+        prev_unity_desc: "A 3D game where I built the player controls, NavMesh-based enemy AI, particle effects, and the UI logic.",
+        prev_unity_tech: "Unity 3D · C# · NavMesh",
+        prev_unity_link_git: "GitHub",
+        prev_unity_link_release: "Windows build",
+        prev_web_title: "The Game – browser edition",
+        prev_web_desc: "The same game as a 2D browser version without a game engine. It includes a leaderboard over a REST API and Web Audio API sound.",
+        prev_web_tech: "HTML5 Canvas · JavaScript · REST API",
+        prev_web_link_play: "Play in browser",
+        prev_web_link_git: "GitHub",
+        prev_it_title: "IT hardware maintenance",
+        prev_it_desc: "Alongside software development, servicing, installing, and troubleshooting desktops, laptops, and peripherals for customers.",
+        prev_it_tech: "Hardware · operating systems · troubleshooting",
+
     }
 };
 
