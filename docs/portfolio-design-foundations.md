@@ -1,6 +1,7 @@
 # Portfolion visuaalinen perusta ja design tokenit
 
-**Vaihe:** 1 – visuaalinen perusta (auditointidokumentin vaiheistuksen mukaan)
+**Vaiheet:** 1 – visuaalinen perusta · 2 – header ja hero
+(auditointidokumentin vaiheistuksen mukaan)
 **Lähde:** `docs/portfolio-redesign-audit.md`
 **Toteutus:** `css/style.css` (`:root`-lohko + migroidut säännöt)
 
@@ -153,7 +154,59 @@ väriä – ei `transform`ia, ei mittoja, ei layout shiftia.
 
 ---
 
-## 6. Varatut tokenit
+## 6. Header- ja hero-periaatteet
+
+### Header
+
+Yksi vaakarivi desktopilla: **logo vasemmalla, navigaatio oikealla, kielivalitsin
+reunimmaisena**. DOM-järjestys on sama (logo → nav → kieli), joten tab-järjestys
+vastaa lukusuuntaa.
+
+Alle 900 px navigaatio siirtyy `order: 3`:lla omalle riville logon ja
+kielivalitsimen alle. **Header pysyy kahdessa rivissä kaikilla leveyksillä** – ei
+hampurilaisvalikkoa eikä JavaScriptiä. Navigaatiolla on `flex-wrap: nowrap` ja
+`min-width: 0`, jolloin se ei koskaan pakota sivua vaakavieritykseen; linkit on
+mitoitettu mahtumaan yhdelle riville 360 px:iin asti ja vaakavieritys jää
+varajärjestelyksi suurelle fontille tai zoomille.
+
+Alle 640 px logon rooliteksti piilotetaan – sama tieto toistuu heti heron
+otsikossa. Kielivalitsimen label säilyy, koska se on toiminnallinen.
+
+Navigaatiolinkkien kosketuskohde on kapeilla näytöillä ~45 px.
+
+### Hero
+
+Kaksipalstainen desktopilla (`3fr / 2fr`), yksipalstainen alle 840 px. Pääviesti on
+aina ensin, spec-paneeli sen jälkeen.
+
+Sisältöä rajoittavat säännöt:
+
+- hero-intro enintään **5 riviä leveällä desktopilla** ja `--width-reading`-mitassa
+- otsikko `--font-size-2xl`, ei suurempi
+- taitteen yläpuolelle 1440×900:ssa mahtuvat label, otsikko, rooli, intro, molemmat
+  CTA:t ja koko spec-paneeli
+- kaksi CTA:ta, ei kolmatta
+
+Hero ei käytä taustakuvia, gradientteja, animaatioita eikä koristeita.
+
+### Spec-paneeli
+
+Korvasi aiemman fake-koodilohkon. Semantiikka on `<dl>`, jossa jokainen
+`<dt>`/`<dd>`-pari on omassa `.spec-row`-elementissään; paneeli on `<aside>`, jolla
+on lokalisoitu `aria-label`. Otsikko on `<p>`, ei heading – näin sivun
+otsikkohierarkia säilyy koskemattomana.
+
+Sääntöjä:
+
+- 4–6 riviä, ei enempää
+- vasemmalla mono-label, oikealla sans-arvo
+- rivit erotetaan hiusviivalla, ei omilla korteilla
+- **jokaisen arvon on oltava todennettavissa** portfolion sisällöstä tai projektien
+  dokumentaatiosta
+- ei koodisyntaksia, ei animaatiota, ei laskureita
+- alle 640 px label ja arvo latautuvat allekkain
+
+## 7. Varatut tokenit
 
 Nämä on määritelty tehtävänannon vaatiman täyden asteikon vuoksi, mutta niitä ei
 vielä käytetä. Ne ovat sopimus tuleville vaiheille, eivät kuollutta koodia:
@@ -169,10 +222,8 @@ vielä käytetä. Ne ovat sopimus tuleville vaiheille, eivät kuollutta koodia:
 
 ---
 
-## 7. Rajaukset – mitä Vaihe 1 **ei** tehnyt
+## 8. Rajaukset – mitä Vaiheet 1–2 **eivät** tehneet
 
-- Hero-rakennetta ei muutettu. Koodilohko on yhä paikallaan; vain sen pinta ja
-  värit tulevat tokeneista. Spec-paneeli on Vaihe 2.
 - Projektien järjestystä, ryhmittelyä tai sisältöä ei muutettu.
 - Osaamiskorttien rakennetta (7 korttia) ei muutettu.
 - SureKeepiä, Työtoria eikä JanstechApps-kaistaa ei lisätty.
@@ -180,12 +231,15 @@ vielä käytetä. Ne ovat sopimus tuleville vaiheille, eivät kuollutta koodia:
   ei jaettuja tokeneita. Yhtenäistäminen on erillinen päätös.
 - Sisältötekstejä ei muutettu.
 
-## 8. Tiedossa olevat ristiriidat
+## 9. Tiedossa olevat ristiriidat
 
 - **`apps/css/style.css` on erillinen järjestelmä.** Sillä ei ole yhteisiä
   tokeneita eikä se peri mitään `css/style.css`:stä. Sivu näyttää nyt eri
   sukupolvelta kuin muu sivusto. Ehdotus: käsitellään auditoinnin luvun 12.5
   päätöksen yhteydessä, ei tässä vaiheessa.
+- **`gainsai/index.html` käyttää yhä `.hero-ascii`-koodilohkoa.** Etusivun hero
+  siirtyi spec-paneeliin, mutta GainsAI-sivun lohko esittää aitoa stack-koodia,
+  joten sääntö jätettiin jaettuun CSS:ään. Ratkaistaan Vaiheessa 5.
 - **`gainsai/index.html` sisältää yhä oman `<style>`-lohkon** (~95 riviä
   sivukohtaisia sääntöjä). Ne käyttävät nyt jaettuja tokeneita, joten ristiriitaa
   ei ole – mutta säännöt kuuluisivat pitkällä tähtäimellä jaettuun CSS:ään

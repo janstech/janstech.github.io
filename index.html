@@ -37,7 +37,11 @@
 
 <header class="site-header">
     <div class="container header-inner">
-        <div class="logo">janstech.github.io</div>
+        <a class="logo" href="#top">
+            <span class="logo-name">Jan Sarivuo</span>
+            <span class="logo-role" data-i18n="logo_role">Kehittäjä</span>
+        </a>
+
         <nav class="nav" data-i18n-aria="nav_aria" aria-label="Sivuston päänavigaatio">
             <a href="#about" data-i18n="nav_about">Minusta</a>
             <a href="#skills" data-i18n="nav_skills">Osaaminen</a>
@@ -57,36 +61,47 @@
 <main id="main" tabindex="-1">
     <section class="hero" id="top">
         <div class="container hero-inner">
-            <div>
-                <p class="hero-label" data-i18n="hero_label">Hei, olen</p>
+            <div class="hero-main">
+                <p class="hero-label" data-i18n="hero_label">Ohjelmistokehittäjä · Android · Backend</p>
                 <h1>Jan Sarivuo</h1>
-                <h2 class="hero-subtitle" data-i18n="hero_subtitle">Junior Full Stack- ja Android-kehittäjä</h2>
+                <h2 class="hero-subtitle" data-i18n="hero_subtitle">Android- ja full stack -kehittäjä</h2>
                 <p class="hero-text" data-i18n="hero_text">
-                    Toimin työssäoppimisjaksolla full stack -kehittäjänä, jossa suunnittelin ja
-                    toteutin alusta loppuun useita järjestelmiä, jotka otettiin käyttöön
-                    tuotantoympäristössä. Vastasin koko kehitysketjusta: käyttöliittymästä,
-                    rajapinnoista, tietokannoista, integraatioista sekä palvelinylläpidosta.
-                    Järjestelmien käytettävyydestä saatiin hyvää palautetta, ja ne ovat
-                    aktiivisessa käytössä yrityksen arjessa. Haluan jatkaa kehittymistäni
-                    junior-kehittäjän roolissa ja tuottaa ratkaisuja, joilla on todellista
-                    käytännön arvoa.
+                    Rakennan sovelluksia koko ketjun mitalta: Android-käyttöliittymästä FastAPI-backendiin, tietokantaan ja palvelimelle asti. Kolme sovellustani on julkaistu Google Playssa, ja ylläpidän niiden backendit itse. Työssäoppimisjaksolla vein tuotantoon myös yrityksen full stack -järjestelmiä. Haen junior- tai kasvurooleja.
                 </p>
                 <div class="hero-actions">
-                    <a href="#projects" class="btn-primary" data-i18n="hero_cta_projects">Katso projektit</a>
+                    <a href="#projects" class="btn-primary" data-i18n="hero_cta_projects">Tutustu projekteihin</a>
                     <a href="#contact" class="btn-ghost" data-i18n="hero_cta_contact">Ota yhteyttä</a>
                 </div>
             </div>
-            <div class="hero-ascii">
-<pre><code id="heroCode">// developer mode: ON
-const dev = {
-  name: "Jan",
-  role: "Junior Full Stack -kehittäjä",
-  stack: [
-    "Python", "FastAPI", "Kotlin",
-    "Jetpack Compose", "MySQL", "REST API:t"
-  ]
-}</code></pre>
-            </div>
+            <aside class="spec" data-i18n-aria="spec_aria" aria-label="Yhteenveto osaamisesta">
+                <p class="spec-title" data-i18n="spec_title">Mitä olen rakentanut</p>
+                <dl class="spec-list">
+                    <div class="spec-row">
+                        <dt data-i18n="spec_android_label">Android</dt>
+                        <dd data-i18n="spec_android_value">Kotlin · Jetpack Compose · Material 3</dd>
+                    </div>
+                    <div class="spec-row">
+                        <dt data-i18n="spec_backend_label">Backend</dt>
+                        <dd data-i18n="spec_backend_value">FastAPI · Python · MariaDB</dd>
+                    </div>
+                    <div class="spec-row">
+                        <dt data-i18n="spec_released_label">Julkaistu</dt>
+                        <dd data-i18n="spec_released_value">Kolme sovellusta Google Playssa</dd>
+                    </div>
+                    <div class="spec-row">
+                        <dt data-i18n="spec_production_label">Tuotanto</dt>
+                        <dd data-i18n="spec_production_value">Tunnistautuminen · tilausmaksut · sovelluksen eheys</dd>
+                    </div>
+                    <div class="spec-row">
+                        <dt data-i18n="spec_infra_label">Palvelimet</dt>
+                        <dd data-i18n="spec_infra_value">Linux · Hetzner · Nginx · systemd</dd>
+                    </div>
+                    <div class="spec-row">
+                        <dt data-i18n="spec_brand_label">Sovellusbrändi</dt>
+                        <dd><a href="https://janstechapps.com/" target="_blank" rel="noopener noreferrer">JanstechApps</a></dd>
+                    </div>
+                </dl>
+            </aside>
         </div>
     </section>
 
@@ -680,11 +695,27 @@ const dict = {
         nav_contact: "Yhteys",
         lang_label: "Kieli",
 
-        hero_label: "Hei, olen",
-        hero_subtitle: "Junior Full Stack- ja Android-kehittäjä",
-        hero_text: "Toimin työssäoppimisjaksolla full stack -kehittäjänä, jossa suunnittelin ja toteutin alusta loppuun useita järjestelmiä, jotka otettiin käyttöön tuotantoympäristössä. Vastasin koko kehitysketjusta: käyttöliittymästä, rajapinnoista, tietokannoista, integraatioista sekä palvelinylläpidosta. Olen saanut käytännön kokemusta myös Linux-palvelimista, deploy-prosesseista, varmuuskopioinnista, lokien tulkinnasta ja palvelinympäristöjen vianetsinnästä. Haluan jatkaa kehittymistäni junior-kehittäjän roolissa ja tuottaa ratkaisuja, joilla on todellista käytännön arvoa.",
-        hero_cta_projects: "Katso projektit",
+        logo_role: "Kehittäjä",
+
+        hero_label: "Ohjelmistokehittäjä · Android · Backend",
+        hero_subtitle: "Android- ja full stack -kehittäjä",
+        hero_text: "Rakennan sovelluksia koko ketjun mitalta: Android-käyttöliittymästä FastAPI-backendiin, tietokantaan ja palvelimelle asti. Kolme sovellustani on julkaistu Google Playssa, ja ylläpidän niiden backendit itse. Työssäoppimisjaksolla vein tuotantoon myös yrityksen full stack -järjestelmiä. Haen junior- tai kasvurooleja.",
+        hero_cta_projects: "Tutustu projekteihin",
         hero_cta_contact: "Ota yhteyttä",
+
+        spec_aria: "Yhteenveto osaamisesta",
+        spec_title: "Mitä olen rakentanut",
+        spec_android_label: "Android",
+        spec_android_value: "Kotlin · Jetpack Compose · Material 3",
+        spec_backend_label: "Backend",
+        spec_backend_value: "FastAPI · Python · MariaDB",
+        spec_released_label: "Julkaistu",
+        spec_released_value: "Kolme sovellusta Google Playssa",
+        spec_production_label: "Tuotanto",
+        spec_production_value: "Tunnistautuminen · tilausmaksut · sovelluksen eheys",
+        spec_infra_label: "Palvelimet",
+        spec_infra_value: "Linux · Hetzner · Nginx · systemd",
+        spec_brand_label: "Sovellusbrändi",
 
         about_title: "Minusta",
         about_p1: "Olen 11/2025 valmistunut ohjelmistokehityksen osaaja ja toiminut työssäoppimisjaksolla käytännönläheisessä full stack -roolissa. Jakson aikana suunnittelin ja toteutin alusta loppuun useita tuotantokäytössä olevia järjestelmiä: käyttöliittymät, API-kerros, tietokantaratkaisut, integraatiot ja palvelinylläpito.",
@@ -875,16 +906,6 @@ const dict = {
         contact_link_cv: "Lataa CV (PDF)",
 
         footer_note: "Portfolio-sivusto · Jan Sarivuo",
-
-        hero_code: `// developer mode: ON
-const dev = {
-  name: "Jan",
-  role: "Junior Full Stack -kehittäjä",
-  stack: [
-    "Python", "FastAPI", "Kotlin",
-    "Jetpack Compose", "MySQL", "REST API:t"
-  ]
-}`
     },
 
     en: {
@@ -898,11 +919,27 @@ const dev = {
         nav_contact: "Contact",
         lang_label: "Language",
 
-        hero_label: "Hi, I'm",
-        hero_subtitle: "Junior Full Stack and Android Developer",
-        hero_text: "During my on-the-job learning period, I worked as a full stack developer and designed and implemented multiple systems from start to finish for production use. I was responsible for the full delivery chain: user interface, APIs, databases, integrations, and server maintenance. I also gained hands-on experience with Linux servers, deployment processes, backups, log analysis, and troubleshooting server environments. I want to continue growing in a junior developer role and build solutions that have real practical value.",
+        logo_role: "Developer",
+
+        hero_label: "Software developer · Android · Backend",
+        hero_subtitle: "Android and full-stack developer",
+        hero_text: "I build software across the whole chain — from the Android interface to the FastAPI backend, the database, and the server it runs on. Three of my apps are published on Google Play, and I run their backends myself. During my work placement I also shipped full-stack systems into production. I am open to junior and growth roles.",
         hero_cta_projects: "View projects",
-        hero_cta_contact: "Contact me",
+        hero_cta_contact: "Get in touch",
+
+        spec_aria: "Summary of what I have built",
+        spec_title: "What I have built",
+        spec_android_label: "Android",
+        spec_android_value: "Kotlin · Jetpack Compose · Material 3",
+        spec_backend_label: "Backend",
+        spec_backend_value: "FastAPI · Python · MariaDB",
+        spec_released_label: "Released",
+        spec_released_value: "Three apps on Google Play",
+        spec_production_label: "Production",
+        spec_production_value: "Authentication · billing · app integrity",
+        spec_infra_label: "Servers",
+        spec_infra_value: "Linux · Hetzner · Nginx · systemd",
+        spec_brand_label: "App brand",
 
         about_title: "About",
         about_p1: "I graduated in software development in 11/2025 and worked in a practical full stack role during my on-the-job learning period. During that time, I designed and implemented multiple production-used systems end to end: user interfaces, API layer, database solutions, integrations, and server maintenance.",
@@ -1092,16 +1129,6 @@ const dev = {
         contact_link_cv: "Download CV (PDF)",
 
         footer_note: "Portfolio website · Jan Sarivuo",
-
-        hero_code: `// developer mode: ON
-const dev = {
-  name: "Jan",
-  role: "Junior Full Stack Developer",
-  stack: [
-    "Python", "FastAPI", "Kotlin",
-    "Jetpack Compose", "MySQL", "REST APIs"
-  ]
-}`
     }
 };
 
@@ -1129,11 +1156,6 @@ function setLang(lang) {
         if (dict[lang] && dict[lang][key] != null) {
             el.setAttribute("aria-label", dict[lang][key]);
         }
-    }
-
-    const heroCode = document.getElementById("heroCode");
-    if (heroCode) {
-        heroCode.textContent = dict[lang].hero_code;
     }
 
     const emailEl = document.getElementById("email");

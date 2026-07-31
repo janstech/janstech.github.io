@@ -114,8 +114,8 @@
     --z-skip-link: 100;
 
     /* Sticky headerin mitattu korkeus + väljyys, jotta ankkuriotsikot eivät jää
-       sen alle. Mitattu >=1024px: 57px. Arvo päivittyy media queryissä. */
-    --anchor-offset: 76px;
+       sen alle. Mitattu >=1024px: 49px. Arvo päivittyy media queryissä. */
+    --anchor-offset: 68px;
 }
 
 @media (min-width: 641px) {
@@ -285,26 +285,41 @@ main:focus {
     }
 }
 
+/* Yksi rivi desktopilla. Kapeilla näytöillä nav siirtyy omalle rivilleen
+   logon ja kielivalitsimen alle, jolloin header pysyy kaksirivisenä. */
 .header-inner {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: var(--space-4);
-    padding: var(--space-3) 0;
+    gap: var(--space-4) var(--space-6);
+    padding: var(--space-2) 0;
     flex-wrap: wrap;
 }
 
 .logo {
-    font-family: var(--font-mono);
-    font-size: var(--font-size-sm);
-    letter-spacing: var(--tracking-wide);
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-2);
     color: var(--color-text);
+    text-decoration: none;
     white-space: nowrap;
+    margin-right: auto;
 }
 
-.logo a {
-    color: inherit;
-    text-decoration: none;
+.logo-name {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: var(--tracking-normal);
+}
+
+.logo-role {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-text-muted);
+}
+
+.logo:hover .logo-role {
+    color: var(--color-accent);
 }
 
 .nav {
@@ -348,7 +363,6 @@ main:focus {
     display: flex;
     align-items: center;
     gap: var(--space-2);
-    margin-left: auto;
     flex-wrap: wrap;
 }
 
@@ -404,17 +418,18 @@ main:focus {
 
 .hero-inner {
     display: grid;
-    grid-template-columns: minmax(0, 3fr) minmax(0, 2.3fr);
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
     gap: var(--space-7);
-    align-items: center;
+    align-items: start;
 }
 
 .hero-label {
     font-family: var(--font-mono);
     font-size: var(--font-size-xs);
-    letter-spacing: var(--tracking-wide);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     color: var(--color-accent);
-    margin-bottom: var(--space-2);
+    margin-bottom: var(--space-3);
 }
 
 .hero h1 {
@@ -494,7 +509,69 @@ main:focus {
     color: var(--color-accent);
 }
 
-/* Hero-koodilohko. Sisältö säilyy; vain pinta ja värit päivittyvät. */
+/* Spec-paneeli: hero-osion faktalista. Korvasi aiemman koodilohkon.
+   Semantiikka on <dl>, jossa jokainen <dt>/<dd>-pari on omassa rivissään.
+   Rakenne on hiusviivoin eroteltu lista, ei kortti kortin päällä. */
+
+.spec {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-surface-subtle);
+    padding: var(--space-4) var(--space-5) var(--space-5);
+}
+
+.spec-title {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    padding-bottom: var(--space-3);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.spec-row {
+    display: grid;
+    grid-template-columns: minmax(6.5rem, auto) 1fr;
+    gap: var(--space-2) var(--space-4);
+    padding: var(--space-3) 0;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.spec-row:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+}
+
+.spec-row dt {
+    font-family: var(--font-mono);
+    font-size: var(--font-size-xs);
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-text-muted);
+    line-height: var(--line-height-snug);
+    padding-top: 0.1em;
+}
+
+.spec-row dd {
+    font-size: var(--font-size-sm);
+    color: var(--color-text);
+    line-height: var(--line-height-snug);
+}
+
+.spec-row dd a {
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: color var(--transition-fast) var(--ease-standard);
+}
+
+.spec-row dd a:hover {
+    color: var(--color-accent-hover);
+    text-decoration: underline;
+}
+
+/* Koodilohko. Etusivun hero käyttää nyt spec-paneelia, mutta
+   gainsai/index.html esittää yhä aidon stack-koodilohkon. Tämä sääntö jää
+   sitä varten; projektisivujen komponentit yhtenäistetään Vaiheessa 5. */
 
 .hero-ascii {
     background: var(--color-surface-subtle);
@@ -505,7 +582,8 @@ main:focus {
     font-size: var(--font-size-xs);
     line-height: var(--line-height-snug);
     color: var(--color-text-secondary);
-    overflow: auto;
+    min-width: 0;
+    overflow-x: auto;
 }
 
 .hero-ascii pre {
@@ -773,34 +851,46 @@ p.project-meta {
    ========================================================================== */
 
 @media (max-width: 900px) {
-    /* Kielivalitsin siirtyy omalle rivilleen: mitattu 98-101px. */
+    /* Nav siirtyy omalle rivilleen logon ja kielivalitsimen alle, jolloin
+       header pysyy kaksirivisenä. DOM-järjestys on logo -> nav -> kieli
+       (tavanomainen desktop-järjestys); mobiilissa vain nav siirretään
+       visuaalisesti alas. */
+    /* Header 2 riviä: mitattu 113px (768px). */
     :root {
-        --anchor-offset: 118px;
+        --anchor-offset: 132px;
     }
 
-    .header-inner {
-        align-items: flex-start;
-    }
-
-    .lang-switch {
+    .nav {
+        order: 3;
         width: 100%;
-        justify-content: flex-end;
-        margin-left: 0;
+        /* Flex-itemin oletus min-width: auto olisi linkkien yhteisleveys,
+           mikä työntäisi koko sivun vaakasuuntaiseen vieritykseen. */
+        min-width: 0;
+        gap: var(--space-5);
+        /* Ei rivittymistä kolmannelle riville. Linkit mitoitetaan mahtumaan
+           yhdelle riville; vaakavieritys on varajärjestely suurella
+           fonttikoolla tai zoomilla. */
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overscroll-behavior-x: contain;
+        scrollbar-width: none;
+    }
+
+    .nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    .nav a {
+        white-space: nowrap;
+        /* Kosketuskohde n. 45 px korkea. */
+        padding: var(--space-3) 0;
     }
 }
 
 @media (max-width: 840px) {
     .hero-inner {
         grid-template-columns: 1fr;
-    }
-
-    .hero-ascii {
-        margin-top: var(--space-4);
-    }
-
-    .nav {
-        gap: var(--space-4);
-        font-size: var(--font-size-xs);
+        gap: var(--space-6);
     }
 
     .section {
@@ -808,30 +898,33 @@ p.project-meta {
     }
 
     .hero {
-        padding: var(--space-7) 0 var(--space-6);
+        padding: var(--space-6) 0 var(--space-7);
     }
 }
 
 @media (max-width: 640px) {
-    /* Header on pystysuuntainen ja navigaatio rivittyy: mitattu 122px (390px)
-       ... 163px (360px). Arvo mitoitetaan kapeimman tapauksen mukaan. */
+    /* Header pysyy kaksirivisenä myös kapeimmilla näytöillä: mitattu 102px. */
     :root {
-        --anchor-offset: 180px;
+        --anchor-offset: 120px;
     }
 
     .header-inner {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: var(--space-2);
+        gap: var(--space-2) var(--space-4);
     }
 
+    /* Tiiviimpi mitoitus, jotta kaikki viisi linkkiä mahtuvat yhdelle
+       riville myös 360 px:n leveydellä ilman piilotettua vieritystä. */
     .nav {
-        width: 100%;
+        gap: var(--space-3);
+        font-size: var(--font-size-xs);
     }
 
-    .lang-switch {
-        width: 100%;
-        justify-content: flex-start;
+    /* Logon rooliteksti on täydentävä koriste - sama tieto toistuu heti
+       heron otsikossa. Kielivalitsimen label on toiminnallinen, joten se
+       säilyy: näin logo ja kielivalinta mahtuvat samalle riville myös
+       englanniksi 360 px:n leveydellä. */
+    .logo-role {
+        display: none;
     }
 
     .hero-actions {
@@ -842,6 +935,11 @@ p.project-meta {
     .btn-primary,
     .btn-ghost {
         width: 100%;
+    }
+
+    .spec-row {
+        grid-template-columns: 1fr;
+        gap: var(--space-1);
     }
 }
 
