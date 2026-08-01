@@ -21,8 +21,8 @@ Tiedostot on organisoitu selkeisiin kokonaisuuksiin ylläpidettävyyden parantam
 * `css/` – Tyylitiedostot ja visuaalinen ilme.
 * `images/` – Projektikuvat, ikonit ja grafiikka.
 * `documents/` – Ladattavat tiedostot (CV, arkkitehtuurikuvaukset).
-* `gainsai/`, `kauppalista/`, `waveiq/` – julkaistujen sovellusten omat
-  projektisivut (`/gainsai/`, `/kauppalista/`, `/waveiq/`).
+* `gainsai/`, `kauppalista/`, `waveiq/`, `surekeep/` – sovellusten omat
+  projektisivut (`/gainsai/`, `/kauppalista/`, `/waveiq/`, `/surekeep/`).
 * `apps/` – legacy-osoite. Vanha sovellusten koontisivu on korvattu kevyellä
   siirtymäsivulla, joka ohjaa osoitteeseen `https://janstechapps.com/`.
 * `sitemap.xml`, `robots.txt` – Hakukoneille tarkoitetut tiedostot.
@@ -45,15 +45,19 @@ kielivalinta säilyy myös projektisivuille siirryttäessä. Oletuskieli on suom
 Sovellusprojektit esitellään etusivun projektikorteissa. Laajemmat kokonaisuudet
 voivat saada oman sivun samalla rakenteella, tyylillä ja i18n-ratkaisulla:
 
-Jokaisella julkaistulla Android-sovelluksella on oma sivunsa, joka noudattaa
-samaa rakennetta: hero + tekninen yhteenvetopaneeli (`<dl>`), tuotekuvaus,
+Jokaisella julkaistulla Android-sovelluksella on oma sivunsa. SureKeepin sivu
+esittelee vastaavaa, vielä kehityksessä olevaa kokonaisuutta rehellisellä
+tilamerkinnällä. Sivut noudattavat samaa rakennetta: hero + tekninen
+yhteenvetopaneeli (`<dl>`), tuotekuvaus,
 keskeiset ominaisuudet, sovelluskohtainen syventävä osio, tekninen toteutus,
-tietoturva ja tietosuoja, kuvakaappaukset ja julkaisutilanne. Kaikki sisältö on
-FI/EN, ja jokaisella sivulla on omat SEO- ja Open Graph -metatiedot.
+tietoturva ja tietosuoja sekä julkaisutilanne. Kuvakaappauksia käytetään vain,
+kun ne ovat julkisia ja turvallisia esittää. Kaikki sisältö on FI/EN, ja
+jokaisella sivulla on omat SEO- ja Open Graph -metatiedot.
 
 * **GainsAI** – `gainsai/index.html` (`/gainsai/`)
 * **Kauppalista & Muistiinpanot** – `kauppalista/index.html` (`/kauppalista/`)
 * **WaveIQ Radio** – `waveiq/index.html` (`/waveiq/`)
+* **SureKeep** – `surekeep/index.html` (`/surekeep/`, kehityksessä)
 
 Projektisivujen yhteiset tyylit ovat `css/style.css`-tiedoston osiossa
 *13. PROJEKTISIVUT*; sivuilla ei ole omia inline-tyylilohkoja.

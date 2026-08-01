@@ -357,14 +357,17 @@
                 <div class="app-grid">
                     <article class="project-app">
                         <h4 data-i18n="proj_surekeep_title">SureKeep</h4>
-                        <p class="project-status" data-i18n="status_preparing">Tuotantovalmistelussa</p>
-                        <p class="project-lead" data-i18n="proj_surekeep_desc">Sovellus kuittien, takuiden ja liitteiden hallintaan. Kuitin voi kuvata, ja tekoäly poimii siitä tiedot käyttäjän tarkistettavaksi. Takuuajoista muistutetaan, ja tiedot synkronoidaan omaan backendiin.</p>
-                        <p class="project-tech" data-i18n="proj_surekeep_meta">Kotlin · Jetpack Compose · FastAPI · SQLAlchemy · Alembic · MariaDB · Firebase Auth</p>
+                        <p class="project-status" data-i18n="status_development">Kehityksessä</p>
+                        <p class="project-lead" data-i18n="proj_surekeep_desc">SureKeep yhdistää kuittien, takuiden ja dokumenttiliitteiden hallinnan käyttäjän käynnistämään GPS-ajopäiväkirjaan. Kokonaisuus tukee henkilökohtaista ja yrityskäyttöä: hyväksyttävät matkat, kuukausiaineisto, arkistointi ja kirjanpitäjälle valmisteltava aineisto kuuluvat samaan dataan.</p>
+                        <p class="project-tech" data-i18n="proj_surekeep_meta">Kotlin · Jetpack Compose · Room · FastAPI · MariaDB · Firebase Auth</p>
                         <ul class="project-evidence">
-                            <li data-i18n="proj_surekeep_1">Kuitin kuvaus ja tekoälyavusteinen tietojen poiminta</li>
-                            <li data-i18n="proj_surekeep_2">Takuumuistutukset sekä kuittien arkistointi ja palautus aktiiviseksi</li>
-                            <li data-i18n="proj_surekeep_3">Käyttäjätilit, pilvisynkronointi, Drive-varmuuskopio ja tilin poisto</li>
+                            <li data-i18n="proj_surekeep_1">Käyttäjän käynnistämä GPS-ajopäiväkirja, reittikartta sekä PDF- ja CSV-vienti</li>
+                            <li data-i18n="proj_surekeep_2">Kuitit, liitteet ja takuut: AI-avusteinen poiminta, arkistointi ja palautus</li>
+                            <li data-i18n="proj_surekeep_3">Yrityskuitit, kuukausiaineisto, kirjanpitäjän sähköpostiluonnos ja Drive-varmuuskopio</li>
                         </ul>
+                        <div class="project-actions">
+                            <a class="link-primary" href="surekeep/" data-i18n="proj_surekeep_link_page">Lue lisää – projektisivu</a>
+                        </div>
                     </article>
 
                     <article class="project-app">
@@ -738,7 +741,6 @@ const dict = {
         group_systems_note: "Työssäoppimisjaksolla toteutettuja järjestelmiä, jotka ovat edelleen yrityksen käytössä.",
         group_earlier: "Aiemmat ja täydentävät projektit",
         status_published: "Julkaistu Google Playssa",
-        status_preparing: "Tuotantovalmistelussa",
         status_development: "Kehityksessä",
         status_production: "Tuotantokäytössä",
         status_responsibility: "Tuotantovastuu",
@@ -782,11 +784,12 @@ const dict = {
         brand_text: "Suunnittelen, kehitän, julkaisen ja ylläpidän Android-sovelluksia JanstechApps-nimen alla. Brändisivusto kokoaa sovellukset, niiden ominaisuudet, latauslinkit sekä tietosuoja- ja tukisivut yhteen paikkaan.",
         brand_cta: "Tutustu JanstechApps-sovelluksiin",
         proj_surekeep_title: "SureKeep",
-        proj_surekeep_desc: "Sovellus kuittien, takuiden ja liitteiden hallintaan. Kuitin voi kuvata, ja tekoäly poimii siitä tiedot käyttäjän tarkistettavaksi. Takuuajoista muistutetaan, ja tiedot synkronoidaan omaan backendiin.",
-        proj_surekeep_meta: "Kotlin · Jetpack Compose · FastAPI · SQLAlchemy · Alembic · MariaDB · Firebase Auth",
-        proj_surekeep_1: "Kuitin kuvaus ja tekoälyavusteinen tietojen poiminta",
-        proj_surekeep_2: "Takuumuistutukset sekä kuittien arkistointi ja palautus aktiiviseksi",
-        proj_surekeep_3: "Käyttäjätilit, pilvisynkronointi, Drive-varmuuskopio ja tilin poisto",
+        proj_surekeep_desc: "SureKeep yhdistää kuittien, takuiden ja dokumenttiliitteiden hallinnan käyttäjän käynnistämään GPS-ajopäiväkirjaan. Kokonaisuus tukee henkilökohtaista ja yrityskäyttöä: hyväksyttävät matkat, kuukausiaineisto, arkistointi ja kirjanpitäjälle valmisteltava aineisto kuuluvat samaan dataan.",
+        proj_surekeep_meta: "Kotlin · Jetpack Compose · Room · FastAPI · MariaDB · Firebase Auth",
+        proj_surekeep_1: "Käyttäjän käynnistämä GPS-ajopäiväkirja, reittikartta sekä PDF- ja CSV-vienti",
+        proj_surekeep_2: "Kuitit, liitteet ja takuut: AI-avusteinen poiminta, arkistointi ja palautus",
+        proj_surekeep_3: "Yrityskuitit, kuukausiaineisto, kirjanpitäjän sähköpostiluonnos ja Drive-varmuuskopio",
+        proj_surekeep_link_page: "Lue lisää – projektisivu",
         proj_tyotori_title: "Työtori",
         proj_tyotori_desc: "Suomalaisen työnhaun avustaja, joka kokoaa avoimet työpaikat useasta lähteestä ja auttaa hakemusten sekä määräaikojen hallinnassa. Tekoäly tiivistää ilmoituksia ja luonnostelee hakemustekstejä, mutta ei lähetä hakemuksia käyttäjän puolesta.",
         proj_tyotori_meta: "Kotlin · Jetpack Compose · FastAPI · MariaDB · Firebase Auth · App Check",
@@ -967,7 +970,6 @@ const dict = {
         group_systems_note: "Systems built during my work placement that the company still runs today.",
         group_earlier: "Earlier and complementary work",
         status_published: "Published on Google Play",
-        status_preparing: "Preparing for release",
         status_development: "In development",
         status_production: "Running in production",
         status_responsibility: "Production responsibility",
@@ -1011,11 +1013,12 @@ const dict = {
         brand_text: "I design, develop, publish, and maintain Android applications under the JanstechApps name. The product site brings the applications, their features, download links, and the privacy and support pages together in one place.",
         brand_cta: "Explore JanstechApps applications",
         proj_surekeep_title: "SureKeep",
-        proj_surekeep_desc: "An app for managing receipts, warranties, and attachments. You photograph a receipt and AI extracts the details for you to review. Warranty periods trigger reminders, and the data syncs to a backend I built.",
-        proj_surekeep_meta: "Kotlin · Jetpack Compose · FastAPI · SQLAlchemy · Alembic · MariaDB · Firebase Auth",
-        proj_surekeep_1: "Receipt capture with AI-assisted data extraction",
-        proj_surekeep_2: "Warranty reminders, archiving, and restoring receipts",
-        proj_surekeep_3: "User accounts, cloud sync, Drive backup, and account deletion",
+        proj_surekeep_desc: "SureKeep combines receipt, warranty, and document-attachment management with a user-started GPS driving log. It supports personal and business use: reviewable trips, monthly material, archiving, and accountant-ready material belong to the same data model.",
+        proj_surekeep_meta: "Kotlin · Jetpack Compose · Room · FastAPI · MariaDB · Firebase Auth",
+        proj_surekeep_1: "User-started GPS driving log, route map, and PDF and CSV export",
+        proj_surekeep_2: "Receipts, attachments, and warranties: AI-assisted extraction, archive, and restore",
+        proj_surekeep_3: "Business receipts, monthly material, accountant email draft, and Drive backup",
+        proj_surekeep_link_page: "Read more – project page",
         proj_tyotori_title: "Työtori",
         proj_tyotori_desc: "A Finnish job-search assistant that collects open positions from several sources and helps manage applications and deadlines. AI summarises listings and drafts application text, but never submits an application on the user\u2019s behalf.",
         proj_tyotori_meta: "Kotlin · Jetpack Compose · FastAPI · MariaDB · Firebase Auth · App Check",
