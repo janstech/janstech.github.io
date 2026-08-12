@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <meta charset="UTF-8" />
+    <title>Työtori – Android-sovellus | Jan Sarivuo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="description" content="Työtori on Google Playssa julkaistu Android-sovellus suomalaiseen työnhakuun: viiden työpaikkalähteen ilmoitukset yhtenä listana hakuaikoineen, deterministinen sopivuusarvio ja hakemuksen valmistelu. Taustalla oma FastAPI- ja MariaDB-palvelu.">
+    <meta name="author" content="Jan Sarivuo">
+    <meta name="robots" content="index,follow" />
+
+    <link rel="canonical" href="https://janstech.github.io/tyotori/">
+
+    <meta property="og:title" content="Työtori – Android-sovellus | Jan Sarivuo">
+    <meta property="og:description" content="Android-sovellus suomalaiseen työnhakuun: viisi työpaikkalähdettä yhtenäistettynä, hakuajat, deterministinen sopivuusarvio ja hakemusluonnokset. Oma FastAPI-backend, MariaDB ja palvelinvarmennettu Työtori+ -käyttöoikeus.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://janstech.github.io/tyotori/">
+    <meta property="og:image" content="https://janstech.github.io/images/tyotori-logo.png">
+    <meta property="og:locale" content="fi_FI">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:site_name" content="Jan Sarivuo – Portfolio">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Työtori – Android-sovellus | Jan Sarivuo">
+    <meta name="twitter:description" content="Android-sovellus suomalaiseen työnhakuun: viisi työpaikkalähdettä yhtenäistettynä, hakuajat ja hakemusluonnokset. Oma FastAPI + MariaDB -backend.">
+    <meta name="twitter:image" content="https://janstech.github.io/images/tyotori-logo.png">
+
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="../images/favicon-48x48.png">
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+    <link rel="manifest" href="../manifest.json">
+</head>
+
+<body>
+<a class="skip-link" href="#main" data-i18n="skip_link">Siirry pääsisältöön</a>
+
+<header class="site-header">
+    <div class="container header-inner">
+        <a class="logo" href="../index.html">
+            <span class="logo-name">Jan Sarivuo</span>
+            <span class="logo-role" data-i18n="logo_role">Kehittäjä</span>
+        </a>
+        <nav class="nav" data-i18n-aria="nav_aria" aria-label="Sovellussivun navigaatio">
+            <a href="../index.html#projects" data-i18n="nav_back">&larr; Portfolio</a>
+            <a href="#overview" data-i18n="nav_overview">Yleiskuva</a>
+            <a href="#features" data-i18n="nav_features">Ominaisuudet</a>
+            <a href="#sources" data-i18n="nav_extra">Lähteet</a>
+            <a href="#tech" data-i18n="nav_tech">Tekniikka</a>
+            <a href="#screens" data-i18n="nav_screens">Kuvat</a>
+        </nav>
+
+        <div class="lang-switch">
+            <span class="lang-label" data-i18n="lang_label">Kieli</span>
+            <button id="btnFi" type="button">FI</button>
+            <button id="btnEn" type="button">EN</button>
+        </div>
+    </div>
+</header>
+
+<main id="main" tabindex="-1">
+    <section class="hero" id="top">
+        <div class="container hero-inner">
+            <div>
+                <div class="app-hero-head">
+                    <img class="app-hero-logo" src="../images/tyotori-logo.png"
+                         data-i18n-alt="logo_alt" alt="Työtori-sovelluksen logo"
+                         width="512" height="512" decoding="async" />
+                    <div>
+                        <p class="hero-label" data-i18n="hero_label">Android-sovellus</p>
+                        <h1>Työtori</h1>
+                    </div>
+                </div>
+
+                <h2 class="hero-subtitle" data-i18n="hero_subtitle">Viiden työpaikkalähteen ilmoitukset yhtenä listana, hakuajasta hakemukseen asti</h2>
+
+                <p class="status-pill" data-i18n="hero_status">Julkaistu Google Playssa</p>
+
+                <p class="lede" data-i18n="hero_lede">Työtori kokoaa avoimet työpaikat viidestä suomalaisesta lähteestä yhdeksi vertailtavaksi listaksi ja vie käyttäjän ilmoituksesta hakemusluonnokseen, liitteisiin ja hakemuksen merkitsemiseen lähetetyksi. Työn vaikein osa ei ollut käyttöliittymä vaan se, että jokainen lähde palauttaa datan omalla tavallaan. Toteutin sekä Compose-sovelluksen että FastAPI-taustajärjestelmän, joka yhtenäistää lähteet samaan muotoon.</p>
+
+                <div class="hero-actions">
+                    <a href="https://play.google.com/store/apps/details?id=com.janstech.tyotori" target="_blank" rel="noopener noreferrer" class="btn-primary"
+                       data-i18n="cta_play">Google Play</a>
+                    <a href="../index.html#projects" class="btn-ghost" data-i18n="cta_back">Kaikki projektit</a>
+                </div>
+            </div>
+
+            <aside class="spec" data-i18n-aria="spec_aria" aria-label="Sovelluksen tekninen yhteenveto">
+                <p class="spec-title" data-i18n="spec_title">Tekninen yhteenveto</p>
+                <dl class="spec-list">
+                    <div class="spec-row">
+                        <dt data-i18n="spec_platform_label">Alusta</dt>
+                        <dd data-i18n="spec_platform_value">Android 8+ · Kotlin · Jetpack Compose</dd>
+                    </div>
+                    <div class="spec-row">
+                        <dt data-i18n="spec_sources_label">Lähteet</dt>
+                        <dd data-i18n="spec_sources_value">Työmarkkinatori · Duunitori · Jobly · Kuntarekry · Valtiolle.fi</dd>
+                    </div>
+                    <div class="spec-row">
+                        <dt data-i18n="spec_backend_label">Backend</dt>
+                        <dd data-i18n="spec_backend_value">FastAPI · Python · SQLAlchemy · MariaDB</dd>
+                    </div>
+                    <div class="spec-row">
+                        <dt data-i18n="spec_lang_label">Kielet</dt>
+                        <dd data-i18n="spec_lang_value">Suomi · Svenska · English</dd>
+                    </div>
+                    <div class="spec-row">
+                        <dt data-i18n="spec_protect_label">Suojaus</dt>
+                        <dd data-i18n="spec_protect_value">Firebase Auth · App Check · Play Integrity</dd>
+                    </div>
+                    <div class="spec-row">
+                        <dt data-i18n="spec_release_label">Julkaisu</dt>
+                        <dd data-i18n="spec_release_value">Google Play -tuotanto · Play Billing</dd>
+                    </div>
+                </dl>
+            </aside>
+        </div>
+    </section>
+
+    <section id="overview" class="section">
+        <div class="container">
+            <h2 class="section-title" data-i18n="overview_title">Tuote</h2>
+            <p class="section-intro" data-i18n="overview_intro">Työnhaussa toistuu sama urakka: samat ilmoitukset luetaan useasta palvelusta, hakuajat unohtuvat ja hakemusteksti aloitetaan joka kerta tyhjältä sivulta. Työtori tekee tästä yhden polun: haku, ilmoitus, luonnos, liitteet ja merkintä lähetetyksi samassa sovelluksessa.</p>
+
+            <div class="info-grid">
+                <div class="card">
+                    <h3 data-i18n="ov1_title">Kenelle</h3>
+                    <p data-i18n="ov1_body">Suomessa työtä hakeville, myös niille joille sovellukset eivät ole arkipäivää. Tuotevaatimuksena oli suomi ensin, vähän kerrallaan näytöllä, isot kosketuskohteet ja tuki suurille fonttikoille.</p>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="ov2_title">Mitä se ratkaisee</h3>
+                    <p data-i18n="ov2_body">Työpaikkalähteet ovat erillisiä ja erimuotoisia. Työtori hakee ne yhdellä haulla, näyttää jokaisen ilmoituksen samoilla kentillä ja pitää hakuajan mukana ilmoituksesta hakemukseen ja hakemusten seurantaan asti.</p>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="ov3_title">Miten sitä käytetään</h3>
+                    <p data-i18n="ov3_body">Käyttäjä täyttää profiilin ja CV:n, hakee valitsemistaan lähteistä tai lisää ilmoituksen omalla linkillä, tallentaa kiinnostavat työpaikat ja valmistelee hakemuksen. Hakemuksen lähettää aina käyttäjä itse.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title" data-i18n="features_title">Keskeiset ominaisuudet</h2>
+
+            <div class="skills-grid">
+                <div class="card">
+                    <h3 data-i18n="f1_title">Työpaikkojen haku</h3>
+                    <ul>
+                        <li data-i18n="f1_1">Hakusanat profiilista tai käyttäjän itse kirjoittamina</li>
+                        <li data-i18n="f1_2">Yksi tai useampi sijainti, koko maa tai etätyö</li>
+                        <li data-i18n="f1_3">Lähteiden valinta, lajittelu ja ehdokkaan piilotus</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="f2_title">Ilmoituksen tiedot</h3>
+                    <ul>
+                        <li data-i18n="f2_1">Nimike, työnantaja, sijainti, lähde ja hakuajan päättyminen</li>
+                        <li data-i18n="f2_2">Käyttäjän avaama esikatselu ilmoituksen kuvauksesta</li>
+                        <li data-i18n="f2_3">Ilmoituksen voi lisätä myös linkillä tai liittämällä tekstin</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="f3_title">Sopivuusarvio</h3>
+                    <ul>
+                        <li data-i18n="f3_1">Yksi deterministinen prosentti, taso ja lyhyt perustelu</li>
+                        <li data-i18n="f3_2">Sama luku hakutuloksessa ja työpaikan tiedoissa</li>
+                        <li data-i18n="f3_3">Arvio on Työtorin oma; työnantaja ei näe sitä</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="f4_title">Hakemusluonnos</h3>
+                    <ul>
+                        <li data-i18n="f4_1">Hakemusteksti ja saateviesti profiilista, CV:stä ja ilmoituksesta</li>
+                        <li data-i18n="f4_2">Luonnos on muokattava, ja asiakirjan kieli valitaan erikseen</li>
+                        <li data-i18n="f4_3">Hakemuskirje vietävissä PDF-muotoon</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="f5_title">CV ja liitteet</h3>
+                    <ul>
+                        <li data-i18n="f5_1">Ladattu PDF-CV tai käsin kirjoitettu CV</li>
+                        <li data-i18n="f5_2">Käsin kirjoitetusta CV:stä muodostetaan PDF, jonka käyttäjä hyväksyy</li>
+                        <li data-i18n="f5_3">Liitteiden valmistelu sähköpostiin ja tallennus puhelimeen</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="f6_title">Työnhakuvelvoite</h3>
+                    <ul>
+                        <li data-i18n="f6_1">Tarkastelujakson alku- ja loppupäivä sekä vaadittu hakemusmäärä</li>
+                        <li data-i18n="f6_2">Edistyminen lasketaan lähetetyksi merkityistä hakemuksista</li>
+                        <li data-i18n="f6_3">Kesken olevat luonnokset, lähetetyt ja arkisto omina tiloinaan</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sources" class="section">
+        <div class="container">
+            <h2 class="section-title" data-i18n="extra_title">Lähteet ja datan yhtenäistäminen</h2>
+            <p class="section-intro" data-i18n="extra_intro">Viisi lähdettä tarjoaa datansa kolmella eri tavalla: julkisena hakurajapintana, RSS/XML-syötteenä ja HTML-sivuina. Jokaisella on oma adapterinsa, mutta ne kirjoittavat samaan kandidaattimalliin, jotta sovellus näkee vain yhdenlaisia ilmoituksia.</p>
+
+            <div class="info-grid">
+                <div class="card">
+                    <h3 data-i18n="e1_title">Lähdekohtaiset adapterit</h3>
+                    <p data-i18n="e1_body">Yksi lähde luetaan JSON-hakurajapinnasta, toinen RSS/XML-syötteestä ja kolmas kortti-HTML:stä. Syöte on vakaampi sopimus kuin sivun rakenne, joten se on aina ensisijainen. Uutta lähdettä ei oteta käyttöön ennen auditointia.</p>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="e2_title">Hakusanojen yhteinen semantiikka</h3>
+                    <p data-i18n="e2_body">Termit normalisoidaan yhdessä paikassa ennen lähdekohtaista hakusuunnitelmaa: erotinmerkit, välilyönnit, kirjainkoosta riippumaton deduplikointi ja yhteinen yläraja. Sama hakusana tarkoittaa siis jokaisessa lähteessä samaa.</p>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="e3_title">Deduplikointi</h3>
+                    <p data-i18n="e3_body">Sama työpaikka löytyy usein monesta lähteestä ja monella hakusanalla. Kaksoiskappaleet karsitaan vakaalla avaimella: ensin lähteen oma tunniste, sitten osoitteessa oleva työavain ja viimeisenä kanoninen linkki – sekä lähteen sisällä että lähteiden välillä.</p>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="e4_title">Hakuaika päästä päähän</h3>
+                    <p data-i18n="e4_body">Hakuaika luetaan sieltä mistä lähde sen antaa, sanitoidaan yhteen muotoon ennen tallennusta ja kulkee samana arvona hakutuloskorttiin, työpaikan tietoihin ja hakemusluonnokseen. Käyttäjä ei tulkitse viittä päivämäärämuotoa.</p>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="e5_title">Virheiden eristys ja rajat</h3>
+                    <p data-i18n="e5_body">Yhden hakusanan tai lähteen virhe ei kaada muita: lähde saa hallitun virhetilan ja muiden tulokset palautetaan normaalisti. Hakusuunnitelmalla on kiinteä pyyntöyläraja lähdettä kohti.</p>
+                </div>
+            </div>
+
+            <p class="disclaimer" data-i18n="extra_note">Työtori lukee vain julkisia hakusivuja ja syötteitä. Se ei luo käyttäjälle tiliä lähdepalveluihin eikä hae työpaikkaa niiden kautta.</p>
+        </div>
+    </section>
+
+    <section id="tech" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title" data-i18n="tech_title">Tekninen toteutus</h2>
+            <p class="section-intro" data-i18n="tech_intro">Kokonaisuus on Android-sovellus, oma rajapintapalvelu ja tietokanta. Käyttöoikeudet, hakulogiikka ja mallikutsut ovat tarkoituksella palvelinpuolella, koska sovellus ei voi olla niiden turvaraja.</p>
+
+            <div class="project-grid">
+                <article class="card project-card">
+                    <h3 data-i18n="t1_title">Android-sovellus</h3>
+                    <p class="project-meta" data-i18n="t1_meta">Kotlin · Jetpack Compose · Material 3 · Navigation Compose · DataStore · Retrofit / OkHttp / Moshi</p>
+                    <ul class="project-points">
+                        <li data-i18n="t1_1">MVVM- ja repository-rakenne sekä deterministinen tilamapperi näkymille</li>
+                        <li data-i18n="t1_2">Tuki Android 8:sta (API 26) alkaen, käännetty API 36:ta vasten</li>
+                        <li data-i18n="t1_3">Tallennettu työpaikka, luonnos, lähetetty ja arkisto ovat yksi selkeä elinkaari</li>
+                        <li data-i18n="t1_4">Saavutettavuus mitoitettiin suurille fonttikoille: kortit rivittyvät, tila kerrotaan tekstinä eikä värillä</li>
+                    </ul>
+                </article>
+
+                <article class="card project-card">
+                    <h3 data-i18n="t2_title">Kolme kieltä, neljä eri kielikäsitettä</h3>
+                    <p class="project-meta" data-i18n="t2_meta">AppCompat per-app locale · string- ja plural-resurssit · resurssitestit</p>
+                    <ul class="project-points">
+                        <li data-i18n="t2_1">Käyttöliittymä suomeksi, ruotsiksi ja englanniksi; kielivalinta on sovelluskohtainen</li>
+                        <li data-i18n="t2_2">Käyttöliittymän kieli, hakemusasiakirjan kieli, analyysivastausten kieli ja työnantajan oma sisältö pidetään erillään toisistaan</li>
+                        <li data-i18n="t2_3">Pitkäikäiseen tilaan ei tallenneta valmiiksi käännettyä tekstiä vaan viestikoodeja</li>
+                        <li data-i18n="t2_4">Avainpariteetti, pluralit ja placeholderit tarkistetaan testeillä; kovakoodatut tekstit estetään regressiotestillä</li>
+                    </ul>
+                </article>
+
+                <article class="card project-card">
+                    <h3 data-i18n="t3_title">Backend ja tietokanta</h3>
+                    <p class="project-meta" data-i18n="t3_meta">FastAPI · Python · Pydantic · SQLAlchemy · Alembic · MariaDB</p>
+                    <ul class="project-points">
+                        <li data-i18n="t3_1">Rajapinnat profiilille, CV:lle, haulle, tallennetuille työpaikoille, luonnoksille ja käyttöoikeuksille</li>
+                        <li data-i18n="t3_2">Lähdekohtaiset hakuadapterit yhteisen kandidaattimallin takana</li>
+                        <li data-i18n="t3_3">Versioidut Alembic-migraatiot ja yksi kanoninen skeema</li>
+                        <li data-i18n="t3_4">Strukturoitu virhesopimus vakailla koodeilla, jotka sovellus kääntää käyttäjän kielelle itse</li>
+                    </ul>
+                </article>
+
+                <article class="card project-card">
+                    <h3 data-i18n="t4_title">Deterministinen logiikka ja tekoälyn rajattu rooli</h3>
+                    <p class="project-meta" data-i18n="t4_meta">Deterministinen pisteytys · neljä rajattua mallikutsua · sääntöpohjainen analyysi</p>
+                    <ul class="project-points">
+                        <li data-i18n="t4_1">Sopivuusarvion prosentti lasketaan deterministisesti; malli ei tuota rinnakkaista lukua</li>
+                        <li data-i18n="t4_2">Backend tekee mallikutsun vain neljässä kohdassa: hakemusluonnos, sopivuuden perustelu, hakutulosten selitys ja lomakeavun vastaukset</li>
+                        <li data-i18n="t4_3">Hakuohjeiden analyysi on sääntöpohjainen eikä käytä mallia lainkaan</li>
+                        <li data-i18n="t4_4">Jos mallipalvelu ei vastaa, haku palauttaa silti tulokset ja pisteet</li>
+                    </ul>
+                </article>
+
+                <article class="card project-card">
+                    <h3 data-i18n="t5_title">Tunnistautuminen, käyttöoikeudet ja maksut</h3>
+                    <p class="project-meta" data-i18n="t5_meta">Firebase Authentication · Firebase App Check · Google Play Integrity · Google Play Billing</p>
+                    <ul class="project-points">
+                        <li data-i18n="t5_1">Kirjautuminen sähköpostilla tai Google-tilillä; sovellus vaatii käyttäjätilin</li>
+                        <li data-i18n="t5_2">Suojatut pyynnöt kuljettavat varmennetun Firebase ID -tokenin, ja App Check -token tarkistetaan backendissä omalla policy-kerroksella</li>
+                        <li data-i18n="t5_3">Backend varmentaa Play-ostot ja omistaa Työtori+ -käyttöoikeuden; sovellus ei myönnä sitä itse</li>
+                        <li data-i18n="t5_4">Ilmaisversion hakukiintiö ja tallennusraja varataan ja tarkistetaan atomisesti palvelimella</li>
+                    </ul>
+                </article>
+
+                <article class="card project-card">
+                    <h3 data-i18n="t6_title">Ympäristöt, laatu ja julkaisu</h3>
+                    <p class="project-meta" data-i18n="t6_meta">Gradle product flavors · Firebase Crashlytics · Play In-App Updates · Linux-palvelinympäristö</p>
+                    <ul class="project-points">
+                        <li data-i18n="t6_1">Kehitys- ja tuotantobackend erotetaan Gradlen flavor-tasolla; debug-buildia ei voi kääntää tuotantoa vasten</li>
+                        <li data-i18n="t6_2">Sovelluksen mukana toimitettava avoimen lähdekoodin lisenssilista muodostetaan buildissa variantin todellisesta riippuvuuspuusta</li>
+                        <li data-i18n="t6_3">Suojatut käyttöpolut on kirjattu regressiolistaksi ja varmennettu fyysisellä laitteella ennen julkaisua</li>
+                        <li data-i18n="t6_4">Julkaisu tehdään allekirjoitettuna Android App Bundlena Google Play -tuotantoon</li>
+                    </ul>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section id="privacy" class="section">
+        <div class="container">
+            <h2 class="section-title" data-i18n="privacy_title">Tietoturva ja tietosuoja</h2>
+            <p class="section-intro" data-i18n="privacy_intro">Työtori käsittelee CV:tä, hakemustekstiä ja työnantajan lomakkeita, joten rajat piti päättää ennen toteutusta eikä sen jälkeen. Ne on kirjattu tuotesopimukseksi ja suojattu regressiotesteillä.</p>
+
+            <div class="info-grid">
+                <div class="card">
+                    <h3 data-i18n="p1_title">Tili vaaditaan</h3>
+                    <p data-i18n="p1_body">Kirjautuminen tapahtuu sähköpostilla tai Google-tilillä. Profiili, CV, haut, tallennetut työpaikat ja hakemukset sijaitsevat Työtorin omassa taustajärjestelmässä, joten sovellus ei ole paikallinen eikä toimi ilman verkkoa.</p>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="p2_title">Sisäinen selain</h3>
+                    <p data-i18n="p2_body">Työnantajan oma hakulomake avataan sovelluksen sisällä, ja käyttäjä navigoi siinä itse. Lomakeapu lukee vain näkyvän lomakkeen rakenteen: ei kirjoitettuja arvoja, salasanoja, piilokenttiä, evästeitä, selaintallennusta, HTML:ää eikä koko sivun tekstiä.</p>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="p3_title">Ei automaattista täyttöä eikä lähettämistä</h3>
+                    <p data-i18n="p3_body">Perustietojen täyttö käynnistyy vain käyttäjän aloitteesta ja vahvistuksella, ja se koskee rajattua joukkoa kenttiä. Valintoja, valintaruutuja tai liitteitä ei valita käyttäjän puolesta, eikä lomaketta lähetetä koskaan automaattisesti.</p>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="p4_title">Mitä tekoälylle välitetään</h3>
+                    <p data-i18n="p4_body">Neljässä toiminnossa profiilin, CV:n, ilmoituksen tai lomakkeen kysymysten tekstiä välitetään ulkopuoliselle tekstin generointipalvelulle käsittelijänä. Tämä kerrotaan suoraan sen sijaan, että väitettäisiin datan pysyvän aina omassa järjestelmässä.</p>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="p5_title">Telemetria</h3>
+                    <p data-i18n="p5_body">Käyttötilastot voi kytkeä pois asetuksista. Kaatumisraportointi on eri asia eikä kuulu saman kytkimen alle, ja se kerrotaan käyttäjälle. Telemetriaan ei viedä sähköpostia, tunnisteita, hakusanoja, työnantajaa, CV:tä eikä hakemustekstiä.</p>
+                </div>
+
+                <div class="card">
+                    <h3 data-i18n="p6_title">Tili ja omat tiedot</h3>
+                    <p data-i18n="p6_body">Tilin ja tietojen poisto onnistuu suoraan sovelluksesta. Tilaus ei ole edellytys tietosuoja-asetuksille, uloskirjautumiselle, poistolle eikä omien tietojen lukemiselle. Sovellus ei käytä mainostunnistetta eikä pyydä sijaintilupaa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="screens" class="section section-alt">
+        <div class="container">
+            <h2 class="section-title" data-i18n="screens_title">Kuvakaappaukset</h2>
+            <p class="section-intro" data-i18n="screens_note">Kuvat ovat sovelluksen Google Play -kuvakaappauksia suomenkielisestä käyttöliittymästä. Klikkaamalla kuva avautuu täysikokoisena.</p>
+
+            <div class="shot-grid">
+                <figure class="shot">
+                    <a href="../images/tt_1.jpeg" target="_blank" rel="noopener noreferrer">
+                        <img src="../images/tt_1.jpeg" width="1048" height="2048"
+                             loading="lazy" decoding="async"
+                             data-i18n-alt="shot1_alt"
+                             alt="Työtorin työpaikkalähteiden valinta: Duunitori, Jobly, Työmarkkinatori, Kuntarekry ja Valtiolle.fi." />
+                    </a>
+                    <figcaption data-i18n="shot1_cap">Lähteiden valinta: käyttäjä päättää mitkä viidestä lähteestä ovat haussa mukana. Työtori+ -merkintä kertoo, mitkä lähteet vaativat tilauksen.</figcaption>
+                </figure>
+
+                <figure class="shot">
+                    <a href="../images/tt_2.jpeg" target="_blank" rel="noopener noreferrer">
+                        <img src="../images/tt_2.jpeg" width="1048" height="2048"
+                             loading="lazy" decoding="async"
+                             data-i18n-alt="shot2_alt"
+                             alt="Työtorin hakutulos, jossa näkyvät nimike, lähde, sijainti, hakuajan päättyminen ja sopivuusarvio." />
+                    </a>
+                    <figcaption data-i18n="shot2_cap">Hakutulos: jokainen ilmoitus näytetään samoilla kentillä lähteestä riippumatta, ja sopivuusarvio tulee deterministisestä pisteytyksestä perusteluineen.</figcaption>
+                </figure>
+
+                <figure class="shot">
+                    <a href="../images/tt_3.jpeg" target="_blank" rel="noopener noreferrer">
+                        <img src="../images/tt_3.jpeg" width="1048" height="2048"
+                             loading="lazy" decoding="async"
+                             data-i18n-alt="shot3_alt"
+                             alt="Lomakeapu Työtorin sisäisessä selaimessa: tunnistetut työnantajan lomakkeen kentät ja vahvistusta vaativa täyttötoiminto." />
+                    </a>
+                    <figcaption data-i18n="shot3_cap">Lomakeapu: työnantajan oma lomake selaimessa ja sen tunnistetut kentät. Täyttö on käyttäjän käynnistämä toiminto, ei automatiikkaa.</figcaption>
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    <section id="status" class="section">
+        <div class="container">
+            <h2 class="section-title" data-i18n="status_title">Julkaisutilanne</h2>
+            <p class="section-intro" data-i18n="status_body">Työtori on julkaistu Google Playhin paketilla <code>com.janstech.tyotori</code> ja vaatii käyttäjätilin. Profiili, CV, Työmarkkinatori-haku, hakemusten seuranta ja työnhakuvelvoitteen laskuri toimivat ilman tilausta. Työtori+ avaa loput neljä hakulähdettä ja jatkuvan tekoälyavun. Rajat ovat backend-konfiguraatiota, ja käyttöoikeuden varmentaa aina palvelin.</p>
+
+            <div class="project-links" style="padding-top:0;">
+                <a class="link-primary" href="https://play.google.com/store/apps/details?id=com.janstech.tyotori" target="_blank" rel="noopener noreferrer"
+                   data-i18n="link_play">Google Play – Sovellussivu</a>
+                <a href="https://janstechapps.com/apps/tyotori/" target="_blank" rel="noopener noreferrer" data-i18n="link_brand">JanstechApps – tuotesivu</a>
+                <a href="../index.html#projects" data-i18n="link_back">Takaisin portfolion projekteihin</a>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="container footer-inner">
+        <span>&copy; <span id="year"></span> Jan Sarivuo</span>
+        <span class="footer-note" data-i18n="footer_note">Portfolio-sivusto · Jan Sarivuo</span>
+    </div>
+</footer>
+
+<script data-goatcounter="https://janstech.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+<script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+<script>
+const dict = {
+    fi: {
+        page_title: "Työtori – Android-sovellus | Jan Sarivuo",
+        skip_link: "Siirry pääsisältöön",
+        logo_role: "Kehittäjä",
+        nav_aria: "Sovellussivun navigaatio",
+        nav_back: "&larr; Portfolio",
+        nav_overview: "Yleiskuva",
+        nav_features: "Ominaisuudet",
+        nav_extra: "Lähteet",
+        nav_tech: "Tekniikka",
+        nav_screens: "Kuvat",
+        lang_label: "Kieli",
+
+        hero_label: "Android-sovellus",
+        logo_alt: "Työtori-sovelluksen logo",
+        hero_subtitle: "Viiden työpaikkalähteen ilmoitukset yhtenä listana, hakuajasta hakemukseen asti",
+        hero_status: "Julkaistu Google Playssa",
+        hero_lede: "Työtori kokoaa avoimet työpaikat viidestä suomalaisesta lähteestä yhdeksi vertailtavaksi listaksi ja vie käyttäjän ilmoituksesta hakemusluonnokseen, liitteisiin ja hakemuksen merkitsemiseen lähetetyksi. Työn vaikein osa ei ollut käyttöliittymä vaan se, että jokainen lähde palauttaa datan omalla tavallaan. Toteutin sekä Compose-sovelluksen että FastAPI-taustajärjestelmän, joka yhtenäistää lähteet samaan muotoon.",
+        cta_play: "Google Play",
+        cta_back: "Kaikki projektit",
+
+        spec_aria: "Sovelluksen tekninen yhteenveto",
+        spec_title: "Tekninen yhteenveto",
+        spec_platform_label: "Alusta",
+        spec_platform_value: "Android 8+ · Kotlin · Jetpack Compose",
+        spec_sources_label: "Lähteet",
+        spec_sources_value: "Työmarkkinatori · Duunitori · Jobly · Kuntarekry · Valtiolle.fi",
+        spec_backend_label: "Backend",
+        spec_backend_value: "FastAPI · Python · SQLAlchemy · MariaDB",
+        spec_lang_label: "Kielet",
+        spec_lang_value: "Suomi · Svenska · English",
+        spec_protect_label: "Suojaus",
+        spec_protect_value: "Firebase Auth · App Check · Play Integrity",
+        spec_release_label: "Julkaisu",
+        spec_release_value: "Google Play -tuotanto · Play Billing",
+
+        overview_title: "Tuote",
+        overview_intro: "Työnhaussa toistuu sama urakka: samat ilmoitukset luetaan useasta palvelusta, hakuajat unohtuvat ja hakemusteksti aloitetaan joka kerta tyhjältä sivulta. Työtori tekee tästä yhden polun: haku, ilmoitus, luonnos, liitteet ja merkintä lähetetyksi samassa sovelluksessa.",
+        ov1_title: "Kenelle",
+        ov1_body: "Suomessa työtä hakeville, myös niille joille sovellukset eivät ole arkipäivää. Tuotevaatimuksena oli suomi ensin, vähän kerrallaan näytöllä, isot kosketuskohteet ja tuki suurille fonttikoille.",
+        ov2_title: "Mitä se ratkaisee",
+        ov2_body: "Työpaikkalähteet ovat erillisiä ja erimuotoisia. Työtori hakee ne yhdellä haulla, näyttää jokaisen ilmoituksen samoilla kentillä ja pitää hakuajan mukana ilmoituksesta hakemukseen ja hakemusten seurantaan asti.",
+        ov3_title: "Miten sitä käytetään",
+        ov3_body: "Käyttäjä täyttää profiilin ja CV:n, hakee valitsemistaan lähteistä tai lisää ilmoituksen omalla linkillä, tallentaa kiinnostavat työpaikat ja valmistelee hakemuksen. Hakemuksen lähettää aina käyttäjä itse.",
+
+        features_title: "Keskeiset ominaisuudet",
+        f1_title: "Työpaikkojen haku",
+        f1_1: "Hakusanat profiilista tai käyttäjän itse kirjoittamina",
+        f1_2: "Yksi tai useampi sijainti, koko maa tai etätyö",
+        f1_3: "Lähteiden valinta, lajittelu ja ehdokkaan piilotus",
+
+        f2_title: "Ilmoituksen tiedot",
+        f2_1: "Nimike, työnantaja, sijainti, lähde ja hakuajan päättyminen",
+        f2_2: "Käyttäjän avaama esikatselu ilmoituksen kuvauksesta",
+        f2_3: "Ilmoituksen voi lisätä myös linkillä tai liittämällä tekstin",
+
+        f3_title: "Sopivuusarvio",
+        f3_1: "Yksi deterministinen prosentti, taso ja lyhyt perustelu",
+        f3_2: "Sama luku hakutuloksessa ja työpaikan tiedoissa",
+        f3_3: "Arvio on Työtorin oma; työnantaja ei näe sitä",
+
+        f4_title: "Hakemusluonnos",
+        f4_1: "Hakemusteksti ja saateviesti profiilista, CV:stä ja ilmoituksesta",
+        f4_2: "Luonnos on muokattava, ja asiakirjan kieli valitaan erikseen",
+        f4_3: "Hakemuskirje vietävissä PDF-muotoon",
+
+        f5_title: "CV ja liitteet",
+        f5_1: "Ladattu PDF-CV tai käsin kirjoitettu CV",
+        f5_2: "Käsin kirjoitetusta CV:stä muodostetaan PDF, jonka käyttäjä hyväksyy",
+        f5_3: "Liitteiden valmistelu sähköpostiin ja tallennus puhelimeen",
+
+        f6_title: "Työnhakuvelvoite",
+        f6_1: "Tarkastelujakson alku- ja loppupäivä sekä vaadittu hakemusmäärä",
+        f6_2: "Edistyminen lasketaan lähetetyksi merkityistä hakemuksista",
+        f6_3: "Kesken olevat luonnokset, lähetetyt ja arkisto omina tiloinaan",
+
+        extra_title: "Lähteet ja datan yhtenäistäminen",
+        extra_intro: "Viisi lähdettä tarjoaa datansa kolmella eri tavalla: julkisena hakurajapintana, RSS/XML-syötteenä ja HTML-sivuina. Jokaisella on oma adapterinsa, mutta ne kirjoittavat samaan kandidaattimalliin, jotta sovellus näkee vain yhdenlaisia ilmoituksia.",
+        e1_title: "Lähdekohtaiset adapterit",
+        e1_body: "Yksi lähde luetaan JSON-hakurajapinnasta, toinen RSS/XML-syötteestä ja kolmas kortti-HTML:stä. Syöte on vakaampi sopimus kuin sivun rakenne, joten se on aina ensisijainen. Uutta lähdettä ei oteta käyttöön ennen auditointia.",
+        e2_title: "Hakusanojen yhteinen semantiikka",
+        e2_body: "Termit normalisoidaan yhdessä paikassa ennen lähdekohtaista hakusuunnitelmaa: erotinmerkit, välilyönnit, kirjainkoosta riippumaton deduplikointi ja yhteinen yläraja. Sama hakusana tarkoittaa siis jokaisessa lähteessä samaa.",
+        e3_title: "Deduplikointi",
+        e3_body: "Sama työpaikka löytyy usein monesta lähteestä ja monella hakusanalla. Kaksoiskappaleet karsitaan vakaalla avaimella: ensin lähteen oma tunniste, sitten osoitteessa oleva työavain ja viimeisenä kanoninen linkki – sekä lähteen sisällä että lähteiden välillä.",
+        e4_title: "Hakuaika päästä päähän",
+        e4_body: "Hakuaika luetaan sieltä mistä lähde sen antaa, sanitoidaan yhteen muotoon ennen tallennusta ja kulkee samana arvona hakutuloskorttiin, työpaikan tietoihin ja hakemusluonnokseen. Käyttäjä ei tulkitse viittä päivämäärämuotoa.",
+        e5_title: "Virheiden eristys ja rajat",
+        e5_body: "Yhden hakusanan tai lähteen virhe ei kaada muita: lähde saa hallitun virhetilan ja muiden tulokset palautetaan normaalisti. Hakusuunnitelmalla on kiinteä pyyntöyläraja lähdettä kohti.",
+        extra_note: "Työtori lukee vain julkisia hakusivuja ja syötteitä. Se ei luo käyttäjälle tiliä lähdepalveluihin eikä hae työpaikkaa niiden kautta.",
+
+        tech_title: "Tekninen toteutus",
+        tech_intro: "Kokonaisuus on Android-sovellus, oma rajapintapalvelu ja tietokanta. Käyttöoikeudet, hakulogiikka ja mallikutsut ovat tarkoituksella palvelinpuolella, koska sovellus ei voi olla niiden turvaraja.",
+
+        t1_title: "Android-sovellus",
+        t1_meta: "Kotlin · Jetpack Compose · Material 3 · Navigation Compose · DataStore · Retrofit / OkHttp / Moshi",
+        t1_1: "MVVM- ja repository-rakenne sekä deterministinen tilamapperi näkymille",
+        t1_2: "Tuki Android 8:sta (API 26) alkaen, käännetty API 36:ta vasten",
+        t1_3: "Tallennettu työpaikka, luonnos, lähetetty ja arkisto ovat yksi selkeä elinkaari",
+        t1_4: "Saavutettavuus mitoitettiin suurille fonttikoille: kortit rivittyvät, tila kerrotaan tekstinä eikä värillä",
+
+        t2_title: "Kolme kieltä, neljä eri kielikäsitettä",
+        t2_meta: "AppCompat per-app locale · string- ja plural-resurssit · resurssitestit",
+        t2_1: "Käyttöliittymä suomeksi, ruotsiksi ja englanniksi; kielivalinta on sovelluskohtainen",
+        t2_2: "Käyttöliittymän kieli, hakemusasiakirjan kieli, analyysivastausten kieli ja työnantajan oma sisältö pidetään erillään toisistaan",
+        t2_3: "Pitkäikäiseen tilaan ei tallenneta valmiiksi käännettyä tekstiä vaan viestikoodeja",
+        t2_4: "Avainpariteetti, pluralit ja placeholderit tarkistetaan testeillä; kovakoodatut tekstit estetään regressiotestillä",
+
+        t3_title: "Backend ja tietokanta",
+        t3_meta: "FastAPI · Python · Pydantic · SQLAlchemy · Alembic · MariaDB",
+        t3_1: "Rajapinnat profiilille, CV:lle, haulle, tallennetuille työpaikoille, luonnoksille ja käyttöoikeuksille",
+        t3_2: "Lähdekohtaiset hakuadapterit yhteisen kandidaattimallin takana",
+        t3_3: "Versioidut Alembic-migraatiot ja yksi kanoninen skeema",
+        t3_4: "Strukturoitu virhesopimus vakailla koodeilla, jotka sovellus kääntää käyttäjän kielelle itse",
+
+        t4_title: "Deterministinen logiikka ja tekoälyn rajattu rooli",
+        t4_meta: "Deterministinen pisteytys · neljä rajattua mallikutsua · sääntöpohjainen analyysi",
+        t4_1: "Sopivuusarvion prosentti lasketaan deterministisesti; malli ei tuota rinnakkaista lukua",
+        t4_2: "Backend tekee mallikutsun vain neljässä kohdassa: hakemusluonnos, sopivuuden perustelu, hakutulosten selitys ja lomakeavun vastaukset",
+        t4_3: "Hakuohjeiden analyysi on sääntöpohjainen eikä käytä mallia lainkaan",
+        t4_4: "Jos mallipalvelu ei vastaa, haku palauttaa silti tulokset ja pisteet",
+
+        t5_title: "Tunnistautuminen, käyttöoikeudet ja maksut",
+        t5_meta: "Firebase Authentication · Firebase App Check · Google Play Integrity · Google Play Billing",
+        t5_1: "Kirjautuminen sähköpostilla tai Google-tilillä; sovellus vaatii käyttäjätilin",
+        t5_2: "Suojatut pyynnöt kuljettavat varmennetun Firebase ID -tokenin, ja App Check -token tarkistetaan backendissä omalla policy-kerroksella",
+        t5_3: "Backend varmentaa Play-ostot ja omistaa Työtori+ -käyttöoikeuden; sovellus ei myönnä sitä itse",
+        t5_4: "Ilmaisversion hakukiintiö ja tallennusraja varataan ja tarkistetaan atomisesti palvelimella",
+
+        t6_title: "Ympäristöt, laatu ja julkaisu",
+        t6_meta: "Gradle product flavors · Firebase Crashlytics · Play In-App Updates · Linux-palvelinympäristö",
+        t6_1: "Kehitys- ja tuotantobackend erotetaan Gradlen flavor-tasolla; debug-buildia ei voi kääntää tuotantoa vasten",
+        t6_2: "Sovelluksen mukana toimitettava avoimen lähdekoodin lisenssilista muodostetaan buildissa variantin todellisesta riippuvuuspuusta",
+        t6_3: "Suojatut käyttöpolut on kirjattu regressiolistaksi ja varmennettu fyysisellä laitteella ennen julkaisua",
+        t6_4: "Julkaisu tehdään allekirjoitettuna Android App Bundlena Google Play -tuotantoon",
+
+        privacy_title: "Tietoturva ja tietosuoja",
+        privacy_intro: "Työtori käsittelee CV:tä, hakemustekstiä ja työnantajan lomakkeita, joten rajat piti päättää ennen toteutusta eikä sen jälkeen. Ne on kirjattu tuotesopimukseksi ja suojattu regressiotesteillä.",
+        p1_title: "Tili vaaditaan",
+        p1_body: "Kirjautuminen tapahtuu sähköpostilla tai Google-tilillä. Profiili, CV, haut, tallennetut työpaikat ja hakemukset sijaitsevat Työtorin omassa taustajärjestelmässä, joten sovellus ei ole paikallinen eikä toimi ilman verkkoa.",
+        p2_title: "Sisäinen selain",
+        p2_body: "Työnantajan oma hakulomake avataan sovelluksen sisällä, ja käyttäjä navigoi siinä itse. Lomakeapu lukee vain näkyvän lomakkeen rakenteen: ei kirjoitettuja arvoja, salasanoja, piilokenttiä, evästeitä, selaintallennusta, HTML:ää eikä koko sivun tekstiä.",
+        p3_title: "Ei automaattista täyttöä eikä lähettämistä",
+        p3_body: "Perustietojen täyttö käynnistyy vain käyttäjän aloitteesta ja vahvistuksella, ja se koskee rajattua joukkoa kenttiä. Valintoja, valintaruutuja tai liitteitä ei valita käyttäjän puolesta, eikä lomaketta lähetetä koskaan automaattisesti.",
+        p4_title: "Mitä tekoälylle välitetään",
+        p4_body: "Neljässä toiminnossa profiilin, CV:n, ilmoituksen tai lomakkeen kysymysten tekstiä välitetään ulkopuoliselle tekstin generointipalvelulle käsittelijänä. Tämä kerrotaan suoraan sen sijaan, että väitettäisiin datan pysyvän aina omassa järjestelmässä.",
+        p5_title: "Telemetria",
+        p5_body: "Käyttötilastot voi kytkeä pois asetuksista. Kaatumisraportointi on eri asia eikä kuulu saman kytkimen alle, ja se kerrotaan käyttäjälle. Telemetriaan ei viedä sähköpostia, tunnisteita, hakusanoja, työnantajaa, CV:tä eikä hakemustekstiä.",
+        p6_title: "Tili ja omat tiedot",
+        p6_body: "Tilin ja tietojen poisto onnistuu suoraan sovelluksesta. Tilaus ei ole edellytys tietosuoja-asetuksille, uloskirjautumiselle, poistolle eikä omien tietojen lukemiselle. Sovellus ei käytä mainostunnistetta eikä pyydä sijaintilupaa.",
+
+        screens_title: "Kuvakaappaukset",
+        screens_note: "Kuvat ovat sovelluksen Google Play -kuvakaappauksia suomenkielisestä käyttöliittymästä. Klikkaamalla kuva avautuu täysikokoisena.",
+        shot1_alt: "Työtorin työpaikkalähteiden valinta: Duunitori, Jobly, Työmarkkinatori, Kuntarekry ja Valtiolle.fi.",
+        shot1_cap: "Lähteiden valinta: käyttäjä päättää mitkä viidestä lähteestä ovat haussa mukana. Työtori+ -merkintä kertoo, mitkä lähteet vaativat tilauksen.",
+        shot2_alt: "Työtorin hakutulos, jossa näkyvät nimike, lähde, sijainti, hakuajan päättyminen ja sopivuusarvio.",
+        shot2_cap: "Hakutulos: jokainen ilmoitus näytetään samoilla kentillä lähteestä riippumatta, ja sopivuusarvio tulee deterministisestä pisteytyksestä perusteluineen.",
+        shot3_alt: "Lomakeapu Työtorin sisäisessä selaimessa: tunnistetut työnantajan lomakkeen kentät ja vahvistusta vaativa täyttötoiminto.",
+        shot3_cap: "Lomakeapu: työnantajan oma lomake selaimessa ja sen tunnistetut kentät. Täyttö on käyttäjän käynnistämä toiminto, ei automatiikkaa.",
+
+        status_title: "Julkaisutilanne",
+        status_body: "Työtori on julkaistu Google Playhin paketilla <code>com.janstech.tyotori</code> ja vaatii käyttäjätilin. Profiili, CV, Työmarkkinatori-haku, hakemusten seuranta ja työnhakuvelvoitteen laskuri toimivat ilman tilausta. Työtori+ avaa loput neljä hakulähdettä ja jatkuvan tekoälyavun. Rajat ovat backend-konfiguraatiota, ja käyttöoikeuden varmentaa aina palvelin.",
+        link_play: "Google Play – Sovellussivu",
+        link_brand: "JanstechApps – tuotesivu",
+        link_back: "Takaisin portfolion projekteihin",
+
+        footer_note: "Portfolio-sivusto · Jan Sarivuo"
+    },
+
+    en: {
+        page_title: "Työtori – Android App | Jan Sarivuo",
+        skip_link: "Skip to main content",
+        logo_role: "Developer",
+        nav_aria: "App page navigation",
+        nav_back: "&larr; Portfolio",
+        nav_overview: "Overview",
+        nav_features: "Features",
+        nav_extra: "Sources",
+        nav_tech: "Technology",
+        nav_screens: "Screenshots",
+        lang_label: "Language",
+
+        hero_label: "Android app",
+        logo_alt: "Työtori app logo",
+        hero_subtitle: "Five Finnish job boards in one list, from the deadline all the way to the application",
+        hero_status: "Published on Google Play",
+        hero_lede: "Työtori merges open positions from five Finnish job boards into a single comparable list and carries the user from a posting to an application draft, its attachments, and marking the application as sent. The hard part was never the interface: every source returns its data in its own shape. I built both the Compose app and the FastAPI backend that normalises those sources into one format.",
+        cta_play: "Google Play",
+        cta_back: "All projects",
+
+        spec_aria: "Technical summary of the app",
+        spec_title: "Technical summary",
+        spec_platform_label: "Platform",
+        spec_platform_value: "Android 8+ · Kotlin · Jetpack Compose",
+        spec_sources_label: "Job sources",
+        spec_sources_value: "Työmarkkinatori · Duunitori · Jobly · Kuntarekry · Valtiolle.fi",
+        spec_backend_label: "Backend",
+        spec_backend_value: "FastAPI · Python · SQLAlchemy · MariaDB",
+        spec_lang_label: "Languages",
+        spec_lang_value: "Suomi · Svenska · English",
+        spec_protect_label: "Protection",
+        spec_protect_value: "Firebase Auth · App Check · Play Integrity",
+        spec_release_label: "Release",
+        spec_release_value: "Google Play production · Play Billing",
+
+        overview_title: "The Product",
+        overview_intro: "Job searching repeats the same chore: the same postings are read on several sites, deadlines slip past, and the application text starts from a blank page every time. Työtori turns that into one path — search, posting, draft, attachments, and marking it as sent, all in the same app.",
+        ov1_title: "Who it is for",
+        ov1_body: "People looking for work in Finland, including those for whom apps are not everyday tools. The product requirements were Finnish first, one thing at a time on screen, large touch targets, and support for large font sizes.",
+        ov2_title: "What it solves",
+        ov2_body: "Job boards are separate and shaped differently. Työtori queries them in one search, shows every posting with the same fields, and keeps the application deadline attached from the posting through the application and into the tracking view.",
+        ov3_title: "How it works",
+        ov3_body: "The user fills in a profile and a CV, searches the sources they choose or adds a posting from their own link, saves the interesting jobs, and prepares the application. The user always sends it themselves.",
+
+        features_title: "Key Features",
+        f1_title: "Job search",
+        f1_1: "Keywords built from the profile or written by the user",
+        f1_2: "One or more locations, the whole country, or remote work",
+        f1_3: "Choosing the sources, sorting, and hiding a candidate",
+
+        f2_title: "The posting itself",
+        f2_1: "Job title, employer, location, source, and the application deadline",
+        f2_2: "A description preview the user opens on demand",
+        f2_3: "A posting can also be added from a link or by pasting its text",
+
+        f3_title: "Suitability score",
+        f3_1: "One deterministic percentage with a level and a short reason",
+        f3_2: "The same number in the search result and in the job details",
+        f3_3: "The estimate is Työtori's own; the employer never sees it",
+
+        f4_title: "Application draft",
+        f4_1: "Application text and cover message from the profile, the CV, and the posting",
+        f4_2: "The draft is editable, and the document language is chosen separately",
+        f4_3: "The application letter can be exported as a PDF",
+
+        f5_title: "CV and attachments",
+        f5_1: "An uploaded PDF CV or a CV written by hand",
+        f5_2: "A hand-written CV is rendered into a PDF the user approves first",
+        f5_3: "Preparing the attachments for email and saving them to the phone",
+
+        f6_title: "Job-search obligation",
+        f6_1: "Review period start and end date plus the required number of applications",
+        f6_2: "Progress is counted from applications marked as sent",
+        f6_3: "Unfinished drafts, sent applications, and the archive as separate states",
+
+        extra_title: "Sources and normalising their data",
+        extra_intro: "The five sources publish their data in three different ways: a public search API, an RSS/XML feed, and HTML pages. Each has its own adapter, but they all write into the same candidate model, so the app only ever sees one kind of posting.",
+        e1_title: "Per-source adapters",
+        e1_body: "One source is read through a JSON search API, another from an RSS/XML feed, and a third from card HTML. A feed is a more stable contract than page structure, so it is always preferred. No new source ships before an audit.",
+        e2_title: "Shared keyword semantics",
+        e2_body: "Terms are normalised in one place before any source-specific search plan: separators, whitespace, case-insensitive deduplication, and a shared upper limit. The same keyword therefore means the same thing in every source.",
+        e3_title: "Deduplication",
+        e3_body: "The same job often shows up from several sources and under several keywords. Duplicates are removed with a stable key: first the source's own identifier, then a job key found in the URL, and finally the canonical link — both within a source and across sources.",
+        e4_title: "Deadlines end to end",
+        e4_body: "The application deadline is read from wherever the source provides it, sanitised into a single format before storage, and travels as the same value into the result card, the job details, and the draft. Nobody has to read five date formats.",
+        e5_title: "Error isolation and limits",
+        e5_body: "A failure in one keyword or one source does not take down the others: that source gets a controlled error state and the remaining results are returned normally. The search plan has a fixed cap on requests per source.",
+        extra_note: "Työtori only reads public search pages and feeds. It does not create an account for the user on those services and does not apply for a job through them.",
+
+        tech_title: "Technical Implementation",
+        tech_intro: "The whole is an Android app, a dedicated API service, and a database. Entitlements, search logic, and model calls live on the server on purpose, because the app cannot be the security boundary for any of them.",
+
+        t1_title: "Android app",
+        t1_meta: "Kotlin · Jetpack Compose · Material 3 · Navigation Compose · DataStore · Retrofit / OkHttp / Moshi",
+        t1_1: "MVVM and repository structure with a deterministic state mapper for the screens",
+        t1_2: "Supports Android 8 (API 26) and newer, compiled against API 36",
+        t1_3: "Saved job, draft, sent, and archived form one clear lifecycle",
+        t1_4: "Accessibility was sized for large fonts: cards wrap, and state is conveyed as text rather than colour",
+
+        t2_title: "Three languages, four separate language concepts",
+        t2_meta: "AppCompat per-app locale · string and plural resources · resource tests",
+        t2_1: "The interface ships in Finnish, Swedish, and English, with a per-app language setting",
+        t2_2: "Interface language, application document language, analysis response language, and the employer's own content are kept apart from each other",
+        t2_3: "Long-lived state stores message codes, never pre-translated text",
+        t2_4: "Key parity, plurals, and placeholders are verified by tests; hardcoded UI strings are blocked by a regression test",
+
+        t3_title: "Backend and database",
+        t3_meta: "FastAPI · Python · Pydantic · SQLAlchemy · Alembic · MariaDB",
+        t3_1: "APIs for the profile, the CV, search, saved jobs, drafts, and entitlements",
+        t3_2: "Per-source search adapters behind one shared candidate model",
+        t3_3: "Versioned Alembic migrations and a single canonical schema",
+        t3_4: "A structured error contract with stable codes that the app localises itself",
+
+        t4_title: "Deterministic logic and a bounded role for AI",
+        t4_meta: "Deterministic scoring · four bounded model calls · rule-based analysis",
+        t4_1: "The suitability percentage is computed deterministically; the model never produces a competing number",
+        t4_2: "The backend calls a model in four places only: the application draft, the suitability reasoning, the search-result explanation, and form-help answers",
+        t4_3: "Analysing application instructions is rule-based and uses no model at all",
+        t4_4: "If the model service is unavailable, a search still returns its results and scores",
+
+        t5_title: "Authentication, entitlements, and billing",
+        t5_meta: "Firebase Authentication · Firebase App Check · Google Play Integrity · Google Play Billing",
+        t5_1: "Sign-in with email or a Google account; the app requires an account",
+        t5_2: "Protected requests carry a verified Firebase ID token, and the App Check token is validated on the backend by its own policy layer",
+        t5_3: "The backend verifies Play purchases and owns the Työtori+ entitlement; the app never grants it on its own",
+        t5_4: "The free-tier search quota and saved-job limit are reserved and checked atomically on the server",
+
+        t6_title: "Environments, quality, and release",
+        t6_meta: "Gradle product flavors · Firebase Crashlytics · Play In-App Updates · Linux server environment",
+        t6_1: "The development and production backends are separated at the Gradle flavor level, so a debuggable build cannot be pointed at production",
+        t6_2: "The bundled open-source licence list is generated at build time from the variant's actual dependency tree",
+        t6_3: "Protected user flows are written down as a regression list and verified on a physical device before release",
+        t6_4: "Releases ship as signed Android App Bundles to Google Play production",
+
+        privacy_title: "Security and Privacy",
+        privacy_intro: "Työtori handles CVs, application text, and employer forms, so the boundaries had to be decided before the implementation rather than after it. They are written down as a product contract and protected by regression tests.",
+        p1_title: "An account is required",
+        p1_body: "Sign-in happens with email or a Google account. The profile, the CV, searches, saved jobs, and applications live in Työtori's own backend, so the app is not local-first and does not work without a connection.",
+        p2_title: "The internal browser",
+        p2_body: "The employer's own application form is opened inside the app, and the user navigates it themselves. Form help reads only the visible structure of the form: never typed values, passwords, hidden fields, cookies, browser storage, HTML, or full page text.",
+        p3_title: "No automatic filling or sending",
+        p3_body: "Filling in basic details starts only when the user begins it and confirms it, and it covers a limited set of fields. Options, checkboxes, and attachments are never chosen on the user's behalf, and a form is never submitted automatically.",
+        p4_title: "What reaches the AI",
+        p4_body: "In four features, text from the profile, the CV, the posting, or the form's questions is passed to an external text-generation service acting as a processor. That is stated plainly rather than claiming the data never leaves the system.",
+        p5_title: "Telemetry",
+        p5_body: "Usage statistics can be switched off in settings. Crash reporting is a separate matter, is not covered by the same switch, and is disclosed as such. Telemetry never carries email addresses, identifiers, search terms, employers, CVs, or application text.",
+        p6_title: "The account and your own data",
+        p6_body: "The account and its data can be deleted from inside the app. A subscription is never a precondition for privacy settings, signing out, deletion, or reading your own data. The app uses no advertising ID and asks for no location permission.",
+
+        screens_title: "Screenshots",
+        screens_note: "The images are the app's Google Play screenshots of the Finnish interface. Click an image to open it at full size.",
+        shot1_alt: "Työtori job source selection: Duunitori, Jobly, Työmarkkinatori, Kuntarekry, and Valtiolle.fi.",
+        shot1_cap: "Choosing the sources: the user decides which of the five sources a search covers. The Työtori+ marker shows which ones require a subscription.",
+        shot2_alt: "A Työtori search result showing the job title, source, location, application deadline, and the suitability estimate.",
+        shot2_cap: "A search result: every posting is shown with the same fields regardless of its source, and the suitability estimate comes from the deterministic scoring together with its reasons.",
+        shot3_alt: "Form help in the Työtori browser: the recognised fields of an employer's form and a fill action that requires confirmation.",
+        shot3_cap: "Form help: the employer's own form in the browser and the fields it recognises. Filling is an action the user starts — never automation.",
+
+        status_title: "Release Status",
+        status_body: "Työtori has been published to Google Play under the package <code>com.janstech.tyotori</code> and requires an account. The profile, the CV, Työmarkkinatori search, application tracking, and the job-search obligation counter work without a subscription. Työtori+ unlocks the other four job sources and continued AI assistance. The limits are backend configuration, and the entitlement is always verified by the server.",
+        link_play: "Google Play – App page",
+        link_brand: "JanstechApps – product page",
+        link_back: "Back to portfolio projects",
+
+        footer_note: "Portfolio website · Jan Sarivuo"
+    }
+};
+
+function setLang(lang) {
+    localStorage.setItem("portfolio_lang", lang);
+    document.documentElement.lang = (lang === "fi") ? "fi" : "en";
+    document.title = dict[lang].page_title;
+
+    for (const el of document.querySelectorAll("[data-i18n]")) {
+        const key = el.getAttribute("data-i18n");
+        if (dict[lang] && dict[lang][key] != null) {
+            el.innerHTML = dict[lang][key];
+        }
+    }
+
+    for (const el of document.querySelectorAll("[data-i18n-alt]")) {
+        const key = el.getAttribute("data-i18n-alt");
+        if (dict[lang] && dict[lang][key] != null) {
+            el.setAttribute("alt", dict[lang][key]);
+        }
+    }
+
+    for (const el of document.querySelectorAll("[data-i18n-aria]")) {
+        const key = el.getAttribute("data-i18n-aria");
+        if (dict[lang] && dict[lang][key] != null) {
+            el.setAttribute("aria-label", dict[lang][key]);
+        }
+    }
+
+    const btnFi = document.getElementById("btnFi");
+    const btnEn = document.getElementById("btnEn");
+    btnFi.classList.toggle("active", lang === "fi");
+    btnEn.classList.toggle("active", lang === "en");
+    btnFi.setAttribute("aria-pressed", String(lang === "fi"));
+    btnEn.setAttribute("aria-pressed", String(lang === "en"));
+}
+
+const savedLang = localStorage.getItem("portfolio_lang") || "fi";
+document.getElementById("btnFi").addEventListener("click", () => setLang("fi"));
+document.getElementById("btnEn").addEventListener("click", () => setLang("en"));
+setLang(savedLang);
+</script>
+
+</body>
+</html>

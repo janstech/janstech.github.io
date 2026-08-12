@@ -21,8 +21,8 @@ Tiedostot on organisoitu selkeisiin kokonaisuuksiin ylläpidettävyyden parantam
 * `css/` – Tyylitiedostot ja visuaalinen ilme.
 * `images/` – Projektikuvat, ikonit ja grafiikka.
 * `documents/` – Ladattavat tiedostot (CV, arkkitehtuurikuvaukset).
-* `gainsai/`, `kauppalista/`, `waveiq/` – julkaistujen sovellusten omat
-  projektisivut (`/gainsai/`, `/kauppalista/`, `/waveiq/`).
+* `gainsai/`, `kauppalista/`, `waveiq/`, `tyotori/` – julkaistujen sovellusten
+  omat projektisivut (`/gainsai/`, `/kauppalista/`, `/waveiq/`, `/tyotori/`).
 * `apps/` – legacy-osoite. Vanha sovellusten koontisivu on korvattu kevyellä
   siirtymäsivulla, joka ohjaa osoitteeseen `https://janstechapps.com/`.
 * `sitemap.xml`, `robots.txt` – Hakukoneille tarkoitetut tiedostot.
@@ -54,6 +54,7 @@ FI/EN, ja jokaisella sivulla on omat SEO- ja Open Graph -metatiedot.
 * **GainsAI** – `gainsai/index.html` (`/gainsai/`)
 * **Kauppalista & Muistiinpanot** – `kauppalista/index.html` (`/kauppalista/`)
 * **WaveIQ Radio** – `waveiq/index.html` (`/waveiq/`)
+* **Työtori** – `tyotori/index.html` (`/tyotori/`)
 
 Projektisivujen yhteiset tyylit ovat `css/style.css`-tiedoston osiossa
 *13. PROJEKTISIVUT*; sivuilla ei ole omia inline-tyylilohkoja.
