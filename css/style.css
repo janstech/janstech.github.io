@@ -1228,6 +1228,10 @@ p.project-meta {
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 }
 
+.piikula-overview > .container > .info-grid {
+    margin-top: var(--space-5);
+}
+
 .info-grid .card p {
     font-size: var(--font-size-sm);
     color: var(--color-text-muted);
